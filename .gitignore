@@ -1,0 +1,15 @@
+# Quarto
+.quarto/
+_freeze/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
