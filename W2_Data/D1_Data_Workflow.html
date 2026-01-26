@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../assets/icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="malfadly@sdaia.gov.sa">
+  <meta name="dcterms.date" content="2025-12-21">
+  <title>AI Pros Bootcamp – W2 D1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2476b6dbe24137c74cb80772f2f63bf0.css">
+  <link rel="stylesheet" href="../assets/sdaia.scss">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="icon" href="../assets/icon.svg">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../assets/anim.svg" data-background-opacity="0.1" class="quarto-title-block center">
+  <h1 class="title">Data Work (ETL + EDA)</h1>
+  <p class="subtitle">AI Professionals Bootcamp | Week 2</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2025-12-21</p>
+</section>
+<section id="bootcamp-calendar" class="slide level2">
+<h2>Bootcamp calendar</h2>
+<ul>
+<li>Week 1: Python &amp; Tooling</li>
+<li><strong>Week 2: Data Work (ETL + EDA)</strong></li>
+<li>Week 3: Machine Learning</li>
+<li>Week 4: Deep Learning &amp; Computer Vision</li>
+<li>Week 5: LLM-based NLP</li>
+<li>Week 6: Building AI Apps</li>
+<li>Week 7: Agentic AI &amp; Practical MLOps</li>
+<li>Week 8: Capstone Sprint + Job Readiness</li>
+</ul>
+</section>
+<section id="week-2-focus" class="slide level2">
+<h2>Week 2 focus</h2>
+<p>This week is <strong>Data Work (ETL + EDA)</strong>.</p>
+<ul>
+<li>Internet is <strong>not reliable</strong> → we work <strong>offline-first</strong></li>
+<li>We ship a <strong>reproducible pipeline</strong> (raw → processed → notebook)</li>
+<li>GitHub is <strong>daily</strong> (small commits, clear messages)</li>
+</ul>
+<div class="muted">
+<p>Week 1 gave you: CLI + packages + <code>uv</code> + Git. Week 2 adds: <strong>pandas + schema discipline + offline-first ETL</strong>.</p>
+</div>
+</section>
+<section>
+<section id="day-1-foundations-for-an-offlinefirst-data-workflow" class="title-slide slide level1 center">
+<h1>Day 1: Foundations for an Offline‑First Data Workflow</h1>
+<p><strong>Goal:</strong> build a clean repo scaffold and produce your <strong>first processed Parquet</strong> output (typed, reproducible).</p>
+<div class="muted">
+<p>Bootcamp • SDAIA Academy</p>
+</div>
+<aside class="notes">
+<p>Say: “Today is foundations. If structure + habits are right, every future analysis is easier.” Do: show <code>data/processed/orders.parquet</code> on disk and open it with pandas. Ask: “What is the difference between raw and processed data?”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="todays-flow" class="slide level2">
+<h2>Today’s Flow</h2>
+<ul>
+<li><strong>Session 1 (60m):</strong> Offline-first mindset + project layout</li>
+<li><em>Asr Prayer (20m)</em></li>
+<li><strong>Session 2 (60m):</strong> Data sources + caching patterns</li>
+<li><em>Maghrib Prayer (20m)</em></li>
+<li><strong>Session 3 (60m):</strong> pandas I/O + schema basics (IDs, missing values, Parquet)</li>
+<li><em>Isha Prayer (20m)</em></li>
+<li><strong>Hands-on (120m):</strong> Scaffold repo + load raw → processed Parquet</li>
+</ul>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<p>By the end of today, you can:</p>
+<ul>
+<li>explain <strong>raw vs cache vs processed</strong> (and why we separate them)</li>
+<li>scaffold a repo with a standard <strong>data project layout</strong></li>
+<li>run project code the <strong>right way</strong> (avoid <code>ModuleNotFoundError</code>)</li>
+<li>load CSV in pandas with <strong>explicit dtypes</strong> (IDs as strings)</li>
+<li>write <strong>Parquet</strong> outputs to <code>data/processed/</code></li>
+<li>implement a minimal <strong>schema enforcement</strong> step (<code>enforce_schema</code>)</li>
+<li>push a working Day 1 baseline to GitHub</li>
+</ul>
+</section>
+<section id="warm-up-5-minutes" class="slide level2">
+<h2>Warm-up (5 minutes)</h2>
+<p>Sanity-check your toolchain (you will use these every day).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">uv</span> <span class="at">--version</span></span>
+<span id="cb1-2"><a></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb1-3"><a></a><span class="ex">python</span> <span class="at">-V</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> you can run all three commands with no errors.</p>
+</section>
+<section id="quick-review-uv-daily-workflow" class="slide level2">
+<h2>Quick review: <code>uv</code> daily workflow</h2>
+<p>Three commands you will use all week:</p>
+<ol type="1">
+<li><code>uv venv</code> → create <code>.venv/</code></li>
+<li><code>uv pip install ...</code> → install dependencies into the env</li>
+<li><code>uv run &lt;command&gt;</code> → run using the env (no “wrong python” accidents)</li>
+</ol>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import pandas as pd; print(pd.__version__)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>You learned <code>uv</code> in Week 1. Today we’ll use it as our default toolchain.</p>
+</div>
+</section>
+<section id="this-weeks-project-high-level" class="slide level2">
+<h2>This week’s project (high-level)</h2>
+<p><strong>Project:</strong> <em>Offline‑First ETL + EDA Mini Analytics Pipeline</em></p>
+<p>You will ship:</p>
+<ul>
+<li>ETL code that runs end‑to‑end (<strong>load → verify → clean → transform → write</strong>)</li>
+<li><code>data/processed/*.parquet</code> outputs that are <strong>safe to overwrite</strong></li>
+<li>an EDA notebook that reads <strong>only processed</strong> data</li>
+<li>a short <code>reports/summary.md</code> (findings + caveats)</li>
+</ul>
+</section>
+<section id="choose-your-week-2-dataset-today" class="slide level2">
+<h2>Choose your Week 2 dataset (today)</h2>
+<p>For the rest of Week 2, you’ll build a full <strong>ETL + EDA</strong> project on <strong>one real dataset</strong>.</p>
+<p>You may use:</p>
+<ul>
+<li><strong>Kaggle</strong> (download + unzip a snapshot)</li>
+<li><strong>HuggingFace Datasets</strong> (<code>load_dataset(...)</code> → snapshot to disk)</li>
+<li><strong>Direct URL / API</strong> (download with <code>httpx</code> + cache)</li>
+<li>A teammate-provided file (CSV/JSON/Parquet)</li>
+</ul>
+<p><strong>Dataset rubric (so exercises work smoothly):</strong></p>
+<ul>
+<li>≥ <strong>1 categorical</strong> column (e.g., country, status, category)</li>
+<li>≥ <strong>1 numeric</strong> column (e.g., amount, quantity, rating)</li>
+<li>≥ <strong>1 datetime/timestamp</strong> column (e.g., created_at)</li>
+<li><strong>≥ 1,000 rows</strong> recommended (distributions + outliers are visible)</li>
+<li>Bonus: a <strong>join key</strong> (e.g., <code>user_id</code>, <code>product_id</code>, <code>store_id</code>)</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>In class we’ll use a tiny toy dataset (<code>orders.csv</code> + <code>users.csv</code>) to validate patterns quickly.</p>
+<p>For your <strong>weekly project</strong>, pick a real dataset and repeat the same workflow.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Don’t commit raw data or API tokens to GitHub. Commit <strong>scripts + metadata</strong> so others can reproduce the download.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="end-state-by-end-of-today" class="slide level2">
+<h2>End-state (by end of today)</h2>
+<p>By the end of Day 1, your repo should contain:</p>
+<ul>
+<li><p>a standard folder layout (<code>data/</code>, <code>bootcamp_data/</code>, <code>scripts/</code>, <code>reports/</code>)</p></li>
+<li><p><code>bootcamp_data/config.py</code>, <code>bootcamp_data/io.py</code>, <code>bootcamp_data/transforms.py</code></p></li>
+<li><p>a runnable entrypoint: <code>python -m scripts.run_day1_load</code></p></li>
+<li><p>at least <strong>one processed output</strong> in <code>data/processed/</code> (Parquet preferred)</p></li>
+<li><p>a reproducibility breadcrumb for your project dataset:</p>
+<ul>
+<li><code>data/raw/_source_meta.json</code> <em>(where your data came from)</em></li>
+<li>optionally: <code>scripts/download_data.py</code> <em>(how to download it again)</em></li>
+</ul></li>
+<li><p>at least <strong>one commit pushed</strong> to GitHub</p></li>
+</ul>
+</section>
+<section id="tool-stack-this-week-minimal-high-roi" class="slide level2">
+<h2>Tool stack this week (minimal + high ROI)</h2>
+<ul>
+<li><strong>pandas</strong> — load/clean/join/reshape/EDA (DataFrame)</li>
+<li><strong>pyarrow + Parquet</strong> — fast, typed processed files</li>
+<li><strong>httpx</strong> — extraction (but cached)</li>
+<li><strong>logging</strong> — evidence during runs (row counts, dtypes)</li>
+<li><strong>Plotly</strong> <em>(Day 4)</em> — one plotting library</li>
+<li><strong>DuckDB</strong> <em>(Day 5)</em> — local SQL on files</li>
+<li><em>(Optional)</em> <strong>datasets / kaggle</strong> — download catalog datasets (HuggingFace / Kaggle) and snapshot to <code>data/raw/</code></li>
+</ul>
+<div class="muted">
+<p>Rule: avoid tool sprawl. Keep it small and shippable.</p>
+</div>
+</section>
+<section id="canonical-workflow-repeat-every-project" class="slide level2">
+<h2>Canonical workflow (repeat every project)</h2>
+<ol type="1">
+<li><strong>Load</strong> (raw/cache)</li>
+<li><strong>Verify</strong> (schema, dtypes, keys, row counts)</li>
+<li><strong>Clean</strong> (missingness, duplicates, normalization)</li>
+<li><strong>Transform</strong> (joins, reshape, features)</li>
+<li><strong>Analyze</strong> (tables + comparisons)</li>
+<li><strong>Visualize</strong> (Plotly, export figures)</li>
+<li><strong>Conclude</strong> (written summary + caveats)</li>
+</ol>
+
+<aside><div>
+<p>This week: notebooks focus on <strong>steps 4–7</strong> using <code>data/processed/</code>.</p>
+</div></aside></section></section>
+<section>
+<section id="session-1" class="title-slide slide level1 center">
+<h1>Session 1</h1>
+<div class="muted">
+<p>Offline-first mindset + project layout (no import pain)</p>
+</div>
+</section>
+<section id="session-1-objectives" class="slide level2">
+<h2>Session 1 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>define <strong>offline-first</strong> for data work</li>
+<li>explain the purpose of <code>raw/</code>, <code>cache/</code>, <code>processed/</code>, <code>external/</code></li>
+<li>describe “raw immutable” and “processed idempotent”</li>
+<li>run code using <strong>modules</strong> (so imports work without hacks)</li>
+<li>centralize project paths using <code>pathlib.Path</code></li>
+</ul>
+</section>
+<section id="context-why-offline-first-is-worth-it" class="slide level2">
+<h2>Context: why “offline-first” is worth it</h2>
+<p>You will re-run your ETL many times:</p>
+<ul>
+<li>debugging</li>
+<li>adding a cleaning rule</li>
+<li>fixing a dtype bug</li>
+<li>adding a feature column</li>
+</ul>
+<p>If your pipeline depends on the internet, you lose time.</p>
+</section>
+<section id="concept-raw-vs-cache-vs-processed-vs-external" class="slide level2">
+<h2>Concept: raw vs cache vs processed vs external</h2>
+<p>Offline-first projects separate data by <strong>role</strong>:</p>
+<ul>
+<li><strong>raw</strong>: original snapshots (<strong>never edited</strong>)</li>
+<li><strong>cache</strong>: downloads/API responses (<strong>safe to delete</strong>)</li>
+<li><strong>processed</strong>: clean, typed outputs (<strong>safe to recreate / overwrite</strong>)</li>
+<li><strong>external</strong>: reference drops (manual downloads you want to keep)</li>
+</ul>
+</section>
+<section id="example-folder-roles-mental-model" class="slide level2">
+<h2>Example: folder roles (mental model)</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><strong><code>data/raw/</code></strong></p>
+<ul>
+<li>immutable inputs</li>
+<li>“source of truth”</li>
+<li>never edited</li>
+</ul>
+</div><div class="column" style="width:25%;">
+<p><strong><code>data/cache/</code></strong></p>
+<ul>
+<li>API responses</li>
+<li>intermediate downloads</li>
+<li>safe to delete</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><strong><code>data/processed/</code></strong></p>
+<ul>
+<li>clean + typed</li>
+<li>analysis-ready</li>
+<li>safe to overwrite</li>
+</ul>
+</div><div class="column" style="width:20%;">
+<p><strong><code>data/external/</code></strong></p>
+<ul>
+<li>manual reference</li>
+<li>lookup tables</li>
+<li>rarely changes</li>
+</ul>
+</div></div>
+</section>
+<section id="micro-exercise-classify-these-files-5-minutes" class="slide level2">
+<h2>Micro-exercise: classify these files (5 minutes)</h2>
+<p>Put each file into the correct folder:</p>
+<ol type="1">
+<li><code>orders.csv</code> you received from a teammate</li>
+<li><code>users_api_page_1.json</code> downloaded from an endpoint</li>
+<li><code>orders_clean.parquet</code> generated by your ETL</li>
+<li><code>country_codes.xlsx</code> you manually downloaded as reference</li>
+</ol>
+<p><strong>Checkpoint:</strong> you can justify your choices in 1 sentence each.</p>
+</section>
+<section id="solution-classification" class="slide level2">
+<h2>Solution: classification</h2>
+<ol type="1">
+<li><code>orders.csv</code> → <code>data/raw/</code></li>
+<li><code>users_api_page_1.json</code> → <code>data/cache/</code></li>
+<li><code>orders_clean.parquet</code> → <code>data/processed/</code></li>
+<li><code>country_codes.xlsx</code> → <code>data/external/</code></li>
+</ol>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> Why should <code>data/raw/</code> be “immutable”?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> if you edit raw data, you lose the ability to reproduce results and debug changes.</p>
+</div>
+</section>
+<section id="concept-idempotent-processed-outputs" class="slide level2">
+<h2>Concept: idempotent processed outputs</h2>
+<p><strong>Idempotent:</strong> re-running the pipeline produces the same processed outputs (given same inputs + config).</p>
+<p>Good pattern:</p>
+<ul>
+<li>overwrite <code>data/processed/orders.parquet</code> every run</li>
+</ul>
+<p>Bad pattern:</p>
+<ul>
+<li>append to <code>data/processed/orders.csv</code> every run</li>
+</ul>
+</section>
+<section id="micro-exercise-spot-the-idempotency-bug-6-minutes" class="slide level2">
+<h2>Micro-exercise: spot the idempotency bug (6 minutes)</h2>
+<p>You run this twice:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>df.to_csv(<span class="st">"data/processed/orders.csv"</span>, mode<span class="op">=</span><span class="st">"a"</span>, index<span class="op">=</span><span class="va">False</span>, header<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>What goes wrong on run #2?</li>
+<li>Rewrite it to be idempotent.</li>
+<li>Bonus: write Parquet instead of CSV.</li>
+</ol>
+<p><strong>Checkpoint:</strong> your fixed code is safe to run 20 times.</p>
+</section>
+<section id="solution-idempotent-write-example" class="slide level2">
+<h2>Solution: idempotent write (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># safest default: overwrite</span></span>
+<span id="cb4-2"><a></a>df.to_parquet(<span class="st">"data/processed/orders.parquet"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If you truly need incremental data, do it intentionally (partitioned folders, dedupe keys). Default for this bootcamp: <strong>overwrite processed outputs</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> What is the most common symptom of a non‑idempotent pipeline?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> row counts grow every run even when inputs didn’t change.</p>
+</div>
+</section>
+<section id="context-imports-fail-when-you-run-code-the-wrong-way" class="slide level2">
+<h2>Context: imports fail when you run code “the wrong way”</h2>
+<p>A very common Day 1 error:</p>
+<blockquote>
+<p><code>ModuleNotFoundError: No module named 'bootcamp_data'</code></p>
+</blockquote>
+<p>This usually happens when you run a file by path (Python changes where it searches).</p>
+</section>
+<section id="concept-our-no-pain-run-rule" class="slide level2">
+<h2>Concept: our “no pain” run rule</h2>
+<p><strong>Rule:</strong> run entrypoints as <strong>modules</strong> from the repo root.</p>
+<ul>
+<li>✅ <code>python -m scripts.run_day1_load</code></li>
+<li>❌ <code>python scripts/run_day1_load.py</code> <em>(easy to break imports)</em></li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Avoid “fixing” imports by editing runtime paths in your code. If imports fail: <strong>change how you run</strong>, or fix the package structure.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="micro-exercise-choose-the-right-command-4-minutes" class="slide level2">
+<h2>Micro-exercise: choose the right command (4 minutes)</h2>
+<p>Your repo looks like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>week2-data-work/</span>
+<span id="cb5-2"><a></a>  bootcamp_data/</span>
+<span id="cb5-3"><a></a>  scripts/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You want to run the loader.</p>
+<p>Which command is correct?</p>
+<ol type="A">
+<li><code>python scripts/run_day1_load.py</code></li>
+<li><code>python -m scripts.run_day1_load</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> you can explain why one works and the other often fails.</p>
+</section>
+<section id="solution-choose-the-right-command" class="slide level2">
+<h2>Solution: choose the right command</h2>
+<p><strong>Correct:</strong> B) <code>python -m scripts.run_day1_load</code></p>
+<p>Reason: running as a module keeps the <strong>repo root</strong> on Python’s import search path.</p>
+</section>
+<section id="context-project-layout-prevents-path-chaos" class="slide level2">
+<h2>Context: project layout prevents “path chaos”</h2>
+<p>If everyone uses different paths:</p>
+<ul>
+<li>notebooks break</li>
+<li>scripts break</li>
+<li>teammates can’t run your repo</li>
+</ul>
+<p>We fix this with a consistent layout + a central paths config.</p>
+</section>
+<section id="example-repo-tree-day-1-target" class="slide level2">
+<h2>Example: repo tree (Day 1 target)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>week2-data-work/</span>
+<span id="cb6-2"><a></a>  data/{raw,cache,processed,external}/</span>
+<span id="cb6-3"><a></a>  notebooks/</span>
+<span id="cb6-4"><a></a>  reports/figures/</span>
+<span id="cb6-5"><a></a>  scripts/</span>
+<span id="cb6-6"><a></a>    __init__.py</span>
+<span id="cb6-7"><a></a>    run_day1_load.py</span>
+<span id="cb6-8"><a></a>  bootcamp_data/</span>
+<span id="cb6-9"><a></a>    __init__.py</span>
+<span id="cb6-10"><a></a>    config.py</span>
+<span id="cb6-11"><a></a>    io.py</span>
+<span id="cb6-12"><a></a>    transforms.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check-2" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> What folder should notebooks read from?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> <code>data/processed/</code> (not <code>data/raw/</code>).</p>
+</div>
+</section>
+<section id="concept-one-source-of-truth-for-paths" class="slide level2">
+<h2>Concept: one source of truth for paths</h2>
+<p>Hardcoding strings like <code>"../data/raw/orders.csv"</code> breaks when:</p>
+<ul>
+<li>you run from a different folder</li>
+<li>someone uses Windows paths</li>
+<li>files move</li>
+</ul>
+<p>Use <code>pathlib.Path</code> + a central <code>config.py</code>.</p>
+</section>
+<section id="quick-review-dataclass-why-we-use-it" class="slide level2">
+<h2>Quick review: <code>@dataclass</code> (why we use it)</h2>
+<p>A <code>dataclass</code> is a lightweight way to make a “data container” class.</p>
+<ul>
+<li>auto-generates <code>__init__</code> for you (less boilerplate)</li>
+<li>gives a readable <code>repr</code> (nice for debugging)</li>
+<li><code>frozen=True</code> makes it immutable (prevents accidental edits)</li>
+</ul>
+<p>Today we use it to store <strong>project paths</strong> in one place.</p>
+</section>
+<section id="example-paths-make_paths-pattern" class="slide level2 smaller">
+<h2>Example: <code>Paths</code> + <code>make_paths</code> (pattern)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
+<span id="cb7-2"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="at">@dataclass</span>(frozen<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-5"><a></a><span class="kw">class</span> Paths:</span>
+<span id="cb7-6"><a></a>    root: Path</span>
+<span id="cb7-7"><a></a>    raw: Path</span>
+<span id="cb7-8"><a></a>    cache: Path</span>
+<span id="cb7-9"><a></a>    processed: Path</span>
+<span id="cb7-10"><a></a>    external: Path</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="kw">def</span> make_paths(root: Path) <span class="op">-&gt;</span> Paths:</span>
+<span id="cb7-13"><a></a>    data <span class="op">=</span> root <span class="op">/</span> <span class="st">"data"</span></span>
+<span id="cb7-14"><a></a>    <span class="cf">return</span> Paths(</span>
+<span id="cb7-15"><a></a>        root<span class="op">=</span>root,</span>
+<span id="cb7-16"><a></a>        raw<span class="op">=</span>data <span class="op">/</span> <span class="st">"raw"</span>,</span>
+<span id="cb7-17"><a></a>        cache<span class="op">=</span>data <span class="op">/</span> <span class="st">"cache"</span>,</span>
+<span id="cb7-18"><a></a>        processed<span class="op">=</span>data <span class="op">/</span> <span class="st">"processed"</span>,</span>
+<span id="cb7-19"><a></a>        external<span class="op">=</span>data <span class="op">/</span> <span class="st">"external"</span>,</span>
+<span id="cb7-20"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-implement-make_paths-6-minutes" class="slide level2 smaller">
+<h2>Micro-exercise: implement <code>make_paths</code> (6 minutes)</h2>
+<p>Create <code>bootcamp_data/config.py</code> with:</p>
+<ol type="1">
+<li>a <code>Paths</code> dataclass</li>
+<li>a <code>make_paths(root: Path)</code> function</li>
+<li><code>raw/cache/processed/external</code> paths under <code>root/data/</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> in a Python REPL, <code>make_paths(Path.cwd()).processed</code> prints a real folder path.</p>
+</section>
+<section id="solution-bootcamp_dataconfig.py-example" class="slide level2 smaller">
+<h2>Solution: <code>bootcamp_data/config.py</code> (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
+<span id="cb8-2"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="at">@dataclass</span>(frozen<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-5"><a></a><span class="kw">class</span> Paths:</span>
+<span id="cb8-6"><a></a>    root: Path</span>
+<span id="cb8-7"><a></a>    raw: Path</span>
+<span id="cb8-8"><a></a>    cache: Path</span>
+<span id="cb8-9"><a></a>    processed: Path</span>
+<span id="cb8-10"><a></a>    external: Path</span>
+<span id="cb8-11"><a></a></span>
+<span id="cb8-12"><a></a><span class="kw">def</span> make_paths(root: Path) <span class="op">-&gt;</span> Paths:</span>
+<span id="cb8-13"><a></a>    data <span class="op">=</span> root <span class="op">/</span> <span class="st">"data"</span></span>
+<span id="cb8-14"><a></a>    <span class="cf">return</span> Paths(</span>
+<span id="cb8-15"><a></a>        root<span class="op">=</span>root,</span>
+<span id="cb8-16"><a></a>        raw<span class="op">=</span>data <span class="op">/</span> <span class="st">"raw"</span>,</span>
+<span id="cb8-17"><a></a>        cache<span class="op">=</span>data <span class="op">/</span> <span class="st">"cache"</span>,</span>
+<span id="cb8-18"><a></a>        processed<span class="op">=</span>data <span class="op">/</span> <span class="st">"processed"</span>,</span>
+<span id="cb8-19"><a></a>        external<span class="op">=</span>data <span class="op">/</span> <span class="st">"external"</span>,</span>
+<span id="cb8-20"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check-3" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> Why use <code>Path</code> objects instead of plain strings?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> <code>Path</code> handles OS differences and safe joins (<code>root / "data" / "raw"</code>).</p>
+</div>
+</section>
+<section id="session-1-recap" class="slide level2">
+<h2>Session 1 recap</h2>
+<ul>
+<li>Offline-first = your project runs without internet</li>
+<li>Separate data by role: <strong>raw / cache / processed / external</strong></li>
+<li>Processed outputs should be <strong>idempotent</strong> (safe reruns)</li>
+<li>Run entrypoints as modules: <code>python -m ...</code></li>
+<li>Centralize paths with <code>pathlib.Path</code> in <code>config.py</code></li>
+</ul>
+</section></section>
+<section>
+<section id="asr-break" class="title-slide slide level1 center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Asr break</h1>
+
+</section>
+<section id="minutes" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> open your repo and locate <code>data/raw</code>, <code>data/processed</code>, <code>bootcamp_data/</code>, and <code>scripts/</code>.</p>
+</section></section>
+<section>
+<section id="session-2" class="title-slide slide level1 center">
+<h1>Session 2</h1>
+<div class="muted">
+<p>Data sources + caching patterns</p>
+</div>
+</section>
+<section id="session-2-objectives" class="slide level2">
+<h2>Session 2 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>identify common data sources (CSV/JSON/API) <strong>and</strong> catalog sources (Kaggle, HuggingFace)</li>
+<li>download a dataset via <strong>Kaggle</strong>, <strong>HuggingFace</strong>, or a <strong>direct URL</strong></li>
+<li>write a raw snapshot to <code>data/raw/</code> and record <strong>source metadata</strong></li>
+<li>implement an offline-first <strong>cache read/write</strong> pattern (reuse cache when present)</li>
+<li>explain why CSV needs guardrails (dtype, separators, missing markers)</li>
+</ul>
+</section>
+<section id="data-sources-you-can-use-and-how-we-treat-them" class="slide level2">
+<h2>Data sources you can use (and how we treat them)</h2>
+<p>You’ll see data in a few common “shapes”:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Typical format</th>
+<th>Where it goes</th>
+<th>Offline-first rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kaggle dataset</td>
+<td>ZIP → CSV</td>
+<td><code>data/cache/</code> (zip) → <code>data/raw/</code> (snapshot)</td>
+<td>pin a snapshot + record metadata</td>
+</tr>
+<tr class="even">
+<td>HuggingFace Datasets</td>
+<td>Arrow → pandas</td>
+<td><code>data/raw/</code> (snapshot)</td>
+<td>load once → save locally</td>
+</tr>
+<tr class="odd">
+<td>Direct URL download</td>
+<td>CSV/JSON/ZIP</td>
+<td><code>data/cache/</code> → <code>data/raw/</code></td>
+<td>cache the bytes + record the URL</td>
+</tr>
+<tr class="even">
+<td>API extraction</td>
+<td>JSON pages</td>
+<td><code>data/cache/</code></td>
+<td>never “depend on live calls”</td>
+</tr>
+<tr class="odd">
+<td>Teammate drop</td>
+<td>CSV/Parquet</td>
+<td><code>data/raw/</code></td>
+<td>treat as immutable input</td>
+</tr>
+</tbody>
+</table>
+<div class="muted">
+<p>We care about <strong>repeatability</strong>, not “where it came from”. Your repo should run even when Wi‑Fi is bad.</p>
+</div>
+</section>
+<section id="path-a-kaggle-cli-snapshot-download" class="slide level2">
+<h2>Path A — Kaggle (CLI) snapshot download</h2>
+<p>Kaggle is great for realistic tabular datasets, but it requires a one‑time API token setup.</p>
+<p><strong>One-time setup (per machine):</strong> 1. Create a Kaggle account (if you don’t have one) 2. In Kaggle → <strong>Account</strong> → create a new API token → download <code>kaggle.json</code> 3. Move it to:</p>
+<ul>
+<li>macOS/Linux: <code>~/.kaggle/kaggle.json</code></li>
+<li>Windows: <code>C:\Users\&lt;you&gt;\.kaggle\kaggle.json</code></li>
+</ul>
+<ol start="4" type="1">
+<li>(macOS/Linux) fix permissions:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">chmod</span> 600 ~/.kaggle/kaggle.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Never commit <code>kaggle.json</code> to your repo. It contains credentials.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="kaggle-download-cache-raw-example-commands" class="slide level2">
+<h2>Kaggle download → cache → raw (example commands)</h2>
+<p>Install the CLI (if needed):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">uv</span> pip install kaggle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Download a dataset ZIP into <code>data/cache/</code> and unzip a snapshot into <code>data/raw/</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="co"># from repo root</span></span>
+<span id="cb11-2"><a></a><span class="va">DATASET_ID</span><span class="op">=</span><span class="st">"&lt;kaggle-owner&gt;/&lt;kaggle-dataset-slug&gt;"</span></span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="fu">mkdir</span> <span class="at">-p</span> data/cache/kaggle data/raw/kaggle</span>
+<span id="cb11-5"><a></a><span class="ex">kaggle</span> datasets download <span class="at">-d</span> <span class="st">"</span><span class="va">$DATASET_ID</span><span class="st">"</span> <span class="at">-p</span> data/cache/kaggle <span class="at">--unzip</span></span>
+<span id="cb11-6"><a></a><span class="co"># move/copy the extracted files into a snapshot folder you will not edit</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>Different Kaggle datasets unzip into different filenames. Your job is to <strong>decide the snapshot folder name</strong> and record it in metadata.</p>
+</div>
+</section>
+<section id="path-b-huggingface-datasets-python-snapshot" class="slide level2">
+<h2>Path B — HuggingFace Datasets (Python) snapshot</h2>
+<p>HuggingFace datasets load into memory (or stream), then you save a local snapshot.</p>
+<p>Install:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">uv</span> pip install datasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Minimal snapshot example (save as Parquet):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb13-2"><a></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a>out_dir <span class="op">=</span> Path(<span class="st">"data/raw/hf_my_dataset"</span>)</span>
+<span id="cb13-5"><a></a>out_dir.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-6"><a></a></span>
+<span id="cb13-7"><a></a>ds <span class="op">=</span> load_dataset(<span class="st">"&lt;dataset_name&gt;"</span>, split<span class="op">=</span><span class="st">"train"</span>)  <span class="co"># change name/split</span></span>
+<span id="cb13-8"><a></a>df <span class="op">=</span> ds.to_pandas()</span>
+<span id="cb13-9"><a></a>df.to_parquet(out_dir <span class="op">/</span> <span class="st">"train.parquet"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Offline-first rule: once you have a local snapshot, <strong>your ETL reads from disk</strong>, not from HuggingFace.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="path-c-direct-url-download-csvzip-snapshot" class="slide level2">
+<h2>Path C — Direct URL download (CSV/ZIP) snapshot</h2>
+<p>This is the most universal option: if you have a URL, you can cache it.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb14-2"><a></a><span class="im">import</span> httpx</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="kw">def</span> download_bytes(url: <span class="bu">str</span>, out_path: Path) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb14-5"><a></a>    out_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-6"><a></a>    <span class="cf">with</span> httpx.Client(timeout<span class="op">=</span><span class="fl">60.0</span>, follow_redirects<span class="op">=</span><span class="va">True</span>) <span class="im">as</span> client:</span>
+<span id="cb14-7"><a></a>        r <span class="op">=</span> client.get(url)</span>
+<span id="cb14-8"><a></a>        r.raise_for_status()</span>
+<span id="cb14-9"><a></a>        out_path.write_bytes(r.content)</span>
+<span id="cb14-10"><a></a></span>
+<span id="cb14-11"><a></a>download_bytes(</span>
+<span id="cb14-12"><a></a>    url<span class="op">=</span><span class="st">"&lt;paste-a-csv-or-zip-url&gt;"</span>,</span>
+<span id="cb14-13"><a></a>    out_path<span class="op">=</span>Path(<span class="st">"data/cache/downloads/source_file.zip"</span>),</span>
+<span id="cb14-14"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then unzip/copy into <code>data/raw/&lt;snapshot_name&gt;/</code> and treat it as immutable.</p>
+</section>
+<section id="raw-snapshot-metadata-required" class="slide level2">
+<h2>Raw snapshot metadata (required)</h2>
+<p>Every raw snapshot should have a tiny metadata record so someone else can reproduce it.</p>
+<p><strong>Recommended location (simple):</strong> <code>data/raw/_source_meta.json</code></p>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb15-1"><a></a><span class="fu">{</span></span>
+<span id="cb15-2"><a></a>  <span class="dt">"dataset_name"</span><span class="fu">:</span> <span class="st">"my_week2_project"</span><span class="fu">,</span></span>
+<span id="cb15-3"><a></a>  <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"kaggle | huggingface | url | teammate"</span><span class="fu">,</span></span>
+<span id="cb15-4"><a></a>  <span class="dt">"dataset_id_or_url"</span><span class="fu">:</span> <span class="st">"…"</span><span class="fu">,</span></span>
+<span id="cb15-5"><a></a>  <span class="dt">"downloaded_at_utc"</span><span class="fu">:</span> <span class="st">"2025-12-21T10:15:00Z"</span><span class="fu">,</span></span>
+<span id="cb15-6"><a></a>  <span class="dt">"raw_snapshot_folder"</span><span class="fu">:</span> <span class="st">"data/raw/my_week2_project/"</span><span class="fu">,</span></span>
+<span id="cb15-7"><a></a>  <span class="dt">"files"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"train.parquet"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb15-8"><a></a>  <span class="dt">"notes"</span><span class="fu">:</span> <span class="st">"any caveats (sampling, filters, auth)"</span></span>
+<span id="cb15-9"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>We’ll expand metadata later (row counts, schema summary, git commit). Today: just make sure the origin is documented.</p>
+</div>
+</section>
+<section id="starter-scriptsdownload_data.py-project-dataset" class="slide level2">
+<h2>Starter: <code>scripts/download_data.py</code> (project dataset)</h2>
+<p>Keep dataset acquisition <strong>repeatable</strong> by putting it in one script.</p>
+<p>Minimum for Day 1: support <strong>one</strong> of (URL / HuggingFace / Kaggle).<br>
+Stretch: support 2–3 sources in the same file.</p>
+<p><strong>Tiny URL downloader (works everywhere):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb16-2"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb16-3"><a></a><span class="im">import</span> json</span>
+<span id="cb16-4"><a></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timezone</span>
+<span id="cb16-5"><a></a><span class="im">import</span> httpx</span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a><span class="kw">def</span> download(url: <span class="bu">str</span>, out_path: Path) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb16-8"><a></a>    out_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-9"><a></a>    <span class="cf">with</span> httpx.Client(timeout<span class="op">=</span><span class="fl">60.0</span>, follow_redirects<span class="op">=</span><span class="va">True</span>) <span class="im">as</span> client:</span>
+<span id="cb16-10"><a></a>        r <span class="op">=</span> client.get(url)</span>
+<span id="cb16-11"><a></a>        r.raise_for_status()</span>
+<span id="cb16-12"><a></a>        out_path.write_bytes(r.content)</span>
+<span id="cb16-13"><a></a></span>
+<span id="cb16-14"><a></a><span class="kw">def</span> write_meta(meta_path: Path, meta: <span class="bu">dict</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb16-15"><a></a>    meta_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-16"><a></a>    meta_path.write_text(json.dumps(meta, indent<span class="op">=</span><span class="dv">2</span>), encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb16-17"><a></a></span>
+<span id="cb16-18"><a></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb16-19"><a></a>    url <span class="op">=</span> <span class="st">"&lt;paste-url&gt;"</span></span>
+<span id="cb16-20"><a></a>    out_path <span class="op">=</span> Path(<span class="st">"data/cache/downloads/source_file.csv"</span>)</span>
+<span id="cb16-21"><a></a>    download(url, out_path)</span>
+<span id="cb16-22"><a></a></span>
+<span id="cb16-23"><a></a>    write_meta(</span>
+<span id="cb16-24"><a></a>        Path(<span class="st">"data/raw/_source_meta.json"</span>),</span>
+<span id="cb16-25"><a></a>        {</span>
+<span id="cb16-26"><a></a>            <span class="st">"dataset_name"</span>: <span class="st">"my_week2_project"</span>,</span>
+<span id="cb16-27"><a></a>            <span class="st">"source"</span>: <span class="st">"url"</span>,</span>
+<span id="cb16-28"><a></a>            <span class="st">"dataset_id_or_url"</span>: url,</span>
+<span id="cb16-29"><a></a>            <span class="st">"downloaded_at_utc"</span>: datetime.now(timezone.utc).isoformat(),</span>
+<span id="cb16-30"><a></a>            <span class="st">"raw_snapshot_folder"</span>: <span class="st">"data/raw/my_week2_project/"</span>,</span>
+<span id="cb16-31"><a></a>            <span class="st">"files"</span>: [],</span>
+<span id="cb16-32"><a></a>            <span class="st">"notes"</span>: <span class="st">"downloaded bytes cached; raw snapshot extracted separately"</span></span>
+<span id="cb16-33"><a></a>        },</span>
+<span id="cb16-34"><a></a>    )</span>
+<span id="cb16-35"><a></a></span>
+<span id="cb16-36"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb16-37"><a></a>    main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>This script is your “repro button” — it doesn’t need to be fancy. It just needs to be honest and rerunnable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="context-extraction-is-where-silent-drift-starts" class="slide level2">
+<h2>Context: extraction is where “silent drift” starts</h2>
+<p>Two common failure modes:</p>
+<ul>
+<li>upstream data changes → your results change</li>
+<li>extraction fails partially → you analyze incomplete data</li>
+</ul>
+<p>Your job: make extraction reproducible.</p>
+</section>
+<section id="concept-minimal-extraction-checklist" class="slide level2">
+<h2>Concept: minimal extraction checklist</h2>
+<p>Before you trust extracted data:</p>
+<ul>
+<li>did you get <strong>all pages</strong> (pagination)?</li>
+<li>did you record <strong>params/time window</strong>?</li>
+<li>did you store a <strong>snapshot</strong> (cache)?</li>
+<li>did you validate <strong>row count / file size</strong>?</li>
+</ul>
+</section>
+<section id="example-minimal-extraction-metadata-json" class="slide level2">
+<h2>Example: minimal extraction metadata (JSON)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb17-1"><a></a><span class="fu">{</span></span>
+<span id="cb17-2"><a></a>  <span class="dt">"timestamp_utc"</span><span class="fu">:</span> <span class="st">"2025-12-21T09:15:00Z"</span><span class="fu">,</span></span>
+<span id="cb17-3"><a></a>  <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"api"</span><span class="fu">,</span></span>
+<span id="cb17-4"><a></a>  <span class="dt">"endpoint"</span><span class="fu">:</span> <span class="st">"/v1/users"</span><span class="fu">,</span></span>
+<span id="cb17-5"><a></a>  <span class="dt">"params"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"page"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">"per_page"</span><span class="fu">:</span> <span class="dv">100</span><span class="fu">},</span></span>
+<span id="cb17-6"><a></a>  <span class="dt">"status_code"</span><span class="fu">:</span> <span class="dv">200</span></span>
+<span id="cb17-7"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>Store this next to the cached file (same name + <code>.meta.json</code>).</p>
+</div>
+</section>
+<section id="micro-exercise-design-the-metadata-file-5-minutes" class="slide level2">
+<h2>Micro-exercise: design the metadata file (5 minutes)</h2>
+<p>You downloaded: <code>data/cache/users_page_1.json</code></p>
+<ol type="1">
+<li>What should the metadata filename be?</li>
+<li>List <strong>4 keys</strong> you will store.</li>
+</ol>
+<p><strong>Checkpoint:</strong> your filename ends with <code>.meta.json</code> and your keys support reproducibility.</p>
+</section>
+<section id="solution-metadata-naming-keys" class="slide level2">
+<h2>Solution: metadata naming + keys</h2>
+<ul>
+<li><p>filename: <code>data/cache/users_page_1.meta.json</code></p></li>
+<li><p>keys (example):</p>
+<ul>
+<li><code>timestamp_utc</code></li>
+<li><code>endpoint</code></li>
+<li><code>params</code></li>
+<li><code>status_code</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="quick-check-4" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> If you don’t store <code>params</code>, what breaks later?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> you can’t reproduce <em>which slice</em> of data you extracted (numbers won’t match).</p>
+</div>
+</section>
+<section id="context-caching-keeps-you-productive" class="slide level2">
+<h2>Context: caching keeps you productive</h2>
+<p>Internet is unreliable.</p>
+<p>Caching means:</p>
+<ul>
+<li>first run: download → save to <code>data/cache/</code></li>
+<li>next runs: read from cache (fast, offline)</li>
+</ul>
+</section>
+<section id="concept-offline-first-caching-policy" class="slide level2">
+<h2>Concept: offline-first caching policy</h2>
+<p>Operational rule:</p>
+<ul>
+<li>if cache exists → use it</li>
+<li>only re-download when you <em>choose</em> (manual delete or TTL refresh)</li>
+</ul>
+<p>This prevents “live calls” from breaking your workflow.</p>
+</section>
+<section id="quick-review-httpx-in-60-seconds" class="slide level2">
+<h2>Quick review: <code>httpx</code> in 60 seconds</h2>
+<ul>
+<li><code>httpx</code> is a Python HTTP client (like <code>requests</code>)</li>
+<li>you call an endpoint and get JSON back</li>
+<li>you <strong>must</strong> cache the response for reproducibility</li>
+</ul>
+<div class="muted">
+<p>Today’s code is a pattern. We don’t depend on live internet during labs.</p>
+</div>
+</section>
+<section id="example-fetch_json_cached-offline-first" class="slide level2 smaller">
+<h2>Example: <code>fetch_json_cached</code> (offline-first)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb18-2"><a></a><span class="im">import</span> json</span>
+<span id="cb18-3"><a></a><span class="im">import</span> time</span>
+<span id="cb18-4"><a></a><span class="im">import</span> httpx</span>
+<span id="cb18-5"><a></a></span>
+<span id="cb18-6"><a></a><span class="kw">def</span> fetch_json_cached(url: <span class="bu">str</span>, cache_path: Path, <span class="op">*</span>, ttl_s: <span class="bu">int</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb18-7"><a></a>    <span class="co">"""Offline-first JSON fetch with optional TTL."""</span></span>
+<span id="cb18-8"><a></a>    cache_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-9"><a></a></span>
+<span id="cb18-10"><a></a>    <span class="co"># Offline-first default: if cache exists, use it (unless TTL says it's too old)</span></span>
+<span id="cb18-11"><a></a>    <span class="cf">if</span> cache_path.exists():</span>
+<span id="cb18-12"><a></a>        age_s <span class="op">=</span> time.time() <span class="op">-</span> cache_path.stat().st_mtime</span>
+<span id="cb18-13"><a></a>        <span class="cf">if</span> ttl_s <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> age_s <span class="op">&lt;</span> ttl_s:</span>
+<span id="cb18-14"><a></a>            <span class="cf">return</span> json.loads(cache_path.read_text(encoding<span class="op">=</span><span class="st">"utf-8"</span>))</span>
+<span id="cb18-15"><a></a></span>
+<span id="cb18-16"><a></a>    <span class="co"># Otherwise: fetch and overwrite cache</span></span>
+<span id="cb18-17"><a></a>    <span class="cf">with</span> httpx.Client(timeout<span class="op">=</span><span class="fl">20.0</span>) <span class="im">as</span> client:</span>
+<span id="cb18-18"><a></a>        r <span class="op">=</span> client.get(url)</span>
+<span id="cb18-19"><a></a>        r.raise_for_status()</span>
+<span id="cb18-20"><a></a>        data <span class="op">=</span> r.json()</span>
+<span id="cb18-21"><a></a></span>
+<span id="cb18-22"><a></a>    cache_path.write_text(json.dumps(data, ensure_ascii<span class="op">=</span><span class="va">False</span>, indent<span class="op">=</span><span class="dv">2</span>), encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb18-23"><a></a>    <span class="cf">return</span> data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-predict-caching-behavior-4-minutes" class="slide level2">
+<h2>Micro-exercise: predict caching behavior (4 minutes)</h2>
+<p>Assume <code>cache_path</code> already exists.</p>
+<p>What happens?</p>
+<ol type="1">
+<li><code>ttl_s=None</code></li>
+<li><code>ttl_s=3600</code> and cache age is 10 minutes</li>
+<li><code>ttl_s=3600</code> and cache age is 3 days</li>
+</ol>
+<p><strong>Checkpoint:</strong> you can answer all 3 without running code.</p>
+</section>
+<section id="solution-predict-caching-behavior" class="slide level2">
+<h2>Solution: predict caching behavior</h2>
+<ol type="1">
+<li><code>ttl_s=None</code> → <strong>read from cache</strong> (offline-first default)</li>
+<li><code>ttl_s=3600</code> and age 10m → <strong>read from cache</strong></li>
+<li><code>ttl_s=3600</code> and age 3d → <strong>re-download</strong> then overwrite cache</li>
+</ol>
+</section>
+<section id="quick-check-5" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> When is <code>ttl_s=None</code> a good default?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> when you want the pipeline to run offline and you refresh cache manually.</p>
+</div>
+</section>
+<section id="quick-review-pandas-tables-in-python" class="slide level2">
+<h2>Quick review: pandas = “tables in Python”</h2>
+<p>In Week 1 you used <code>csv.DictReader</code> (rows = dicts).</p>
+<p>In Week 2 we mostly use <strong>pandas</strong> (tables):</p>
+<ul>
+<li><code>pd.read_csv(...)</code> → <code>DataFrame</code></li>
+<li><code>df.head()</code> → preview</li>
+<li><code>df.shape</code> → row/col count</li>
+<li><code>df.dtypes</code> → types (important!)</li>
+</ul>
+<p><strong>Bridge (manual ↔︎ pandas):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a><span class="co"># list[dict] → DataFrame</span></span>
+<span id="cb19-4"><a></a>rows <span class="op">=</span> [{<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="st">"x"</span>}, {<span class="st">"a"</span>: <span class="dv">2</span>, <span class="st">"b"</span>: <span class="st">"y"</span>}]</span>
+<span id="cb19-5"><a></a>df <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb19-6"><a></a></span>
+<span id="cb19-7"><a></a><span class="co"># DataFrame → list[dict] (records)</span></span>
+<span id="cb19-8"><a></a>records <span class="op">=</span> df.to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>pandas is powerful, but it can <strong>guess types wrong</strong>. That’s why we add guardrails.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="context-csv-is-a-lowest-common-denominator" class="slide level2">
+<h2>Context: CSV is a “lowest common denominator”</h2>
+<p>CSV is common, but it is fragile:</p>
+<ul>
+<li>encoding surprises</li>
+<li>separators differ (<code>;</code> vs <code>,</code>)</li>
+<li>decimal separators differ (<code>1,23</code> vs <code>1.23</code>)</li>
+<li>missing markers vary (<code>NA</code>, <code>null</code>, empty)</li>
+</ul>
+</section>
+<section id="concept-read_csv-guardrails-high-roi-options" class="slide level2">
+<h2>Concept: <code>read_csv</code> guardrails (high ROI options)</h2>
+<p>When reading CSV, consider:</p>
+<ul>
+<li><code>dtype=</code> (especially IDs)</li>
+<li><code>na_values=</code> (custom missing markers)</li>
+<li><code>encoding=</code></li>
+<li><code>sep=</code></li>
+<li><code>decimal=</code></li>
+</ul>
+</section>
+<section id="micro-exercise-write-a-guarded-read_csv-6-minutes" class="slide level2">
+<h2>Micro-exercise: write a guarded <code>read_csv</code> (6 minutes)</h2>
+<p>Scenario:</p>
+<ul>
+<li>separator is <code>;</code></li>
+<li>decimals use comma: <code>12,50</code></li>
+<li>IDs like <code>0007</code> must keep leading zeros</li>
+</ul>
+<p>Write the <code>pd.read_csv(...)</code> call.</p>
+<p><strong>Checkpoint:</strong> your call includes <code>sep</code>, <code>decimal</code>, and <code>dtype</code> for IDs.</p>
+</section>
+<section id="solution-guarded-pd.read_csv-example" class="slide level2">
+<h2>Solution: guarded <code>pd.read_csv</code> (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a>df <span class="op">=</span> pd.read_csv(</span>
+<span id="cb20-4"><a></a>    path,</span>
+<span id="cb20-5"><a></a>    sep<span class="op">=</span><span class="st">";"</span>,</span>
+<span id="cb20-6"><a></a>    decimal<span class="op">=</span><span class="st">","</span>,</span>
+<span id="cb20-7"><a></a>    dtype<span class="op">=</span>{<span class="st">"user_id"</span>: <span class="st">"string"</span>, <span class="st">"order_id"</span>: <span class="st">"string"</span>},</span>
+<span id="cb20-8"><a></a>    na_values<span class="op">=</span>[<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"null"</span>],</span>
+<span id="cb20-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="session-2-recap" class="slide level2">
+<h2>Session 2 recap</h2>
+<ul>
+<li>Extraction must be reproducible (<strong>cache + metadata</strong>)</li>
+<li>Offline-first caching: reuse cache when present</li>
+<li>CSV needs guardrails (<code>dtype</code>, <code>sep</code>, <code>decimal</code>, <code>na_values</code>)</li>
+<li>Next: schema discipline + Parquet outputs</li>
+</ul>
+</section></section>
+<section>
+<section id="maghrib-break" class="title-slide slide level1 center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Maghrib break</h1>
+
+</section>
+<section id="minutes-1" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> open your editor and be ready to write <code>io.py</code> and <code>transforms.py</code>.</p>
+</section></section>
+<section>
+<section id="session-3" class="title-slide slide level1 center">
+<h1>Session 3</h1>
+<div class="muted">
+<p>pandas I/O + schema basics</p>
+</div>
+</section>
+<section id="session-3-objectives" class="slide level2">
+<h2>Session 3 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>explain why pandas dtype inference can be dangerous</li>
+<li>treat <strong>IDs as strings</strong> (avoid silent corruption)</li>
+<li>write and read <strong>Parquet</strong> with pandas</li>
+<li>centralize I/O in <code>io.py</code></li>
+<li>implement a minimal <code>enforce_schema(df)</code> transform</li>
+</ul>
+</section>
+<section id="pandas-muscle-memory-3-moves" class="slide level2">
+<h2>pandas muscle memory (3 moves)</h2>
+<p>When you load any dataset, do this first:</p>
+<ul>
+<li><code>df.head()</code> → sanity check values</li>
+<li><code>df.shape</code> → row/col count</li>
+<li><code>df.dtypes</code> → confirm types (especially IDs)</li>
+</ul>
+<div class="muted">
+<p>This takes 10 seconds and prevents 2 hours of confusion.</p>
+</div>
+</section>
+<section id="context-pandas-inference-can-silently-corrupt-meaning" class="slide level2">
+<h2>Context: pandas inference can silently corrupt meaning</h2>
+<p>If pandas guesses wrong, you might lose information <strong>without an error</strong>.</p>
+<p>Classic example:</p>
+<ul>
+<li>ID <code>00123</code> becomes <code>123</code> (leading zeros lost forever)</li>
+</ul>
+</section>
+<section id="concept-treat-ids-as-strings" class="slide level2">
+<h2>Concept: treat IDs as strings</h2>
+<p>Operational rules:</p>
+<ul>
+<li><p><strong>IDs are strings</strong> unless you truly compute on them</p></li>
+<li><p>use pandas nullable dtypes when missing values exist:</p>
+<ul>
+<li><code>"string"</code>, <code>"Int64"</code>, <code>"Float64"</code>, <code>"boolean"</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-the-leading-zero-bug" class="slide level2">
+<h2>Example: the leading-zero bug</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"orders.csv"</span>)  <span class="co"># risky default</span></span>
+<span id="cb21-4"><a></a><span class="bu">print</span>(df.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Risk</strong></p>
+<ul>
+<li><code>user_id</code> becomes <code>int64</code></li>
+<li><code>0007</code> becomes <code>7</code></li>
+<li>joins fail later</li>
+</ul>
+</section>
+<section id="micro-exercise-choose-dtypes-6-minutes" class="slide level2">
+<h2>Micro-exercise: choose dtypes (6 minutes)</h2>
+<p>You have <code>orders.csv</code> with columns:</p>
+<ul>
+<li><code>order_id</code>, <code>user_id</code>, <code>amount</code>, <code>quantity</code>, <code>created_at</code>, <code>status</code></li>
+</ul>
+<p>Write:</p>
+<ol type="1">
+<li>a <code>dtype={...}</code> mapping for <strong>IDs</strong></li>
+<li>a 1-sentence rule for <code>quantity</code> when missing values exist</li>
+</ol>
+<p><strong>Checkpoint:</strong> your mapping keeps leading zeros.</p>
+</section>
+<section id="solution-dtype-mapping-rule" class="slide level2">
+<h2>Solution: dtype mapping + rule</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>dtype <span class="op">=</span> {</span>
+<span id="cb22-2"><a></a>    <span class="st">"order_id"</span>: <span class="st">"string"</span>,</span>
+<span id="cb22-3"><a></a>    <span class="st">"user_id"</span>: <span class="st">"string"</span>,</span>
+<span id="cb22-4"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rule: if <code>quantity</code> is “integer but can be missing”, use <code>"Int64"</code> after parsing.</p>
+</section>
+<section id="quick-check-6" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> If <code>quantity</code> is an integer but has missing values, what dtype should you use?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> <code>"Int64"</code> (nullable integer), not plain <code>int64</code>.</p>
+</div>
+</section>
+<section id="concept-why-parquet-for-processed-outputs" class="slide level2">
+<h2>Concept: why Parquet for processed outputs</h2>
+<p>Parquet is a <strong>columnar</strong> file format that:</p>
+<ul>
+<li>preserves dtypes (critical for processed data)</li>
+<li>is smaller than CSV (compression)</li>
+<li>loads faster for analytics workflows</li>
+</ul>
+</section>
+<section id="example-write-read-parquet" class="slide level2">
+<h2>Example: write + read Parquet</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df.to_parquet(<span class="st">"data/processed/orders.parquet"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb23-2"><a></a>df2 <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Parquet requires an engine. We use <strong>pyarrow</strong> this week.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="context-centralize-io-in-io.py" class="slide level2">
+<h2>Context: centralize I/O in <code>io.py</code></h2>
+<p>If every notebook reads data differently:</p>
+<ul>
+<li>missing values differ</li>
+<li>dtypes differ</li>
+<li>results differ</li>
+</ul>
+<p>Centralized I/O makes team work consistent.</p>
+</section>
+<section id="concept-four-core-io-helpers" class="slide level2">
+<h2>Concept: four core I/O helpers</h2>
+<p>In <code>bootcamp_data/io.py</code>:</p>
+<ul>
+<li><code>read_orders_csv(path) -&gt; DataFrame</code></li>
+<li><code>read_users_csv(path) -&gt; DataFrame</code></li>
+<li><code>write_parquet(df, path) -&gt; None</code></li>
+<li><code>read_parquet(path) -&gt; DataFrame</code></li>
+</ul>
+</section>
+<section id="example-io.py-pattern" class="slide level2 smaller">
+<h2>Example: <code>io.py</code> pattern</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb24-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>NA <span class="op">=</span> [<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"N/A"</span>, <span class="st">"null"</span>, <span class="st">"None"</span>]</span>
+<span id="cb24-5"><a></a></span>
+<span id="cb24-6"><a></a><span class="kw">def</span> read_orders_csv(path: Path) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb24-7"><a></a>    <span class="cf">return</span> pd.read_csv(</span>
+<span id="cb24-8"><a></a>        path,</span>
+<span id="cb24-9"><a></a>        dtype<span class="op">=</span>{<span class="st">"order_id"</span>: <span class="st">"string"</span>, <span class="st">"user_id"</span>: <span class="st">"string"</span>},</span>
+<span id="cb24-10"><a></a>        na_values<span class="op">=</span>NA,</span>
+<span id="cb24-11"><a></a>        keep_default_na<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb24-12"><a></a>    )</span>
+<span id="cb24-13"><a></a></span>
+<span id="cb24-14"><a></a><span class="kw">def</span> write_parquet(df: pd.DataFrame, path: Path) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb24-15"><a></a>    path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-16"><a></a>    df.to_parquet(path, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-add-one-more-guardrail-5-minutes" class="slide level2">
+<h2>Micro-exercise: add one more guardrail (5 minutes)</h2>
+<p>In your <code>read_orders_csv(...)</code>, add <strong>one</strong> extra guardrail:</p>
+<p>Choose one:</p>
+<ul>
+<li><code>sep=";"</code></li>
+<li><code>encoding="utf-8"</code></li>
+<li><code>decimal=","</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> you can explain why your chosen guardrail matters.</p>
+</section>
+<section id="solution-example-guardrail" class="slide level2">
+<h2>Solution: example guardrail</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="kw">def</span> read_orders_csv(path: Path) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb25-2"><a></a>    <span class="cf">return</span> pd.read_csv(</span>
+<span id="cb25-3"><a></a>        path,</span>
+<span id="cb25-4"><a></a>        dtype<span class="op">=</span>{<span class="st">"order_id"</span>: <span class="st">"string"</span>, <span class="st">"user_id"</span>: <span class="st">"string"</span>},</span>
+<span id="cb25-5"><a></a>        na_values<span class="op">=</span>NA,</span>
+<span id="cb25-6"><a></a>        keep_default_na<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb25-7"><a></a>        encoding<span class="op">=</span><span class="st">"utf-8"</span>,</span>
+<span id="cb25-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="concept-schema-enforcement-is-a-correctness-step" class="slide level2">
+<h2>Concept: schema enforcement is a correctness step</h2>
+<p>Even with <code>dtype=...</code>, you often need:</p>
+<ul>
+<li>numeric parsing (<code>amount</code>, <code>quantity</code>)</li>
+<li>normalization (<code>status</code> casing)</li>
+<li>consistent missing values</li>
+</ul>
+<p>We enforce types after loading.</p>
+</section>
+<section id="example-enforce_schemadf-minimal" class="slide level2 smaller">
+<h2>Example: <code>enforce_schema(df)</code> (minimal)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a><span class="kw">def</span> enforce_schema(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb26-4"><a></a>    <span class="cf">return</span> df.assign(</span>
+<span id="cb26-5"><a></a>        order_id<span class="op">=</span>df[<span class="st">"order_id"</span>].astype(<span class="st">"string"</span>),</span>
+<span id="cb26-6"><a></a>        user_id<span class="op">=</span>df[<span class="st">"user_id"</span>].astype(<span class="st">"string"</span>),</span>
+<span id="cb26-7"><a></a>        amount<span class="op">=</span>pd.to_numeric(df[<span class="st">"amount"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Float64"</span>),</span>
+<span id="cb26-8"><a></a>        quantity<span class="op">=</span>pd.to_numeric(df[<span class="st">"quantity"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Int64"</span>),</span>
+<span id="cb26-9"><a></a>        status<span class="op">=</span>df[<span class="st">"status"</span>].astype(<span class="st">"string"</span>).<span class="bu">str</span>.strip().<span class="bu">str</span>.lower(),</span>
+<span id="cb26-10"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-make-parsing-non-crashy-5-minutes" class="slide level2">
+<h2>Micro-exercise: make parsing “non-crashy” (5 minutes)</h2>
+<p>Complete this safely:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>amount <span class="op">=</span> pd.to_numeric(df[<span class="st">"amount"</span>], errors<span class="op">=</span>____).astype(<span class="st">"Float64"</span>)</span>
+<span id="cb27-2"><a></a>quantity <span class="op">=</span> pd.to_numeric(df[<span class="st">"quantity"</span>], errors<span class="op">=</span>____).astype(<span class="st">"Int64"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> invalid values become missing (not crashes).</p>
+</section>
+<section id="solution-parsing-with-coercion" class="slide level2">
+<h2>Solution: parsing with coercion</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>amount <span class="op">=</span> pd.to_numeric(df[<span class="st">"amount"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Float64"</span>)</span>
+<span id="cb28-2"><a></a>quantity <span class="op">=</span> pd.to_numeric(df[<span class="st">"quantity"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Int64"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check-7" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> What does <code>errors="coerce"</code> do?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> invalid values become missing (<code>NaN</code>) instead of raising an exception.</p>
+</div>
+</section>
+<section id="session-3-recap" class="slide level2">
+<h2>Session 3 recap</h2>
+<ul>
+<li>pandas inference can silently break IDs → keep IDs as strings</li>
+<li>Parquet preserves dtypes and loads fast → use it for processed data</li>
+<li>centralize loading/writing in <code>io.py</code></li>
+<li>use <code>enforce_schema</code> as a small, testable correctness step</li>
+</ul>
+</section>
+<section id="tomorrow-verify-becomes-code-fail-fast" class="slide level2">
+<h2>Tomorrow: “Verify” becomes code (fail fast)</h2>
+<p>Day 2 we’ll turn assumptions into checks, like:</p>
+<ul>
+<li>required columns</li>
+<li>non-empty datasets</li>
+<li>unique keys (before joins)</li>
+<li>missingness report (per column)</li>
+<li>simple range checks (e.g., <code>amount &gt;= 0</code>)</li>
+</ul>
+<p>Why it matters: catching bad data early prevents join disasters and wasted debugging.</p>
+</section></section>
+<section>
+<section id="isha-break" class="title-slide slide level1 center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Isha break</h1>
+
+</section>
+<section id="minutes-2" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we will scaffold the repo and write our first processed Parquet file.</p>
+</section>
+<section id="quick-review-logging-beats-mystery-debugging" class="slide level2">
+<h2>Quick review: logging beats “mystery debugging”</h2>
+<p>In data pipelines, you want <strong>evidence</strong> during every run:</p>
+<ul>
+<li>row counts</li>
+<li>dtypes</li>
+<li>output paths</li>
+</ul>
+<p>Minimal pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="im">import</span> logging</span>
+<span id="cb29-2"><a></a>logging.basicConfig(level<span class="op">=</span>logging.INFO, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(levelname)s</span><span class="st"> </span><span class="sc">%(name)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>)</span>
+<span id="cb29-3"><a></a>log <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="cb29-4"><a></a>log.info(<span class="st">"rows=</span><span class="sc">%s</span><span class="st">"</span>, <span class="bu">len</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Start with logging. Use notebooks for exploration, not for pipelines.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="hands-on" class="title-slide slide level1 center">
+<h1>Hands-on</h1>
+<div class="muted">
+<p>Build: scaffold repo + typed I/O + first processed output</p>
+</div>
+</section>
+<section id="hands-on-success-criteria-today" class="slide level2">
+<h2>Hands-on success criteria (today)</h2>
+<p>By the end, you should have:</p>
+<ul>
+<li>a repo with the standard folder layout</li>
+<li><code>config.py</code>, <code>io.py</code>, <code>transforms.py</code> inside <code>bootcamp_data/</code></li>
+<li><strong>raw inputs</strong> in <code>data/raw/</code> (toy dataset is fine for in-class)</li>
+<li><code>data/raw/_source_meta.json</code> documenting where your project dataset comes from</li>
+<li>a runnable module: <code>python -m scripts.run_day1_load</code></li>
+<li>at least <strong>one processed Parquet</strong> created by your code (e.g., <code>data/processed/orders.parquet</code>)</li>
+<li>at least <strong>one commit pushed</strong> to GitHub</li>
+</ul>
+</section>
+<section id="project-layout-target" class="slide level2">
+<h2>Project layout (target)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a></a>week2-data-work/</span>
+<span id="cb30-2"><a></a>  data/</span>
+<span id="cb30-3"><a></a>    raw/            # immutable inputs</span>
+<span id="cb30-4"><a></a>    cache/          # API responses (optional today)</span>
+<span id="cb30-5"><a></a>    processed/      # your Parquet outputs</span>
+<span id="cb30-6"><a></a>    external/       # reference drops (optional)</span>
+<span id="cb30-7"><a></a>  reports/figures/</span>
+<span id="cb30-8"><a></a>  scripts/</span>
+<span id="cb30-9"><a></a>    __init__.py</span>
+<span id="cb30-10"><a></a>    run_day1_load.py</span>
+<span id="cb30-11"><a></a>  bootcamp_data/</span>
+<span id="cb30-12"><a></a>    __init__.py</span>
+<span id="cb30-13"><a></a>    config.py</span>
+<span id="cb30-14"><a></a>    io.py</span>
+<span id="cb30-15"><a></a>    transforms.py</span>
+<span id="cb30-16"><a></a>  README.md</span>
+<span id="cb30-17"><a></a>  requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vibe-coding-safe-version" class="slide level2">
+<h2>Vibe coding (safe version)</h2>
+<ol type="1">
+<li>Write the plan in 5 bullets (no code yet)</li>
+<li>Implement the smallest piece</li>
+<li>Run → break → read error → fix</li>
+<li>Commit</li>
+<li>Repeat</li>
+</ol>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Do not ask GenAI to write your solution code. Ask it to explain concepts or errors.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1-create-folders-initialize-git-10-minutes" class="slide level2">
+<h2>Task 1 — Create folders + initialize git (10 minutes)</h2>
+<ul>
+<li>Create the repo folders (<code>data/</code>, <code>bootcamp_data/</code>, <code>scripts/</code>, <code>reports/</code>)</li>
+<li>Initialize git</li>
+<li>Create an empty <code>README.md</code></li>
+<li>Add <code>__init__.py</code> files (so folders can be imported as packages)</li>
+</ul>
+<p><strong>Checkpoint:</strong> <code>git status</code> shows your new files.</p>
+</section>
+<section id="solution-folders-git" class="slide level2">
+<h2>Solution — folders + git</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a></a><span class="fu">mkdir</span> <span class="at">-p</span> data/<span class="dt">{raw</span><span class="op">,</span><span class="dt">cache</span><span class="op">,</span><span class="dt">processed</span><span class="op">,</span><span class="dt">external}</span></span>
+<span id="cb31-2"><a></a><span class="fu">mkdir</span> <span class="at">-p</span> reports/figures scripts bootcamp_data notebooks</span>
+<span id="cb31-3"><a></a><span class="fu">touch</span> README.md bootcamp_data/__init__.py scripts/__init__.py</span>
+<span id="cb31-4"><a></a><span class="fu">git</span> init</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb32-1"><a></a>mkdir <span class="kw">data</span><span class="op">,</span> reports<span class="op">,</span> scripts<span class="op">,</span> bootcamp_data<span class="op">,</span> notebooks</span>
+<span id="cb32-2"><a></a>mkdir <span class="kw">data</span>\raw<span class="op">,</span> <span class="kw">data</span>\cache<span class="op">,</span> <span class="kw">data</span>\processed<span class="op">,</span> <span class="kw">data</span>\external</span>
+<span id="cb32-3"><a></a>mkdir reports\figures</span>
+<span id="cb32-4"><a></a><span class="fu">ni</span> README<span class="op">.</span><span class="fu">md</span> <span class="op">-</span>ItemType File</span>
+<span id="cb32-5"><a></a><span class="fu">ni</span> bootcamp_data\__init__<span class="op">.</span><span class="fu">py</span> <span class="op">-</span>ItemType File</span>
+<span id="cb32-6"><a></a><span class="fu">ni</span> scripts\__init__<span class="op">.</span><span class="fu">py</span> <span class="op">-</span>ItemType File</span>
+<span id="cb32-7"><a></a>git init</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-2-create-a-uv-environment-install-deps-15-minutes" class="slide level2">
+<h2>Task 2 — Create a <code>uv</code> environment + install deps (15 minutes)</h2>
+<ul>
+<li>Create a virtual environment with <code>uv</code></li>
+<li>Activate it</li>
+<li>Install core deps: <code>pandas</code>, <code>pyarrow</code>, <code>httpx</code></li>
+<li>Optional (for dataset downloading today): <code>datasets</code> (HuggingFace), <code>kaggle</code> (Kaggle CLI)</li>
+<li>Freeze <code>requirements.txt</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> <code>python -c "import pandas; import pyarrow; import httpx"</code> runs with no error.</p>
+</section>
+<section id="hint-common-environment-mistakes" class="slide level2">
+<h2>Hint — common environment mistakes</h2>
+<p>Most Day 1 issues come from:</p>
+<ul>
+<li>the wrong Python interpreter</li>
+<li>forgetting to activate the environment</li>
+<li>installing packages globally by accident</li>
+</ul>
+<p>Quick checks:</p>
+<ul>
+<li><code>which python</code> (macOS/Linux)</li>
+<li><code>Get-Command python</code> (Windows PowerShell)</li>
+</ul>
+</section>
+<section id="solution-uv-venv-deps" class="slide level2">
+<h2>Solution — <code>uv</code> venv + deps</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a></a><span class="ex">uv</span> venv</span>
+<span id="cb33-2"><a></a><span class="bu">source</span> .venv/bin/activate</span>
+<span id="cb33-3"><a></a></span>
+<span id="cb33-4"><a></a><span class="co"># core (required)</span></span>
+<span id="cb33-5"><a></a><span class="ex">uv</span> pip install pandas pyarrow httpx</span>
+<span id="cb33-6"><a></a></span>
+<span id="cb33-7"><a></a><span class="co"># optional (only if you plan to use these sources today)</span></span>
+<span id="cb33-8"><a></a><span class="co"># uv pip install datasets kaggle</span></span>
+<span id="cb33-9"><a></a></span>
+<span id="cb33-10"><a></a><span class="ex">uv</span> pip freeze <span class="op">&gt;</span> requirements.txt</span>
+<span id="cb33-11"><a></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import pandas; import pyarrow; import httpx; print('ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb34-1"><a></a>uv venv</span>
+<span id="cb34-2"><a></a><span class="op">.</span>\<span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span>
+<span id="cb34-3"><a></a></span>
+<span id="cb34-4"><a></a><span class="co"># core (required)</span></span>
+<span id="cb34-5"><a></a>uv pip install pandas pyarrow httpx</span>
+<span id="cb34-6"><a></a></span>
+<span id="cb34-7"><a></a><span class="co"># optional (only if you plan to use these sources today)</span></span>
+<span id="cb34-8"><a></a><span class="co"># uv pip install datasets kaggle</span></span>
+<span id="cb34-9"><a></a></span>
+<span id="cb34-10"><a></a>uv pip freeze <span class="op">&gt;</span> requirements<span class="op">.</span><span class="fu">txt</span></span>
+<span id="cb34-11"><a></a>python <span class="op">-</span>c <span class="st">"import pandas; import pyarrow; import httpx; print('ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>If <code>pyarrow</code> install fails, ask the instructor. Fallback: you can write CSV today, but Parquet is strongly preferred for Week 2.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-acquire-raw-data-two-tracks-1025-minutes" class="slide level2">
+<h2>Task 3 — Acquire raw data (two tracks) (10–25 minutes)</h2>
+<p><strong>Track A (in-class, recommended):</strong> create the tiny toy dataset below:</p>
+<ul>
+<li><code>data/raw/orders.csv</code></li>
+<li><code>data/raw/users.csv</code></li>
+</ul>
+<p>This lets you validate your pipeline quickly.</p>
+<p><strong>Track B (weekly project):</strong> download a real dataset (Kaggle / HuggingFace / URL) into a snapshot folder like:</p>
+<ul>
+<li><code>data/raw/&lt;your_dataset_name&gt;/</code></li>
+</ul>
+<p>…and record provenance in:</p>
+<ul>
+<li><code>data/raw/_source_meta.json</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> you have <em>some</em> raw data to run through today’s loader, and you know where your project dataset will come from.</p>
+</section>
+<section id="track-a-solution-dataraworders.csv-toy-dataset" class="slide level2">
+<h2>Track A solution — <code>data/raw/orders.csv</code> (toy dataset)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a></a>order_id,user_id,amount,quantity,created_at,status</span>
+<span id="cb35-2"><a></a>A0001,0001,12.50,1,2025-12-01T10:05:00Z,Paid</span>
+<span id="cb35-3"><a></a>A0002,0002,8.00,2,2025-12-01T11:10:00Z,paid</span>
+<span id="cb35-4"><a></a>A0003,0003,not_a_number,1,2025-12-02T09:00:00Z,Refund</span>
+<span id="cb35-5"><a></a>A0004,0001,25.00,,2025-12-03T14:30:00Z,PAID</span>
+<span id="cb35-6"><a></a>A0005,0004,100.00,1,not_a_date,paid</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="track-a-solution-datarawusers.csv-toy-dataset" class="slide level2">
+<h2>Track A solution — <code>data/raw/users.csv</code> (toy dataset)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb36-1"><a></a>user_id,country,signup_date</span>
+<span id="cb36-2"><a></a>0001,SA,2025-11-15</span>
+<span id="cb36-3"><a></a>0002,SA,2025-11-20</span>
+<span id="cb36-4"><a></a>0003,AE,2025-11-22</span>
+<span id="cb36-5"><a></a>0004,SA,2025-11-25</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-3.5-add-dataraw_source_meta.json-5-minutes" class="slide level2">
+<h2>Task 3.5 — Add <code>data/raw/_source_meta.json</code> (5 minutes)</h2>
+<p>Create a tiny provenance record for your raw snapshot.</p>
+<p>Even if you’re using the <strong>toy dataset</strong> today, practice the habit — you’ll keep this file for your weekly project.</p>
+<p>Example (edit values to match your situation):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb37-1"><a></a><span class="fu">{</span></span>
+<span id="cb37-2"><a></a>  <span class="dt">"dataset_name"</span><span class="fu">:</span> <span class="st">"toy_orders_users"</span><span class="fu">,</span></span>
+<span id="cb37-3"><a></a>  <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"in_class_toy"</span><span class="fu">,</span></span>
+<span id="cb37-4"><a></a>  <span class="dt">"dataset_id_or_url"</span><span class="fu">:</span> <span class="st">"n/a"</span><span class="fu">,</span></span>
+<span id="cb37-5"><a></a>  <span class="dt">"downloaded_at_utc"</span><span class="fu">:</span> <span class="st">"2025-12-21T00:00:00Z"</span><span class="fu">,</span></span>
+<span id="cb37-6"><a></a>  <span class="dt">"raw_snapshot_folder"</span><span class="fu">:</span> <span class="st">"data/raw/"</span><span class="fu">,</span></span>
+<span id="cb37-7"><a></a>  <span class="dt">"files"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"orders.csv"</span><span class="ot">,</span> <span class="st">"users.csv"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb37-8"><a></a>  <span class="dt">"notes"</span><span class="fu">:</span> <span class="st">"Toy dataset used for Week 2 Day 1 scaffolding."</span></span>
+<span id="cb37-9"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>Tomorrow we’ll generate additional metadata automatically (row counts, schema summary).</p>
+</div>
+</section>
+<section id="task-4-implement-config.py-12-minutes" class="slide level2">
+<h2>Task 4 — Implement <code>config.py</code> (12 minutes)</h2>
+<p>Create <code>bootcamp_data/config.py</code>:</p>
+<ul>
+<li><code>Paths</code> dataclass</li>
+<li><code>make_paths(root: Path) -&gt; Paths</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> a tiny snippet prints a valid processed path.</p>
+</section>
+<section id="solution-bootcamp_dataconfig.py" class="slide level2 smaller">
+<h2>Solution — <code>bootcamp_data/config.py</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
+<span id="cb38-2"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb38-3"><a></a></span>
+<span id="cb38-4"><a></a><span class="at">@dataclass</span>(frozen<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-5"><a></a><span class="kw">class</span> Paths:</span>
+<span id="cb38-6"><a></a>    root: Path</span>
+<span id="cb38-7"><a></a>    raw: Path</span>
+<span id="cb38-8"><a></a>    cache: Path</span>
+<span id="cb38-9"><a></a>    processed: Path</span>
+<span id="cb38-10"><a></a>    external: Path</span>
+<span id="cb38-11"><a></a></span>
+<span id="cb38-12"><a></a><span class="kw">def</span> make_paths(root: Path) <span class="op">-&gt;</span> Paths:</span>
+<span id="cb38-13"><a></a>    data <span class="op">=</span> root <span class="op">/</span> <span class="st">"data"</span></span>
+<span id="cb38-14"><a></a>    <span class="cf">return</span> Paths(</span>
+<span id="cb38-15"><a></a>        root<span class="op">=</span>root,</span>
+<span id="cb38-16"><a></a>        raw<span class="op">=</span>data <span class="op">/</span> <span class="st">"raw"</span>,</span>
+<span id="cb38-17"><a></a>        cache<span class="op">=</span>data <span class="op">/</span> <span class="st">"cache"</span>,</span>
+<span id="cb38-18"><a></a>        processed<span class="op">=</span>data <span class="op">/</span> <span class="st">"processed"</span>,</span>
+<span id="cb38-19"><a></a>        external<span class="op">=</span>data <span class="op">/</span> <span class="st">"external"</span>,</span>
+<span id="cb38-20"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-5-implement-io.py-18-minutes" class="slide level2">
+<h2>Task 5 — Implement <code>io.py</code> (18 minutes)</h2>
+<p>Create <code>bootcamp_data/io.py</code> with:</p>
+<ul>
+<li><code>read_orders_csv(path: Path) -&gt; pd.DataFrame</code></li>
+<li><code>read_users_csv(path: Path) -&gt; pd.DataFrame</code></li>
+<li><code>write_parquet(df, path)</code></li>
+<li><code>read_parquet(path)</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> you can import these functions without errors.</p>
+</section>
+<section id="solution-bootcamp_dataio.py" class="slide level2 smaller">
+<h2>Solution — <code>bootcamp_data/io.py</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb39-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb39-3"><a></a></span>
+<span id="cb39-4"><a></a>NA <span class="op">=</span> [<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"N/A"</span>, <span class="st">"null"</span>, <span class="st">"None"</span>]</span>
+<span id="cb39-5"><a></a></span>
+<span id="cb39-6"><a></a><span class="kw">def</span> read_orders_csv(path: Path) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb39-7"><a></a>    <span class="cf">return</span> pd.read_csv(</span>
+<span id="cb39-8"><a></a>        path,</span>
+<span id="cb39-9"><a></a>        dtype<span class="op">=</span>{<span class="st">"order_id"</span>: <span class="st">"string"</span>, <span class="st">"user_id"</span>: <span class="st">"string"</span>},</span>
+<span id="cb39-10"><a></a>        na_values<span class="op">=</span>NA,</span>
+<span id="cb39-11"><a></a>        keep_default_na<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb39-12"><a></a>        encoding<span class="op">=</span><span class="st">"utf-8"</span>,</span>
+<span id="cb39-13"><a></a>    )</span>
+<span id="cb39-14"><a></a></span>
+<span id="cb39-15"><a></a><span class="kw">def</span> read_users_csv(path: Path) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb39-16"><a></a>    <span class="cf">return</span> pd.read_csv(</span>
+<span id="cb39-17"><a></a>        path,</span>
+<span id="cb39-18"><a></a>        dtype<span class="op">=</span>{<span class="st">"user_id"</span>: <span class="st">"string"</span>},</span>
+<span id="cb39-19"><a></a>        na_values<span class="op">=</span>NA,</span>
+<span id="cb39-20"><a></a>        keep_default_na<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb39-21"><a></a>        encoding<span class="op">=</span><span class="st">"utf-8"</span>,</span>
+<span id="cb39-22"><a></a>    )</span>
+<span id="cb39-23"><a></a></span>
+<span id="cb39-24"><a></a><span class="kw">def</span> write_parquet(df: pd.DataFrame, path: Path) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb39-25"><a></a>    path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb39-26"><a></a>    df.to_parquet(path, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-27"><a></a></span>
+<span id="cb39-28"><a></a><span class="kw">def</span> read_parquet(path: Path) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb39-29"><a></a>    <span class="cf">return</span> pd.read_parquet(path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-6-add-transforms.py-with-enforce_schema-15-minutes" class="slide level2">
+<h2>Task 6 — Add <code>transforms.py</code> with <code>enforce_schema</code> (15 minutes)</h2>
+<p>Create <code>bootcamp_data/transforms.py</code>:</p>
+<ul>
+<li>implement <code>enforce_schema(df) -&gt; df</code></li>
+<li>convert <code>amount</code> and <code>quantity</code> using <code>pd.to_numeric(..., errors="coerce")</code></li>
+<li>normalize <code>status</code> to lowercase</li>
+</ul>
+<p><strong>Checkpoint:</strong> <code>enforce_schema</code> returns <code>Float64</code> / <code>Int64</code> dtypes and cleaned <code>status</code>.</p>
+</section>
+<section id="solution-bootcamp_datatransforms.py-minimal" class="slide level2 smaller">
+<h2>Solution — <code>bootcamp_data/transforms.py</code> (minimal)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb40-2"><a></a></span>
+<span id="cb40-3"><a></a><span class="kw">def</span> enforce_schema(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb40-4"><a></a>    <span class="cf">return</span> df.assign(</span>
+<span id="cb40-5"><a></a>        order_id<span class="op">=</span>df[<span class="st">"order_id"</span>].astype(<span class="st">"string"</span>),</span>
+<span id="cb40-6"><a></a>        user_id<span class="op">=</span>df[<span class="st">"user_id"</span>].astype(<span class="st">"string"</span>),</span>
+<span id="cb40-7"><a></a>        amount<span class="op">=</span>pd.to_numeric(df[<span class="st">"amount"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Float64"</span>),</span>
+<span id="cb40-8"><a></a>        quantity<span class="op">=</span>pd.to_numeric(df[<span class="st">"quantity"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>).astype(<span class="st">"Int64"</span>),</span>
+<span id="cb40-9"><a></a>        status<span class="op">=</span>df[<span class="st">"status"</span>].astype(<span class="st">"string"</span>).<span class="bu">str</span>.strip().<span class="bu">str</span>.lower(),</span>
+<span id="cb40-10"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-7-write-the-day-1-loader-module-20-minutes" class="slide level2">
+<h2>Task 7 — Write the Day 1 loader module (20 minutes)</h2>
+<p>Create <code>scripts/run_day1_load.py</code>:</p>
+<ul>
+<li>compute <code>ROOT</code> (repo root)</li>
+<li>build paths with <code>make_paths(ROOT)</code></li>
+<li>read raw CSVs</li>
+<li>apply <code>enforce_schema</code> to orders</li>
+<li>write Parquet outputs to <code>data/processed/</code></li>
+<li>print or log evidence (row counts + dtypes)</li>
+</ul>
+<p><strong>Checkpoint:</strong> <code>python -m scripts.run_day1_load</code> creates <code>data/processed/orders.parquet</code>.</p>
+</section>
+<section id="hint-compute-the-project-root-robustly" class="slide level2">
+<h2>Hint — compute the project root robustly</h2>
+<p>In <code>scripts/run_day1_load.py</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb41-2"><a></a>ROOT <span class="op">=</span> Path(<span class="va">__file__</span>).resolve().parents[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This works even if you run commands from different folders.</p>
+</section>
+<section id="solution-scriptsrun_day1_load.py" class="slide level2 smaller">
+<h2>Solution — <code>scripts/run_day1_load.py</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb42-2"><a></a><span class="im">import</span> logging</span>
+<span id="cb42-3"><a></a></span>
+<span id="cb42-4"><a></a><span class="im">from</span> bootcamp_data.config <span class="im">import</span> make_paths</span>
+<span id="cb42-5"><a></a><span class="im">from</span> bootcamp_data.io <span class="im">import</span> read_orders_csv, read_users_csv, write_parquet</span>
+<span id="cb42-6"><a></a><span class="im">from</span> bootcamp_data.transforms <span class="im">import</span> enforce_schema</span>
+<span id="cb42-7"><a></a></span>
+<span id="cb42-8"><a></a>log <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="cb42-9"><a></a></span>
+<span id="cb42-10"><a></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb42-11"><a></a>    logging.basicConfig(level<span class="op">=</span>logging.INFO, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(levelname)s</span><span class="st"> </span><span class="sc">%(name)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>)</span>
+<span id="cb42-12"><a></a></span>
+<span id="cb42-13"><a></a>    ROOT <span class="op">=</span> Path(<span class="va">__file__</span>).resolve().parents[<span class="dv">1</span>]</span>
+<span id="cb42-14"><a></a>    p <span class="op">=</span> make_paths(ROOT)</span>
+<span id="cb42-15"><a></a></span>
+<span id="cb42-16"><a></a>    orders <span class="op">=</span> enforce_schema(read_orders_csv(p.raw <span class="op">/</span> <span class="st">"orders.csv"</span>))</span>
+<span id="cb42-17"><a></a>    users <span class="op">=</span> read_users_csv(p.raw <span class="op">/</span> <span class="st">"users.csv"</span>)</span>
+<span id="cb42-18"><a></a></span>
+<span id="cb42-19"><a></a>    log.info(<span class="st">"Loaded rows: orders=</span><span class="sc">%s</span><span class="st"> users=</span><span class="sc">%s</span><span class="st">"</span>, <span class="bu">len</span>(orders), <span class="bu">len</span>(users))</span>
+<span id="cb42-20"><a></a>    log.info(<span class="st">"Orders dtypes:</span><span class="ch">\n</span><span class="sc">%s</span><span class="st">"</span>, orders.dtypes)</span>
+<span id="cb42-21"><a></a></span>
+<span id="cb42-22"><a></a>    write_parquet(orders, p.processed <span class="op">/</span> <span class="st">"orders.parquet"</span>)</span>
+<span id="cb42-23"><a></a>    write_parquet(users, p.processed <span class="op">/</span> <span class="st">"users.parquet"</span>)</span>
+<span id="cb42-24"><a></a></span>
+<span id="cb42-25"><a></a>    log.info(<span class="st">"Wrote processed files to: </span><span class="sc">%s</span><span class="st">"</span>, p.processed)</span>
+<span id="cb42-26"><a></a></span>
+<span id="cb42-27"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb42-28"><a></a>    main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Run it as a module from the repo root:</p>
+<ul>
+<li><code>python -m scripts.run_day1_load</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="task-8-run-verify-outputs-10-minutes" class="slide level2">
+<h2>Task 8 — Run + verify outputs (10 minutes)</h2>
+<p>Run the loader and verify:</p>
+<ul>
+<li>processed files exist</li>
+<li>IDs stayed as strings</li>
+<li>invalid <code>amount</code> became missing</li>
+</ul>
+<p><strong>Checkpoint:</strong> you can load Parquet back into pandas and see expected dtypes.</p>
+</section>
+<section id="solution-run-verify" class="slide level2">
+<h2>Solution — run + verify</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day1_load</span>
+<span id="cb43-2"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders.parquet'); print(df.dtypes); print(df.head())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb44-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day1_load</span></span>
+<span id="cb44-2"><a></a>uv run python <span class="op">-</span>c <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders.parquet'); print(df.dtypes); print(df.head())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="git-checkpoint-5-minutes" class="slide level2">
+<h2>Git checkpoint (5 minutes)</h2>
+<ul>
+<li><code>git status</code></li>
+<li>commit with message: <code>"w2d1: scaffold + typed io + first processed parquet"</code></li>
+<li>push to GitHub</li>
+</ul>
+<p><strong>Checkpoint:</strong> you can see your commit online.</p>
+</section>
+<section id="solution-git-commands" class="slide level2">
+<h2>Solution — git commands</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb45-2"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"w2d1: scaffold + typed io + first processed parquet"</span></span>
+<span id="cb45-3"><a></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb45-4"><a></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>YOUR_REPO_URL<span class="op">&gt;</span></span>
+<span id="cb45-5"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="muted">
+<p>If you already have a remote, skip the <code>git remote add</code> step.</p>
+</div>
+</section>
+<section id="debug-playbook" class="slide level2">
+<h2>Debug playbook</h2>
+<p>When stuck:</p>
+<ol type="1">
+<li>Read the full error (don’t guess)</li>
+<li>Identify: file + line number</li>
+<li>Print/log: <code>ROOT</code>, paths, row counts, <code>df.dtypes</code></li>
+<li>Fix the smallest thing</li>
+<li>Re-run</li>
+</ol>
+<p>Common Day 1 fixes:</p>
+<ul>
+<li>If imports fail: run with <code>python -m ...</code> from repo root</li>
+<li>If modules are missing: install deps in the activated <code>uv</code> environment</li>
+<li>If Parquet write fails: confirm <code>pyarrow</code> installed</li>
+</ul>
+</section>
+<section id="stretch-goals-optional" class="slide level2">
+<h2>Stretch goals (optional)</h2>
+<p>If you finish early:</p>
+<ul>
+<li>create <code>scripts/download_data.py</code> for your <strong>project dataset</strong> (Kaggle / HF / URL)</li>
+<li>write <code>data/processed/_run_meta.json</code> with row counts + output paths</li>
+<li>add a <code>README.md</code> section: “How to run Day 1”</li>
+<li>add one assertion: <code>assert str(orders["user_id"].dtype) == "string"</code></li>
+</ul>
+</section>
+<section id="exit-ticket" class="slide level2">
+<h2>Exit Ticket</h2>
+<p>In 1–2 sentences:</p>
+<p><strong>Why do we keep IDs as strings and prefer Parquet for processed outputs?</strong></p>
+</section>
+<section id="what-to-do-after-class-day-1-assignment" class="slide level2">
+<h2>What to do after class (Day 1 assignment)</h2>
+<p><strong>Due:</strong> before Day 2 starts</p>
+<p>Today’s work becomes the foundation of your <strong>Week 2 data project</strong>.</p>
+<ol type="1">
+<li><p>Pick your <strong>Week 2 project dataset</strong> (Kaggle / HuggingFace / URL).</p></li>
+<li><p>Create / update <code>data/raw/_source_meta.json</code> with:</p>
+<ul>
+<li><code>source</code></li>
+<li><code>dataset_id_or_url</code></li>
+<li><code>downloaded_at_utc</code></li>
+<li><code>raw_snapshot_folder</code></li>
+<li><code>files</code></li>
+</ul></li>
+<li><p>Make the download reproducible:</p>
+<ul>
+<li>Preferred: add <code>scripts/download_data.py</code> (support <strong>at least one</strong> of: Kaggle, HF, URL)</li>
+<li>Minimum: add a README section with exact commands you used</li>
+</ul></li>
+<li><p>Ensure <code>python -m scripts.run_day1_load</code> works from a fresh terminal.</p></li>
+<li><p>Confirm you can create at least <strong>one processed Parquet</strong> file in <code>data/processed/</code>.</p></li>
+<li><p>Push at least <strong>one</strong> commit to GitHub.</p></li>
+</ol>
+<p><strong>Deliverable:</strong> GitHub repo link + evidence of:</p>
+<ul>
+<li><code>data/raw/_source_meta.json</code> (contents)</li>
+<li>a processed Parquet file in <code>data/processed/</code></li>
+<li>the commands/script used to acquire the project dataset</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Commit early. Commit often. Future you will thank you.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Thank You!</h1>
+<div style="width: 300px">
+<img data-src="../assets/sdaia.svg" class="light-content">
+</div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../assets/icon.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Index","icon":"<svg width='1.8rem' viewBox='0 0 24 24'><path d='M5 7h14M5 12h14M5 17h7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>","src":"../index.html"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

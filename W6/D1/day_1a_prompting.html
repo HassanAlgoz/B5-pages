@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../assets/icon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="malfadly@sdaia.gov.sa">
+  <title>AI Pros Bootcamp – Day 1a: Prompting</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2476b6dbe24137c74cb80772f2f63bf0.css">
+  <link rel="stylesheet" href="../../assets/sdaia.scss">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="icon" href="../../assets/icon.svg">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../../assets/anim.svg" data-background-opacity="0.1" class="quarto-title-block center">
+  <h1 class="title">Day 1a: Prompting</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="module-overview" class="slide level2 smaller">
+<h2>Module Overview</h2>
+<p><strong>Session 1: Prompting</strong></p>
+<ul>
+<li><a href="#/llm-output-configuration">LLM fundamentals and output configuration</a></li>
+<li><a href="#/chain-of-thought-cot">Zero-shot, few-shot, and chain-of-thought prompting</a></li>
+<li><a href="#/system-prompting">System, role, and contextual prompting</a></li>
+<li><a href="#/react-reason--act">Advanced techniques: ReAct, step-back, self-consistency</a></li>
+<li><a href="#/code-prompting-writing-code">Code prompting</a></li>
+</ul>
+<p><strong>Session 2: Evaluation and Structured Output</strong></p>
+<ul>
+<li>Structured output and schemas</li>
+<li>Pointwise and pairwise evaluation</li>
+<li>Evaluation methods and best practices</li>
+</ul>
+<aside class="notes">
+<p>Today is split into two sessions. This first session focuses entirely on prompting - the foundation of working with LLMs. We’ll start with understanding how LLMs work, then move through increasingly sophisticated prompting techniques.</p>
+<p>The second session will build on this by showing you how to get structured outputs and evaluate whether your prompts are working well. These two sessions work together: good prompting gets you good outputs, and evaluation tells you if your prompts are actually good.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="session-1-prompting" class="title-slide slide level1 center">
+<h1>Session 1: Prompting</h1>
+
+</section>
+<section id="how-llms-work" class="slide level2">
+<h2>How LLMs Work</h2>
+<p><strong>Prediction engines, not databases</strong></p>
+
+<img data-src="../assets/llm_prediction.png" class="r-stretch quarto-figure-center"><p class="caption">Large language model as a prediction engine showing sequential token prediction process</p><aside class="notes">
+<p>Before we dive into prompting techniques, we need to understand how LLMs actually work. This is crucial because it explains why certain prompting techniques are effective.</p>
+<p>An LLM is a prediction engine. It takes sequential text as input and predicts what the following token should be, based on the data it was trained on. The model does this over and over again, adding the previously predicted token to the end of the sequential text for predicting the following token.</p>
+<p>The next token prediction is based on the relationship between what’s in the previous tokens and what the LLM has seen during its training. This is why context matters so much - the model uses the tokens you provide to predict what comes next.</p>
+<p>When you write a prompt, you are attempting to set up the LLM to predict the right sequence of tokens. Prompt engineering is the process of designing high-quality prompts that guide LLMs to produce accurate outputs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="prompt-engineering-defined" class="slide level2">
+<h2>Prompt Engineering Defined</h2>
+<p><strong>Designing high-quality prompts</strong></p>
+<ul>
+<li>Tinkering to find the best prompt</li>
+<li>Optimizing prompt length</li>
+<li>Evaluating writing style and structure</li>
+<li>Matching prompts to tasks</li>
+</ul>
+<aside class="notes">
+<p>Prompt engineering is the process of designing high-quality prompts that guide LLMs to produce accurate outputs. This process involves several key activities:</p>
+<p>First, tinkering - you’ll try different phrasings, structures, and approaches to find what works best for your specific task. There’s no one-size-fits-all solution.</p>
+<p>Second, optimizing prompt length. Longer prompts aren’t always better - you need to find the right balance between providing enough context and being concise.</p>
+<p>Third, evaluating the writing style and structure in relation to the task. Different tasks require different approaches. A creative writing task needs different prompting than a data extraction task.</p>
+<p>Finally, matching prompts to tasks. Prompts might need to be optimized for your specific model, regardless of whether you use Gemini, GPT, Claude, or an open source model like Gemma or LLaMA.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="llm-output-configuration" class="slide level2">
+<h2>LLM Output Configuration</h2>
+<p><strong>Controlling how the model generates</strong></p>
+<ul>
+<li>Output length</li>
+<li>Temperature</li>
+<li>Top-K</li>
+<li>Top-P</li>
+</ul>
+<aside class="notes">
+<p>Once you choose your model, you need to figure out the model configuration. Most LLMs come with various configuration options that control the LLM’s output. Effective prompt engineering requires setting these configurations optimally for your task.</p>
+<p>These aren’t just technical details - they fundamentally change how the model behaves. Understanding these settings is as important as writing good prompts.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="output-length" class="slide level2 smaller">
+<h2>Output Length</h2>
+<p><strong>Controlling response size</strong></p>
+
+<img data-src="../assets/tokens_and_cost.png" class="r-stretch quarto-figure-center"><p class="caption">Tokens and cost</p><aside class="notes">
+<p>An important configuration setting is the number of tokens to generate in a response. Generating more tokens requires more computation from the LLM, leading to higher energy consumption, potentially slower response times, and higher costs.</p>
+<p>But here’s a crucial point: reducing the output length doesn’t cause the LLM to become more stylistically or textually succinct in the output it creates. It just causes the LLM to stop predicting more tokens once the limit is reached. If your needs require a short output length, you’ll also possibly need to engineer your prompt to accommodate.</p>
+<p>Output length restriction is especially important for some LLM prompting techniques, like ReAct, where the LLM will keep emitting useless tokens after the response you want.</p>
+<p>Be aware: generating more tokens requires more computation, leading to higher energy consumption and potentially slower response times, which leads to higher costs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sampling-controls" class="slide level2 smaller">
+<h2>Sampling Controls</h2>
+<p><strong>How tokens are selected</strong></p>
+
+<img data-src="../assets/temperature_topk_topp.png" class="r-stretch quarto-figure-center"><p class="caption">Temperature, top-K, and top-P</p><ul>
+<li><strong>Temperature</strong>: Control the randomness of the output</li>
+<li><strong>Top-K</strong>: Consider only the K most likely tokens</li>
+<li><strong>Top-P (nucleus sampling)</strong>: Consider tokens whose cumulative probability exceeds P</li>
+</ul>
+<aside class="notes">
+<p>LLMs predict probabilities for what the next token could be, with each token in the vocabulary getting a probability. Those probabilities are then sampled to determine the next produced token.</p>
+<p>This is a key concept: LLMs don’t formally predict a single token. Rather, LLMs predict probabilities for what the next token could be, with each token in the LLM’s vocabulary getting a probability. Those token probabilities are then sampled to determine what the next produced token will be.</p>
+<p>Temperature, top-K, and top-P are the most common configuration settings that determine how predicted token probabilities are processed to choose a single output token. Understanding these helps you control the randomness and creativity of your outputs.</p>
+<p>Top-K and top-P (also known as nucleus sampling) are two sampling settings used in LLMs to restrict the predicted next token candidates.</p>
+<p>Top-K restricts the sampling to only the K most likely tokens. If K is 10, the model only considers the top 10 most probable tokens, ignoring all others. This can help prevent the model from selecting very unlikely tokens.</p>
+<p>Top-P, or nucleus sampling, considers tokens whose cumulative probability exceeds P. So if P is 0.9, the model considers tokens in order of probability until their cumulative probability reaches 90%, then ignores the rest. This is more dynamic than top-K because it adapts to the probability distribution.</p>
+<p>Both methods help control the randomness and quality of outputs by focusing on more likely tokens.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="temperature" class="slide level2 smaller">
+<h2>Temperature</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Controlling randomness</strong></p>
+<ul>
+<li><strong>Low temperature (0)</strong>: Deterministic, highest probability token always selected</li>
+<li><strong>High temperature</strong>: More diverse or unexpected results</li>
+<li><strong>Very high temperature</strong>: All tokens become equally likely</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/temperature_scale.png"></p>
+<figcaption>Temperature scale showing deterministic to random output behavior</figcaption>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>Temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that expect a more deterministic response, while higher temperatures can lead to more diverse or unexpected results.</p>
+<p>A temperature of 0 (greedy decoding) is deterministic: the highest probability token is always selected. Note that if two tokens have the same highest predicted probability, depending on how tiebreaking is implemented you may not always get the same output with temperature 0.</p>
+<p>Temperatures close to the max tend to create more random output. And as temperature gets higher and higher, all tokens become equally likely to be the next predicted token.</p>
+<p>The Gemini temperature control can be understood in a similar way to the softmax function used in machine learning. A low temperature setting mirrors a low softmax temperature, emphasizing a single, preferred temperature with high certainty. A higher Gemini temperature setting is like a high softmax temperature, making a wider range of temperatures around the selected setting more acceptable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="general-prompting-zero-shot" class="slide level2 smaller">
+<h2>General Prompting / Zero-Shot</h2>
+<p><strong>Direct instruction without examples</strong></p>
+
+<img data-src="../assets/01-zero-shot-prompting.png" class="r-stretch quarto-figure-center"><p class="caption">Zero-shot prompting</p><aside class="notes">
+<p>Zero-shot prompting is the simplest form: you just ask the model to do something directly, without showing it any examples first. The model relies entirely on what it learned during training.</p>
+<p>This works well for straightforward tasks that the model has seen many times during training: translation, summarization, classification, and so on. The model has internalized patterns for these tasks.</p>
+<p>Zero-shot prompting is also called “general prompting” because it’s the most general approach - you’re not providing any task-specific examples or structure.</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Translation</li>
+<li>Summarization</li>
+<li>Classification</li>
+<li>Simple Q&amp;A</li>
+</ul>
+<p>However, zero-shot has limits. If the task is ambiguous, or if you need a specific format, or if the model needs to follow a particular style, zero-shot might not be enough. That’s when we move to few-shot.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-shot-few-shot-prompting" class="slide level2">
+<h2>One-Shot &amp; Few-Shot Prompting</h2>
+<p><strong>Instruction + examples</strong></p>
+
+<img data-src="../assets/02-few-shot-prompting.png" class="r-stretch quarto-figure-center"><p class="caption">One-Shot &amp; Few-Shot Prompting</p><aside class="notes">
+<p>Few-shot prompting adds examples to your instruction. You show the model a few examples of the task you want it to perform, then ask it to do the same thing for a new input.</p>
+<p>One-shot is a special case of few-shot with exactly one example. Few-shot typically uses 2-5 examples.</p>
+<p>This is incredibly powerful because it lets you specify exactly what you want without having to describe it in words. Instead of saying “translate to formal Arabic,” you just show a few examples of formal Arabic translations, and the model picks up the pattern.</p>
+<p>What’s happening under the hood? The model is doing pattern recognition. It sees the examples and identifies the pattern: “Oh, I see - for each English phrase, there’s a corresponding Arabic phrase. And the style is formal. And the format is numbered list with arrow.”</p>
+<p>This is why few-shot works so well - it’s showing, not telling. You’re demonstrating the task rather than describing it. And neural networks are excellent at learning from demonstrations.</p>
+<p>But there’s a limit. Too many examples can confuse the model or hit token limits. Usually 2-5 examples is the sweet spot. And the examples need to be representative - if all your examples are simple cases, the model won’t handle complex cases well.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="system-prompting" class="slide level2">
+<h2>System Prompting</h2>
+<p><strong>Persistent context and behavior</strong></p>
+
+<img data-src="../assets/03-system-prompting.png" class="r-stretch quarto-figure-center"><p class="caption">System Prompting</p><aside class="notes">
+<p>System instructions are persistent instructions that apply to the entire conversation. Unlike regular prompts that are specific to one request, system instructions set the overall behavior and context.</p>
+<p>Think of system instructions as the “personality” or “role” of the assistant. You’re telling the model: “For this entire conversation, act like this, follow these rules, use this style.”</p>
+<p>This is essential for building applications. If you’re building a customer service bot, you want it to be polite and helpful in every interaction, not just when you remember to add “be polite” to each prompt. System instructions let you set that once and have it apply everywhere.</p>
+<p>System prompting is different from role prompting - system prompts set general behavior, while role prompts define a specific persona or expertise area.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="role-prompting" class="slide level2">
+<h2>Role Prompting</h2>
+<p><strong>Defining expertise and perspective</strong></p>
+<pre><code>You are a Python programming tutor with 10 years 
+of experience. Explain concepts clearly and 
+provide code examples.</code></pre>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Domain expertise</li>
+<li>Perspective setting</li>
+<li>Style consistency</li>
+</ul>
+<aside class="notes">
+<p>Role prompting defines a specific role, persona, or expertise area for the model. Instead of just setting general behavior, you’re telling the model to act as a specific type of person or expert.</p>
+<p>This is powerful because it leverages the model’s training data about how different roles communicate. A Python tutor will explain things differently than a data science consultant, even for the same topic.</p>
+<p>Role prompting helps with:</p>
+<ul>
+<li>Domain expertise: The model will draw on knowledge patterns associated with that role</li>
+<li>Perspective setting: Different roles have different perspectives</li>
+<li>Style consistency: Roles have consistent communication styles</li>
+</ul>
+<p>The key is being specific. “You are a tutor” is vague. “You are a Python programming tutor with 10 years of experience who specializes in teaching beginners” is much better.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="contextual-prompting" class="slide level2">
+<h2>Contextual Prompting</h2>
+<p><strong>Providing relevant background</strong></p>
+<pre><code>Context: The user is working on a machine learning 
+project using scikit-learn. They have a dataset 
+with 10,000 samples and 50 features.
+
+Question: What preprocessing steps should I take?</code></pre>
+<aside class="notes">
+<p>Contextual prompting provides relevant background information that helps the model understand the situation and provide more appropriate responses.</p>
+<p>This is different from system or role prompting because the context is specific to the current task or conversation, not a persistent setting. You’re providing situational information that helps the model tailor its response.</p>
+<p>Contextual prompting is especially important when:</p>
+<ul>
+<li>The task requires domain-specific knowledge</li>
+<li>The answer depends on specific circumstances</li>
+<li>You want the model to consider multiple factors</li>
+</ul>
+<p>The key is providing relevant context without overwhelming the model. Too much context can confuse the model or dilute the important information. Too little context can lead to generic or inappropriate responses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="step-back-prompting" class="slide level2 smaller">
+<h2>Step-Back Prompting</h2>
+<p><strong>Evoking reasoning via abstraction</strong></p>
+<p>Instead of asking directly, first ask the model to step back and think about the broader principles or concepts.</p>
+
+<img data-src="../assets/step_back_prompting.png" class="r-stretch quarto-figure-center"><p class="caption">Step-back prompting showing abstraction before specific reasoning</p><aside class="notes">
+<p>Step-back prompting is a technique where you first ask the model to step back and think about broader principles or concepts before addressing the specific question. This helps the model reason more effectively by working at a higher level of abstraction first.</p>
+<p>The idea is that by first understanding the general principles, the model can then apply those principles more effectively to the specific problem. This is similar to how humans often solve problems - we think about general strategies before diving into specifics.</p>
+<p>For example, instead of asking “How do I optimize this specific SQL query?”, you might first ask “What are the general principles of SQL query optimization?” and then “Now apply those principles to this specific query.”</p>
+<p>This technique is particularly effective for complex reasoning tasks where the model needs to understand underlying principles before solving the specific problem.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chain-of-thought-cot" class="slide level2">
+<h2>Chain of Thought (CoT)</h2>
+<p><strong>Adding reasoning steps</strong></p>
+
+<img data-src="../assets/chain_of_thought.png" class="r-stretch quarto-figure-center"><p class="caption">Chain of thought prompting showing step-by-step reasoning process</p><aside class="notes">
+<p>Chain-of-thought prompting asks the model to show its reasoning process, step by step. Instead of just giving an answer, the model explains how it got there.</p>
+<p>This is crucial for complex reasoning tasks. Math word problems, logic puzzles, multi-step planning - these all benefit from chain-of-thought because the model is forced to break down the problem into steps, and you can see if those steps make sense.</p>
+<p>But chain-of-thought isn’t just for math. It works for any task that requires reasoning: analyzing a business problem, debugging code, planning a project. When you ask the model to “think step by step,” it often produces better results because it’s not jumping to conclusions.</p>
+<p>Chain-of-thought works because it forces the model to be explicit about its reasoning. Instead of jumping from problem to answer, it has to show the intermediate steps. This often improves accuracy because the model is less likely to make calculation errors when it shows its work.</p>
+<p>For CoT prompting, putting the answer after the reasoning is required because the generation of the reasoning changes the tokens that the model gets when it predicts the final answer. Also, set the temperature to 0 for CoT, as it’s based on greedy decoding.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="self-consistency" class="slide level2">
+<h2>Self-Consistency</h2>
+<p><strong>Multiple reasoning paths</strong></p>
+<p>Generate multiple chain-of-thought reasoning paths, then select the most consistent answer.</p>
+
+<img data-src="../assets/self_consistency.png" class="r-stretch quarto-figure-center"><p class="caption">Self-consistency showing multiple reasoning paths converging on answer</p><aside class="notes">
+<p>Self-consistency is an extension of chain-of-thought prompting. Instead of generating one reasoning path, you generate multiple chain-of-thought reasoning paths, then select the most consistent answer.</p>
+<p>The idea is that if multiple reasoning paths lead to the same answer, that answer is more likely to be correct. This is similar to ensemble methods in machine learning - multiple models often perform better than a single model.</p>
+<p>To use self-consistency:</p>
+<ol type="1">
+<li>Generate multiple chain-of-thought responses (with temperature &gt; 0)</li>
+<li>Extract the final answers from each response</li>
+<li>Select the answer that appears most frequently</li>
+</ol>
+<p>This technique improves accuracy on reasoning tasks because it reduces the impact of errors in individual reasoning paths. If one path makes a mistake but others don’t, the correct answer will still be selected.</p>
+<p>Self-consistency is particularly effective for tasks where there’s a clear right answer, like math problems or factual questions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tree-of-thoughts-tot" class="slide level2">
+<h2>Tree of Thoughts (ToT)</h2>
+<p><strong>Exploring multiple reasoning branches</strong></p>
+<p>Instead of linear reasoning, explore multiple reasoning branches and select the best path.</p>
+
+<img data-src="https://external-content.duckduckgo.com/iu/?u=https://weeklyreport.ai/_astro/cot-vs-tot-logic-flow.DvRx8lKS_ZqU52x.webp&amp;f=1&amp;nofb=1&amp;ipt=8ff6876434178329870bf2d74581d14473697f8570aa4b4f6359562ff6ba164a" class="r-stretch quarto-figure-center"><p class="caption">Tree of thoughts showing branching reasoning exploration</p><aside class="notes">
+<p>Tree of Thoughts (ToT) is an advanced prompting technique that goes beyond chain-of-thought. Instead of following a single linear reasoning path, ToT explores multiple reasoning branches and selects the best path.</p>
+<p>The process works like this:</p>
+<ol type="1">
+<li>Generate multiple possible next steps (thoughts)</li>
+<li>Evaluate each thought</li>
+<li>Select the most promising thoughts to expand</li>
+<li>Repeat until reaching a solution</li>
+</ol>
+<p>This is similar to how humans solve complex problems - we consider multiple approaches, evaluate them, and pursue the most promising ones.</p>
+<p>ToT is particularly useful for:</p>
+<ul>
+<li>Complex planning tasks</li>
+<li>Problems with multiple valid approaches</li>
+<li>Tasks where exploration is beneficial</li>
+</ul>
+<p>However, ToT is more computationally expensive than chain-of-thought because it generates and evaluates multiple reasoning paths. It’s best used for complex problems where the additional exploration is worth the cost.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="react-reason--act" class="slide level2">
+<h2>ReAct (Reason &amp; Act)</h2>
+<p><strong>Synergizing reasoning and acting</strong></p>
+<p>The model alternates between reasoning (thinking) and acting (taking actions like tool use).</p>
+
+<img data-src="../assets/react_pattern.png" class="r-stretch quarto-figure-center"><p class="caption">ReAct pattern showing alternating reasoning and action steps</p><aside class="notes">
+<p>ReAct (Reason &amp; Act) is a prompting technique that synergizes reasoning and acting in language models. The model alternates between reasoning steps (thinking about what to do) and acting steps (taking actions like using tools, searching, or executing code).</p>
+<p>This is particularly powerful for tasks that require:</p>
+<ul>
+<li>Tool use (searching, calculating, executing code)</li>
+<li>Multi-step problem solving</li>
+<li>Dynamic decision making</li>
+</ul>
+<p>The ReAct pattern works like this:</p>
+<ol type="1">
+<li><strong>Reason</strong>: Think about what to do next</li>
+<li><strong>Act</strong>: Take an action (use a tool, search, etc.)</li>
+<li><strong>Observe</strong>: See the result of the action</li>
+<li>Repeat until the task is complete</li>
+</ol>
+<p>This pattern is especially important for agent systems where the model needs to interact with external tools or systems. It allows the model to plan, execute, and adapt based on results.</p>
+<p>Note: For ReAct, output length restriction is especially important because the LLM will keep emitting useless tokens after the response you want if not properly controlled.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="automatic-prompt-engineering" class="slide level2">
+<h2>Automatic Prompt Engineering</h2>
+<p><strong>Using LLMs to improve prompts</strong></p>
+<p>LLMs can be used to automatically generate, refine, and optimize prompts.</p>
+
+<img data-src="../assets/automatic_prompting.png" class="r-stretch quarto-figure-center"><p class="caption">Automatic prompt engineering showing LLM improving its own prompts</p><aside class="notes">
+<p>Automatic Prompt Engineering is a meta-technique: using LLMs to improve prompts. Instead of manually crafting prompts, you can use an LLM to generate, refine, and optimize prompts.</p>
+<p>This works by:</p>
+<ol type="1">
+<li>Providing the LLM with examples of good prompts and their results</li>
+<li>Asking the LLM to generate new prompts for a task</li>
+<li>Testing the generated prompts</li>
+<li>Refining based on results</li>
+</ol>
+<p>This is particularly useful for:</p>
+<ul>
+<li>Finding optimal prompt structures</li>
+<li>Discovering effective phrasings</li>
+<li>Adapting prompts to new tasks</li>
+<li>Scaling prompt engineering efforts</li>
+</ul>
+<p>The key insight is that LLMs have learned patterns about effective communication from their training data, so they can apply those patterns to create better prompts.</p>
+<p>However, automatic prompt engineering still requires human oversight and evaluation. The LLM can suggest improvements, but you need to verify that they actually work better.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="keytakeaways" class="slide level2 smaller">
+<h2>Keytakeaways</h2>
+<p><strong>Your complete toolkit</strong></p>
+<ul>
+<li><strong>Zero-shot</strong>: Simple, well-known tasks</li>
+<li><strong>Few-shot</strong>: Specific formats and styles</li>
+<li><strong>System/Role/Contextual</strong>: Setting behavior and context</li>
+<li><strong>Chain-of-thought</strong>: Complex reasoning</li>
+<li><strong>Self-consistency</strong>: Validating results</li>
+<li><strong>Tree of Thoughts</strong>: Exploring good thought trajectories</li>
+<li><strong>ReAct</strong>: Reasoning with actions</li>
+</ul>
+<aside class="notes">
+<p>Let’s bring it all together. You now have a complete toolkit for prompting:</p>
+<p>Use zero-shot for straightforward tasks that the model knows well. Use few-shot when you need specific formats or styles. Use system, role, and contextual prompting to set behavior and provide background. Use chain-of-thought for complex reasoning problems. Use self-consistency to improve accuracy. Use Tree of Thoughts for exploring multiple reasoning paths. Use ReAct for tasks requiring tool use and dynamic decision making. And use code prompting for all aspects of working with code.</p>
+<p>The key is matching the technique to the task. Don’t overcomplicate simple tasks with advanced techniques, and don’t under-specify complex tasks with basic prompting.</p>
+<p>In the next session, we’ll learn how to evaluate whether your prompts are actually working well, and how to get structured outputs that are easier to work with programmatically.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../../assets/icon.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Index","icon":"<svg width='1.8rem' viewBox='0 0 24 24'><path d='M5 7h14M5 12h14M5 17h7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>","src":"../index.html"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

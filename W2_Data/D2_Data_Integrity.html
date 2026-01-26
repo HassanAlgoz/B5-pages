@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../assets/icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="malfadly@sdaia.gov.sa">
+  <meta name="dcterms.date" content="2025-12-22">
+  <title>AI Pros Bootcamp – W2 D2</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2476b6dbe24137c74cb80772f2f63bf0.css">
+  <link rel="stylesheet" href="../assets/sdaia.scss">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="icon" href="../assets/icon.svg">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../assets/anim.svg" data-background-opacity="0.1" class="quarto-title-block center">
+  <h1 class="title">Data Work (ETL + EDA)</h1>
+  <p class="subtitle">AI Professionals Bootcamp | Week 2</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2025-12-22</p>
+</section>
+<section>
+<section id="day-2-verify-clean-join-first-real-eda" class="title-slide slide level1 center">
+<h1>Day 2: Verify + Clean + Join (first real EDA)</h1>
+<p><strong>Goal:</strong> add <strong>data checks</strong> + safe <strong>joins</strong> so your EDA won’t lie.</p>
+<div class="muted">
+<p>Bootcamp • SDAIA Academy</p>
+</div>
+<aside class="notes">
+<p><strong>Say:</strong> Yesterday we produced typed Parquet. Today we stop trusting data “by vibes”. <strong>Do:</strong> Show the end-state: a validation + report script that writes <code>reports/day2_summary.md</code>. <strong>Ask:</strong> “What’s worse: a pipeline that crashes early, or one that silently gives wrong numbers?”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="todays-flow" class="slide level2">
+<h2>Today’s Flow</h2>
+<ul>
+<li><strong>Session 1 (60m):</strong> Verify — turn assumptions into checks</li>
+<li><em>Asr Prayer (20m)</em></li>
+<li><strong>Session 2 (60m):</strong> Clean — missingness + categories + duplicates</li>
+<li><em>Maghrib Prayer (20m)</em></li>
+<li><strong>Session 3 (60m):</strong> Join + report — safe merges + first EDA summary</li>
+<li><em>Isha Prayer (20m)</em></li>
+<li><strong>Hands-on (120m):</strong> Build <code>checks.py</code> + <code>run_day2_validate_and_report.py</code></li>
+</ul>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<p>By the end of today, you can:</p>
+<ul>
+<li>write lightweight <strong>data quality checks</strong> (columns, non-empty, uniqueness, ranges)</li>
+<li>quantify missingness (<strong>counts + %</strong>) and choose <strong>drop vs flag vs careful impute</strong> (EDA-safe default)</li>
+<li>normalize messy text categories into <code>*_clean</code> columns and dedupe using a <strong>business key rule</strong></li>
+<li>join tables safely with <code>pd.merge(..., validate=...)</code>, detect <strong>join explosions</strong> with row-count checks, and measure <strong>match rate</strong></li>
+<li>produce reproducible artifacts: processed Parquet + quality artifacts (e.g.&nbsp;missingness CSV) + a Markdown summary in <code>reports/</code></li>
+</ul>
+</section>
+<section id="warm-up-5-minutes" class="slide level2">
+<h2>Warm-up (5 minutes)</h2>
+<p>Run Day 1 and confirm Parquet outputs still look typed.</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day1_load</span>
+<span id="cb1-2"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders.parquet'); print(df.dtypes)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day1_load</span></span>
+<span id="cb2-2"><a></a>uv run python <span class="op">-</span>c <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders.parquet'); print(df.dtypes)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> <code>data/processed/orders.parquet</code> exists and <code>user_id</code> is <code>string</code>.</p>
+</section>
+<section id="quick-review-where-we-left-off-day-1" class="slide level2">
+<h2>Quick review: where we left off (Day 1)</h2>
+<ul>
+<li><p>Import-safe project layout (packages + module execution)</p></li>
+<li><p>Typed processed outputs in <code>data/processed/</code> (Parquet preserves dtypes)</p></li>
+<li><p>Canonical workflow:</p>
+<ul>
+<li><strong>Load → Verify → Clean → Transform → Analyze → Visualize → Conclude</strong></li>
+</ul></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Day 1 mostly covered <strong>Load</strong> + “typed I/O”. Today we seriously start <strong>Verify + Clean</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="todays-deliverable-what-youll-commit" class="slide level2">
+<h2>Today’s deliverable (what you’ll commit)</h2>
+<p>A Day 2 pipeline that runs end-to-end from repo root:</p>
+<ul>
+<li><p><code>bootcamp_data/checks.py</code> (small, testable checks)</p></li>
+<li><p>extra helpers in <code>bootcamp_data/transforms.py</code> (flags, normalization, dedupe)</p></li>
+<li><p><code>scripts/run_day2_validate_and_report.py</code> (wire it together)</p></li>
+<li><p>artifacts:</p>
+<ul>
+<li><code>data/processed/orders_clean.parquet</code></li>
+<li><code>data/processed/orders_enriched.parquet</code></li>
+<li><code>reports/day2_missingness_orders.csv</code></li>
+<li><code>reports/day2_summary.md</code> (row counts + duplicates + join match rate + a missingness snapshot)</li>
+</ul></li>
+</ul>
+</section>
+<section id="uv-quick-review-so-commands-are-consistent" class="slide level2">
+<h2><code>uv</code> quick review (so commands are consistent)</h2>
+<ul>
+<li><p>Run inside your project environment:</p>
+<ul>
+<li><code>uv run &lt;command&gt;</code></li>
+</ul></li>
+<li><p>Install a dependency (if we decide we need one):</p>
+<ul>
+<li><code>uv add &lt;package&gt;</code></li>
+</ul></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>We’ll stick to <code>uv run ...</code> so we don’t depend on “did you activate your venv?”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="if-imports-fail-fix-the-root-cause-no-hacks" class="slide level2">
+<h2>If imports fail: fix the root cause (no hacks)</h2>
+<p>If you see:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>ModuleNotFoundError: No module named 'bootcamp_data'</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do this checklist (in order):</p>
+<ol type="1">
+<li><p><strong>Are you in repo root?</strong> (folder that contains <code>bootcamp_data/</code> and <code>scripts/</code>)</p></li>
+<li><p><strong>Are you running as a module?</strong></p>
+<ul>
+<li>✅ <code>uv run python -m scripts.run_day1_load</code></li>
+<li>✅ <code>uv run python -m scripts.run_day2_validate_and_report</code></li>
+</ul></li>
+<li><p>Does <code>bootcamp_data/__init__.py</code> exist?</p></li>
+<li><p>Are you using the right Python?</p></li>
+</ol>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import bootcamp_data; print('import ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a></a>uv run python <span class="op">-</span>c <span class="st">"import bootcamp_data; print('import ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="checkpoint" class="slide level2">
+<h2>Checkpoint</h2>
+<p>Raise your hand when:</p>
+<ul>
+<li>you can run Day 1 using <code>uv run python -m ...</code></li>
+<li>you can explain (in 1 sentence) why we avoid “import hacks”</li>
+</ul>
+<aside class="notes">
+<p>Walk around. Fix 1 common issue: students running from the wrong folder.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="session-1" class="title-slide slide level1 center">
+<h1>Session 1</h1>
+<div class="muted">
+<p>Verify — turn assumptions into checks</p>
+</div>
+</section>
+<section id="session-1-objectives" class="slide level2">
+<h2>Session 1 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li><p>explain “<strong>fail fast</strong>” and why it saves time</p></li>
+<li><p>write checks for:</p>
+<ul>
+<li>required columns</li>
+<li>non-empty datasets</li>
+<li>duplicate keys</li>
+<li>basic numeric ranges</li>
+</ul></li>
+</ul>
+</section>
+<section id="why-data-bugs-are-usually-silent" class="slide level2">
+<h2>Why data bugs are usually silent</h2>
+<p>Bad data rarely crashes your code.</p>
+<p>Instead it produces:</p>
+<ul>
+<li>wrong totals</li>
+<li>wrong joins</li>
+<li>wrong charts</li>
+<li>confident wrong conclusions</li>
+</ul>
+</section>
+<section id="fail-fast-in-one-sentence" class="slide level2">
+<h2>“Fail fast” in one sentence</h2>
+<p>Turn assumptions into <strong>checks</strong> that stop the pipeline with a <strong>clear message</strong>.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>A pipeline that crashes early is annoying. A pipeline that silently lies is dangerous.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="where-checks-live-separation-of-concerns" class="slide level2">
+<h2>Where checks live (separation of concerns)</h2>
+<p>Keep your pipeline debuggable:</p>
+<ul>
+<li><code>bootcamp_data/io.py</code> → read/write</li>
+<li><code>bootcamp_data/transforms.py</code> → transforms (<code>df -&gt; df</code>)</li>
+<li><code>bootcamp_data/checks.py</code> → validations (fail fast)</li>
+<li><code>scripts/...py</code> → thin entrypoints (wires everything together)</li>
+</ul>
+</section>
+<section id="check-1-required-columns" class="slide level2">
+<h2>Check 1 — required columns</h2>
+<p>If a required column is missing, nothing else matters.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="kw">def</span> require_columns(df, cols, <span class="op">*</span>, df_name<span class="op">=</span><span class="st">"df"</span>):</span>
+<span id="cb6-2"><a></a>    missing <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> df.columns]</span>
+<span id="cb6-3"><a></a>    <span class="cf">if</span> missing:</span>
+<span id="cb6-4"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: missing columns </span><span class="sc">{</span>missing<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-break-it-on-purpose-6-minutes" class="slide level2">
+<h2>Micro-exercise: break it on purpose (6 minutes)</h2>
+<ol type="1">
+<li>Load <code>data/processed/orders.parquet</code></li>
+<li>Run <code>require_columns</code> with one fake column (<code>"NOT_A_COL"</code>)</li>
+<li>Confirm the error message names the missing column</li>
+</ol>
+<p><strong>Checkpoint:</strong> you get a clear <code>ValueError</code> that names <code>NOT_A_COL</code>.</p>
+</section>
+<section id="solution-example" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a>orders <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a><span class="kw">def</span> require_columns(df, cols, <span class="op">*</span>, df_name<span class="op">=</span><span class="st">"df"</span>):</span>
+<span id="cb7-6"><a></a>    missing <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> df.columns]</span>
+<span id="cb7-7"><a></a>    <span class="cf">if</span> missing:</span>
+<span id="cb7-8"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: missing columns </span><span class="sc">{</span>missing<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a>require_columns(orders, [<span class="st">"order_id"</span>, <span class="st">"user_id"</span>, <span class="st">"NOT_A_COL"</span>], df_name<span class="op">=</span><span class="st">"orders"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="check-2-non-empty-inputs" class="slide level2">
+<h2>Check 2 — non-empty inputs</h2>
+<p>A surprising number of pipelines produce 0 rows.</p>
+<p>Common reasons:</p>
+<ul>
+<li>wrong file path</li>
+<li>wrong filter</li>
+<li>upstream extract returned nothing</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="kw">def</span> assert_non_empty(df, <span class="op">*</span>, df_name<span class="op">=</span><span class="st">"df"</span>):</span>
+<span id="cb8-2"><a></a>    <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb8-3"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: 0 rows"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-predict-the-failure-4-minutes" class="slide level2">
+<h2>Micro-exercise: predict the failure (4 minutes)</h2>
+<p>You wrote:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>paid <span class="op">=</span> orders[orders[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"paid"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Give <strong>two reasons</strong> <code>paid</code> might be empty even if there are paid orders.</p>
+<p><strong>Checkpoint:</strong> you can name 2 realistic reasons.</p>
+</section>
+<section id="solution-common-reasons" class="slide level2">
+<h2>Solution: common reasons</h2>
+<ul>
+<li>inconsistent casing (<code>"Paid"</code>, <code>"PAID"</code>, <code>"paid"</code>)</li>
+<li>hidden whitespace (<code>"paid "</code>)</li>
+</ul>
+<div class="muted">
+<p>Today we’ll normalize categories and make joins + groupbys safer.</p>
+</div>
+</section>
+<section id="check-3-key-integrity-duplicates" class="slide level2">
+<h2>Check 3 — key integrity (duplicates)</h2>
+<p>Keys connect tables. If keys are wrong, joins lie.</p>
+<p>Fast question:</p>
+<ul>
+<li>“How many duplicate key rows do we have?”</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>dup_rows <span class="op">=</span> df[<span class="st">"order_id"</span>].duplicated(keep<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-2"><a></a>n_dup_rows <span class="op">=</span> <span class="bu">int</span>(dup_rows.<span class="bu">sum</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-measure-duplicate-order-ids-6-minutes" class="slide level2">
+<h2>Micro-exercise: measure duplicate order IDs (6 minutes)</h2>
+<ol type="1">
+<li>Load <code>data/processed/orders.parquet</code></li>
+<li>Compute how many rows have a duplicate <code>order_id</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> you can answer: “duplicates = 0” or “duplicates &gt; 0”.</p>
+</section>
+<section id="solution-example-1" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a>orders <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span>
+<span id="cb11-4"><a></a>dup_rows <span class="op">=</span> orders[<span class="st">"order_id"</span>].duplicated(keep<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-5"><a></a><span class="bu">print</span>(<span class="st">"duplicate rows:"</span>, <span class="bu">int</span>(dup_rows.<span class="bu">sum</span>()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="check-4-range-checks-practical" class="slide level2">
+<h2>Check 4 — range checks (practical)</h2>
+<p>Even after parsing, numbers can be invalid.</p>
+<p>Examples:</p>
+<ul>
+<li><code>amount &gt;= 0</code></li>
+<li><code>quantity &gt;= 0</code></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">def</span> assert_in_range(s, lo<span class="op">=</span><span class="va">None</span>, hi<span class="op">=</span><span class="va">None</span>, name<span class="op">=</span><span class="st">"value"</span>):</span>
+<span id="cb12-2"><a></a>    x <span class="op">=</span> s.dropna()</span>
+<span id="cb12-3"><a></a>    <span class="cf">if</span> lo <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="kw">not</span> (x <span class="op">&gt;=</span> lo).<span class="bu">all</span>():</span>
+<span id="cb12-4"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: below </span><span class="sc">{</span>lo<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-5"><a></a>    <span class="cf">if</span> hi <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="kw">not</span> (x <span class="op">&lt;=</span> hi).<span class="bu">all</span>():</span>
+<span id="cb12-6"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: above </span><span class="sc">{</span>hi<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-check-for-negative-amounts-5-minutes" class="slide level2">
+<h2>Micro-exercise: check for negative amounts (5 minutes)</h2>
+<ol type="1">
+<li>Load <code>orders.parquet</code></li>
+<li>Count how many rows have <code>amount &lt; 0</code> (ignore missing)</li>
+</ol>
+<p><strong>Checkpoint:</strong> you can report <code>n_negative</code>.</p>
+</section>
+<section id="solution-example-2" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a>orders <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span>
+<span id="cb13-4"><a></a>n_negative <span class="op">=</span> <span class="bu">int</span>((orders[<span class="st">"amount"</span>].dropna() <span class="op">&lt;</span> <span class="dv">0</span>).<span class="bu">sum</span>())</span>
+<span id="cb13-5"><a></a><span class="bu">print</span>(<span class="st">"n_negative:"</span>, n_negative)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="session-1-recap" class="slide level2">
+<h2>Session 1 recap</h2>
+<ul>
+<li><p>Checks turn assumptions into <strong>clear, early failures</strong></p></li>
+<li><p>Start with high ROI:</p>
+<ul>
+<li>required columns</li>
+<li>non-empty</li>
+<li>duplicates / key sanity</li>
+<li>numeric ranges</li>
+</ul></li>
+<li><p>Keep checks separate from transforms and I/O</p></li>
+</ul>
+</section></section>
+<section>
+<section id="asr-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Asr break</h1>
+
+</section>
+<section id="minutes" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll quantify missingness and clean without deleting the story.</p>
+</section></section>
+<section>
+<section id="session-2" class="title-slide slide level1 center">
+<h1>Session 2</h1>
+<div class="muted">
+<p>Clean — missingness + categories + duplicates</p>
+</div>
+</section>
+<section id="session-2-objectives" class="slide level2">
+<h2>Session 2 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>measure missingness (counts + %)</li>
+<li>explain why blanket <code>.dropna()</code> is risky</li>
+<li>default to <strong>missingness flags</strong> for EDA</li>
+<li>normalize messy categories into <code>*_clean</code></li>
+<li>apply an explicit dedupe rule (and record what you did)</li>
+</ul>
+</section>
+<section id="missingness-is-a-signal-not-just-a-mess" class="slide level2">
+<h2>Missingness is a signal (not just a mess)</h2>
+<p>Missing values can mean:</p>
+<ul>
+<li>unknown</li>
+<li>not applicable</li>
+<li>upstream bug</li>
+<li>intentionally blank</li>
+</ul>
+<p>Your move: <strong>measure first</strong>, then decide.</p>
+</section>
+<section id="missingness-report-counts" class="slide level2">
+<h2>Missingness report (counts + %)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="kw">def</span> missingness_report(df):</span>
+<span id="cb14-2"><a></a>    n <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb14-3"><a></a>    rep <span class="op">=</span> df.isna().<span class="bu">sum</span>().rename(<span class="st">"n_missing"</span>).to_frame()</span>
+<span id="cb14-4"><a></a>    rep[<span class="st">"p_missing"</span>] <span class="op">=</span> rep[<span class="st">"n_missing"</span>] <span class="op">/</span> (n <span class="cf">if</span> n <span class="cf">else</span> <span class="dv">1</span>)</span>
+<span id="cb14-5"><a></a>    <span class="cf">return</span> rep.sort_values(<span class="st">"p_missing"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-run-the-report-6-minutes" class="slide level2">
+<h2>Micro-exercise: run the report (6 minutes)</h2>
+<ol type="1">
+<li>Load <code>data/processed/orders.parquet</code></li>
+<li>Run <code>missingness_report(orders)</code></li>
+<li>Print the top 5 rows</li>
+</ol>
+<p><strong>Checkpoint:</strong> you can name the most-missing column.</p>
+</section>
+<section id="solution-example-3" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a>orders <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span>
+<span id="cb15-4"><a></a>rep <span class="op">=</span> missingness_report(orders)</span>
+<span id="cb15-5"><a></a><span class="bu">print</span>(rep.head(<span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="decide-drop-vs-impute-vs-flag" class="slide level2">
+<h2>Decide: drop vs impute vs flag</h2>
+<p>A simple rule for analytics/EDA:</p>
+<ul>
+<li><strong>Drop</strong>: only when rows are unusable</li>
+<li><strong>Impute</strong>: only with strong justification</li>
+<li><strong>Flag</strong>: often the best default (<code>*_isna</code>)</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Flags let you analyze “missingness patterns” later.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pattern-add-missingness-flags" class="slide level2">
+<h2>Pattern: add missingness flags</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="kw">def</span> add_missing_flags(df, cols):</span>
+<span id="cb16-2"><a></a>    out <span class="op">=</span> df.copy()</span>
+<span id="cb16-3"><a></a>    <span class="cf">for</span> c <span class="kw">in</span> cols:</span>
+<span id="cb16-4"><a></a>        out[<span class="ss">f"</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">__isna"</span>] <span class="op">=</span> out[c].isna()</span>
+<span id="cb16-5"><a></a>    <span class="cf">return</span> out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-add-flags-5-minutes" class="slide level2">
+<h2>Micro-exercise: add flags (5 minutes)</h2>
+<p>Add flags for:</p>
+<ul>
+<li><code>amount</code></li>
+<li><code>quantity</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> your DataFrame has <code>amount__isna</code> and <code>quantity__isna</code>.</p>
+</section>
+<section id="solution-example-4" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>orders2 <span class="op">=</span> orders.copy()</span>
+<span id="cb17-2"><a></a>orders2[<span class="st">"amount__isna"</span>] <span class="op">=</span> orders2[<span class="st">"amount"</span>].isna()</span>
+<span id="cb17-3"><a></a>orders2[<span class="st">"quantity__isna"</span>] <span class="op">=</span> orders2[<span class="st">"quantity"</span>].isna()</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a><span class="bu">print</span>(orders2[[<span class="st">"amount"</span>, <span class="st">"amount__isna"</span>, <span class="st">"quantity"</span>, <span class="st">"quantity__isna"</span>]].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="text-categories-normalize-map-so-eda-is-consistent" class="slide level2">
+<h2>Text categories: normalize + map (so EDA is consistent)</h2>
+<p>Category columns (like <code>status</code>) can create fake groups:</p>
+<ul>
+<li><code>"Paid"</code>, <code>"PAID"</code>, <code>" paid "</code> become 3 categories</li>
+<li>typos/synonyms (<code>"refunded"</code> vs <code>"refund"</code>) split the story</li>
+</ul>
+<p>Best practice:</p>
+<ul>
+<li>keep the original column</li>
+<li>create a new <code>*_clean</code> column you use for analysis</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">import</span> re</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a>_ws <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>)</span>
+<span id="cb18-4"><a></a>status_norm <span class="op">=</span> (</span>
+<span id="cb18-5"><a></a>    orders[<span class="st">"status"</span>].astype(<span class="st">"string"</span>)</span>
+<span id="cb18-6"><a></a>    .<span class="bu">str</span>.strip()</span>
+<span id="cb18-7"><a></a>    .<span class="bu">str</span>.casefold()</span>
+<span id="cb18-8"><a></a>    .<span class="bu">str</span>.replace(_ws, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-9"><a></a>)</span>
+<span id="cb18-10"><a></a>mapping <span class="op">=</span> {<span class="st">"refunded"</span>: <span class="st">"refund"</span>}</span>
+<span id="cb18-11"><a></a>status_clean <span class="op">=</span> status_norm.<span class="bu">map</span>(<span class="kw">lambda</span> x: mapping.get(x, x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>re.compile(r"\s+")</code> matches <strong>one-or-more whitespace</strong>, so multiple spaces/tabs collapse to one.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="micro-exercise-normalize-map-status-6-minutes" class="slide level2">
+<h2>Micro-exercise: normalize + map <code>status</code> (6 minutes)</h2>
+<ol type="1">
+<li>Print <code>orders["status"].value_counts(dropna=False).head(10)</code></li>
+<li>Create <code>status_norm</code> (trim + casefold + whitespace collapse)</li>
+<li>Add a small mapping (at least one synonym)</li>
+<li>Print counts for the clean version</li>
+</ol>
+<p><strong>Checkpoint:</strong> your “clean” counts look more consistent than the raw counts.</p>
+</section>
+<section id="solution-example-5" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="im">import</span> re</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a>_ws <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a><span class="bu">print</span>(orders[<span class="st">"status"</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>))</span>
+<span id="cb19-6"><a></a></span>
+<span id="cb19-7"><a></a>status_norm <span class="op">=</span> (</span>
+<span id="cb19-8"><a></a>    orders[<span class="st">"status"</span>].astype(<span class="st">"string"</span>).<span class="bu">str</span>.strip().<span class="bu">str</span>.casefold().<span class="bu">str</span>.replace(_ws, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-9"><a></a>)</span>
+<span id="cb19-10"><a></a>mapping <span class="op">=</span> {<span class="st">"refunded"</span>: <span class="st">"refund"</span>}</span>
+<span id="cb19-11"><a></a>status_clean <span class="op">=</span> status_norm.<span class="bu">map</span>(<span class="kw">lambda</span> x: mapping.get(x, x))</span>
+<span id="cb19-12"><a></a></span>
+<span id="cb19-13"><a></a><span class="bu">print</span>(status_clean.value_counts(dropna<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="duplicates-decide-on-a-rule-dont-guess" class="slide level2">
+<h2>Duplicates: decide on a rule (don’t guess)</h2>
+<p>Not all duplicates are exact row duplicates.</p>
+<p>First choose a <strong>business key</strong>, then choose a <strong>keep rule</strong>.</p>
+<p>Common keep rules:</p>
+<ul>
+<li>keep the last record you saw (simple, explicit)</li>
+<li>keep the latest by a reliable timestamp (better, but requires parsing)</li>
+</ul>
+</section>
+<section id="pattern-dedupe-by-key-keep-last" class="slide level2">
+<h2>Pattern: dedupe by key (keep last)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a><span class="kw">def</span> dedupe_keep_last(df: pd.DataFrame, key_cols: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb20-4"><a></a>    <span class="cf">return</span> df.drop_duplicates(subset<span class="op">=</span>key_cols, keep<span class="op">=</span><span class="st">"last"</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-dedupe-and-check-uniqueness-6-minutes" class="slide level2">
+<h2>Micro-exercise: dedupe and check uniqueness (6 minutes)</h2>
+<ol type="1">
+<li>If <code>order_id</code> duplicates exist, create a deduped DataFrame</li>
+<li>Verify it has no duplicate <code>order_id</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> <code>deduped["order_id"].duplicated().sum() == 0</code>.</p>
+</section>
+<section id="solution-example-6" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>orders <span class="op">=</span> pd.read_parquet(<span class="st">"data/processed/orders.parquet"</span>)</span>
+<span id="cb21-4"><a></a>deduped <span class="op">=</span> orders.drop_duplicates(subset<span class="op">=</span>[<span class="st">"order_id"</span>], keep<span class="op">=</span><span class="st">"last"</span>)</span>
+<span id="cb21-5"><a></a><span class="bu">print</span>(<span class="st">"dup after:"</span>, <span class="bu">int</span>(deduped[<span class="st">"order_id"</span>].duplicated().<span class="bu">sum</span>()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="session-2-recap" class="slide level2">
+<h2>Session 2 recap</h2>
+<ul>
+<li>Missingness: measure → decide (drop/impute/flag)</li>
+<li>Flags are a safe EDA default</li>
+<li>Normalize categories into <code>*_clean</code> before groupby</li>
+<li>Dedupe requires a business key + an explicit keep rule</li>
+</ul>
+</section></section>
+<section>
+<section id="maghrib-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Maghrib break</h1>
+
+</section>
+<section id="minutes-1" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll join orders to users safely and write our first Day 2 report.</p>
+</section></section>
+<section>
+<section id="session-3" class="title-slide slide level1 center">
+<h1>Session 3</h1>
+<div class="muted">
+<p>Join + report — safe merges + first EDA summary</p>
+</div>
+</section>
+<section id="session-3-objectives" class="slide level2">
+<h2>Session 3 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>explain common join failures (dtype mismatch, missing keys, duplicate keys → <strong>join explosions</strong>)</li>
+<li>join with <code>pd.merge(..., validate=...)</code> and add a simple <strong>row-count sanity check</strong></li>
+<li>measure join coverage with <code>indicator=True</code> (match rate)</li>
+<li>write a minimal Markdown report you can trust (so EDA is reproducible)</li>
+</ul>
+</section>
+<section id="joins-can-silently-lie" class="slide level2">
+<h2>Joins can silently lie</h2>
+<p>A join usually <strong>doesn’t crash</strong>. It just changes your row count.</p>
+<p>Watch for:</p>
+<ul>
+<li>unexpected row increases</li>
+<li>lots of missing values after the join</li>
+<li>groupbys that look “too good to be true”</li>
+</ul>
+</section>
+<section id="join-pitfall-1-dtype-mismatch" class="slide level2">
+<h2>Join pitfall #1 — dtype mismatch</h2>
+<p>If <code>orders.user_id</code> is a string but <code>users.user_id</code> is an int, you can get:</p>
+<ul>
+<li>a join that matches almost nothing</li>
+<li>lots of missing <code>country</code> (or other user fields)</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Enforce key dtypes early, then merge.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pd.merge...-validate...-your-safety-belt" class="slide level2">
+<h2><code>pd.merge(..., validate=...)</code> (your safety belt)</h2>
+<p><code>validate=</code> tells pandas what join cardinality you expect:</p>
+<ul>
+<li><code>"one_to_one"</code></li>
+<li><code>"one_to_many"</code></li>
+<li><code>"many_to_one"</code></li>
+<li><code>"many_to_many"</code> (no protection)</li>
+</ul>
+<p>For <strong>orders → users</strong>:</p>
+<ul>
+<li>many orders per user</li>
+<li>one user row per user</li>
+</ul>
+<p>So we expect: <code>validate="many_to_one"</code>.</p>
+</section>
+<section id="micro-exercise-choose-the-right-validate-4-minutes" class="slide level2">
+<h2>Micro-exercise: choose the right <code>validate</code> (4 minutes)</h2>
+<p>You are joining:</p>
+<ul>
+<li><code>orders</code> (many rows per <code>user_id</code>)</li>
+<li><code>users</code> (one row per <code>user_id</code>)</li>
+</ul>
+<p>What should you use?</p>
+<ol type="A">
+<li><code>one_to_one</code></li>
+<li><code>many_to_one</code></li>
+<li><code>many_to_many</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> choose A/B/C and explain in 1 sentence.</p>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<p><strong>B) <code>many_to_one</code></strong> — many orders map to one user.</p>
+</section>
+<section id="measure-join-coverage-with-indicatortrue" class="slide level2">
+<h2>Measure join coverage with <code>indicator=True</code></h2>
+<p>Use <code>indicator=True</code> to see whether each row matched:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>out <span class="op">=</span> orders.merge(users, on<span class="op">=</span><span class="st">"user_id"</span>, how<span class="op">=</span><span class="st">"left"</span>, validate<span class="op">=</span><span class="st">"many_to_one"</span>, indicator<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-2"><a></a><span class="bu">print</span>(out[<span class="st">"_merge"</span>].value_counts())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-compute-the-match-rate-7-minutes" class="slide level2">
+<h2>Micro-exercise: compute the match rate (7 minutes)</h2>
+<ol type="1">
+<li><p>After the merge, compute:</p>
+<ul>
+<li><code>n_total</code></li>
+<li><code>n_matched</code> (<code>_merge == "both"</code>)</li>
+<li><code>match_rate = n_matched / n_total</code></li>
+</ul></li>
+</ol>
+<p><strong>Checkpoint:</strong> you can print <code>match_rate</code> as a %.</p>
+</section>
+<section id="solution-example-7" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>n_total <span class="op">=</span> <span class="bu">len</span>(out)</span>
+<span id="cb23-2"><a></a>n_matched <span class="op">=</span> <span class="bu">int</span>((out[<span class="st">"_merge"</span>] <span class="op">==</span> <span class="st">"both"</span>).<span class="bu">sum</span>())</span>
+<span id="cb23-3"><a></a><span class="bu">print</span>(<span class="ss">f"match_rate: </span><span class="sc">{</span>n_matched <span class="op">/</span> n_total<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="join-pitfall-2-duplicate-keys-on-the-one-side" class="slide level2">
+<h2>Join pitfall #2 — duplicate keys on the “one” side</h2>
+<p>If <code>users.user_id</code> is not unique, your merge can <strong>multiply rows</strong>.</p>
+<p>Two ways to catch it:</p>
+<ul>
+<li>pre-check uniqueness (<code>assert_unique_key(users, "user_id")</code>)</li>
+<li>merge with <code>validate="many_to_one"</code> (it will raise)</li>
+</ul>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> If <code>pd.merge(..., validate="many_to_one")</code> raises, what’s the most likely cause?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> the right table (users) has duplicate <code>user_id</code> values.</p>
+</div>
+</section>
+<section id="join-explosion-demo-how-totals-get-inflated" class="slide level2">
+<h2>Join explosion demo — how totals get inflated</h2>
+<p>A join can change your row count <strong>without errors</strong>.</p>
+<p><strong>Bad outcome:</strong> your aggregates (revenue, counts) become wrong.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a>orders <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb24-4"><a></a>    {<span class="st">"order_id"</span>: [<span class="st">"o1"</span>, <span class="st">"o2"</span>], <span class="st">"user_id"</span>: [<span class="st">"u1"</span>, <span class="st">"u1"</span>], <span class="st">"amount"</span>: [<span class="dv">10</span>, <span class="dv">20</span>]}</span>
+<span id="cb24-5"><a></a>)</span>
+<span id="cb24-6"><a></a></span>
+<span id="cb24-7"><a></a><span class="co"># </span><span class="al">BUG</span><span class="co">: users should be unique by user_id, but it's not</span></span>
+<span id="cb24-8"><a></a>users <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb24-9"><a></a>    {<span class="st">"user_id"</span>: [<span class="st">"u1"</span>, <span class="st">"u1"</span>], <span class="st">"country"</span>: [<span class="st">"SA"</span>, <span class="st">"SA"</span>]}</span>
+<span id="cb24-10"><a></a>)</span>
+<span id="cb24-11"><a></a></span>
+<span id="cb24-12"><a></a>out <span class="op">=</span> orders.merge(users, on<span class="op">=</span><span class="st">"user_id"</span>, how<span class="op">=</span><span class="st">"left"</span>)  <span class="co"># no validate!</span></span>
+<span id="cb24-13"><a></a><span class="bu">print</span>(<span class="st">"rows:"</span>, <span class="bu">len</span>(orders), <span class="st">"→"</span>, <span class="bu">len</span>(out))</span>
+<span id="cb24-14"><a></a><span class="bu">print</span>(<span class="st">"revenue before:"</span>, orders[<span class="st">"amount"</span>].<span class="bu">sum</span>())</span>
+<span id="cb24-15"><a></a><span class="bu">print</span>(<span class="st">"revenue after :"</span>, out[<span class="st">"amount"</span>].<span class="bu">sum</span>())  <span class="co"># inflated</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Fix:</strong> enforce uniqueness and use <code>validate=...</code> + row-count checks.</p>
+</section>
+<section id="join-safety-checklist-operational" class="slide level2">
+<h2>Join safety checklist (operational)</h2>
+<p>Before the merge:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">join keys exist on both tables</label></li>
+<li><label><input type="checkbox">keys have the same dtype (<code>string</code> vs <code>int</code> is a common bug)</label></li>
+<li><label><input type="checkbox">the “one” side is unique (<code>assert_unique_key</code>)</label></li>
+<li><label><input type="checkbox">you chose join type intentionally (<code>left</code> vs <code>inner</code>)</label></li>
+</ul>
+<p>During the merge:</p>
+<ul>
+<li>use <code>validate=...</code>, <code>suffixes=...</code>, <code>indicator=True</code></li>
+</ul>
+<p>After the merge:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">row count matches expectation (left join: <code>len(out) == len(left)</code>)</label></li>
+<li><label><input type="checkbox">match rate is reasonable (and you can explain low coverage)</label></li>
+<li><label><input type="checkbox">new columns aren’t mysteriously mostly null</label></li>
+</ul>
+</section>
+<section id="reporting-why-write-a-markdown-report" class="slide level2">
+<h2>Reporting: why write a Markdown report?</h2>
+<p>A report is an artifact you can:</p>
+<ul>
+<li>review offline</li>
+<li>diff in Git</li>
+<li>share with a teammate</li>
+<li>rerun tomorrow and compare</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If it matters, write it to <code>reports/</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pattern-build-small-markdown-tables-week-1-skill" class="slide level2">
+<h2>Pattern: build small Markdown tables (Week 1 skill)</h2>
+<p>Use Week 1 tools (f-strings + <code>str.join</code>) to render tables without extra libraries.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="kw">def</span> md_table(headers, rows):</span>
+<span id="cb25-2"><a></a>    lines <span class="op">=</span> []</span>
+<span id="cb25-3"><a></a>    lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join(headers) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb25-4"><a></a>    lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join([<span class="st">"---"</span>] <span class="op">*</span> <span class="bu">len</span>(headers)) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb25-5"><a></a>    <span class="cf">for</span> row <span class="kw">in</span> rows:</span>
+<span id="cb25-6"><a></a>        lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join(<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> row) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb25-7"><a></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(lines)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-one-table-for-the-report-8-minutes" class="slide level2">
+<h2>Micro-exercise: one table for the report (8 minutes)</h2>
+<p>Create a “Top 5 countries by revenue” table.</p>
+<ol type="1">
+<li>Group by <code>country</code></li>
+<li>Sum <code>amount</code></li>
+<li>Take top 5</li>
+<li>Render with <code>md_table(...)</code></li>
+</ol>
+<p><strong>Checkpoint:</strong> you have a Markdown table string you can print.</p>
+</section>
+<section id="solution-example-8" class="slide level2">
+<h2>Solution (example)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>by_country <span class="op">=</span> (</span>
+<span id="cb26-2"><a></a>    orders_enriched.groupby(<span class="st">"country"</span>, dropna<span class="op">=</span><span class="va">False</span>)[<span class="st">"amount"</span>]</span>
+<span id="cb26-3"><a></a>    .<span class="bu">sum</span>(min_count<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-4"><a></a>    .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb26-5"><a></a>    .head(<span class="dv">5</span>)</span>
+<span id="cb26-6"><a></a>)</span>
+<span id="cb26-7"><a></a>rows <span class="op">=</span> [(c, <span class="ss">f"</span><span class="sc">{</span>v<span class="sc">:.2f}</span><span class="ss">"</span> <span class="cf">if</span> v <span class="op">==</span> v <span class="cf">else</span> <span class="st">"NA"</span>) <span class="cf">for</span> c, v <span class="kw">in</span> by_country.items()]</span>
+<span id="cb26-8"><a></a><span class="bu">print</span>(md_table([<span class="st">"country"</span>, <span class="st">"revenue"</span>], rows))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="session-3-recap" class="slide level2">
+<h2>Session 3 recap</h2>
+<ul>
+<li>Use <code>validate=</code> so merges fail when cardinality assumptions break</li>
+<li>Use <code>indicator=True</code> to measure match coverage</li>
+<li>Write a small report you can trust (and re-run)</li>
+</ul>
+</section></section>
+<section>
+<section id="isha-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Isha break</h1>
+
+</section>
+<section id="minutes-2" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll implement Day 2 as committed code + artifacts.</p>
+</section></section>
+<section>
+<section id="hands-on" class="title-slide slide level1 center">
+<h1>Hands-on</h1>
+<div class="muted">
+<p>Build: validations + cleaning + join + a Day 2 report</p>
+</div>
+</section>
+<section id="hands-on-success-criteria-today" class="slide level2">
+<h2>Hands-on success criteria (today)</h2>
+<p>By the end, you should have:</p>
+<ul>
+<li><p><code>bootcamp_data/checks.py</code> with reusable validations</p></li>
+<li><p>updates to <code>bootcamp_data/transforms.py</code> (flags, normalization, dedupe)</p></li>
+<li><p>a runnable entrypoint: <code>uv run python -m scripts.run_day2_validate_and_report</code></p></li>
+<li><p>artifacts:</p>
+<ul>
+<li><code>data/processed/orders_clean.parquet</code></li>
+<li><code>data/processed/orders_enriched.parquet</code></li>
+<li><code>reports/day2_missingness_orders.csv</code></li>
+<li><code>reports/day2_summary.md</code></li>
+</ul></li>
+<li><p>at least one commit pushed to GitHub</p></li>
+</ul>
+</section>
+<section id="project-layout-what-you-add-today" class="slide level2">
+<h2>Project layout (what you add today)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb27-1"><a></a>bootcamp_data/</span>
+<span id="cb27-2"><a></a>  __init__.py</span>
+<span id="cb27-3"><a></a>  config.py</span>
+<span id="cb27-4"><a></a>  io.py</span>
+<span id="cb27-5"><a></a>  transforms.py            # add helpers</span>
+<span id="cb27-6"><a></a>  checks.py                # NEW</span>
+<span id="cb27-7"><a></a>scripts/</span>
+<span id="cb27-8"><a></a>  __init__.py</span>
+<span id="cb27-9"><a></a>  run_day1_load.py</span>
+<span id="cb27-10"><a></a>  run_day2_validate_and_report.py   # NEW</span>
+<span id="cb27-11"><a></a>reports/</span>
+<span id="cb27-12"><a></a>  day2_summary.md</span>
+<span id="cb27-13"><a></a>data/</span>
+<span id="cb27-14"><a></a>  raw/</span>
+<span id="cb27-15"><a></a>  processed/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vibe-coding-safe-version" class="slide level2">
+<h2>Vibe coding (safe version)</h2>
+<ol type="1">
+<li>Write the plan in 5 bullets (no code yet)</li>
+<li>Implement the smallest piece</li>
+<li>Run → break → read error → fix</li>
+<li>Commit</li>
+<li>Repeat</li>
+</ol>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Do not ask GenAI to write your solution code. Ask it to explain concepts or errors.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-1-create-bootcamp_datachecks.py-20-minutes" class="slide level2">
+<h2>Task 1 — Create <code>bootcamp_data/checks.py</code> (20 minutes)</h2>
+<p>Create a new module with these functions:</p>
+<ul>
+<li><code>require_columns(df, cols, *, df_name="df")</code></li>
+<li><code>assert_non_empty(df, *, df_name="df")</code></li>
+<li><code>missingness_report(df) -&gt; DataFrame</code> (counts + %)</li>
+<li><code>assert_unique_key(df, key, *, allow_na=False, df_name="df")</code></li>
+<li><code>assert_in_range(s, lo=None, hi=None, name="value")</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> you can import everything.</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"from bootcamp_data.checks import require_columns, assert_non_empty, missingness_report, assert_unique_key, assert_in_range; print('checks import: ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb29-1"><a></a>uv run python <span class="op">-</span>c <span class="st">"from bootcamp_data.checks import require_columns, assert_non_empty, missingness_report, assert_unique_key, assert_in_range; print('checks import: ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="hint-keep-checks-readable" class="slide level2">
+<h2>Hint — keep checks readable</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Prefer small functions + clear error messages.</p>
+<p>If you can’t explain the check in one sentence, it’s too complicated (for now).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-bootcamp_datachecks.py-part-1" class="slide level2">
+<h2>Solution — <code>bootcamp_data/checks.py</code> (part 1)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-2"><a></a></span>
+<span id="cb30-3"><a></a><span class="kw">def</span> require_columns(df: pd.DataFrame, cols: <span class="bu">list</span>[<span class="bu">str</span>], <span class="op">*</span>, df_name: <span class="bu">str</span> <span class="op">=</span> <span class="st">"df"</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb30-4"><a></a>    missing <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cols <span class="cf">if</span> c <span class="kw">not</span> <span class="kw">in</span> df.columns]</span>
+<span id="cb30-5"><a></a>    <span class="cf">if</span> missing:</span>
+<span id="cb30-6"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: missing columns </span><span class="sc">{</span>missing<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-7"><a></a></span>
+<span id="cb30-8"><a></a><span class="kw">def</span> assert_non_empty(df: pd.DataFrame, <span class="op">*</span>, df_name: <span class="bu">str</span> <span class="op">=</span> <span class="st">"df"</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb30-9"><a></a>    <span class="cf">if</span> <span class="bu">len</span>(df) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb30-10"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">: 0 rows"</span>)</span>
+<span id="cb30-11"><a></a></span>
+<span id="cb30-12"><a></a><span class="kw">def</span> missingness_report(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb30-13"><a></a>    n <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb30-14"><a></a>    rep <span class="op">=</span> df.isna().<span class="bu">sum</span>().rename(<span class="st">"n_missing"</span>).to_frame()</span>
+<span id="cb30-15"><a></a>    rep[<span class="st">"p_missing"</span>] <span class="op">=</span> rep[<span class="st">"n_missing"</span>] <span class="op">/</span> (n <span class="cf">if</span> n <span class="cf">else</span> <span class="dv">1</span>)</span>
+<span id="cb30-16"><a></a>    <span class="cf">return</span> rep.sort_values(<span class="st">"p_missing"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-bootcamp_datachecks.py-part-2" class="slide level2">
+<h2>Solution — <code>bootcamp_data/checks.py</code> (part 2)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a></a></span>
+<span id="cb31-3"><a></a><span class="kw">def</span> assert_unique_key(</span>
+<span id="cb31-4"><a></a>    df: pd.DataFrame,</span>
+<span id="cb31-5"><a></a>    key: <span class="bu">str</span>,</span>
+<span id="cb31-6"><a></a>    <span class="op">*</span>,</span>
+<span id="cb31-7"><a></a>    allow_na: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb31-8"><a></a>    df_name: <span class="bu">str</span> <span class="op">=</span> <span class="st">"df"</span>,</span>
+<span id="cb31-9"><a></a>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb31-10"><a></a>    s <span class="op">=</span> df[key]</span>
+<span id="cb31-11"><a></a>    <span class="cf">if</span> (<span class="kw">not</span> allow_na) <span class="kw">and</span> (<span class="kw">not</span> s.notna().<span class="bu">all</span>()):</span>
+<span id="cb31-12"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: contains NA"</span>)</span>
+<span id="cb31-13"><a></a>    dup <span class="op">=</span> s.dropna().duplicated(keep<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-14"><a></a>    <span class="cf">if</span> dup.<span class="bu">any</span>():</span>
+<span id="cb31-15"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>df_name<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: not unique"</span>)</span>
+<span id="cb31-16"><a></a></span>
+<span id="cb31-17"><a></a><span class="kw">def</span> assert_in_range(s: pd.Series, lo<span class="op">=</span><span class="va">None</span>, hi<span class="op">=</span><span class="va">None</span>, name: <span class="bu">str</span> <span class="op">=</span> <span class="st">"value"</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb31-18"><a></a>    x <span class="op">=</span> s.dropna()</span>
+<span id="cb31-19"><a></a>    <span class="cf">if</span> lo <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="kw">not</span> (x <span class="op">&gt;=</span> lo).<span class="bu">all</span>():</span>
+<span id="cb31-20"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: below </span><span class="sc">{</span>lo<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb31-21"><a></a>    <span class="cf">if</span> hi <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="kw">not</span> (x <span class="op">&lt;=</span> hi).<span class="bu">all</span>():</span>
+<span id="cb31-22"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: above </span><span class="sc">{</span>hi<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-2-add-helpers-to-bootcamp_datatransforms.py-20-minutes" class="slide level2">
+<h2>Task 2 — Add helpers to <code>bootcamp_data/transforms.py</code> (20 minutes)</h2>
+<p>Append these helper functions below your existing <code>enforce_schema</code>:</p>
+<ul>
+<li><code>add_missing_flags(df, cols) -&gt; df</code></li>
+<li><code>normalize_text(series) -&gt; series</code></li>
+<li><code>apply_mapping(series, mapping) -&gt; series</code></li>
+<li><code>dedupe_keep_last(df, key_cols) -&gt; df</code></li>
+</ul>
+<p><strong>Checkpoint:</strong> you can import them.</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"from bootcamp_data.transforms import add_missing_flags, normalize_text, apply_mapping, dedupe_keep_last; print('transforms helpers: ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb33-1"><a></a>uv run python <span class="op">-</span>c <span class="st">"from bootcamp_data.transforms import add_missing_flags, normalize_text, apply_mapping, dedupe_keep_last; print('transforms helpers: ok')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-helpers-in-bootcamp_datatransforms.py" class="slide level2">
+<h2>Solution — helpers in <code>bootcamp_data/transforms.py</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="im">import</span> re</span>
+<span id="cb34-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb34-3"><a></a></span>
+<span id="cb34-4"><a></a>_ws <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>)</span>
+<span id="cb34-5"><a></a></span>
+<span id="cb34-6"><a></a><span class="kw">def</span> add_missing_flags(df: pd.DataFrame, cols: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb34-7"><a></a>    out <span class="op">=</span> df.copy()</span>
+<span id="cb34-8"><a></a>    <span class="cf">for</span> c <span class="kw">in</span> cols:</span>
+<span id="cb34-9"><a></a>        out[<span class="ss">f"</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">__isna"</span>] <span class="op">=</span> out[c].isna()</span>
+<span id="cb34-10"><a></a>    <span class="cf">return</span> out</span>
+<span id="cb34-11"><a></a></span>
+<span id="cb34-12"><a></a><span class="kw">def</span> normalize_text(s: pd.Series) <span class="op">-&gt;</span> pd.Series:</span>
+<span id="cb34-13"><a></a>    <span class="cf">return</span> s.astype(<span class="st">"string"</span>).<span class="bu">str</span>.strip().<span class="bu">str</span>.casefold().<span class="bu">str</span>.replace(_ws, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb34-14"><a></a></span>
+<span id="cb34-15"><a></a><span class="kw">def</span> apply_mapping(s: pd.Series, mapping: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">str</span>]) <span class="op">-&gt;</span> pd.Series:</span>
+<span id="cb34-16"><a></a>    <span class="cf">return</span> s.<span class="bu">map</span>(<span class="kw">lambda</span> x: mapping.get(x, x))</span>
+<span id="cb34-17"><a></a></span>
+<span id="cb34-18"><a></a><span class="kw">def</span> dedupe_keep_last(df: pd.DataFrame, key_cols: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb34-19"><a></a>    <span class="cf">return</span> df.drop_duplicates(subset<span class="op">=</span>key_cols, keep<span class="op">=</span><span class="st">"last"</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-3-create-scriptsrun_day2_validate_and_report.py-40-minutes" class="slide level2">
+<h2>Task 3 — Create <code>scripts/run_day2_validate_and_report.py</code> (40 minutes)</h2>
+<p>Write a Day 2 entrypoint that:</p>
+<ol type="1">
+<li><p>loads raw CSVs (orders + users)</p></li>
+<li><p>runs fast checks (required columns + non-empty)</p></li>
+<li><p>enforces schema for orders</p></li>
+<li><p>writes a missingness CSV report in <code>reports/</code></p></li>
+<li><p>cleans orders:</p>
+<ul>
+<li><code>status_clean</code> (normalize + mapping)</li>
+<li>missing flags (<code>amount</code>, <code>quantity</code>)</li>
+<li>dedupe by <code>order_id</code> (keep last)</li>
+</ul></li>
+<li><p>runs post-clean checks (unique <code>order_id</code>, non-negative amount/quantity)</p></li>
+<li><p>joins to users with <code>validate="many_to_one"</code> + <code>indicator=True</code></p></li>
+<li><p>writes:</p>
+<ul>
+<li><code>orders_clean.parquet</code></li>
+<li><code>orders_enriched.parquet</code></li>
+<li><code>reports/day2_missingness_orders.csv</code></li>
+<li><code>reports/day2_summary.md</code></li>
+</ul></li>
+</ol>
+<p><strong>Checkpoint:</strong> script runs from repo root:</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day2_validate_and_report</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb36-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day2_validate_and_report</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="hint-a-good-order-of-operations" class="slide level2">
+<h2>Hint — a good order of operations</h2>
+<ul>
+<li>Validate fast things first (columns + non-empty)</li>
+<li>Enforce types early (so joins don’t fail on dtype mismatch)</li>
+<li>Clean + dedupe</li>
+<li>Validate invariants (uniqueness, ranges)</li>
+<li>Join with <code>validate=</code> + <code>indicator=</code></li>
+<li>Write artifacts (Parquet + report)</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Do not “fix” data by deleting everything. Measure first. Keep your actions explicit.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-18-imports-setup" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (1/8): imports + setup</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb37-1" class="hljs-ln-code"><a></a><span class="im">import</span> logging</span>
+<span id="cb37-2" class="hljs-ln-code"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb37-3" class="hljs-ln-code"><a></a></span>
+<span id="cb37-4" class="hljs-ln-code"><a></a><span class="im">from</span> bootcamp_data.config <span class="im">import</span> make_paths</span>
+<span id="cb37-5" class="hljs-ln-code"><a></a><span class="im">from</span> bootcamp_data.io <span class="im">import</span> read_orders_csv, read_users_csv, write_parquet</span>
+<span id="cb37-6" class="hljs-ln-code"><a></a><span class="im">from</span> bootcamp_data.checks <span class="im">import</span> (</span>
+<span id="cb37-7" class="hljs-ln-code"><a></a>    require_columns,</span>
+<span id="cb37-8" class="hljs-ln-code"><a></a>    assert_non_empty,</span>
+<span id="cb37-9" class="hljs-ln-code"><a></a>    missingness_report,</span>
+<span id="cb37-10" class="hljs-ln-code"><a></a>    assert_unique_key,</span>
+<span id="cb37-11" class="hljs-ln-code"><a></a>    assert_in_range,</span>
+<span id="cb37-12" class="hljs-ln-code"><a></a>)</span>
+<span id="cb37-13" class="hljs-ln-code"><a></a><span class="im">from</span> bootcamp_data.transforms <span class="im">import</span> (</span>
+<span id="cb37-14" class="hljs-ln-code"><a></a>    enforce_schema,</span>
+<span id="cb37-15" class="hljs-ln-code"><a></a>    add_missing_flags,</span>
+<span id="cb37-16" class="hljs-ln-code"><a></a>    normalize_text,</span>
+<span id="cb37-17" class="hljs-ln-code"><a></a>    apply_mapping,</span>
+<span id="cb37-18" class="hljs-ln-code"><a></a>    dedupe_keep_last,</span>
+<span id="cb37-19" class="hljs-ln-code"><a></a>)</span>
+<span id="cb37-20" class="hljs-ln-code"><a></a></span>
+<span id="cb37-21" class="hljs-ln-code"><a></a>log <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="cb37-22" class="hljs-ln-code"><a></a>ROOT <span class="op">=</span> Path(<span class="va">__file__</span>).resolve().parents[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-28-helpers-main" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (2/8): helpers + main()</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb38-1" class="hljs-ln-code"><a></a><span class="kw">def</span> md_table(headers, rows) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb38-2" class="hljs-ln-code"><a></a>    lines <span class="op">=</span> []</span>
+<span id="cb38-3" class="hljs-ln-code"><a></a>    lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join(headers) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb38-4" class="hljs-ln-code"><a></a>    lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join([<span class="st">"---"</span>] <span class="op">*</span> <span class="bu">len</span>(headers)) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb38-5" class="hljs-ln-code"><a></a>    <span class="cf">for</span> row <span class="kw">in</span> rows:</span>
+<span id="cb38-6" class="hljs-ln-code"><a></a>        lines.append(<span class="st">"| "</span> <span class="op">+</span> <span class="st">" | "</span>.join(<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> row) <span class="op">+</span> <span class="st">" |"</span>)</span>
+<span id="cb38-7" class="hljs-ln-code"><a></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(lines)</span>
+<span id="cb38-8" class="hljs-ln-code"><a></a></span>
+<span id="cb38-9" class="hljs-ln-code"><a></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb38-10" class="hljs-ln-code"><a></a>    logging.basicConfig(level<span class="op">=</span>logging.INFO, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(levelname)s</span><span class="st"> </span><span class="sc">%(name)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>)</span>
+<span id="cb38-11" class="hljs-ln-code"><a></a>    p <span class="op">=</span> make_paths(ROOT)</span>
+<span id="cb38-12" class="hljs-ln-code"><a></a>    reports_dir <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"reports"</span></span>
+<span id="cb38-13" class="hljs-ln-code"><a></a>    reports_dir.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-14" class="hljs-ln-code"><a></a>    <span class="co"># (See the next slides for the body of `main()`.)</span></span>
+<span id="cb38-15" class="hljs-ln-code"><a></a></span>
+<span id="cb38-16" class="hljs-ln-code"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb38-17" class="hljs-ln-code"><a></a>    main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-38-load-fast-checks" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (3/8): load + fast checks</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb39-1" class="hljs-ln-code"><a></a>    log.info(<span class="st">"Load raw inputs"</span>)</span>
+<span id="cb39-2" class="hljs-ln-code"><a></a>    orders_raw <span class="op">=</span> read_orders_csv(p.raw <span class="op">/</span> <span class="st">"orders.csv"</span>)</span>
+<span id="cb39-3" class="hljs-ln-code"><a></a>    users <span class="op">=</span> read_users_csv(p.raw <span class="op">/</span> <span class="st">"users.csv"</span>)</span>
+<span id="cb39-4" class="hljs-ln-code"><a></a></span>
+<span id="cb39-5" class="hljs-ln-code"><a></a>    require_columns(</span>
+<span id="cb39-6" class="hljs-ln-code"><a></a>        orders_raw,</span>
+<span id="cb39-7" class="hljs-ln-code"><a></a>        [<span class="st">"order_id"</span>, <span class="st">"user_id"</span>, <span class="st">"amount"</span>, <span class="st">"quantity"</span>, <span class="st">"created_at"</span>, <span class="st">"status"</span>],</span>
+<span id="cb39-8" class="hljs-ln-code"><a></a>        df_name<span class="op">=</span><span class="st">"orders_raw"</span>,</span>
+<span id="cb39-9" class="hljs-ln-code"><a></a>    )</span>
+<span id="cb39-10" class="hljs-ln-code"><a></a>    require_columns(users, [<span class="st">"user_id"</span>, <span class="st">"country"</span>, <span class="st">"signup_date"</span>], df_name<span class="op">=</span><span class="st">"users"</span>)</span>
+<span id="cb39-11" class="hljs-ln-code"><a></a>    assert_non_empty(orders_raw, df_name<span class="op">=</span><span class="st">"orders_raw"</span>)</span>
+<span id="cb39-12" class="hljs-ln-code"><a></a>    assert_non_empty(users, df_name<span class="op">=</span><span class="st">"users"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-48-schema-missingness-artifact" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (4/8): schema + missingness artifact</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb40-1" class="hljs-ln-code"><a></a>    orders <span class="op">=</span> enforce_schema(orders_raw)</span>
+<span id="cb40-2" class="hljs-ln-code"><a></a>    users[<span class="st">"user_id"</span>] <span class="op">=</span> users[<span class="st">"user_id"</span>].astype(<span class="st">"string"</span>)</span>
+<span id="cb40-3" class="hljs-ln-code"><a></a></span>
+<span id="cb40-4" class="hljs-ln-code"><a></a>    rep <span class="op">=</span> missingness_report(orders)</span>
+<span id="cb40-5" class="hljs-ln-code"><a></a>    rep_path <span class="op">=</span> reports_dir <span class="op">/</span> <span class="st">"day2_missingness_orders.csv"</span></span>
+<span id="cb40-6" class="hljs-ln-code"><a></a>    rep.to_csv(rep_path, index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb40-7" class="hljs-ln-code"><a></a>    log.info(<span class="st">"Wrote missingness report: </span><span class="sc">%s</span><span class="st">"</span>, rep_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-58-clean-post-checks" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (5/8): clean + post-checks</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb41-1" class="hljs-ln-code"><a></a>    status_norm <span class="op">=</span> normalize_text(orders[<span class="st">"status"</span>])</span>
+<span id="cb41-2" class="hljs-ln-code"><a></a>    mapping <span class="op">=</span> {<span class="st">"paid"</span>: <span class="st">"paid"</span>, <span class="st">"refund"</span>: <span class="st">"refund"</span>, <span class="st">"refunded"</span>: <span class="st">"refund"</span>}</span>
+<span id="cb41-3" class="hljs-ln-code"><a></a></span>
+<span id="cb41-4" class="hljs-ln-code"><a></a>    orders_clean <span class="op">=</span> (</span>
+<span id="cb41-5" class="hljs-ln-code"><a></a>        orders.assign(status_clean<span class="op">=</span>apply_mapping(status_norm, mapping))</span>
+<span id="cb41-6" class="hljs-ln-code"><a></a>        .pipe(add_missing_flags, cols<span class="op">=</span>[<span class="st">"amount"</span>, <span class="st">"quantity"</span>])</span>
+<span id="cb41-7" class="hljs-ln-code"><a></a>        .pipe(dedupe_keep_last, key_cols<span class="op">=</span>[<span class="st">"order_id"</span>])</span>
+<span id="cb41-8" class="hljs-ln-code"><a></a>    )</span>
+<span id="cb41-9" class="hljs-ln-code"><a></a></span>
+<span id="cb41-10" class="hljs-ln-code"><a></a>    assert_unique_key(orders_clean, <span class="st">"order_id"</span>, df_name<span class="op">=</span><span class="st">"orders_clean"</span>)</span>
+<span id="cb41-11" class="hljs-ln-code"><a></a>    assert_in_range(orders_clean[<span class="st">"amount"</span>], lo<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"amount"</span>)</span>
+<span id="cb41-12" class="hljs-ln-code"><a></a>    assert_in_range(orders_clean[<span class="st">"quantity"</span>], lo<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"quantity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-68-safe-join-metrics" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (6/8): safe join + metrics</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb42-1" class="hljs-ln-code"><a></a>    assert_unique_key(users, <span class="st">"user_id"</span>, df_name<span class="op">=</span><span class="st">"users"</span>)</span>
+<span id="cb42-2" class="hljs-ln-code"><a></a></span>
+<span id="cb42-3" class="hljs-ln-code"><a></a>    orders_enriched <span class="op">=</span> orders_clean.merge(</span>
+<span id="cb42-4" class="hljs-ln-code"><a></a>        users[[<span class="st">"user_id"</span>, <span class="st">"country"</span>]],</span>
+<span id="cb42-5" class="hljs-ln-code"><a></a>        on<span class="op">=</span><span class="st">"user_id"</span>,</span>
+<span id="cb42-6" class="hljs-ln-code"><a></a>        how<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb42-7" class="hljs-ln-code"><a></a>        validate<span class="op">=</span><span class="st">"many_to_one"</span>,</span>
+<span id="cb42-8" class="hljs-ln-code"><a></a>        indicator<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb42-9" class="hljs-ln-code"><a></a>    )</span>
+<span id="cb42-10" class="hljs-ln-code"><a></a>    orders_enriched[<span class="st">"user_found"</span>] <span class="op">=</span> orders_enriched[<span class="st">"_merge"</span>] <span class="op">==</span> <span class="st">"both"</span></span>
+<span id="cb42-11" class="hljs-ln-code"><a></a>    orders_enriched <span class="op">=</span> orders_enriched.drop(columns<span class="op">=</span>[<span class="st">"_merge"</span>])</span>
+<span id="cb42-12" class="hljs-ln-code"><a></a></span>
+<span id="cb42-13" class="hljs-ln-code"><a></a>    n_total <span class="op">=</span> <span class="bu">len</span>(orders_enriched)</span>
+<span id="cb42-14" class="hljs-ln-code"><a></a>    n_matched <span class="op">=</span> <span class="bu">int</span>(orders_enriched[<span class="st">"user_found"</span>].<span class="bu">sum</span>())</span>
+<span id="cb42-15" class="hljs-ln-code"><a></a>    total_revenue <span class="op">=</span> orders_clean[<span class="st">"amount"</span>].<span class="bu">sum</span>(min_count<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-78-build-the-report" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (7/8): build the report</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb43-1" class="hljs-ln-code"><a></a>    <span class="co"># quick missingness snapshot (top 10 columns)</span></span>
+<span id="cb43-2" class="hljs-ln-code"><a></a>    top_missing <span class="op">=</span> (</span>
+<span id="cb43-3" class="hljs-ln-code"><a></a>        rep.head(<span class="dv">10</span>)</span>
+<span id="cb43-4" class="hljs-ln-code"><a></a>          .reset_index()</span>
+<span id="cb43-5" class="hljs-ln-code"><a></a>          .rename(columns<span class="op">=</span>{<span class="st">"index"</span>: <span class="st">"column"</span>})</span>
+<span id="cb43-6" class="hljs-ln-code"><a></a>    )</span>
+<span id="cb43-7" class="hljs-ln-code"><a></a>    missing_rows <span class="op">=</span> [</span>
+<span id="cb43-8" class="hljs-ln-code"><a></a>        (r[<span class="st">"column"</span>], <span class="bu">int</span>(r[<span class="st">"n_missing"</span>]), <span class="ss">f"</span><span class="sc">{</span>r[<span class="st">'p_missing'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
+<span id="cb43-9" class="hljs-ln-code"><a></a>        <span class="cf">for</span> _, r <span class="kw">in</span> top_missing.iterrows()</span>
+<span id="cb43-10" class="hljs-ln-code"><a></a>    ]</span>
+<span id="cb43-11" class="hljs-ln-code"><a></a></span>
+<span id="cb43-12" class="hljs-ln-code"><a></a>    <span class="co"># duplicates snapshot (before dedupe)</span></span>
+<span id="cb43-13" class="hljs-ln-code"><a></a>    n_dup_rows <span class="op">=</span> <span class="bu">int</span>(orders[<span class="st">"order_id"</span>].duplicated(keep<span class="op">=</span><span class="va">False</span>).<span class="bu">sum</span>())</span>
+<span id="cb43-14" class="hljs-ln-code"><a></a>    n_removed_by_dedupe <span class="op">=</span> <span class="bu">len</span>(orders) <span class="op">-</span> <span class="bu">len</span>(orders_clean)</span>
+<span id="cb43-15" class="hljs-ln-code"><a></a></span>
+<span id="cb43-16" class="hljs-ln-code"><a></a>    <span class="co"># revenue by country (matched users only)</span></span>
+<span id="cb43-17" class="hljs-ln-code"><a></a>    by_country <span class="op">=</span> (</span>
+<span id="cb43-18" class="hljs-ln-code"><a></a>        orders_enriched.loc[orders_enriched[<span class="st">"user_found"</span>]]</span>
+<span id="cb43-19" class="hljs-ln-code"><a></a>        .groupby(<span class="st">"country"</span>, dropna<span class="op">=</span><span class="va">False</span>)[<span class="st">"amount"</span>]</span>
+<span id="cb43-20" class="hljs-ln-code"><a></a>        .<span class="bu">sum</span>(min_count<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb43-21" class="hljs-ln-code"><a></a>        .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb43-22" class="hljs-ln-code"><a></a>        .head(<span class="dv">10</span>)</span>
+<span id="cb43-23" class="hljs-ln-code"><a></a>    )</span>
+<span id="cb43-24" class="hljs-ln-code"><a></a>    country_rows <span class="op">=</span> [</span>
+<span id="cb43-25" class="hljs-ln-code"><a></a>        (c <span class="cf">if</span> c <span class="op">==</span> c <span class="cf">else</span> <span class="st">"(missing)"</span>, <span class="ss">f"</span><span class="sc">{</span>v<span class="sc">:.2f}</span><span class="ss">"</span> <span class="cf">if</span> v <span class="op">==</span> v <span class="cf">else</span> <span class="st">"NA"</span>)</span>
+<span id="cb43-26" class="hljs-ln-code"><a></a>        <span class="cf">for</span> c, v <span class="kw">in</span> by_country.items()</span>
+<span id="cb43-27" class="hljs-ln-code"><a></a>    ]</span>
+<span id="cb43-28" class="hljs-ln-code"><a></a></span>
+<span id="cb43-29" class="hljs-ln-code"><a></a>    out_path <span class="op">=</span> reports_dir <span class="op">/</span> <span class="st">"day2_summary.md"</span></span>
+<span id="cb43-30" class="hljs-ln-code"><a></a>    report <span class="op">=</span> []</span>
+<span id="cb43-31" class="hljs-ln-code"><a></a>    report.append(<span class="st">"# Day 2 summary"</span>)</span>
+<span id="cb43-32" class="hljs-ln-code"><a></a>    report.append(<span class="st">""</span>)</span>
+<span id="cb43-33" class="hljs-ln-code"><a></a>    report.append(<span class="st">"## Data checks"</span>)</span>
+<span id="cb43-34" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- orders_raw rows: **</span><span class="sc">{</span><span class="bu">len</span>(orders_raw)<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-35" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- orders (typed) rows: **</span><span class="sc">{</span><span class="bu">len</span>(orders)<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-36" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- orders_clean rows: **</span><span class="sc">{</span><span class="bu">len</span>(orders_clean)<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-37" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- orders_enriched rows: **</span><span class="sc">{</span><span class="bu">len</span>(orders_enriched)<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-38" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- duplicate `order_id` rows (pre-dedupe): **</span><span class="sc">{</span>n_dup_rows<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-39" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- rows removed by dedupe: **</span><span class="sc">{</span>n_removed_by_dedupe<span class="sc">}</span><span class="ss">**"</span>)</span>
+<span id="cb43-40" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- join match rate: **</span><span class="sc">{</span>n_matched <span class="op">/</span> n_total<span class="sc">:.1%}</span><span class="ss">** (</span><span class="sc">{</span>n_matched<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>n_total<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb43-41" class="hljs-ln-code"><a></a>    report.append(<span class="ss">f"- missingness report: `</span><span class="sc">{</span>rep_path<span class="sc">}</span><span class="ss">`"</span>)</span>
+<span id="cb43-42" class="hljs-ln-code"><a></a></span>
+<span id="cb43-43" class="hljs-ln-code"><a></a>    <span class="cf">if</span> total_revenue <span class="op">==</span> total_revenue:</span>
+<span id="cb43-44" class="hljs-ln-code"><a></a>        report.append(<span class="ss">f"- total revenue (clean): **</span><span class="sc">{</span><span class="bu">float</span>(total_revenue)<span class="sc">:.2f}</span><span class="ss">**"</span>)</span>
+<span id="cb43-45" class="hljs-ln-code"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb43-46" class="hljs-ln-code"><a></a>        report.append(<span class="st">"- total revenue (clean): **NA**"</span>)</span>
+<span id="cb43-47" class="hljs-ln-code"><a></a></span>
+<span id="cb43-48" class="hljs-ln-code"><a></a>    report.append(<span class="st">""</span>)</span>
+<span id="cb43-49" class="hljs-ln-code"><a></a>    report.append(<span class="st">"## Missingness snapshot (top 10 columns)"</span>)</span>
+<span id="cb43-50" class="hljs-ln-code"><a></a>    report.append(md_table([<span class="st">"column"</span>, <span class="st">"n_missing"</span>, <span class="st">"p_missing"</span>], missing_rows))</span>
+<span id="cb43-51" class="hljs-ln-code"><a></a>    report.append(<span class="st">""</span>)</span>
+<span id="cb43-52" class="hljs-ln-code"><a></a>    report.append(<span class="st">"## Top countries by revenue (matched users only)"</span>)</span>
+<span id="cb43-53" class="hljs-ln-code"><a></a>    report.append(md_table([<span class="st">"country"</span>, <span class="st">"revenue"</span>], country_rows))</span>
+<span id="cb43-54" class="hljs-ln-code"><a></a>    report.append(<span class="st">""</span>)</span>
+<span id="cb43-55" class="hljs-ln-code"><a></a>    out_path.write_text(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(report), encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="solution-scriptsrun_day2_validate_and_report.py-88-write-outputs" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Solution — <code>scripts/run_day2_validate_and_report.py</code> (8/8): write outputs</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb44-1" class="hljs-ln-code"><a></a>    write_parquet(orders_clean, p.processed <span class="op">/</span> <span class="st">"orders_clean.parquet"</span>)</span>
+<span id="cb44-2" class="hljs-ln-code"><a></a>    write_parquet(orders_enriched, p.processed <span class="op">/</span> <span class="st">"orders_enriched.parquet"</span>)</span>
+<span id="cb44-3" class="hljs-ln-code"><a></a>    write_parquet(users, p.processed <span class="op">/</span> <span class="st">"users.parquet"</span>)</span>
+<span id="cb44-4" class="hljs-ln-code"><a></a></span>
+<span id="cb44-5" class="hljs-ln-code"><a></a>    log.info(<span class="st">"Wrote processed outputs: </span><span class="sc">%s</span><span class="st">"</span>, p.processed)</span>
+<span id="cb44-6" class="hljs-ln-code"><a></a>    log.info(<span class="st">"Wrote report: </span><span class="sc">%s</span><span class="st">"</span>, out_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-4-run-verify-artifacts-15-minutes" class="slide level2">
+<h2>Task 4 — Run + verify artifacts (15 minutes)</h2>
+<p>Run Day 2 and verify outputs exist.</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day2_validate_and_report</span>
+<span id="cb45-2"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders_enriched.parquet'); print(df[['status_clean','amount__isna','quantity__isna','user_found']].head())"</span></span>
+<span id="cb45-3"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import pandas as pd; print(pd.read_csv('reports/day2_missingness_orders.csv').head())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb46-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day2_validate_and_report</span></span>
+<span id="cb46-2"><a></a>uv run python <span class="op">-</span>c <span class="st">"import pandas as pd; df=pd.read_parquet('data/processed/orders_enriched.parquet'); print(df[['status_clean','amount__isna','quantity__isna','user_found']].head())"</span></span>
+<span id="cb46-3"><a></a>uv run python <span class="op">-</span>c <span class="st">"import pandas as pd; print(pd.read_csv('reports/day2_missingness_orders.csv').head())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> you have:</p>
+<ul>
+<li><code>data/processed/orders_clean.parquet</code></li>
+<li><code>data/processed/orders_enriched.parquet</code></li>
+<li><code>reports/day2_missingness_orders.csv</code></li>
+<li><code>reports/day2_summary.md</code></li>
+</ul>
+</section>
+<section id="git-checkpoint-5-minutes" class="slide level2">
+<h2>Git checkpoint (5 minutes)</h2>
+<ul>
+<li><code>git status</code></li>
+<li>commit with message: <code>"w2d2: validate + clean + join + report"</code></li>
+<li>push to GitHub</li>
+</ul>
+<p><strong>Checkpoint:</strong> repo shows your new commit online.</p>
+</section>
+<section id="solution-git-commands" class="slide level2">
+<h2>Solution — git commands</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb47-2"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"w2d2: validate + clean + join + report"</span></span>
+<span id="cb47-3"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb48-1"><a></a>git add <span class="op">-</span>A</span>
+<span id="cb48-2"><a></a>git commit <span class="op">-</span>m <span class="st">"w2d2: validate + clean + join + report"</span></span>
+<span id="cb48-3"><a></a>git push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debug-playbook-day-2" class="slide level2">
+<h2>Debug playbook (Day 2)</h2>
+<p>When something fails:</p>
+<ol type="1">
+<li><p>Confirm you’re in repo root (<code>ls</code> should show <code>bootcamp_data/</code> and <code>scripts/</code>)</p></li>
+<li><p>Re-run the exact command: <code>uv run python -m scripts.run_day2_validate_and_report</code></p></li>
+<li><p>Print key facts:</p>
+<ul>
+<li><code>df.shape</code>, <code>df.dtypes</code>, <code>df.head()</code></li>
+</ul></li>
+<li><p>If merge fails:</p>
+<ul>
+<li>check key dtypes match</li>
+<li>check uniqueness on the “one” side (<code>users.user_id</code>)</li>
+</ul></li>
+<li><p>If a check fails:</p>
+<ul>
+<li>don’t delete data; <strong>inspect the failing rows</strong> and decide a rule</li>
+</ul></li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Most bugs are “my assumption about format was wrong.” Make the assumption explicit, then measure.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="stretch-goals-optional" class="slide level2">
+<h2>Stretch goals (optional)</h2>
+<p>If you finish early:</p>
+<ul>
+<li>Add a “Top 10 statuses” table to the report (<code>status_clean</code> counts)</li>
+<li>Add a “Top 5 missing columns” table to the report (from <code>missingness_report</code>)</li>
+<li>Add <code>user_found == False</code> count to the report (unmatched users)</li>
+<li>Add a second report file: <code>reports/day2_checks.md</code> (what checks ran + what they asserted)</li>
+</ul>
+</section>
+<section id="exit-ticket" class="slide level2">
+<h2>Exit Ticket</h2>
+<p>In 1–2 sentences:</p>
+<p><strong>What does <code>validate="many_to_one"</code> protect you from, and what problem does <code>indicator=True</code> help you measure?</strong></p>
+</section>
+<section id="what-to-do-after-class-day-2-assignment" class="slide level2 smaller">
+<h2>What to do after class (Day 2 assignment)</h2>
+<p><strong>Due:</strong> before Day 3 starts</p>
+<ol type="1">
+<li><p>Make sure these commands work from a fresh terminal (repo root):</p>
+<ul>
+<li><code>uv run python -m scripts.run_day1_load</code></li>
+<li><code>uv run python -m scripts.run_day2_validate_and_report</code></li>
+</ul></li>
+<li><p>Push your changes to GitHub</p></li>
+<li><p>Confirm these artifacts exist in your repo:</p>
+<ul>
+<li><code>bootcamp_data/checks.py</code></li>
+<li><code>data/processed/orders_clean.parquet</code></li>
+<li><code>data/processed/orders_enriched.parquet</code></li>
+<li><code>reports/day2_missingness_orders.csv</code></li>
+<li><code>reports/day2_summary.md</code> (row counts + duplicates + missingness snapshot + join match rate)</li>
+</ul></li>
+<li><p>Add <strong>one dataset-specific check</strong> (an invariant you believe should always hold) and include the result in <code>reports/day2_summary.md</code>.</p>
+<ul>
+<li>Example ideas: <code>status_clean</code> is in an allowed set; a high-percentile cap is reasonable; key columns aren’t missing above X%; etc. <strong>Deliverable:</strong> GitHub repo link + screenshot of <code>reports/day2_summary.md</code> opened.</li>
+</ul></li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Add 1–2 commits with clear messages. Don’t wait until the end of the week.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Thank You!</h1>
+<div style="width: 300px">
+<img data-src="../assets/sdaia.svg" class="light-content">
+</div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../assets/icon.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Index","icon":"<svg width='1.8rem' viewBox='0 0 24 24'><path d='M5 7h14M5 12h14M5 17h7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>","src":"../index.html"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../assets/icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="malfadly@sdaia.gov.sa">
+  <meta name="dcterms.date" content="2025-12-24">
+  <title>AI Pros Bootcamp – W2 D4</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2476b6dbe24137c74cb80772f2f63bf0.css">
+  <link rel="stylesheet" href="../assets/sdaia.scss">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="icon" href="../assets/icon.svg">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../assets/anim.svg" data-background-opacity="0.1" class="quarto-title-block center">
+  <h1 class="title">Data Work (ETL + EDA)</h1>
+  <p class="subtitle">AI Professionals Bootcamp | Week 2</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2025-12-24</p>
+</section>
+<section>
+<section id="day-4-eda-with-plotly-chart-choice-uncertainty" class="title-slide slide level1 center">
+<h1>Day 4: EDA with Plotly — Chart Choice + Uncertainty</h1>
+<p><strong>Goal:</strong> ship a clean <strong>EDA notebook</strong> + <strong>exported figures</strong> + a short <strong>written summary</strong> (offline‑first, reproducible).</p>
+<div class="muted">
+<p>Bootcamp • SDAIA Academy</p>
+</div>
+<aside class="notes">
+<p>Connect to Week 1: you can ship scripts, CLIs, and Streamlit apps. Connect to Week 2 so far: Day 2 gave us trusted processed data, Day 3 gave us datetime/outlier hygiene. Today: turn analysis into artifacts a teammate can review: notebook + figures + summary with caveats. Emphasize: chart choice is a skill. Plotly is the one chart tool for this week.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="todays-flow" class="slide level2">
+<h2>Today’s Flow</h2>
+<ul>
+<li><strong>Session 1 (60m):</strong> Chart choice (data‑to‑viz thinking) + notebook workflow rules</li>
+<li><em>Asr Prayer (20m)</em></li>
+<li><strong>Session 2 (60m):</strong> Plotly Express patterns + exporting figures (HTML/PNG)</li>
+<li><em>Maghrib Prayer (20m)</em></li>
+<li><strong>Session 3 (60m):</strong> Comparison thinking + bootstrap uncertainty + writing the summary</li>
+<li><em>Isha Prayer (20m)</em></li>
+<li><strong>Hands-on (120m):</strong> Build <code>notebooks/day4_eda.ipynb</code> + export figures + write <code>reports/summary.md</code></li>
+</ul>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<p>By the end of today, you can:</p>
+<ul>
+<li>choose an appropriate visualization based on <strong>question + data types</strong> (data-to-viz style)</li>
+<li>use <strong>Plotly Express</strong> as your one plotting library (and customize labels/layout)</li>
+<li>export interactive figures to <code>reports/figures/*.html</code> (offline-friendly)</li>
+<li>answer 3–6 concrete questions with <strong>tables + charts + short interpretations</strong></li>
+<li>compute a practical uncertainty estimate using a <strong>bootstrap interval</strong></li>
+<li>ship a readable <code>reports/summary.md</code> with findings + definitions + caveats</li>
+</ul>
+</section>
+<section id="warm-up-5-minutes-verify-inputs-exist" class="slide level2">
+<h2>Warm-up (5 minutes): verify inputs exist</h2>
+<p>Day 4 EDA reads from <strong>processed</strong> data (not raw).</p>
+<p>From repo root:</p>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day2_validate_and_report</span>
+<span id="cb1-2"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"from pathlib import Path; print(Path('data/processed/orders_enriched.parquet').exists())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day2_validate_and_report</span></span>
+<span id="cb2-2"><a></a>uv run python <span class="op">-</span>c <span class="st">"from pathlib import Path; print(Path('data/processed/orders_enriched.parquet').exists())"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> prints <code>True</code>.</p>
+</section>
+<section id="warm-up-5-minutes-verify-plotly-is-available" class="slide level2">
+<h2>Warm-up (5 minutes): verify Plotly is available</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">uv</span> run python <span class="at">-c</span> <span class="st">"import plotly; print('plotly ok', plotly.__version__)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a></a>uv run python <span class="op">-</span>c <span class="st">"import plotly; print('plotly ok', plotly.__version__)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If this fails, install Plotly now (required today):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">uv</span> add plotly</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="quick-review-week-2-so-far" class="slide level2">
+<h2>Quick review: Week 2 so far</h2>
+<ul>
+<li><strong>Day 1:</strong> scaffold + typed I/O + offline-first data layout</li>
+<li><strong>Day 2:</strong> checks + cleaning + safe join → <code>orders_enriched.parquet</code></li>
+<li><strong>Day 3:</strong> datetimes + outliers (flag/cap), EDA helpers (tables)</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Today is the “EDA handoff”: the notebook answers questions and the repo contains exported figures + a written summary.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="todays-end-state-what-you-will-commit" class="slide level2">
+<h2>Today’s end state (what you will commit)</h2>
+<ul>
+<li><code>notebooks/day4_eda.ipynb</code> (reads from <code>data/processed/</code>)</li>
+<li><code>reports/figures/</code> with <strong>3–6 Plotly exports</strong> (<code>.html</code> required; <code>.png</code> optional)</li>
+<li><code>reports/summary.md</code> (findings + definitions + caveats)</li>
+<li><code>data/processed/orders_features.parquet</code> (analysis-ready; built once, reused)</li>
+</ul>
+</section></section>
+<section>
+<section id="session-1" class="title-slide slide level1 center">
+<h1>Session 1</h1>
+<div class="muted">
+<p>Chart choice (data‑to‑viz thinking) + notebook workflow rules</p>
+</div>
+</section>
+<section id="session-1-objectives" class="slide level2">
+<h2>Session 1 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>map a question → a chart type</li>
+<li>recognize your variable types (categorical / numeric / datetime)</li>
+<li>avoid the most common chart mistakes (pie, unsorted bars, missing n, dual axes)</li>
+<li>explain “why notebook, not script” for EDA (and what belongs where)</li>
+</ul>
+</section>
+<section id="notebook-workflow-rules-bootcamp-standard" class="slide level2">
+<h2>Notebook workflow rules (bootcamp standard)</h2>
+<p>Notebooks are for <strong>exploration + explanation</strong>.</p>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>Notebook reads from <code>data/processed/</code> (never <code>data/raw/</code>)</li>
+<li>ETL belongs in scripts/modules (idempotent), not hidden notebook cells</li>
+<li>Every chart has:
+<ul>
+<li>a real title (time window + metric + segment)</li>
+<li>axis labels with units</li>
+<li>enough context to not mislead</li>
+</ul></li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>If your notebook can’t be re-run top-to-bottom without manual fixes, it’s not a deliverable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-types-fast-mental-model" class="slide level2">
+<h2>Variable types (fast mental model)</h2>
+<ul>
+<li><strong>Categorical</strong>: country, status, product_category</li>
+<li><strong>Numeric</strong>: amount, quantity, rating</li>
+<li><strong>Datetime</strong>: created_at, event_time, month</li>
+<li><strong>Boolean</strong>: is_refund, is_outlier</li>
+</ul>
+<p>You’ll choose charts based on <strong>question type</strong> + <strong>variable types</strong>.</p>
+</section>
+<section id="chart-choice-question-chart-default-moves" class="slide level2">
+<h2>Chart choice: question → chart (default moves)</h2>
+<p>Use the simplest chart that answers the question:</p>
+<ul>
+<li><strong>Compare categories</strong> (cat → value) → <strong>sorted bar</strong> / dot plot<br>
+</li>
+<li><strong>Trend over time</strong> (time → value) → <strong>line</strong></li>
+<li><strong>Distribution</strong> (numeric) → <strong>histogram</strong> (and maybe box for quick compare)</li>
+<li><strong>Relationship</strong> (num vs num) → <strong>scatter</strong></li>
+<li><strong>Composition</strong> (parts of whole across a dimension) → <strong>stacked bar / stacked area</strong></li>
+<li><strong>Rates vs volume</strong> → use <strong>two charts</strong> (avoid dual axes)</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Your default should be “table → bar/line/scatter/hist”. Make pies rare.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="chart-choice-cheat-sheet-data-to-viz-style" class="slide level2">
+<h2>Chart choice cheat sheet (data-to-viz style)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You want to…</th>
+<th>Data types</th>
+<th>Best default</th>
+<th>Common trap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compare categories</td>
+<td>categorical + numeric</td>
+<td>bar (sorted)</td>
+<td>unsorted bars, too many categories</td>
+</tr>
+<tr class="even">
+<td>See a trend</td>
+<td>datetime + numeric</td>
+<td>line</td>
+<td>mixing time zones / missing dates</td>
+</tr>
+<tr class="odd">
+<td>Understand spread</td>
+<td>numeric</td>
+<td>histogram</td>
+<td>using mean only on skewed data</td>
+</tr>
+<tr class="even">
+<td>Compare distributions</td>
+<td>categorical + numeric</td>
+<td>histogram facets / box</td>
+<td>box plots with tiny groups</td>
+</tr>
+<tr class="odd">
+<td>Find relationships</td>
+<td>numeric + numeric</td>
+<td>scatter</td>
+<td>overplotting without aggregation</td>
+</tr>
+<tr class="even">
+<td>Show composition</td>
+<td>categorical + categorical</td>
+<td>stacked bar</td>
+<td>pie charts for many categories</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="micro-exercise-6-minutes-choose-the-chart" class="slide level2">
+<h2>Micro-exercise (6 minutes): choose the chart</h2>
+<p>For each question, pick the best default chart:</p>
+<ol type="1">
+<li>“Which countries generate the most revenue?”</li>
+<li>“How does revenue change month-to-month?”</li>
+<li>“Is order amount skewed or roughly normal?”</li>
+<li>“Do refunds have lower order amounts than paid orders?”</li>
+</ol>
+<p><strong>Checkpoint:</strong> answer with 4 chart choices (one each).</p>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<ol type="1">
+<li>Sorted <strong>bar</strong> (top countries by revenue)<br>
+</li>
+<li><strong>Line</strong> (monthly revenue)<br>
+</li>
+<li><strong>Histogram</strong> (amount distribution; consider log scale if heavy tail)<br>
+</li>
+<li><strong>Histogram facets</strong> or <strong>box</strong> by <code>status_clean</code> (plus show group sizes)</li>
+</ol>
+</section>
+<section id="the-5-most-common-eda-chart-mistakes" class="slide level2">
+<h2>The 5 most common “EDA chart mistakes”</h2>
+<ol type="1">
+<li>Bars not sorted (hard to read)</li>
+<li>Missing units/time window in titles</li>
+<li>Comparing averages without showing <strong>n</strong></li>
+<li>Dual y-axes (often misleading)</li>
+<li>Pie charts for more than ~3–4 categories</li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Most chart quality comes from: sorting, labeling, and choosing the right level of aggregation.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="eda-structure-what-your-notebook-should-look-like" class="slide level2">
+<h2>EDA structure (what your notebook should look like)</h2>
+<p>A job-ready EDA notebook answers <strong>3–6 questions</strong>:</p>
+<p>For each question:</p>
+<ol type="1">
+<li>define metric + filters</li>
+<li>compute a table</li>
+<li>chart the table (or chart the raw distribution)</li>
+<li>write 2–3 sentences: what it means + 1 caveat</li>
+</ol>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<p><strong>Question:</strong> Why do we export figures to <code>reports/figures/</code> instead of leaving them only inside the notebook?</p>
+<div class="fragment">
+<p><strong>Answer:</strong> figures are stable artifacts you can share, review, and reference from the written summary (and diff in Git if needed).</p>
+</div>
+</section></section>
+<section>
+<section id="asr-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Asr break</h1>
+
+</section>
+<section id="minutes" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll learn the Plotly patterns we’ll use for every chart today.</p>
+</section></section>
+<section>
+<section id="session-2" class="title-slide slide level1 center">
+<h1>Session 2</h1>
+<div class="muted">
+<p>Plotly Express patterns + exporting figures (HTML/PNG)</p>
+</div>
+</section>
+<section id="session-2-objectives" class="slide level2">
+<h2>Session 2 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>build the core chart types with <code>plotly.express</code></li>
+<li>customize chart anatomy (titles, labels, axes)</li>
+<li>export figures to <code>.html</code> (offline-friendly) and optionally <code>.png</code></li>
+<li>use long/tidy data when plotting grouped metrics</li>
+</ul>
+</section>
+<section id="plotly-mental-model-2-minutes" class="slide level2">
+<h2>Plotly mental model (2 minutes)</h2>
+<ul>
+<li><code>plotly.express</code> → fast chart creation (<code>px.bar</code>, <code>px.line</code>, …)</li>
+<li><code>fig.update_layout(...)</code> → titles, margins, legend, theme</li>
+<li><code>fig.update_xaxes/yaxes(...)</code> → axis labels, tick formatting</li>
+<li>Export:
+<ul>
+<li><code>fig.write_html(...)</code> ✅ works offline (recommended)</li>
+<li><code>fig.write_image(...)</code> ✅ requires <code>kaleido</code> (optional)</li>
+</ul></li>
+</ul>
+</section>
+<section id="install-note-png-export-is-optional" class="slide level2">
+<h2>Install note: PNG export is optional</h2>
+<p>If you want <code>.png</code> exports:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">uv</span> add kaleido</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you can’t install it (offline), export <code>.html</code> and keep going.</p>
+</section>
+<section id="canonical-plotly-patterns-you-will-reuse-these" class="slide level2">
+<h2>Canonical Plotly patterns (you will reuse these)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># bar (categories)</span></span>
+<span id="cb7-4"><a></a>fig <span class="op">=</span> px.bar(df, x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"revenue"</span>, title<span class="op">=</span><span class="st">"Revenue by country"</span>)</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a><span class="co"># line (trend)</span></span>
+<span id="cb7-7"><a></a>fig <span class="op">=</span> px.line(df, x<span class="op">=</span><span class="st">"month"</span>, y<span class="op">=</span><span class="st">"revenue"</span>, title<span class="op">=</span><span class="st">"Monthly revenue"</span>)</span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a><span class="co"># histogram (distribution)</span></span>
+<span id="cb7-10"><a></a>fig <span class="op">=</span> px.histogram(df, x<span class="op">=</span><span class="st">"amount"</span>, nbins<span class="op">=</span><span class="dv">50</span>, title<span class="op">=</span><span class="st">"Amount distribution"</span>)</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="co"># scatter (relationship)</span></span>
+<span id="cb7-13"><a></a>fig <span class="op">=</span> px.scatter(df, x<span class="op">=</span><span class="st">"quantity"</span>, y<span class="op">=</span><span class="st">"amount"</span>, title<span class="op">=</span><span class="st">"Amount vs quantity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sorting-categories-non-negotiable-for-readability" class="slide level2">
+<h2>Sorting categories (non-negotiable for readability)</h2>
+<p>Plotly won’t magically sort categories the way you intend.</p>
+<p><strong>Do this:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>d <span class="op">=</span> df.sort_values(<span class="st">"revenue"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-2"><a></a>fig <span class="op">=</span> px.bar(d, x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"revenue"</span>, title<span class="op">=</span><span class="st">"Revenue by country (sorted)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="make-charts-self-contained-labels-units" class="slide level2">
+<h2>Make charts self-contained (labels + units)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>fig.update_layout(title<span class="op">=</span>{<span class="st">"x"</span>: <span class="fl">0.02</span>})</span>
+<span id="cb9-2"><a></a>fig.update_xaxes(title_text<span class="op">=</span><span class="st">"Country"</span>)</span>
+<span id="cb9-3"><a></a>fig.update_yaxes(title_text<span class="op">=</span><span class="st">"Revenue (USD)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If you copy a chart into a slide with no context, it should still make sense.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="export-figures-offline-first" class="slide level2">
+<h2>Export figures (offline-first)</h2>
+<p>Prefer HTML exports with embedded JS:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>out <span class="op">=</span> Path(<span class="st">"reports/figures"</span>)</span>
+<span id="cb10-4"><a></a>out.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a>fig.write_html(out <span class="op">/</span> <span class="st">"day4_revenue_by_country.html"</span>, include_plotlyjs<span class="op">=</span><span class="st">"embed"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Optional PNG (if Kaleido installed):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>fig.write_image(out <span class="op">/</span> <span class="st">"day4_revenue_by_country.png"</span>, scale<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-8-minutes-fix-a-bad-chart" class="slide level2">
+<h2>Micro-exercise (8 minutes): fix a bad chart</h2>
+<p>You have a bar chart that:</p>
+<ul>
+<li>is unsorted</li>
+<li>has no axis labels</li>
+<li>has a vague title</li>
+</ul>
+<p>Write the 3 lines to fix it.</p>
+<p><strong>Checkpoint:</strong> you wrote: sort + <code>update_layout</code> + axis labels.</p>
+</section>
+<section id="solution-1" class="slide level2">
+<h2>Solution</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>d <span class="op">=</span> d.sort_values(<span class="st">"revenue"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-2"><a></a>fig <span class="op">=</span> px.bar(d, x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"revenue"</span>, title<span class="op">=</span><span class="st">"Revenue by country (Jan–Dec 2025)"</span>)</span>
+<span id="cb12-3"><a></a>fig.update_layout(title<span class="op">=</span>{<span class="st">"x"</span>: <span class="fl">0.02</span>})</span>
+<span id="cb12-4"><a></a>fig.update_xaxes(title_text<span class="op">=</span><span class="st">"Country"</span>)</span>
+<span id="cb12-5"><a></a>fig.update_yaxes(title_text<span class="op">=</span><span class="st">"Revenue (USD)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tidy-data-reminder-for-plotting" class="slide level2">
+<h2>Tidy data reminder (for plotting)</h2>
+<p>If you want multiple metrics on the same chart or facet:</p>
+<ul>
+<li><strong>long format</strong> is usually easiest</li>
+<li>use <code>melt()</code> to go wide → long</li>
+</ul>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="bu">long</span> <span class="op">=</span> wide.melt(</span>
+<span id="cb13-2"><a></a>    id_vars<span class="op">=</span>[<span class="st">"month"</span>],</span>
+<span id="cb13-3"><a></a>    value_vars<span class="op">=</span>[<span class="st">"revenue"</span>, <span class="st">"n_orders"</span>],</span>
+<span id="cb13-4"><a></a>    var_name<span class="op">=</span><span class="st">"metric"</span>,</span>
+<span id="cb13-5"><a></a>    value_name<span class="op">=</span><span class="st">"value"</span>,</span>
+<span id="cb13-6"><a></a>)</span>
+<span id="cb13-7"><a></a>fig <span class="op">=</span> px.line(<span class="bu">long</span>, x<span class="op">=</span><span class="st">"month"</span>, y<span class="op">=</span><span class="st">"value"</span>, color<span class="op">=</span><span class="st">"metric"</span>, title<span class="op">=</span><span class="st">"Metrics over time"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section>
+<section id="maghrib-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Maghrib break</h1>
+
+</section>
+<section id="minutes-1" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll add “comparison thinking” + bootstrap intervals so our conclusions are honest.</p>
+</section></section>
+<section>
+<section id="session-3" class="title-slide slide level1 center">
+<h1>Session 3</h1>
+<div class="muted">
+<p>Comparison thinking + bootstrap uncertainty + writing the summary</p>
+</div>
+</section>
+<section id="session-3-objectives" class="slide level2">
+<h2>Session 3 objectives</h2>
+<p>By the end of this session, you can:</p>
+<ul>
+<li>compute rates/ratios correctly (with denominators)</li>
+<li>report effect sizes (absolute + relative)</li>
+<li>build a bootstrap interval for a difference in means or rates</li>
+<li>write a short, credible <code>reports/summary.md</code></li>
+</ul>
+</section>
+<section id="comparison-thinking-the-eda-upgrade" class="slide level2">
+<h2>Comparison thinking (the EDA upgrade)</h2>
+<p>When you compare groups, always include:</p>
+<ul>
+<li><strong>n</strong> (sample size)</li>
+<li><strong>absolute difference</strong> (e.g., +$2.10)</li>
+<li><strong>relative difference</strong> (e.g., +8%)</li>
+<li>a caveat if groups are tiny or biased</li>
+</ul>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Averages without n are how analysts accidentally lie.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ratesratios-always-show-numerator-denominator" class="slide level2">
+<h2>Rates/ratios: always show numerator + denominator</h2>
+<p>Example: refund rate by country</p>
+<ul>
+<li>numerator: <code>n_refund</code></li>
+<li>denominator: <code>n_total</code></li>
+<li>rate: <code>n_refund / n_total</code></li>
+</ul>
+<p>Your report should show all three.</p>
+</section>
+<section id="bootstrap-intervals-practical-uncertainty" class="slide level2">
+<h2>Bootstrap intervals (practical uncertainty)</h2>
+<p>Bootstrap answers: “If I re-sampled my data, how much could this estimate vary?”</p>
+<p>Use it when:</p>
+<ul>
+<li>comparing means/medians between groups</li>
+<li>comparing rates (refund rate, conversion rate)</li>
+<li>you want a rough uncertainty range without heavy theory</li>
+</ul>
+<p>Keep it reproducible:</p>
+<ul>
+<li>fix a random seed</li>
+</ul>
+</section>
+<section id="minimal-bootstrap-template-difference-in-means" class="slide level2">
+<h2>Minimal bootstrap template (difference in means)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="kw">def</span> bootstrap_diff_means(a: pd.Series, b: pd.Series, <span class="op">*</span>, n_boot: <span class="bu">int</span> <span class="op">=</span> <span class="dv">2000</span>, seed: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb14-5"><a></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb14-6"><a></a>    a <span class="op">=</span> pd.to_numeric(a, errors<span class="op">=</span><span class="st">"coerce"</span>).dropna().to_numpy()</span>
+<span id="cb14-7"><a></a>    b <span class="op">=</span> pd.to_numeric(b, errors<span class="op">=</span><span class="st">"coerce"</span>).dropna().to_numpy()</span>
+<span id="cb14-8"><a></a>    <span class="cf">assert</span> <span class="bu">len</span>(a) <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> <span class="bu">len</span>(b) <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb14-9"><a></a></span>
+<span id="cb14-10"><a></a>    diffs <span class="op">=</span> []</span>
+<span id="cb14-11"><a></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_boot):</span>
+<span id="cb14-12"><a></a>        sa <span class="op">=</span> rng.choice(a, size<span class="op">=</span><span class="bu">len</span>(a), replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-13"><a></a>        sb <span class="op">=</span> rng.choice(b, size<span class="op">=</span><span class="bu">len</span>(b), replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-14"><a></a>        diffs.append(sa.mean() <span class="op">-</span> sb.mean())</span>
+<span id="cb14-15"><a></a></span>
+<span id="cb14-16"><a></a>    diffs <span class="op">=</span> np.array(diffs)</span>
+<span id="cb14-17"><a></a>    <span class="cf">return</span> {</span>
+<span id="cb14-18"><a></a>        <span class="st">"diff_mean"</span>: <span class="bu">float</span>(a.mean() <span class="op">-</span> b.mean()),</span>
+<span id="cb14-19"><a></a>        <span class="st">"ci_low"</span>: <span class="bu">float</span>(np.quantile(diffs, <span class="fl">0.025</span>)),</span>
+<span id="cb14-20"><a></a>        <span class="st">"ci_high"</span>: <span class="bu">float</span>(np.quantile(diffs, <span class="fl">0.975</span>)),</span>
+<span id="cb14-21"><a></a>        <span class="st">"n_a"</span>: <span class="bu">int</span>(<span class="bu">len</span>(a)),</span>
+<span id="cb14-22"><a></a>        <span class="st">"n_b"</span>: <span class="bu">int</span>(<span class="bu">len</span>(b)),</span>
+<span id="cb14-23"><a></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="micro-exercise-7-minutes-interpret-a-bootstrap-result" class="slide level2">
+<h2>Micro-exercise (7 minutes): interpret a bootstrap result</h2>
+<p>You compute:</p>
+<ul>
+<li><code>diff_mean = +3.2</code></li>
+<li><code>95% CI = [-0.4, +6.9]</code></li>
+</ul>
+<p>Write one honest sentence.</p>
+<p><strong>Checkpoint:</strong> mention uncertainty and that zero is inside the CI.</p>
+</section>
+<section id="solution-2" class="slide level2">
+<h2>Solution</h2>
+<p>“Group A’s mean is about <strong>+3.2</strong> higher than Group B, but the bootstrap interval <strong>includes 0</strong>, so the difference is uncertain with this data (may be small or not real).”</p>
+</section>
+<section id="writing-reportssummary.md-template" class="slide level2">
+<h2>Writing <code>reports/summary.md</code> (template)</h2>
+<p>Your summary should include:</p>
+<ol type="1">
+<li><strong>Key findings</strong> (3–6 bullets with numbers)</li>
+<li><strong>Definitions</strong> (what filters/metrics mean)</li>
+<li><strong>Data quality caveats</strong> (missingness, join coverage, outliers)</li>
+<li><strong>Next questions</strong> (what you’d check next)</li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If your summary can’t be read in under 2 minutes, it’s too long.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="isha-break" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Isha break</h1>
+
+</section>
+<section id="minutes-2" class="slide level2">
+<h2>20 minutes</h2>
+<p><strong>When you return:</strong> we’ll build the Day 4 notebook and export your figures + summary.</p>
+</section></section>
+<section>
+<section id="hands-on" class="title-slide slide level1 center">
+<h1>Hands-on</h1>
+<div class="muted">
+<p>Build: <code>notebooks/day4_eda.ipynb</code> → figures + summary (Plotly)</p>
+</div>
+</section>
+<section id="hands-on-success-criteria-today" class="slide level2">
+<h2>Hands-on success criteria (today)</h2>
+<p>By the end, you should have:</p>
+<ul>
+<li><code>data/processed/orders_features.parquet</code> (created once, reused)</li>
+<li><code>notebooks/day4_eda.ipynb</code> that runs top-to-bottom</li>
+<li><code>reports/figures/</code> with <strong>3–6</strong> exports (<code>.html</code> required)</li>
+<li><code>reports/summary.md</code> including <strong>at least one bootstrap CI</strong></li>
+<li>at least <strong>2 commits</strong> pushed to GitHub</li>
+</ul>
+</section>
+<section id="project-layout-day-4-focus" class="slide level2">
+<h2>Project layout (Day 4 focus)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a></a>data/</span>
+<span id="cb15-2"><a></a>  processed/</span>
+<span id="cb15-3"><a></a>    orders_enriched.parquet</span>
+<span id="cb15-4"><a></a>    orders_features.parquet      # NEW today</span>
+<span id="cb15-5"><a></a>notebooks/</span>
+<span id="cb15-6"><a></a>  day4_eda.ipynb                 # NEW today</span>
+<span id="cb15-7"><a></a>reports/</span>
+<span id="cb15-8"><a></a>  figures/</span>
+<span id="cb15-9"><a></a>    day4_*.html                  # NEW today (required)</span>
+<span id="cb15-10"><a></a>    day4_*.png                   # optional (kaleido)</span>
+<span id="cb15-11"><a></a>  summary.md                     # NEW today</span>
+<span id="cb15-12"><a></a>scripts/</span>
+<span id="cb15-13"><a></a>  run_day4_make_features.py      # NEW today (small, idempotent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-0-create-the-notebook-folder-2-minutes" class="slide level2">
+<h2>Task 0 — Create the notebook folder (2 minutes)</h2>
+<p>From repo root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">mkdir</span> <span class="at">-p</span> notebooks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(Windows PowerShell)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb17-1"><a></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType Directory <span class="op">-</span>Force notebooks <span class="op">|</span> <span class="fu">Out-Null</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-1-build-orders_features.parquet-20-minutes" class="slide level2">
+<h2>Task 1 — Build <code>orders_features.parquet</code> (20 minutes)</h2>
+<p>Create <code>scripts/run_day4_make_features.py</code> that:</p>
+<ol type="1">
+<li>reads <code>data/processed/orders_enriched.parquet</code></li>
+<li>parses <code>created_at</code> (UTC)</li>
+<li>adds time parts (<code>month</code>, <code>dow</code>, <code>hour</code>)</li>
+<li>flags outliers + creates <code>amount_winsor</code></li>
+<li>writes <code>data/processed/orders_features.parquet</code> (idempotent)</li>
+</ol>
+<p><strong>Checkpoint:</strong> the file exists and reloading shows &gt; 0 rows.</p>
+</section>
+<section id="task-1-solution-scriptsrun_day4_make_features.py" class="slide level2 smaller">
+<h2>Task 1 — Solution: <code>scripts/run_day4_make_features.py</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb18-4"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-5"><a></a></span>
+<span id="cb18-6"><a></a><span class="im">from</span> bootcamp_data.io <span class="im">import</span> read_parquet, write_parquet</span>
+<span id="cb18-7"><a></a><span class="im">from</span> bootcamp_data.checks <span class="im">import</span> require_columns, assert_non_empty</span>
+<span id="cb18-8"><a></a><span class="im">from</span> bootcamp_data.transforms <span class="im">import</span> parse_datetime, add_time_parts, winsorize, add_outlier_flag, add_missing_flags</span>
+<span id="cb18-9"><a></a></span>
+<span id="cb18-10"><a></a></span>
+<span id="cb18-11"><a></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb18-12"><a></a>    root <span class="op">=</span> Path(<span class="va">__file__</span>).resolve().parents[<span class="dv">1</span>]</span>
+<span id="cb18-13"><a></a>    in_path <span class="op">=</span> root <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"processed"</span> <span class="op">/</span> <span class="st">"orders_enriched.parquet"</span></span>
+<span id="cb18-14"><a></a>    out_path <span class="op">=</span> root <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"processed"</span> <span class="op">/</span> <span class="st">"orders_features.parquet"</span></span>
+<span id="cb18-15"><a></a></span>
+<span id="cb18-16"><a></a>    df <span class="op">=</span> read_parquet(in_path)</span>
+<span id="cb18-17"><a></a>    assert_non_empty(df, df_name<span class="op">=</span><span class="st">"orders_enriched"</span>)</span>
+<span id="cb18-18"><a></a>    require_columns(df, [<span class="st">"order_id"</span>, <span class="st">"user_id"</span>, <span class="st">"amount"</span>, <span class="st">"created_at"</span>, <span class="st">"country"</span>, <span class="st">"status_clean"</span>], df_name<span class="op">=</span><span class="st">"orders_enriched"</span>)</span>
+<span id="cb18-19"><a></a></span>
+<span id="cb18-20"><a></a>    d <span class="op">=</span> df.copy()</span>
+<span id="cb18-21"><a></a>    d <span class="op">=</span> parse_datetime(d, <span class="st">"created_at"</span>, utc<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-22"><a></a>    d <span class="op">=</span> add_time_parts(d, <span class="st">"created_at"</span>)</span>
+<span id="cb18-23"><a></a>    d[<span class="st">"amount_winsor"</span>] <span class="op">=</span> winsorize(d[<span class="st">"amount"</span>])</span>
+<span id="cb18-24"><a></a>    d <span class="op">=</span> add_outlier_flag(d, <span class="st">"amount"</span>, k<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb18-25"><a></a>    d <span class="op">=</span> add_missing_flags(d, [<span class="st">"amount"</span>, <span class="st">"created_at"</span>, <span class="st">"country"</span>, <span class="st">"status_clean"</span>])</span>
+<span id="cb18-26"><a></a></span>
+<span id="cb18-27"><a></a>    write_parquet(d, out_path)</span>
+<span id="cb18-28"><a></a>    <span class="bu">print</span>(<span class="st">"wrote:"</span>, out_path, <span class="st">"rows:"</span>, <span class="bu">len</span>(d))</span>
+<span id="cb18-29"><a></a></span>
+<span id="cb18-30"><a></a></span>
+<span id="cb18-31"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb18-32"><a></a>    main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-1-run-it-2-minutes" class="slide level2">
+<h2>Task 1 — Run it (2 minutes)</h2>
+<p><strong>macOS/Linux</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a></a><span class="ex">uv</span> run python <span class="at">-m</span> scripts.run_day4_make_features</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows PowerShell</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb20-1"><a></a>uv run python <span class="op">-</span>m scripts<span class="op">.</span><span class="fu">run_day4_make_features</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-2-create-notebooksday4_eda.ipynb-10-minutes" class="slide level2">
+<h2>Task 2 — Create <code>notebooks/day4_eda.ipynb</code> (10 minutes)</h2>
+<p>In VS Code:</p>
+<ol type="1">
+<li>Create a new notebook: <code>notebooks/day4_eda.ipynb</code></li>
+<li>Select the interpreter from your <code>uv</code> environment</li>
+<li>Add a title cell + an “inputs” cell</li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If your notebook kernel can’t start, install ipykernel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a></a><span class="ex">uv</span> add ipykernel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2-notebook-outline-copy-this-structure" class="slide level2">
+<h2>Task 2 — Notebook outline (copy this structure)</h2>
+<p>Your notebook should have these sections:</p>
+<ol type="1">
+<li><strong>Load</strong></li>
+<li><strong>Audit</strong> (shape, dtypes, missingness, outlier rate)</li>
+<li><strong>Questions (3–6)</strong>:
+<ul>
+<li>table → chart → interpretation (+ caveat)</li>
+</ul></li>
+<li><strong>Bootstrap comparison</strong> (1 example)</li>
+<li><strong>Export figures</strong> + write <code>reports/summary.md</code></li>
+</ol>
+</section>
+<section id="task-3-add-reusable-helpers-copy-into-notebook" class="slide level2">
+<h2>Task 3 — Add reusable helpers (copy into notebook)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb22-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb22-3"><a></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb22-4"><a></a></span>
+<span id="cb22-5"><a></a>ROOT <span class="op">=</span> Path(<span class="st">".."</span>)  <span class="co"># notebooks/ → repo root</span></span>
+<span id="cb22-6"><a></a>FIGS <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"reports"</span> <span class="op">/</span> <span class="st">"figures"</span></span>
+<span id="cb22-7"><a></a>FIGS.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-8"><a></a></span>
+<span id="cb22-9"><a></a><span class="kw">def</span> save_html(fig, name: <span class="bu">str</span>) <span class="op">-&gt;</span> Path:</span>
+<span id="cb22-10"><a></a>    p <span class="op">=</span> FIGS <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">.html"</span></span>
+<span id="cb22-11"><a></a>    fig.write_html(p, include_plotlyjs<span class="op">=</span><span class="st">"embed"</span>)</span>
+<span id="cb22-12"><a></a>    <span class="cf">return</span> p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-4-load-features-copy-into-notebook" class="slide level2">
+<h2>Task 4 — Load features (copy into notebook)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df <span class="op">=</span> pd.read_parquet(ROOT <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"processed"</span> <span class="op">/</span> <span class="st">"orders_features.parquet"</span>)</span>
+<span id="cb23-2"><a></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Checkpoint:</strong> you see rows, and <code>created_at</code> is datetime-like.</p>
+</section>
+<section id="task-5-your-3-required-charts-45-minutes" class="slide level2">
+<h2>Task 5 — Your 3 “required charts” (45 minutes)</h2>
+<p>Make at least these three:</p>
+<ol type="1">
+<li><strong>Top countries by revenue</strong> (sorted bar)</li>
+<li><strong>Monthly revenue trend</strong> (line)</li>
+<li><strong>Amount distribution</strong> (histogram; consider using <code>amount_winsor</code>)</li>
+</ol>
+<p>Export each with <code>save_html(fig, "day4_&lt;name&gt;")</code>.</p>
+</section>
+<section id="task-5-example-revenue-by-country-bar" class="slide level2">
+<h2>Task 5 — Example: revenue by country (bar)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>by_country <span class="op">=</span> (</span>
+<span id="cb24-2"><a></a>    df.groupby(<span class="st">"country"</span>, dropna<span class="op">=</span><span class="va">False</span>)[<span class="st">"amount"</span>]</span>
+<span id="cb24-3"><a></a>      .<span class="bu">sum</span>(min_count<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-4"><a></a>      .rename(<span class="st">"revenue"</span>)</span>
+<span id="cb24-5"><a></a>      .reset_index()</span>
+<span id="cb24-6"><a></a>      .sort_values(<span class="st">"revenue"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb24-7"><a></a>      .head(<span class="dv">15</span>)</span>
+<span id="cb24-8"><a></a>)</span>
+<span id="cb24-9"><a></a></span>
+<span id="cb24-10"><a></a>fig <span class="op">=</span> px.bar(by_country, x<span class="op">=</span><span class="st">"country"</span>, y<span class="op">=</span><span class="st">"revenue"</span>, title<span class="op">=</span><span class="st">"Revenue by country (top 15)"</span>)</span>
+<span id="cb24-11"><a></a>fig.update_layout(title<span class="op">=</span>{<span class="st">"x"</span>: <span class="fl">0.02</span>})</span>
+<span id="cb24-12"><a></a>fig.update_xaxes(title_text<span class="op">=</span><span class="st">"Country"</span>)</span>
+<span id="cb24-13"><a></a>fig.update_yaxes(title_text<span class="op">=</span><span class="st">"Revenue"</span>)</span>
+<span id="cb24-14"><a></a>save_html(fig, <span class="st">"day4_revenue_by_country"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-6-bootstrap-pick-one-comparison-25-minutes" class="slide level2">
+<h2>Task 6 — Bootstrap: pick one comparison (25 minutes)</h2>
+<p>Choose one:</p>
+<ul>
+<li>mean <code>amount</code> in top country vs 2nd country</li>
+<li>mean <code>amount</code> for <code>paid</code> vs <code>refund</code></li>
+<li>refund rate in top country vs all others</li>
+</ul>
+<p>Compute a bootstrap interval and include it as a bullet in your summary.</p>
+</section>
+<section id="task-6-example-bootstrap-mean-difference-two-countries" class="slide level2 smaller">
+<h2>Task 6 — Example: bootstrap mean difference (two countries)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a></a></span>
+<span id="cb25-3"><a></a>top2 <span class="op">=</span> by_country[<span class="st">"country"</span>].head(<span class="dv">2</span>).tolist()</span>
+<span id="cb25-4"><a></a>a <span class="op">=</span> df.loc[df[<span class="st">"country"</span>].eq(top2[<span class="dv">0</span>]), <span class="st">"amount"</span>]</span>
+<span id="cb25-5"><a></a>b <span class="op">=</span> df.loc[df[<span class="st">"country"</span>].eq(top2[<span class="dv">1</span>]), <span class="st">"amount"</span>]</span>
+<span id="cb25-6"><a></a></span>
+<span id="cb25-7"><a></a>res <span class="op">=</span> bootstrap_diff_means(a, b, n_boot<span class="op">=</span><span class="dv">2000</span>, seed<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb25-8"><a></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Interpretation rule: if CI crosses 0, be cautious.</p>
+</section>
+<section id="task-7-write-reportssummary.md-from-the-notebook-20-minutes" class="slide level2">
+<h2>Task 7 — Write <code>reports/summary.md</code> from the notebook (20 minutes)</h2>
+<p>Minimum content:</p>
+<ul>
+<li>3–6 bullet findings (with numbers)</li>
+<li>1 bootstrap result bullet (diff + CI + n)</li>
+<li>caveats (missingness, join coverage, outliers)</li>
+<li>links to exported figures</li>
+</ul>
+</section>
+<section id="task-7-example-summary-writer-copy-into-notebook" class="slide level2 smaller">
+<h2>Task 7 — Example summary writer (copy into notebook)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>summary <span class="op">=</span> <span class="ss">f"""# Project Summary (Day 4)</span></span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a><span class="ss">## Key findings</span></span>
+<span id="cb26-4"><a></a><span class="ss">- Top revenue country: **</span><span class="sc">{</span>by_country<span class="sc">.</span>iloc[<span class="dv">0</span>][<span class="st">'country'</span>]<span class="sc">}</span><span class="ss">** (revenue=</span><span class="sc">{</span>by_country<span class="sc">.</span>iloc[<span class="dv">0</span>][<span class="st">'revenue'</span>]<span class="sc">:.2f}</span><span class="ss">)</span></span>
+<span id="cb26-5"><a></a><span class="ss">- (Add 2–4 more bullets from your tables/charts.)</span></span>
+<span id="cb26-6"><a></a><span class="ss">- Bootstrap mean diff (</span><span class="sc">{</span>top2[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>top2[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">): **</span><span class="sc">{</span>res[<span class="st">'diff_mean'</span>]<span class="sc">:.2f}</span><span class="ss">** (95% CI [</span><span class="sc">{</span>res[<span class="st">'ci_low'</span>]<span class="sc">:.2f}</span><span class="ss">, </span><span class="sc">{</span>res[<span class="st">'ci_high'</span>]<span class="sc">:.2f}</span><span class="ss">], n=</span><span class="sc">{</span>res[<span class="st">'n_a'</span>]<span class="sc">}</span><span class="ss"> vs </span><span class="sc">{</span>res[<span class="st">'n_b'</span>]<span class="sc">}</span><span class="ss">)</span></span>
+<span id="cb26-7"><a></a></span>
+<span id="cb26-8"><a></a><span class="ss">## Figures</span></span>
+<span id="cb26-9"><a></a><span class="ss">- [Revenue by country](figures/day4_revenue_by_country.html)</span></span>
+<span id="cb26-10"><a></a><span class="ss">- (Add your other figure links.)</span></span>
+<span id="cb26-11"><a></a></span>
+<span id="cb26-12"><a></a><span class="ss">## Caveats / assumptions</span></span>
+<span id="cb26-13"><a></a><span class="ss">- Totals use raw `amount`; `amount_winsor` is for visualization only.</span></span>
+<span id="cb26-14"><a></a><span class="ss">- Outliers are flagged, not removed.</span></span>
+<span id="cb26-15"><a></a><span class="ss">- Date parsing errors become missing timestamps.</span></span>
+<span id="cb26-16"><a></a><span class="ss">"""</span></span>
+<span id="cb26-17"><a></a></span>
+<span id="cb26-18"><a></a>out <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"reports"</span> <span class="op">/</span> <span class="st">"summary.md"</span></span>
+<span id="cb26-19"><a></a>out.write_text(summary, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb26-20"><a></a><span class="bu">print</span>(<span class="st">"wrote:"</span>, out)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-8-git-checkpoint-5-minutes" class="slide level2">
+<h2>Task 8 — Git checkpoint (5 minutes)</h2>
+<p>Commit your Day 4 deliverables.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb27-2"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"w2d4: plotly EDA notebook + figures + summary"</span></span>
+<span id="cb27-3"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debug-playbook-day-4" class="slide level2">
+<h2>Debug playbook (Day 4)</h2>
+<p>If you get stuck:</p>
+<ol type="1">
+<li>Confirm you’re in the repo root (paths matter)</li>
+<li>Rebuild inputs: run Day 2 again (<code>scripts.run_day2_validate_and_report</code>)</li>
+<li>If Plotly import fails: <code>uv add plotly</code></li>
+<li>If notebook kernel fails: <code>uv add ipykernel</code></li>
+<li>If a chart looks wrong: check the table first (row counts + sorting)</li>
+<li>If bootstrap looks unstable: print group sizes; avoid tiny groups</li>
+</ol>
+</section>
+<section id="exit-ticket" class="slide level2">
+<h2>Exit Ticket</h2>
+<p>In 1–2 sentences:</p>
+<p><strong>How do you decide between a bar chart, line chart, histogram, and scatter plot?</strong> (Answer using: question type + variable types.)</p>
+</section>
+<section id="day-4-assignment-end-of-day" class="slide level2">
+<h2>Day 4 assignment (end of day)</h2>
+<p><strong>Due:</strong> before Day 5 starts (<strong>2025-12-25</strong>)</p>
+<ol type="1">
+<li>Notebook: <code>notebooks/day4_eda.ipynb</code> runs top-to-bottom</li>
+<li>Export at least <strong>3 Plotly figures</strong> to <code>reports/figures/*.html</code></li>
+<li>Write <code>reports/summary.md</code> including <strong>one bootstrap CI</strong></li>
+<li>Push at least <strong>2 commits</strong> (one mid-way, one final)</li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If your repo ignores <code>data/processed/</code>, that’s fine—your scripts must recreate it reliably.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 splash center" data-background-image="assets/anim.svg" data-background-opacity="0.1">
+<h1>Thank You!</h1>
+<div style="width: 300px">
+<img data-src="../assets/sdaia.svg" class="light-content">
+</div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../assets/icon.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Index","icon":"<svg width='1.8rem' viewBox='0 0 24 24'><path d='M5 7h14M5 12h14M5 17h7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>","src":"../index.html"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
