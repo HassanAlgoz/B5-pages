@@ -7,7 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="malfadly@sdaia.gov.sa">
@@ -204,7 +207,12 @@
 </section>
 <section id="the-hook" class="slide level2">
 <h2>The Hook</h2>
-<p>![Figure: A stylized data pipeline connecting a cylinder (Database) on the left to a Python logo on the right. The pipeline is made of interlocking segments, symbolizing a robust and direct connection for SQL commands.]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/connecting_python_to_database.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure: A stylized pipeline connecting a database cylinder to a Python logo, symbolizing a robust connection."><img data-src="./assets/connecting_python_to_database.png" alt="Figure: A stylized pipeline connecting a database cylinder to a Python logo, symbolizing a robust connection."></a></p>
+<figcaption>Figure: A stylized pipeline connecting a database cylinder to a Python logo, symbolizing a robust connection.</figcaption>
+</figure>
+</div>
 <p><strong>How do I direct my SQL commands to a database system and connect my Python application to it?</strong></p>
 <aside class="notes">
 <p>We’ve built agents and APIs, but now we need persistent storage. Databases are the foundation of any real application. But how do we get started? We need to understand the environment where databases run, how to set them up reliably, and how to connect our Python code to them. This journey will take us through virtualization, Docker containers, connection protocols, and modern Python frameworks that make database work practical and safe.</p>
@@ -220,10 +228,9 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="lay-of-the-land" class="slide level2">
-<h2>Lay of the Land</h2>
-<p><strong>Today’s Journey:</strong></p>
-<ul>
+<section id="todays-journey-12" class="slide level2">
+<h2>Today’s Journey (1/2)</h2>
+<ol type="1">
 <li><strong>Setting Up the Database</strong>
 <ul>
 <li>Environment setup and virtualization</li>
@@ -236,6 +243,24 @@
 <li>DB-API 2.0 protocol</li>
 <li>Transactions and cursors</li>
 </ul></li>
+</ol>
+<aside class="notes">
+<p>Today we’ll cover four major topics. First, we’ll set up a database environment using Docker, understanding the difference between containers and virtual machines. Then we’ll connect our Python application using the psycopg driver.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="todays-journey-22" class="slide level2">
+<h2>Today’s Journey (2/2)</h2>
+<ol start="3" type="1">
 <li><strong>SQLAlchemy Framework</strong>
 <ul>
 <li>Core concepts: Engine, Metadata, Tables</li>
@@ -248,9 +273,9 @@
 <li>Migration scripts with dbmate</li>
 <li>Safe schema evolution</li>
 </ul></li>
-</ul>
+</ol>
 <aside class="notes">
-<p>Today we’ll cover four major topics. First, we’ll set up a database environment using Docker, understanding the difference between containers and virtual machines. Then we’ll connect our Python application using the psycopg driver. Next, we’ll level up to SQLAlchemy, a framework that solves many problems with raw database drivers. Finally, we’ll learn about migrations—the professional way to evolve your database schema without losing data. Each step builds on the previous one.</p>
+<p>Next, we’ll level up to SQLAlchemy, a framework that solves many problems with raw database drivers. Finally, we’ll learn about migrations—the professional way to evolve your database schema without losing data. Each step builds on the previous one.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -293,7 +318,8 @@
 </section>
 <section id="the-solution-containerization" class="slide level2">
 <h2>The Solution: Containerization</h2>
-<p>![Figure: A specialized shipping container with a transparent side, revealing neatly packed items inside: a binary executable block, a library book, and a configuration checklist. The container is sealed and isolated, floating in a clean white space.]</p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><strong>Docker packages everything together</strong></p>
 <ul>
 <li>Application binaries</li>
@@ -301,6 +327,14 @@
 <li>Configuration files</li>
 <li>All in one isolated container</li>
 </ul>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/transparent_container.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure: A transparent shipping container revealing neatly packed binaries, libraries, and configurations. (Click to Enlarge)"><img data-src="./assets/transparent_container.png" alt="Figure: A transparent shipping container revealing neatly packed binaries, libraries, and configurations. (Click to Enlarge)"></a></p>
+<figcaption>Figure: A transparent shipping container revealing neatly packed binaries, libraries, and configurations. <strong>(Click to Enlarge)</strong></figcaption>
+</figure>
+</div>
+</div></div>
 <aside class="notes">
 <p>Docker emerged as a solution. Instead of just packaging compiled binaries, Docker packages everything: the binaries, the libraries, the configuration files—all into a single unit called a container. The Docker platform on your machine runs these containers in isolation from each other, preventing conflicts. This is a fundamental shift in how we think about deployable units.</p>
 <style type="text/css">
@@ -351,9 +385,28 @@
 </section>
 <section id="virtualization-background" class="slide level2">
 <h2>Virtualization Background</h2>
-<p>![Figure: A horizontal timeline with three distinct stages. Left: A large, monolithic mainframe computer. Middle: A server generic icon split into multiple virtual machines. Right: A neat stack of lightweight shipping containers. An arrow flows from left to right indicating progress.]</p>
-<p><strong>Virtualization (1966)</strong> - Dividing expensive mainframes into multiple virtual computers - Foundation of cloud computing</p>
-<p><strong>Containerization (2008-2013)</strong> - Internal project at dotCloud (France) - Open-sourced as Docker by Solomon Hykes (March 2013)</p>
+<div class="columns">
+<div class="column" style="width:75%;">
+<ul>
+<li><strong>Virtualization (1966)</strong>
+<ul>
+<li>Dividing expensive mainframes into multiple virtual computers</li>
+<li>Foundation of cloud computing</li>
+</ul></li>
+<li><strong>Containerization (2008-2013)</strong>
+<ul>
+<li>Internal project at dotCloud (France)</li>
+<li>Open-sourced as Docker by Solomon Hykes (March 2013)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/timeline_from_mainframe_to_virtualization_to_containerization.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure: A timeline showing the evolution from mainframes to virtual machines and finally to containers."><img data-src="./assets/timeline_from_mainframe_to_virtualization_to_containerization.png" alt="Figure: A timeline showing the evolution from mainframes to virtual machines and finally to containers."></a></p>
+<figcaption>Figure: A timeline showing the evolution from mainframes to virtual machines and finally to containers.</figcaption>
+</figure>
+</div>
+</div></div>
 <aside class="notes">
 <p>This didn’t come out of nowhere. Virtualization dates back to 1966, when expensive mainframes were divided into multiple virtual computers for better efficiency. That’s the foundation of cloud computing. Containerization evolved from this. It started as an internal project at dotCloud in France around 2008, and was open-sourced as Docker in March 2013 by Solomon Hykes. It’s a relatively recent innovation that’s become essential.</p>
 <style type="text/css">
@@ -722,13 +775,22 @@
 </section>
 <section id="what-is-sqlalchemy" class="slide level2">
 <h2>What is SQLAlchemy?</h2>
-<p>![Figure: A process diagram. On the left, a messy scroll of raw SQL text. In the middle, a magical funnel or gear mechanism (SQLAlchemy). On the right, clean, structured Python code blocks emerging. This represents the abstraction of raw SQL into safe, Pythonic objects.]</p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><strong>Python’s most popular database framework</strong></p>
 <ul>
 <li>Raises database work to a higher level</li>
 <li>Solves driver limitations</li>
 <li>Two parts: Core and ORM</li>
 </ul>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/sqlalchemy_flow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."><img data-src="./assets/sqlalchemy_flow.png" alt="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."></a></p>
+<figcaption>Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code.</figcaption>
+</figure>
+</div>
+</div></div>
 <aside class="notes">
 <p>SQLAlchemy is Python’s most popular database framework. It elevates database work from the low-level driver world to a higher abstraction. It solves all those problems we just identified: type safety, security, database portability, and connection pooling. SQLAlchemy has two main parts: Core, which we’ll focus on, and ORM, which maps database tables to Python classes.</p>
 <style type="text/css">
@@ -1038,7 +1100,8 @@
 </section>
 <section id="version-control-for-code" class="slide level2">
 <h2>Version Control for Code</h2>
-<p>![Figure: A stylized document with a split view. The left side shows lines of code in red (deleted), and the right side shows lines in green (added). A ‘branching’ icon sits above, symbolizing version control and history tracking.]</p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><strong>Git tracks code changes:</strong></p>
 <ul>
 <li>Line-by-line history</li>
@@ -1047,6 +1110,14 @@
 <li>Collaboration</li>
 </ul>
 <p><strong>We need the same for database schema</strong></p>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/diffs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."><img data-src="./assets/diffs.png" alt="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."></a></p>
+<figcaption>Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon.</figcaption>
+</figure>
+</div>
+</div></div>
 <aside class="notes">
 <p>We use git for version control of our code. It tracks every change, lets us travel back in time, requires review before merging, and enables collaboration. We need the exact same thing for our database schema. Every schema change should be a script that’s tracked in git, reviewed, and applied consistently across all environments.</p>
 <style type="text/css">
@@ -1333,7 +1404,8 @@
 </section>
 <section id="the-complete-picture" class="slide level2">
 <h2>The Complete Picture</h2>
-<p>![Figure: A comprehensive system diagram. Bottom layer: A Docker container holding a PostgreSQL cylinder. Middle layer: A Python application block connected to the database via SQLAlchemy. Side component: A scroll labeled “Migrations” with a Git logo, overseeing the structure. All parts are connected with clean lines.]</p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><strong>You now have:</strong></p>
 <ul>
 <li>Isolated database environment (Docker)</li>
@@ -1341,6 +1413,14 @@
 <li>Version-controlled schema (Migrations)</li>
 <li>Professional workflow</li>
 </ul>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/app_sqlalchemy_postgresql_migrations.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."><img data-src="./assets/app_sqlalchemy_postgresql_migrations.png" alt="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."></a></p>
+<figcaption>Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations.</figcaption>
+</figure>
+</div>
+</div></div>
 <aside class="notes">
 <p>Putting it all together: we have an isolated database running in Docker, type-safe database code using SQLAlchemy, version-controlled schema through migrations, and a professional workflow that scales from development to production. This is the foundation for building real applications with persistent data storage.</p>
 <style type="text/css">
@@ -1741,6 +1821,38 @@
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

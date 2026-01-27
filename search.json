@@ -35,32 +35,60 @@
     "text": "Week 7: Building AI Apps\n\nA learning outcome is a concise description of what students will learn and how that learning will be assessed. Having clearly articulated learning outcomes can make designing a course, assessing student learning progress, and facilitating learning activities easier and more effective. Learning outcomes can also help students regulate their learning and develop effective study strategies.\n\nRead Learning Outcomes for Week 7 Here.\n\nDaily Sessions\n\nDay 1:\n\n[M1] Client-server Architecture\nSelf-paced lab: curl_lab.md (B5 repo)\n[M2] FastAPI Introduction\n[M2] FastAPI Reading: Overview & Tooling (Session 1)\n\nDay 2:\n\n[M2] FastAPI Reading: Sessions (2 - 6)\n[M2] Becoming a 10x Developer\nAssignment: Build an API with FastAPI and Coding Agents (B5 repo)\n\nDay 3:\n\n[M3] Building MCP Servers\n[M4] Connecting to Backend Databases\n\nDay 4:\n\nDeployment"
   },
   {
-    "objectID": "W7/index.html",
-    "href": "W7/index.html",
-    "title": "AI Pros Bootcamp",
+    "objectID": "W7/curriculum.html",
+    "href": "W7/curriculum.html",
+    "title": "Week 7 Curriculum: Building AI Apps",
     "section": "",
-    "text": "Back to Index."
+    "text": "By the end of this module, you are able to:\n\nAnalyze client-server architecture features, use cases, and examples given a system diagram.\n\nIdentify the appropriate layer (client or server) for a specific unit of code.\n\nEvaluate the benefits of logical separation of concerns in distributed systems.\nExplain the necessity of specialized protocols like HTTP, LSP, and MCP.\nTrace the HTTP protocol flow and distinguish between Header and Body functions given a raw request.\nDifferentiate between a Resource and its various Representations.\nDeconstruct a URL into its component parts (scheme, host, path, query).\nAnalyze a RESTful endpoint to identify Nouns (resources) and Verbs (actions).\n\n\n\n\n\nMDN Web Docs: HTTP\nWikipedia: Client–server model"
+  },
+  {
+    "objectID": "W7/curriculum.html#module-1-client-server-architecture",
+    "href": "W7/curriculum.html#module-1-client-server-architecture",
+    "title": "Week 7 Curriculum: Building AI Apps",
+    "section": "",
+    "text": "By the end of this module, you are able to:\n\nAnalyze client-server architecture features, use cases, and examples given a system diagram.\n\nIdentify the appropriate layer (client or server) for a specific unit of code.\n\nEvaluate the benefits of logical separation of concerns in distributed systems.\nExplain the necessity of specialized protocols like HTTP, LSP, and MCP.\nTrace the HTTP protocol flow and distinguish between Header and Body functions given a raw request.\nDifferentiate between a Resource and its various Representations.\nDeconstruct a URL into its component parts (scheme, host, path, query).\nAnalyze a RESTful endpoint to identify Nouns (resources) and Verbs (actions).\n\n\n\n\n\nMDN Web Docs: HTTP\nWikipedia: Client–server model"
+  },
+  {
+    "objectID": "W7/curriculum.html#module-2-fastapi",
+    "href": "W7/curriculum.html#module-2-fastapi",
+    "title": "Week 7 Curriculum: Building AI Apps",
+    "section": "Module 2: FastAPI",
+    "text": "Module 2: FastAPI\nBy the end of this module, you are able to:\n\nLearning Objectives (Section 1): Fast API\n\nEvaluate the key features of FastAPI for building high-performance APIs.\nDistinguish between dev and production servers\nImplement Pydantic models to validate and serialize data.\nApply Python type hints and docstrings to enhance code quality.\nAppreciate the value of well-written documentation, as exemplified by FastAPI docs\nConstruct a simple RESTful API with multiple resources (items, users) and methods (GET, POST).\nStructure a FastAPI application using APIRouter for modular routing.\nUtilize advanced Pydantic features including BaseModel, Annotated, Literal, nested structures, and @field_validator.\n\n\n\nLearning Objectives (Section 2): Becoming a 10x Developer\n\nDistinguish between standard smart IDE features and AI-powered coding assistance.\nClassify AI agents based on Interaction and Environment dimensions.\nAnalyze factors contributing to the operational cost of Coding Agents.\nApply efficiency strategies to enhance development velocity.\nDemonstrate proficiency with VS Code navigation shortcuts (Quick file navigation, Go to Definition, Rename symbol).\nDemonstrate proficiency with VS Code editing shortcuts (Multi-cursor, Find/Replace, Global Search).\nExecute file comparisons using VS Code’s diff tools.\nExplain the role of MCP servers in extending Coding Agent capabilities.\nJustify the necessity of providing LLMs with up-to-date documentation.\n\n\n\nReferences\n\nFastAPI Documentation\nVS Code Documentation"
+  },
+  {
+    "objectID": "W7/curriculum.html#module-3-building-an-mcp-server",
+    "href": "W7/curriculum.html#module-3-building-an-mcp-server",
+    "title": "Week 7 Curriculum: Building AI Apps",
+    "section": "Module 3: Building an MCP Server",
+    "text": "Module 3: Building an MCP Server\n\nLearning Objectives\nBy the end of this module, you are able to:\n\nConstruct a minimal MCP Server using the MCP Python SDK or FastMCP.\nRefactor an existing FastAPI server into a compliant MCP server using fastapi-mcp.\nIntegrate an Agent with an MCP server using an MCP Client (Google ADK, LangChain, or Pydantic AI).\n\n\n\nReferences\n\nMCP Python SDK\nFastMCP\nFastAPI-MCP"
+  },
+  {
+    "objectID": "W7/curriculum.html#module-4-virtualization",
+    "href": "W7/curriculum.html#module-4-virtualization",
+    "title": "Week 7 Curriculum: Building AI Apps",
+    "section": "Module 4: Virtualization",
+    "text": "Module 4: Virtualization\nBy the end of this module, you are able to:\n\nLearning Objectives\n\nDistinguish between a Container (runtime) and an Image (build-time artifact).\nUtilize DockerHub to locate and pull official container images.\nOrchestrate multi-container environments using Docker CLI and Docker Compose.\nConfigure Docker volumes to persist data generated by running containers.\nDifferentiate between execution stack layers: Hardware, Platform, Runtime, and Application.\nEstablish a secure database connection using the psycopg driver.\nConstruct schema definitions and execute database queries using SQLAlchemy.\nManage database schema evolution using dbmate migration scripts.\n\n\n\nReferences\n\nدليل المطور الشامل - حسان القوز"
+  },
+  {
+    "objectID": "W7/curriculum.html#module-5-deployment",
+    "href": "W7/curriculum.html#module-5-deployment",
+    "title": "Week 7 Curriculum: Building AI Apps",
+    "section": "Module 5: Deployment",
+    "text": "Module 5: Deployment\n\nLearning Objectives\nBy the end of this module, you are able to:\n\nGiven any application, you are able to deploy it.\nAfter deployment, you are able to apply updates to it.\nExplore alternative hosting services like: Railway"
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#the-hook",
     "href": "W7/M3/01_building_mcp_servers.html#the-hook",
     "title": "Building MCP Servers",
     "section": "The Hook",
-    "text": "The Hook\n![Figure: A stylized bridge connecting two distinct islands. On the left island, chaotic piles of file icons and database cylinders representing raw data. On the right island, a clean, organized robot character representing an AI agent. The bridge itself is structured and orderly, symbolizing a standardized protocol.]\nHow do we bridge the gap between our data and AI agents in a standardized, scalable way?\n\nWe have powerful LLMs, and we have our valuable data and business logic. But connecting them has been a messy process of custom integrations and brittle glue code. We need a standard. We need a protocol. That’s what MCP is. Today, we’re going to master the art of building these connectors in Python. We’ll start with the foundational SDK, discover how to speed up development with FastMCP, and finally, learn how to instantly AI-enable our existing web applications."
+    "text": "The Hook\n\n\n\nFigure: A stylized bridge connecting chaotic data islands to an organized AI agent, representing a standardized protocol.\n\n\nHow do we bridge the gap between our data and AI agents in a standardized, scalable way?\n\nWe have powerful LLMs, and we have our valuable data and business logic. But connecting them has been a messy process of custom integrations and brittle glue code. We need a standard. We need a protocol. That’s what MCP is. Today, we’re going to master the art of building these connectors in Python. We’ll start with the foundational SDK, discover how to speed up development with FastMCP, and finally, learn how to instantly AI-enable our existing web applications."
   },
   {
-    "objectID": "W7/M3/01_building_mcp_servers.html#lay-of-the-land",
-    "href": "W7/M3/01_building_mcp_servers.html#lay-of-the-land",
+    "objectID": "W7/M3/01_building_mcp_servers.html#todays-journey",
+    "href": "W7/M3/01_building_mcp_servers.html#todays-journey",
     "title": "Building MCP Servers",
-    "section": "Lay of the Land",
-    "text": "Lay of the Land\nToday’s Journey:\n\nPart 1: The Foundation (MCP Python SDK)\n\nCore concepts: Server, Resources, Tools, Prompts\nUnderstanding the primitives\n\nPart 2: The Accelerator (FastMCP)\n\nDeveloper experience first\nDecorators and simplified patterns\n\nPart 3: The Bridge (FastAPI-MCP)\n\nIntegrating with existing web apps\nPreserving auth and documentation\n\nKey Takeaways\n\n\nOur journey today has three distinct stages. First, we’ll build the foundation by exploring the official MCP Python SDK. This gives us a deep understanding of the core concepts: Servers, Resources, Tools, and Prompts. Next, we’ll accelerate our workflow with FastMCP, a tool designed to let us “move fast and make things” by removing boilerplate. Finally, we’ll cross the bridge to the real world with FastAPI-MCP, showing how to expose our existing FastAPI applications to agents with zero friction."
-  },
-  {
-    "objectID": "W7/M3/01_building_mcp_servers.html#part-1-the-foundation-mcp-python-sdk",
-    "href": "W7/M3/01_building_mcp_servers.html#part-1-the-foundation-mcp-python-sdk",
-    "title": "Building MCP Servers",
-    "section": "Part 1: The Foundation (MCP Python SDK)",
-    "text": "Part 1: The Foundation (MCP Python SDK)"
+    "section": "Today’s Journey",
+    "text": "Today’s Journey\n\nThe Foundation (MCP Python SDK)\n\nCore concepts: Server, Resources, Tools, Prompts\nUnderstanding the primitives\n\nThe Accelerator (FastMCP)\n\nDeveloper experience first\nDecorators and simplified patterns\n\nThe Bridge (FastAPI-MCP)\n\nIntegrating with existing web apps\nPreserving auth and documentation\n\n\n\nOur journey today has three distinct stages. First, we’ll build the foundation by exploring the official MCP Python SDK. This gives us a deep understanding of the core concepts: Servers, Resources, Tools, and Prompts. Next, we’ll accelerate our workflow with FastMCP, a tool designed to let us “move fast and make things” by removing boilerplate. Finally, we’ll cross the bridge to the real world with FastAPI-MCP, showing how to expose our existing FastAPI applications to agents with zero friction."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#the-problem-the-integration-mess",
@@ -88,28 +116,28 @@
     "href": "W7/M3/01_building_mcp_servers.html#the-core-concept-server",
     "title": "Building MCP Servers",
     "section": "The Core Concept: Server",
-    "text": "The Core Concept: Server\n![Figure: A central, stylized server rack icon with the Python logo prominently displayed on its chassis. Radiating lines connect it to smaller nodes, symbolizing its role as the central hub and connection manager.]\nMCPServer is your main interface\nfrom mcp.server.mcpserver import MCPServer\n\nmcp = MCPServer(\"Demo\")\n\nHandles connection management\nProtocol compliance\nMessage routing\nLifecycle management\n\n\nIn the official SDK, the MCPServer instance is your main interface. You initialize it with a name, and it handles the heavy lifting: managing connections, ensuring protocol compliance, routing messages, and handling the application lifecycle. It’s the robust foundation we build upon."
+    "text": "The Core Concept: Server\n\n\nMCPServer is your main interface\nfrom mcp.server.mcpserver import MCPServer\n\nmcp = MCPServer(\"Demo\")\n\nHandles connection management\nProtocol compliance\nMessage routing\nLifecycle management\n\n\n\n\n\nFigure: A central server rack with a Python logo connecting to smaller nodes as a hub. (Click to Enlarge)\n\n\n\n\nIn the official SDK, the MCPServer instance is your main interface. You initialize it with a name, and it handles the heavy lifting: managing connections, ensuring protocol compliance, routing messages, and handling the application lifecycle. It’s the robust foundation we build upon."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#resources-reading-data",
     "href": "W7/M3/01_building_mcp_servers.html#resources-reading-data",
     "title": "Building MCP Servers",
     "section": "Resources: Reading Data",
-    "text": "Resources: Reading Data\n![Figure: A magnified view of an open document folder with a magnifying glass hovering over it, symbolizing read-only access. The folder contains organized papers, representing structured data resources.]\nExpose data to LLMs\n@mcp.resource(\"file://documents/{name}\")\ndef read_document(name: str) -&gt; str:\n    \"\"\"Read a document by name.\"\"\"\n    return f\"Content of {name}\"\n\nRead-only data sources (like GET requests)\nSide-effect free (mostly)\nURI templates for dynamic access\n\n\nResources are how we get data into the LLM’s context. Think of them like GET endpoints in a REST API. They are designed for reading files, fetching database rows, or retrieving system state. They should be side-effect free—interaction with them shouldn’t change the state of the world significantly."
+    "text": "Resources: Reading Data\n\n\nExpose data to LLMs\n@mcp.resource(\"file://documents/{name}\")\ndef read_document(name: str) -&gt; str:\n    \"\"\"Read a document by name.\"\"\"\n    return f\"Content of {name}\"\n\nRead-only data sources (like GET requests)\nSide-effect free (mostly)\nURI templates for dynamic access\n\n\n\n\n\nFigure: A magnified open document folder symbolizing read-only access to structured data.\n\n\n\n\nResources are how we get data into the LLM’s context. Think of them like GET endpoints in a REST API. They are designed for reading files, fetching database rows, or retrieving system state. They should be side-effect free—interaction with them shouldn’t change the state of the world significantly."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#tools-taking-action",
     "href": "W7/M3/01_building_mcp_servers.html#tools-taking-action",
     "title": "Building MCP Servers",
     "section": "Tools: Taking Action",
-    "text": "Tools: Taking Action\n![Figure: A dynamic composition of interlocking gears and a wrench tool interacting with a data block, symbolizing active computation and side effects. Sparks or motion lines suggest action and execution.]\nLet LLMs perform computations\n@mcp.tool()\ndef add(a: int, b: int) -&gt; int:\n    \"\"\"Add two numbers together.\"\"\"\n    return a + b\n\nPerform computation or actions\nSide effects allowed (database writes, API calls)\nModel-controlled execution\n\n\nWhen the agent needs to do something, it uses Tools. These are the functional counterparts to resources. Tools allow the LLM to perform computations, query databases, or call external APIs. This is where the agency comes in—the LLM decides when to call a tool and what arguments to pass."
+    "text": "Tools: Taking Action\n\n\nLet LLMs perform computations\n@mcp.tool()\ndef add(a: int, b: int) -&gt; int:\n    \"\"\"Add two numbers together.\"\"\"\n    return a + b\n\nPerform computation or actions\nSide effects allowed (database writes, API calls)\nModel-controlled execution\n\n\n\n\n\nFigure: Interlocking gears and a wrench interacting with a data block to symbolize active computation.\n\n\n\n\nWhen the agent needs to do something, it uses Tools. These are the functional counterparts to resources. Tools allow the LLM to perform computations, query databases, or call external APIs. This is where the agency comes in—the LLM decides when to call a tool and what arguments to pass."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#prompts-interaction-templates",
     "href": "W7/M3/01_building_mcp_servers.html#prompts-interaction-templates",
     "title": "Building MCP Servers",
     "section": "Prompts: Interaction Templates",
-    "text": "Prompts: Interaction Templates\n![Figure: A clean clipboard with a structured form, a pencil filling in the first field. The form represents a reusable template, suggesting standardized user input and interaction workflows.]\nReusable templates for users\n@mcp.prompt(title=\"Code Review\")\ndef review_code(code: str) -&gt; str:\n    return f\"Please review this code:\\n\\n{code}\"\n\nUser-controlled invocation\nStandard workflows (e.g., “Fix Bug”, “Summarize”)\nPre-packaged instructions\n\n\nPrompts are reusable templates for interactions. Think of them as slash commands or menu options for the user. They provide a structured way to start a task, like “Review this code” or “Check system health,” making standard workflows repeatable and easy to use."
+    "text": "Prompts: Interaction Templates\n\n\nReusable templates for users\n@mcp.prompt(title=\"Code Review\")\ndef review_code(code: str) -&gt; str:\n    return f\"Please review this code:\\n\\n{code}\"\n\nUser-controlled invocation\nStandard workflows (e.g., “Fix Bug”, “Summarize”)\nPre-packaged instructions\n\n\n\n\n\nFigure: A clipboard with a structured form and pencil representing reusable templates.\n\n\n\n\nPrompts are reusable templates for interactions. Think of them as slash commands or menu options for the user. They provide a structured way to start a task, like “Review this code” or “Check system health,” making standard workflows repeatable and easy to use."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#part-2-the-accelerator-fastmcp",
@@ -158,7 +186,7 @@
     "href": "W7/M3/01_building_mcp_servers.html#core-abstractions",
     "title": "Building MCP Servers",
     "section": "Core Abstractions",
-    "text": "Core Abstractions\n![Figure: A circular flow diagram with three distinct nodes. “Providers” (source icon) flows into “Transformers” (filter/funnel icon), which flows into “Components” (package/box icon). Arrows indicate a continuous, cyclical process of data refinement.]\n\nComponents: What you expose (Tools, Resources, Prompts)\nProviders: Where they come from (Functions, Files, OpenAPI)\nTransforms: How they look (Namespacing, Filtering)\n\n\nFastMCP organizes the world into three concepts. Components are what you expose. Providers are where those components come from—your functions, files on disk, or even an external API spec. And Transforms let you shape that data—renaming tools, filtering them for security, or versioning your API. It’s a powerful compositional model."
+    "text": "Core Abstractions\n\n\n\nComponents: What you expose (Tools, Resources, Prompts)\nProviders: Where they come from (Functions, Files, OpenAPI)\nTransforms: How they look (Namespacing, Filtering)\n\n\n\n\n\nFigure: A circular flow diagram showing Providers, Transformers, and Components in a data refinement cycle.\n\n\n\n\nFastMCP organizes the world into three concepts. Components are what you expose. Providers are where those components come from—your functions, files on disk, or even an external API spec. And Transforms let you shape that data—renaming tools, filtering them for security, or versioning your API. It’s a powerful compositional model."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#running-fastmcp",
@@ -179,7 +207,7 @@
     "href": "W7/M3/01_building_mcp_servers.html#the-integration-challenge",
     "title": "Building MCP Servers",
     "section": "The Integration Challenge",
-    "text": "The Integration Challenge\n![Figure: A split-screen composition. On the left, a stylized developer character looking overwhelmed with hands on head, standing between two tall stacks of identical code blocks labeled “FastAPI” and “MCP”. This represents the burden of code duplication.]\nYou have a FastAPI app.\n\nDo you rewrite it for MCP?\nDo you duplicate your authentication?\nDo you maintain two codebases?\n\nNo. You Mount.\n\nNow, what if you already have a massive FastAPI application? Rewriting everything as MCP tools would be a nightmare of duplication—logic, auth, validation. We don’t want two codebases. We want to expose our existing investment to the AI world."
+    "text": "The Integration Challenge\n\n\nYou have a FastAPI app.\n\nDo you rewrite it for MCP?\nDo you duplicate your authentication?\nDo you maintain two codebases?\n\nNo. You Mount.\n\n\n\n\nFigure: A split-screen showing an overwhelmed developer facing duplicate stacks of FastAPI and MCP code.\n\n\n\n\nNow, what if you already have a massive FastAPI application? Rewriting everything as MCP tools would be a nightmare of duplication—logic, auth, validation. We don’t want two codebases. We want to expose our existing investment to the AI world."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#step-1-install-fastapi-mcp",
@@ -189,11 +217,11 @@
     "text": "Step 1: Install FastAPI-MCP\nAdd the package:\nuv add \"fastapi-mcp\"\nRequirements: - Existing FastAPI app - Python 3.10+\n\nTo bridge the gap, we use the fastapi-mcp package. Install it alongside your existing FastAPI application. It’s a lightweight wrapper that brings MCP capabilities to your existing routes."
   },
   {
-    "objectID": "W7/M3/01_building_mcp_servers.html#fastapi-mcp",
-    "href": "W7/M3/01_building_mcp_servers.html#fastapi-mcp",
+    "objectID": "W7/M3/01_building_mcp_servers.html#fastapi-mcp-one-app-two-interfaces",
+    "href": "W7/M3/01_building_mcp_servers.html#fastapi-mcp-one-app-two-interfaces",
     "title": "Building MCP Servers",
-    "section": "FastAPI-MCP",
-    "text": "FastAPI-MCP\n![Figure: A visual equation or transformation. A block labeled “FastAPI” and a block labeled “MCP” moving together and merging into a single, unified, glowing block. This represents the seamless integration of the two technologies.]\nOne App, Two Interfaces\nfrom fastapi import FastAPI\nfrom fastapi_mcp import FastApiMCP\n\napp = FastAPI()\nmcp = FastApiMCP(app)\n\nmcp.mount() # Adds /mcp endpoint\n\nZero Config: Point at your app, it works\nNative Integration: Uses ASGI (in-memory, fast)\nPreserves Auth: Depends(...) just works\n\n\nThis is fastapi-mcp. With essentially three lines of code, you mount an MCP server inside your FastAPI app. It automatically discovers your routes and converts them into MCP tools. It uses the efficient ASGI transport, so there’s no network overhead. And crucially, it respects your existing authentication."
+    "section": "FastAPI-MCP: One App, Two Interfaces",
+    "text": "FastAPI-MCP: One App, Two Interfaces\n\n\nfrom fastapi import FastAPI\nfrom fastapi_mcp import FastApiMCP\n\napp = FastAPI()\nmcp = FastApiMCP(app)\n\nmcp.mount() # Adds /mcp endpoint\n\nZero Config: Point at your app, it works\nNative Integration: Uses ASGI (in-memory, fast)\nPreserves Auth: Depends(...) just works\n\n\n\n\n\nFigure: A visual transformation showing FastAPI and MCP blocks merging into a single unified block.\n\n\n\n\nThis is fastapi-mcp. With essentially three lines of code, you mount an MCP server inside your FastAPI app. It automatically discovers your routes and converts them into MCP tools. It uses the efficient ASGI transport, so there’s no network overhead. And crucially, it respects your existing authentication."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#what-gets-preserved",
@@ -238,18 +266,25 @@
     "text": "FastAPI Integration\n\nZero Rewrite: Mount existing app as MCP server\nProtocol Agnostic: HTTP/SSE handled automatically\nSecurity Preserved: Existing Depends() just work\nDual Interface: Serve humans and agents simultaneously\n\n\nAnd for our existing applications, FastAPI-MCP offers a zero-rewrite solution. By mounting your app, you get protocol handling for free, you preserve your existing security model, and you serve both human users and AI agents from a single codebase."
   },
   {
-    "objectID": "W7/M3/01_building_mcp_servers.html#which-tool-when",
-    "href": "W7/M3/01_building_mcp_servers.html#which-tool-when",
+    "objectID": "W7/M3/01_building_mcp_servers.html#which-tool-when-12",
+    "href": "W7/M3/01_building_mcp_servers.html#which-tool-when-12",
     "title": "Building MCP Servers",
-    "section": "Which Tool When?",
-    "text": "Which Tool When?\n1. MCP Python SDK\n\nYou need full control over the protocol.\nYou are building low-level custom integrations.\nYou are building an MCP Client.\n\n2. FastMCP\n\nYou are building a new server from scratch.\nYou want speed and simplicity.\nYou want built-in best practices.\n\n3. FastAPI-MCP\n\nYou have an existing FastAPI application.\nYou want to reuse logic, auth, and models.\nYou want to become AI-Ready instantly.\n\n\nSo, which tool should you reach for? Use the Official SDK if you need low-level control or are building a client. Reach for FastMCP if you’re building a new server from scratch and want the best developer experience. And use FastAPI-MCP if you’re sitting on a goldmine of existing FastAPI services that you want to open up to the new world of AI agents."
+    "section": "Which Tool When? (1/2)",
+    "text": "Which Tool When? (1/2)\n\nMCP Python SDK\n\nYou need full control over the protocol.\nYou are building low-level custom integrations.\nYou are building an MCP Client.\n\nFastMCP\n\nYou are building a new server from scratch.\nYou want speed and simplicity.\nYou want built-in best practices.\n\n\n\nSo, which tool should you reach for? Use the Official SDK if you need low-level control or are building a client. Reach for FastMCP if you’re building a new server from scratch and want the best developer experience."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#which-tool-when-22",
+    "href": "W7/M3/01_building_mcp_servers.html#which-tool-when-22",
+    "title": "Building MCP Servers",
+    "section": "Which Tool When? (2/2)",
+    "text": "Which Tool When? (2/2)\n\nFastAPI-MCP\n\nYou have an existing FastAPI application.\nYou want to reuse logic, auth, and models.\nYou want to become AI-Ready instantly.\n\n\n\n… And use FastAPI-MCP if you’re sitting on a goldmine of existing FastAPI services that you want to open up to the new world of AI agents."
   },
   {
     "objectID": "W7/M3/01_building_mcp_servers.html#the-complete-picture",
     "href": "W7/M3/01_building_mcp_servers.html#the-complete-picture",
     "title": "Building MCP Servers",
     "section": "The Complete Picture",
-    "text": "The Complete Picture\n![Figure: A three-layered pyramid structure. The wide base is labeled “SDK” (Foundation). The middle layer is “FastMCP” (Builder Tools). The top capstone is “FastAPI-MCP” (Bridge). Connecting lines link the layers, showing they are part of a cohesive ecosystem.]\nYou are now equipped to build.\n\nFoundational understanding\nRapid development tools\nIntegration strategies\n\nGo connect your world.\n\nYou now have the complete picture. You understand the foundation, you have the tools for speed, and you have the bridge for integration. The era of isolated data is over. You are now equipped to build the connectors that will power the next generation of AI applications. Go connect your world."
+    "text": "The Complete Picture\n\n\nYou are now equipped to build.\n\nFoundational understanding\nRapid development tools\nIntegration strategies\n\nGo connect your world.\n\n\n\n\nFigure: A three-layered pyramid showing the SDK foundation, FastMCP builder tools, and FastAPI-MCP bridge.\n\n\n\n\nYou now have the complete picture. You understand the foundation, you have the tools for speed, and you have the bridge for integration. The era of isolated data is over. You are now equipped to build the connectors that will power the next generation of AI applications. Go connect your world."
   },
   {
     "objectID": "W7/M2/10x_developer.html",
@@ -13073,14 +13108,21 @@
     "href": "W7/M4/01_backend_databases.html#the-hook",
     "title": "Connecting to Backend Databases",
     "section": "The Hook",
-    "text": "The Hook\n![Figure: A stylized data pipeline connecting a cylinder (Database) on the left to a Python logo on the right. The pipeline is made of interlocking segments, symbolizing a robust and direct connection for SQL commands.]\nHow do I direct my SQL commands to a database system and connect my Python application to it?\n\nWe’ve built agents and APIs, but now we need persistent storage. Databases are the foundation of any real application. But how do we get started? We need to understand the environment where databases run, how to set them up reliably, and how to connect our Python code to them. This journey will take us through virtualization, Docker containers, connection protocols, and modern Python frameworks that make database work practical and safe."
+    "text": "The Hook\n\n\n\nFigure: A stylized pipeline connecting a database cylinder to a Python logo, symbolizing a robust connection.\n\n\nHow do I direct my SQL commands to a database system and connect my Python application to it?\n\nWe’ve built agents and APIs, but now we need persistent storage. Databases are the foundation of any real application. But how do we get started? We need to understand the environment where databases run, how to set them up reliably, and how to connect our Python code to them. This journey will take us through virtualization, Docker containers, connection protocols, and modern Python frameworks that make database work practical and safe."
   },
   {
-    "objectID": "W7/M4/01_backend_databases.html#lay-of-the-land",
-    "href": "W7/M4/01_backend_databases.html#lay-of-the-land",
+    "objectID": "W7/M4/01_backend_databases.html#todays-journey-12",
+    "href": "W7/M4/01_backend_databases.html#todays-journey-12",
     "title": "Connecting to Backend Databases",
-    "section": "Lay of the Land",
-    "text": "Lay of the Land\nToday’s Journey:\n\nSetting Up the Database\n\nEnvironment setup and virtualization\nDocker containers vs virtual machines\nRunning PostgreSQL with Docker Compose\n\nConnecting the Application\n\nUsing psycopg driver\nDB-API 2.0 protocol\nTransactions and cursors\n\nSQLAlchemy Framework\n\nCore concepts: Engine, Metadata, Tables\nBuilding queries in Python\nConnection pooling\n\nDatabase Migrations\n\nVersion control for schema\nMigration scripts with dbmate\nSafe schema evolution\n\n\n\nToday we’ll cover four major topics. First, we’ll set up a database environment using Docker, understanding the difference between containers and virtual machines. Then we’ll connect our Python application using the psycopg driver. Next, we’ll level up to SQLAlchemy, a framework that solves many problems with raw database drivers. Finally, we’ll learn about migrations—the professional way to evolve your database schema without losing data. Each step builds on the previous one."
+    "section": "Today’s Journey (1/2)",
+    "text": "Today’s Journey (1/2)\n\nSetting Up the Database\n\nEnvironment setup and virtualization\nDocker containers vs virtual machines\nRunning PostgreSQL with Docker Compose\n\nConnecting the Application\n\nUsing psycopg driver\nDB-API 2.0 protocol\nTransactions and cursors\n\n\n\nToday we’ll cover four major topics. First, we’ll set up a database environment using Docker, understanding the difference between containers and virtual machines. Then we’ll connect our Python application using the psycopg driver."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#todays-journey-22",
+    "href": "W7/M4/01_backend_databases.html#todays-journey-22",
+    "title": "Connecting to Backend Databases",
+    "section": "Today’s Journey (2/2)",
+    "text": "Today’s Journey (2/2)\n\nSQLAlchemy Framework\n\nCore concepts: Engine, Metadata, Tables\nBuilding queries in Python\nConnection pooling\n\nDatabase Migrations\n\nVersion control for schema\nMigration scripts with dbmate\nSafe schema evolution\n\n\n\nNext, we’ll level up to SQLAlchemy, a framework that solves many problems with raw database drivers. Finally, we’ll learn about migrations—the professional way to evolve your database schema without losing data. Each step builds on the previous one."
   },
   {
     "objectID": "W7/M4/01_backend_databases.html#part-1-setting-up-the-database",
@@ -13101,7 +13143,7 @@
     "href": "W7/M4/01_backend_databases.html#the-solution-containerization",
     "title": "Connecting to Backend Databases",
     "section": "The Solution: Containerization",
-    "text": "The Solution: Containerization\n![Figure: A specialized shipping container with a transparent side, revealing neatly packed items inside: a binary executable block, a library book, and a configuration checklist. The container is sealed and isolated, floating in a clean white space.]\nDocker packages everything together\n\nApplication binaries\nLibraries and dependencies\nConfiguration files\nAll in one isolated container\n\n\nDocker emerged as a solution. Instead of just packaging compiled binaries, Docker packages everything: the binaries, the libraries, the configuration files—all into a single unit called a container. The Docker platform on your machine runs these containers in isolation from each other, preventing conflicts. This is a fundamental shift in how we think about deployable units."
+    "text": "The Solution: Containerization\n\n\nDocker packages everything together\n\nApplication binaries\nLibraries and dependencies\nConfiguration files\nAll in one isolated container\n\n\n\n\n\nFigure: A transparent shipping container revealing neatly packed binaries, libraries, and configurations. (Click to Enlarge)\n\n\n\n\nDocker emerged as a solution. Instead of just packaging compiled binaries, Docker packages everything: the binaries, the libraries, the configuration files—all into a single unit called a container. The Docker platform on your machine runs these containers in isolation from each other, preventing conflicts. This is a fundamental shift in how we think about deployable units."
   },
   {
     "objectID": "W7/M4/01_backend_databases.html#benefits-of-containerization",
@@ -13115,7 +13157,7 @@
     "href": "W7/M4/01_backend_databases.html#virtualization-background",
     "title": "Connecting to Backend Databases",
     "section": "Virtualization Background",
-    "text": "Virtualization Background\n![Figure: A horizontal timeline with three distinct stages. Left: A large, monolithic mainframe computer. Middle: A server generic icon split into multiple virtual machines. Right: A neat stack of lightweight shipping containers. An arrow flows from left to right indicating progress.]\nVirtualization (1966) - Dividing expensive mainframes into multiple virtual computers - Foundation of cloud computing\nContainerization (2008-2013) - Internal project at dotCloud (France) - Open-sourced as Docker by Solomon Hykes (March 2013)\n\nThis didn’t come out of nowhere. Virtualization dates back to 1966, when expensive mainframes were divided into multiple virtual computers for better efficiency. That’s the foundation of cloud computing. Containerization evolved from this. It started as an internal project at dotCloud in France around 2008, and was open-sourced as Docker in March 2013 by Solomon Hykes. It’s a relatively recent innovation that’s become essential."
+    "text": "Virtualization Background\n\n\n\nVirtualization (1966)\n\nDividing expensive mainframes into multiple virtual computers\nFoundation of cloud computing\n\nContainerization (2008-2013)\n\nInternal project at dotCloud (France)\nOpen-sourced as Docker by Solomon Hykes (March 2013)\n\n\n\n\n\n\nFigure: A timeline showing the evolution from mainframes to virtual machines and finally to containers.\n\n\n\n\nThis didn’t come out of nowhere. Virtualization dates back to 1966, when expensive mainframes were divided into multiple virtual computers for better efficiency. That’s the foundation of cloud computing. Containerization evolved from this. It started as an internal project at dotCloud in France around 2008, and was open-sourced as Docker in March 2013 by Solomon Hykes. It’s a relatively recent innovation that’s become essential."
   },
   {
     "objectID": "W7/M4/01_backend_databases.html#container-vs-virtual-machine",
@@ -13241,7 +13283,7 @@
     "href": "W7/M4/01_backend_databases.html#what-is-sqlalchemy",
     "title": "Connecting to Backend Databases",
     "section": "What is SQLAlchemy?",
-    "text": "What is SQLAlchemy?\n![Figure: A process diagram. On the left, a messy scroll of raw SQL text. In the middle, a magical funnel or gear mechanism (SQLAlchemy). On the right, clean, structured Python code blocks emerging. This represents the abstraction of raw SQL into safe, Pythonic objects.]\nPython’s most popular database framework\n\nRaises database work to a higher level\nSolves driver limitations\nTwo parts: Core and ORM\n\n\nSQLAlchemy is Python’s most popular database framework. It elevates database work from the low-level driver world to a higher abstraction. It solves all those problems we just identified: type safety, security, database portability, and connection pooling. SQLAlchemy has two main parts: Core, which we’ll focus on, and ORM, which maps database tables to Python classes."
+    "text": "What is SQLAlchemy?\n\n\nPython’s most popular database framework\n\nRaises database work to a higher level\nSolves driver limitations\nTwo parts: Core and ORM\n\n\n\n\n\nFigure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code.\n\n\n\n\nSQLAlchemy is Python’s most popular database framework. It elevates database work from the low-level driver world to a higher abstraction. It solves all those problems we just identified: type safety, security, database portability, and connection pooling. SQLAlchemy has two main parts: Core, which we’ll focus on, and ORM, which maps database tables to Python classes."
   },
   {
     "objectID": "W7/M4/01_backend_databases.html#the-engine",
@@ -13332,7 +13374,7 @@
     "href": "W7/M4/01_backend_databases.html#version-control-for-code",
     "title": "Connecting to Backend Databases",
     "section": "Version Control for Code",
-    "text": "Version Control for Code\n![Figure: A stylized document with a split view. The left side shows lines of code in red (deleted), and the right side shows lines in green (added). A ‘branching’ icon sits above, symbolizing version control and history tracking.]\nGit tracks code changes:\n\nLine-by-line history\nTime travel (undo)\nReview before merging\nCollaboration\n\nWe need the same for database schema\n\nWe use git for version control of our code. It tracks every change, lets us travel back in time, requires review before merging, and enables collaboration. We need the exact same thing for our database schema. Every schema change should be a script that’s tracked in git, reviewed, and applied consistently across all environments."
+    "text": "Version Control for Code\n\n\nGit tracks code changes:\n\nLine-by-line history\nTime travel (undo)\nReview before merging\nCollaboration\n\nWe need the same for database schema\n\n\n\n\nFigure: A split-view document showing code diffs with red deletions and green additions under a branching icon.\n\n\n\n\nWe use git for version control of our code. It tracks every change, lets us travel back in time, requires review before merging, and enables collaboration. We need the exact same thing for our database schema. Every schema change should be a script that’s tracked in git, reviewed, and applied consistently across all environments."
   },
   {
     "objectID": "W7/M4/01_backend_databases.html#migration-scripts",
@@ -13423,41 +13465,13 @@
     "href": "W7/M4/01_backend_databases.html#the-complete-picture",
     "title": "Connecting to Backend Databases",
     "section": "The Complete Picture",
-    "text": "The Complete Picture\n![Figure: A comprehensive system diagram. Bottom layer: A Docker container holding a PostgreSQL cylinder. Middle layer: A Python application block connected to the database via SQLAlchemy. Side component: A scroll labeled “Migrations” with a Git logo, overseeing the structure. All parts are connected with clean lines.]\nYou now have:\n\nIsolated database environment (Docker)\nType-safe database code (SQLAlchemy)\nVersion-controlled schema (Migrations)\nProfessional workflow\n\n\nPutting it all together: we have an isolated database running in Docker, type-safe database code using SQLAlchemy, version-controlled schema through migrations, and a professional workflow that scales from development to production. This is the foundation for building real applications with persistent data storage."
+    "text": "The Complete Picture\n\n\nYou now have:\n\nIsolated database environment (Docker)\nType-safe database code (SQLAlchemy)\nVersion-controlled schema (Migrations)\nProfessional workflow\n\n\n\n\n\nFigure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations.\n\n\n\n\nPutting it all together: we have an isolated database running in Docker, type-safe database code using SQLAlchemy, version-controlled schema through migrations, and a professional workflow that scales from development to production. This is the foundation for building real applications with persistent data storage."
   },
   {
-    "objectID": "W7/learning_outcomes.html",
-    "href": "W7/learning_outcomes.html",
-    "title": "Week 7 Learning Outcomes: Building AI Apps",
+    "objectID": "W7/index.html",
+    "href": "W7/index.html",
+    "title": "AI Pros Bootcamp",
     "section": "",
-    "text": "By the end of this module, you are able to:\n\nUnderstand what client-server architecture is, enumerate its features, use cases, and examples.\n\nIdentify where a unit of code would fit\n\nAppreciate the value of logical separation of concerns (not necessarily physically different devices)\nUnderstand the need for inventing new Protocols like: HTTP, LSP, and finally MCP.\nGain high-level understanding of how the HTTP protocol works.\n\nDistinguish between the function of the Header vs Body in an HTTP Message\nDistinguish between a Resource and its Representations\nAnalyze a URL and break it down to its components\nAnalyze a RESTful endpoint to its Nouns and Verbs; and their meaning"
-  },
-  {
-    "objectID": "W7/learning_outcomes.html#module-1-client-server-architecture",
-    "href": "W7/learning_outcomes.html#module-1-client-server-architecture",
-    "title": "Week 7 Learning Outcomes: Building AI Apps",
-    "section": "",
-    "text": "By the end of this module, you are able to:\n\nUnderstand what client-server architecture is, enumerate its features, use cases, and examples.\n\nIdentify where a unit of code would fit\n\nAppreciate the value of logical separation of concerns (not necessarily physically different devices)\nUnderstand the need for inventing new Protocols like: HTTP, LSP, and finally MCP.\nGain high-level understanding of how the HTTP protocol works.\n\nDistinguish between the function of the Header vs Body in an HTTP Message\nDistinguish between a Resource and its Representations\nAnalyze a URL and break it down to its components\nAnalyze a RESTful endpoint to its Nouns and Verbs; and their meaning"
-  },
-  {
-    "objectID": "W7/learning_outcomes.html#module-2-fastapi",
-    "href": "W7/learning_outcomes.html#module-2-fastapi",
-    "title": "Week 7 Learning Outcomes: Building AI Apps",
-    "section": "Module 2: FastAPI",
-    "text": "Module 2: FastAPI\nBy the end of this module, you are able to:\n\nPart 1: FastAPI\n\nRecognize the key features of FastAPI\nDistinguish between dev and production servers\nUnderstand the role of Pydantic in the FastAPI framework\nRecognize the importance of Python type hints and docstrings\nAppreciate the value of well-written documentation, as exemplified by FastAPI docs\nUtilize FastAPI to implement a simple RESTful API with the following:\n\nMultiple Resources: items and users\nMultiple Methods: GET (parameters in Query), POST (with json body)\nUse of Type Hints\nModular Routing with: APIRouter\nUse of Pydantic’s BaseModel\nUse of Annotated\nUse of Liteal\nUse of Nested structures\nCustom parsing functions using @field_validator\n\n\n\n\nPart 2: Becoming a 10x Developer\n\nDistinguish between AI-IDE features and just smart IDE features.\nDifferentiate Types of Agents based on two dimensions: Interaction and Environment\nEnumerate factors that contribute to the cost of Coding Agents\nBecome at least a 2x Developer; walking the path of becoming a 10x Developer\nMemorize shortcuts for Code Navigation (in VS Code):\n\nQuick file navigation\nGo to Definition\nRename symbol\n\nMemorize Editing Hacks’ Shortcuts (in VS Code):\n\nMultiple selections (multi-cursor)\nFind and replace\nSearch across files\n\nKnow how to Compare files (in VS Code)\nRecognize the role of MCP servers for Coding Agents\nUnderstand the need for models to have access to up-to-date docs"
-  },
-  {
-    "objectID": "W7/learning_outcomes.html#module-3-mcp-server",
-    "href": "W7/learning_outcomes.html#module-3-mcp-server",
-    "title": "Week 7 Learning Outcomes: Building AI Apps",
-    "section": "Module 3: MCP Server",
-    "text": "Module 3: MCP Server\nBy the end of this module, you are able to:\n\nSetup a simple minimal MCP Server. Utilizing either:\n\nMCP Server\nFastMCP\n\nConvert an existing FastAPI server to an MCP server:\n\nFastAPI-MCP\n\nConnect an Agent to it using an MCP Client. Utilizing either:\n\nGoogle’s Agent Development Kit (ADK)\nor LangChain\nor Pydantic AI"
-  },
-  {
-    "objectID": "W7/learning_outcomes.html#module-4",
-    "href": "W7/learning_outcomes.html#module-4",
-    "title": "Week 7 Learning Outcomes: Building AI Apps",
-    "section": "Module 4:",
-    "text": "Module 4:\nBy the end of this module, you are able to:\n\nPart 1: Virtualization\n\nExplain what is Virtualiztion and what problems does it solve, and what features does it offer?\nDistinguish between Container and an Image\nRecognize DockerHub\nOperate Docker and Docker Compose\nUnderstand how to persist data written by a running Container\nDistinguish between Hardware, Platform, Runtime, and Application\nConnect an Agent to a database\n\n\n\nPart 2: Deployment\n\nGiven any application, you are able to deploy it.\nAfter deployment, you are able to apply updates to it.\nExplore alternative hosting services like: Railway"
+    "text": "Back to Index."
   }
 ]

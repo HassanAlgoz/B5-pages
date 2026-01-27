@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 7 Learning Outcomes: Building AI Apps – AI Pros Bootcamp</title>
+<title>Week 7 Curriculum: Building AI Apps – AI Pros Bootcamp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 7 Learning Outcomes: Building AI Apps</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 7 Curriculum: Building AI Apps</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 7 Learning Outcomes: Building AI Apps</h1>
+<h1 class="title">Week 7 Curriculum: Building AI Apps</h1>
 </div>
 
 
@@ -138,111 +138,116 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="module-1-client-server-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="module-1-client-server-architecture">Module 1: Client-server Architecture</h2>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
 <p>By the end of this module, you are able to:</p>
 <ul>
-<li>Understand what client-server architecture is, enumerate its features, use cases, and examples.
+<li><em>Analyze</em> client-server architecture features, use cases, and examples given a system diagram.
 <ul>
-<li>Identify where a unit of code would fit</li>
+<li><em>Identify</em> the appropriate layer (client or server) for a specific unit of code.</li>
 </ul></li>
-<li>Appreciate the value of logical separation of concerns (not necessarily physically different devices)</li>
-<li>Understand the need for inventing new Protocols like: HTTP, LSP, and finally MCP.</li>
-<li>Gain high-level understanding of how the HTTP protocol works.
-<ul>
-<li>Distinguish between the function of the Header vs Body in an HTTP Message</li>
-<li>Distinguish between a Resource and its Representations</li>
-<li>Analyze a URL and break it down to its components</li>
-<li>Analyze a RESTful endpoint to its Nouns and Verbs; and their meaning</li>
-</ul></li>
+<li><em>Evaluate</em> the benefits of logical separation of concerns in distributed systems.</li>
+<li><em>Explain</em> the necessity of specialized protocols like HTTP, LSP, and MCP.</li>
+<li><em>Trace</em> the HTTP protocol flow and <em>distinguish</em> between Header and Body functions given a raw request.</li>
+<li><em>Differentiate</em> between a Resource and its various Representations.</li>
+<li><em>Deconstruct</em> a URL into its component parts (scheme, host, path, query).</li>
+<li><em>Analyze</em> a RESTful endpoint to identify Nouns (resources) and Verbs (actions).</li>
 </ul>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN Web Docs: HTTP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">Wikipedia: Client–server model</a></li>
+</ul>
+</section>
 </section>
 <section id="module-2-fastapi" class="level2">
 <h2 class="anchored" data-anchor-id="module-2-fastapi">Module 2: FastAPI</h2>
 <p>By the end of this module, you are able to:</p>
-<section id="part-1-fastapi" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-fastapi">Part 1: FastAPI</h3>
+<section id="learning-objectives-section-1-fast-api" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives-section-1-fast-api">Learning Objectives (Section 1): Fast API</h3>
 <ul>
-<li>Recognize the key features of FastAPI</li>
+<li><em>Evaluate</em> the key features of FastAPI for building high-performance APIs.</li>
 <li>Distinguish between <code>dev</code> and production servers</li>
-<li>Understand the role of Pydantic in the FastAPI framework</li>
-<li>Recognize the importance of Python type hints and docstrings</li>
+<li><em>Implement</em> Pydantic models to validate and serialize data.</li>
+<li><em>Apply</em> Python type hints and docstrings to enhance code quality.</li>
 <li>Appreciate the value of well-written documentation, as exemplified by FastAPI docs</li>
-<li>Utilize FastAPI to implement a simple RESTful API with the following:
-<ul>
-<li>Multiple Resources: <code>items</code> and <code>users</code></li>
-<li>Multiple Methods: <code>GET</code> (parameters in <code>Query</code>), <code>POST</code> (with json body)</li>
-<li>Use of Type Hints</li>
-<li>Modular Routing with: <code>APIRouter</code></li>
-<li>Use of Pydantic’s <code>BaseModel</code></li>
-<li>Use of <code>Annotated</code></li>
-<li>Use of <code>Liteal</code></li>
-<li>Use of Nested structures</li>
-<li>Custom parsing functions using <code>@field_validator</code></li>
-</ul></li>
+<li><em>Construct</em> a simple RESTful API with multiple resources (<code>items</code>, <code>users</code>) and methods (<code>GET</code>, <code>POST</code>).</li>
+<li><em>Structure</em> a FastAPI application using <code>APIRouter</code> for modular routing.</li>
+<li><em>Utilize</em> advanced Pydantic features including <code>BaseModel</code>, <code>Annotated</code>, <code>Literal</code>, nested structures, and <code>@field_validator</code>.</li>
 </ul>
 </section>
-<section id="part-2-becoming-a-10x-developer" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-becoming-a-10x-developer">Part 2: Becoming a 10x Developer</h3>
+<section id="learning-objectives-section-2-becoming-a-10x-developer" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives-section-2-becoming-a-10x-developer">Learning Objectives (Section 2): Becoming a 10x Developer</h3>
 <ul>
-<li>Distinguish between AI-IDE features and just smart IDE features.</li>
-<li>Differentiate Types of Agents based on two dimensions: Interaction and Environment</li>
-<li>Enumerate factors that contribute to the cost of Coding Agents</li>
-<li>Become at least a 2x Developer; walking the path of becoming a 10x Developer</li>
-<li>Memorize shortcuts for Code Navigation (in VS Code):
+<li><em>Distinguish</em> between standard smart IDE features and AI-powered coding assistance.</li>
+<li><em>Classify</em> AI agents based on Interaction and Environment dimensions.</li>
+<li><em>Analyze</em> factors contributing to the operational cost of Coding Agents.</li>
+<li><em>Apply</em> efficiency strategies to enhance development velocity.</li>
+<li><em>Demonstrate</em> proficiency with VS Code navigation shortcuts (Quick file navigation, Go to Definition, Rename symbol).</li>
+<li><em>Demonstrate</em> proficiency with VS Code editing shortcuts (Multi-cursor, Find/Replace, Global Search).</li>
+<li><em>Execute</em> file comparisons using VS Code’s diff tools.</li>
+<li><em>Explain</em> the role of MCP servers in extending Coding Agent capabilities.</li>
+<li><em>Justify</em> the necessity of providing LLMs with up-to-date documentation.</li>
+</ul>
+</section>
+<section id="references-1" class="level3">
+<h3 class="anchored" data-anchor-id="references-1">References</h3>
 <ul>
-<li>Quick file navigation</li>
-<li>Go to Definition</li>
-<li>Rename symbol</li>
-</ul></li>
-<li>Memorize Editing Hacks’ Shortcuts (in VS Code):
-<ul>
-<li>Multiple selections (multi-cursor)</li>
-<li>Find and replace</li>
-<li>Search across files</li>
-</ul></li>
-<li>Know how to <em>Compare files</em> (in VS Code)</li>
-<li>Recognize the role of MCP servers for Coding Agents</li>
-<li>Understand the need for models to have access to up-to-date docs</li>
+<li><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></li>
+<li><a href="https://code.visualstudio.com/docs">VS Code Documentation</a></li>
 </ul>
 </section>
 </section>
-<section id="module-3-mcp-server" class="level2">
-<h2 class="anchored" data-anchor-id="module-3-mcp-server">Module 3: MCP Server</h2>
+<section id="module-3-building-an-mcp-server" class="level2">
+<h2 class="anchored" data-anchor-id="module-3-building-an-mcp-server">Module 3: Building an MCP Server</h2>
+<section id="learning-objectives-1" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives-1">Learning Objectives</h3>
 <p>By the end of this module, you are able to:</p>
 <ul>
-<li>Setup a simple minimal MCP Server. Utilizing either:
+<li><em>Construct</em> a minimal MCP Server using the MCP Python SDK or FastMCP.</li>
+<li><em>Refactor</em> an existing FastAPI server into a compliant MCP server using <code>fastapi-mcp</code>.</li>
+<li><em>Integrate</em> an Agent with an MCP server using an MCP Client (Google ADK, LangChain, or Pydantic AI).</li>
+</ul>
+</section>
+<section id="references-2" class="level3">
+<h3 class="anchored" data-anchor-id="references-2">References</h3>
 <ul>
-<li><a href="https://github.com/modelcontextprotocol/python-sdk">MCP Server</a></li>
-<li><a href="https://fastmcp.wiki/en/getting-started/welcome">FastMCP</a></li>
-</ul></li>
-<li>Convert an existing FastAPI server to an MCP server:
-<ul>
+<li><a href="https://github.com/modelcontextprotocol/python-sdk">MCP Python SDK</a></li>
+<li><a href="https://github.com/jlowin/fastmcp">FastMCP</a></li>
 <li><a href="https://github.com/tadata-org/fastapi_mcp">FastAPI-MCP</a></li>
-</ul></li>
-<li>Connect an Agent to it using an MCP Client. Utilizing either:
-<ul>
-<li>Google’s Agent Development Kit (ADK)</li>
-<li>or <a href="https://academy.langchain.com/">LangChain</a></li>
-<li>or <a href="https://ai.pydantic.dev/">Pydantic AI</a></li>
-</ul></li>
 </ul>
 </section>
-<section id="module-4" class="level2">
-<h2 class="anchored" data-anchor-id="module-4">Module 4:</h2>
+</section>
+<section id="module-4-virtualization" class="level2">
+<h2 class="anchored" data-anchor-id="module-4-virtualization">Module 4: Virtualization</h2>
 <p>By the end of this module, you are able to:</p>
-<section id="part-1-virtualization" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-virtualization">Part 1: Virtualization</h3>
+<section id="learning-objectives-2" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives-2">Learning Objectives</h3>
 <ul>
-<li>Explain what is Virtualiztion and what problems does it solve, and what features does it offer?</li>
-<li>Distinguish between Container and an Image</li>
-<li>Recognize DockerHub</li>
-<li>Operate Docker and Docker Compose</li>
-<li>Understand how to persist data written by a running Container</li>
-<li>Distinguish between Hardware, Platform, Runtime, and Application</li>
-<li>Connect an Agent to a database</li>
+<li><em>Distinguish</em> between a Container (runtime) and an Image (build-time artifact).</li>
+<li><em>Utilize</em> DockerHub to locate and pull official container images.</li>
+<li><em>Orchestrate</em> multi-container environments using Docker CLI and Docker Compose.</li>
+<li><em>Configure</em> Docker volumes to <em>persist</em> data generated by running containers.</li>
+<li><em>Differentiate</em> between execution stack layers: Hardware, Platform, Runtime, and Application.</li>
+<li><em>Establish</em> a secure database connection using the <code>psycopg</code> driver.</li>
+<li><em>Construct</em> schema definitions and <em>execute</em> database queries using SQLAlchemy.</li>
+<li><em>Manage</em> database schema evolution using <code>dbmate</code> migration scripts.</li>
 </ul>
 </section>
-<section id="part-2-deployment" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-deployment">Part 2: Deployment</h3>
+<section id="references-3" class="level3">
+<h3 class="anchored" data-anchor-id="references-3">References</h3>
+<ul>
+<li><a href="https://halgoz.quarto.pub/fullstack-python/03_database_up.html">دليل المطور الشامل - حسان القوز</a></li>
+</ul>
+</section>
+</section>
+<section id="module-5-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="module-5-deployment">Module 5: Deployment</h2>
+<section id="learning-objectives-3" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives-3">Learning Objectives</h3>
+<p>By the end of this module, you are able to:</p>
 <ul>
 <li>Given any application, you are able to deploy it.</li>
 <li>After deployment, you are able to apply updates to it.</li>
