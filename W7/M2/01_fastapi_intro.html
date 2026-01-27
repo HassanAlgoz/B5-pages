@@ -529,7 +529,12 @@
 <section id="pydantic-the-data-enforcer" class="slide level2 smaller">
 <h2>Pydantic: The Data Enforcer</h2>
 <p><a href="https://docs.pydantic.dev/">Pydantic</a> provides the data validation and serialization:</p>
-<p><img data-src="../assets/shape_sorter.png" alt="Figure: the BaseModel"> * Enforces that input data matches your defined types: <code>"123"</code> <span class="math inline">\(\rightarrow\)</span> <code>123</code> * Written in Rust (v2), making it one of the fastest validators available. * It also draws the map (OpenAPI/Swagger UI) based on your Python code.</p>
+
+<img data-src="../assets/shape_sorter.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: the BaseModel</p><ul>
+<li>Enforces that input data matches your defined types: <code>"123"</code> <span class="math inline">\(\rightarrow\)</span> <code>123</code></li>
+<li>Written in Rust (v2), making it one of the fastest validators available.</li>
+<li>It also draws the map (OpenAPI/Swagger UI) based on your Python code.</li>
+</ul>
 <aside class="notes">
 <ul>
 <li><p>The shape-sorter itself represents your Pydantic Model (Schema).</p></li>

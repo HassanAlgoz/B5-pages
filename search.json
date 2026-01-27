@@ -32,7 +32,7 @@
     "href": "index.html#week-7-building-ai-apps",
     "title": "AI Pros Bootcamp",
     "section": "Week 7: Building AI Apps",
-    "text": "Week 7: Building AI Apps\n\nA learning outcome is a concise description of what students will learn and how that learning will be assessed. Having clearly articulated learning outcomes can make designing a course, assessing student learning progress, and facilitating learning activities easier and more effective. Learning outcomes can also help students regulate their learning and develop effective study strategies.\n\nRead Learning Outcomes for Week 7 Here.\n\nDaily Sessions\n\nDay 1:\n\nClient-server Architecture\nSelf-paced lab: curl_lab.md (B5 repo)\nFastAPI Introduction\nFastAPI Reading: Overview & Tooling (Session 1)\n\nDay 2:\n\nBegin FastAPI Assignment (B5 repo)\nFastAPI Reading: Sessions (2 - 6)\nBecoming a 10x Developer\n\nDay 3:\n\nMCP Server\nDocker & Docker Compose (Virtualization)\nDatabase (Container)\n\nDay 4:\n\nDeployment"
+    "text": "Week 7: Building AI Apps\n\nA learning outcome is a concise description of what students will learn and how that learning will be assessed. Having clearly articulated learning outcomes can make designing a course, assessing student learning progress, and facilitating learning activities easier and more effective. Learning outcomes can also help students regulate their learning and develop effective study strategies.\n\nRead Learning Outcomes for Week 7 Here.\n\nDaily Sessions\n\nDay 1:\n\n[M1] Client-server Architecture\nSelf-paced lab: curl_lab.md (B5 repo)\n[M2] FastAPI Introduction\n[M2] FastAPI Reading: Overview & Tooling (Session 1)\n\nDay 2:\n\n[M2] FastAPI Reading: Sessions (2 - 6)\n[M2] Becoming a 10x Developer\nAssignment: Build an API with FastAPI and Coding Agents (B5 repo)\n\nDay 3:\n\n[M3] Building MCP Servers\n[M4] Connecting to Backend Databases\n\nDay 4:\n\nDeployment"
   },
   {
     "objectID": "W7/index.html",
@@ -40,6 +40,216 @@
     "title": "AI Pros Bootcamp",
     "section": "",
     "text": "Back to Index."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-hook",
+    "href": "W7/M3/01_building_mcp_servers.html#the-hook",
+    "title": "Building MCP Servers",
+    "section": "The Hook",
+    "text": "The Hook\n![Figure: A stylized bridge connecting two distinct islands. On the left island, chaotic piles of file icons and database cylinders representing raw data. On the right island, a clean, organized robot character representing an AI agent. The bridge itself is structured and orderly, symbolizing a standardized protocol.]\nHow do we bridge the gap between our data and AI agents in a standardized, scalable way?\n\nWe have powerful LLMs, and we have our valuable data and business logic. But connecting them has been a messy process of custom integrations and brittle glue code. We need a standard. We need a protocol. That’s what MCP is. Today, we’re going to master the art of building these connectors in Python. We’ll start with the foundational SDK, discover how to speed up development with FastMCP, and finally, learn how to instantly AI-enable our existing web applications."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#lay-of-the-land",
+    "href": "W7/M3/01_building_mcp_servers.html#lay-of-the-land",
+    "title": "Building MCP Servers",
+    "section": "Lay of the Land",
+    "text": "Lay of the Land\nToday’s Journey:\n\nPart 1: The Foundation (MCP Python SDK)\n\nCore concepts: Server, Resources, Tools, Prompts\nUnderstanding the primitives\n\nPart 2: The Accelerator (FastMCP)\n\nDeveloper experience first\nDecorators and simplified patterns\n\nPart 3: The Bridge (FastAPI-MCP)\n\nIntegrating with existing web apps\nPreserving auth and documentation\n\nKey Takeaways\n\n\nOur journey today has three distinct stages. First, we’ll build the foundation by exploring the official MCP Python SDK. This gives us a deep understanding of the core concepts: Servers, Resources, Tools, and Prompts. Next, we’ll accelerate our workflow with FastMCP, a tool designed to let us “move fast and make things” by removing boilerplate. Finally, we’ll cross the bridge to the real world with FastAPI-MCP, showing how to expose our existing FastAPI applications to agents with zero friction."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#part-1-the-foundation-mcp-python-sdk",
+    "href": "W7/M3/01_building_mcp_servers.html#part-1-the-foundation-mcp-python-sdk",
+    "title": "Building MCP Servers",
+    "section": "Part 1: The Foundation (MCP Python SDK)",
+    "text": "Part 1: The Foundation (MCP Python SDK)"
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-problem-the-integration-mess",
+    "href": "W7/M3/01_building_mcp_servers.html#the-problem-the-integration-mess",
+    "title": "Building MCP Servers",
+    "section": "The Problem: The Integration Mess",
+    "text": "The Problem: The Integration Mess\nConnecting AI to data is hard\n\nEvery tool has a unique API\nEvery LLM needs custom glue code\nN tools \\(\\times\\) M models = N \\(\\times\\) M integrations\nFragile, hard to maintain, not scalable\n\nWe need a standard protocol.\n\nBefore we define MCP, let’s understand the problem it solves. Right now, connecting AI to data is a mess. Every tool has a different API, and every model provider requires a different format for tools. If you have N tools and M models, you end up writing N times M integration scripts. It’s fragile, it’s hard to maintain, and it doesn’t scale. We need a universal standard."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#what-is-mcp",
+    "href": "W7/M3/01_building_mcp_servers.html#what-is-mcp",
+    "title": "Building MCP Servers",
+    "section": "What is MCP?",
+    "text": "What is MCP?\nModel Context Protocol\n\nStandardized way to connect LLMs to tools and data\nLike a web API, but for AI interaction\nSeparates context from intelligence\n\n\nThink of the Model Context Protocol, or MCP, as HTTP for AI agents. It’s a standardized way to connect Large Language Models to the tools and data they need. Instead of building custom integrations for every model, MCP provides a uniform structure. It neatly separates the distinct challenge of providing context from the interaction with the LLM itself."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#step-1-install-the-sdk",
+    "href": "W7/M3/01_building_mcp_servers.html#step-1-install-the-sdk",
+    "title": "Building MCP Servers",
+    "section": "Step 1: Install the SDK",
+    "text": "Step 1: Install the SDK\nGet the official library:\nuv add mcp\nImport in Python:\nimport mcp\nfrom mcp.server.mcpserver import MCPServer\n\nGetting started is simple. We install the official mcp package using uv. This provides all the core primitives we need to build our server. Then, we import the MCPServer class, which will be our main entry point."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-core-concept-server",
+    "href": "W7/M3/01_building_mcp_servers.html#the-core-concept-server",
+    "title": "Building MCP Servers",
+    "section": "The Core Concept: Server",
+    "text": "The Core Concept: Server\n![Figure: A central, stylized server rack icon with the Python logo prominently displayed on its chassis. Radiating lines connect it to smaller nodes, symbolizing its role as the central hub and connection manager.]\nMCPServer is your main interface\nfrom mcp.server.mcpserver import MCPServer\n\nmcp = MCPServer(\"Demo\")\n\nHandles connection management\nProtocol compliance\nMessage routing\nLifecycle management\n\n\nIn the official SDK, the MCPServer instance is your main interface. You initialize it with a name, and it handles the heavy lifting: managing connections, ensuring protocol compliance, routing messages, and handling the application lifecycle. It’s the robust foundation we build upon."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#resources-reading-data",
+    "href": "W7/M3/01_building_mcp_servers.html#resources-reading-data",
+    "title": "Building MCP Servers",
+    "section": "Resources: Reading Data",
+    "text": "Resources: Reading Data\n![Figure: A magnified view of an open document folder with a magnifying glass hovering over it, symbolizing read-only access. The folder contains organized papers, representing structured data resources.]\nExpose data to LLMs\n@mcp.resource(\"file://documents/{name}\")\ndef read_document(name: str) -&gt; str:\n    \"\"\"Read a document by name.\"\"\"\n    return f\"Content of {name}\"\n\nRead-only data sources (like GET requests)\nSide-effect free (mostly)\nURI templates for dynamic access\n\n\nResources are how we get data into the LLM’s context. Think of them like GET endpoints in a REST API. They are designed for reading files, fetching database rows, or retrieving system state. They should be side-effect free—interaction with them shouldn’t change the state of the world significantly."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#tools-taking-action",
+    "href": "W7/M3/01_building_mcp_servers.html#tools-taking-action",
+    "title": "Building MCP Servers",
+    "section": "Tools: Taking Action",
+    "text": "Tools: Taking Action\n![Figure: A dynamic composition of interlocking gears and a wrench tool interacting with a data block, symbolizing active computation and side effects. Sparks or motion lines suggest action and execution.]\nLet LLMs perform computations\n@mcp.tool()\ndef add(a: int, b: int) -&gt; int:\n    \"\"\"Add two numbers together.\"\"\"\n    return a + b\n\nPerform computation or actions\nSide effects allowed (database writes, API calls)\nModel-controlled execution\n\n\nWhen the agent needs to do something, it uses Tools. These are the functional counterparts to resources. Tools allow the LLM to perform computations, query databases, or call external APIs. This is where the agency comes in—the LLM decides when to call a tool and what arguments to pass."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#prompts-interaction-templates",
+    "href": "W7/M3/01_building_mcp_servers.html#prompts-interaction-templates",
+    "title": "Building MCP Servers",
+    "section": "Prompts: Interaction Templates",
+    "text": "Prompts: Interaction Templates\n![Figure: A clean clipboard with a structured form, a pencil filling in the first field. The form represents a reusable template, suggesting standardized user input and interaction workflows.]\nReusable templates for users\n@mcp.prompt(title=\"Code Review\")\ndef review_code(code: str) -&gt; str:\n    return f\"Please review this code:\\n\\n{code}\"\n\nUser-controlled invocation\nStandard workflows (e.g., “Fix Bug”, “Summarize”)\nPre-packaged instructions\n\n\nPrompts are reusable templates for interactions. Think of them as slash commands or menu options for the user. They provide a structured way to start a task, like “Review this code” or “Check system health,” making standard workflows repeatable and easy to use."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#part-2-the-accelerator-fastmcp",
+    "href": "W7/M3/01_building_mcp_servers.html#part-2-the-accelerator-fastmcp",
+    "title": "Building MCP Servers",
+    "section": "Part 2: The Accelerator (FastMCP)",
+    "text": "Part 2: The Accelerator (FastMCP)"
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#framework-vs-library",
+    "href": "W7/M3/01_building_mcp_servers.html#framework-vs-library",
+    "title": "Building MCP Servers",
+    "section": "Framework vs Library",
+    "text": "Framework vs Library\nThe Distinction:\n\nMCP SDK (Library): “Mechanism, not Policy.” Provides the plumbing (JSON-RPC, Core Types). precise, but low-level.\nFastMCP (Framework): “Batteries Included.” Provides the policy (Decorators, Validation). Opinionated and fast.\n\nThe Engineering Trade-off: Control vs. Velocity\n\nFrom an engineering perspective, the distinction is between a library and a framework. The official SDK is a library—it gives you the mechanisms (the plumbing of JSON-RPC) but enforces no policy. FastMCP is a framework—it gives you the policy (decorators, validation) and batteries. The trade-off is classic: do you want absolute control over the bits, or do you want development velocity?"
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-implementation-gap",
+    "href": "W7/M3/01_building_mcp_servers.html#the-implementation-gap",
+    "title": "Building MCP Servers",
+    "section": "The Implementation Gap",
+    "text": "The Implementation Gap\n\n\n\nRaw SDK (Plumbing)\n# 1. Manual Schema\nTool(\n    name=\"get_weather\",\n    inputSchema={\n        \"type\": \"object\",\n        \"properties\": {\n            \"city\": {\"type\": \"string\"}\n        }\n    }\n)\n\n# 2. Manual Routing\nif name == \"get_weather\":\n    city = args[\"city\"]\n    return f\"Sunny in {city}\"\n\n\nFastMCP (Framework)\n# 1. Logic is Interface\n@mcp.tool()\ndef get_weather(city: str) -&gt; str:\n    \"\"\"Get current weather\"\"\"\n    return f\"Sunny in {city}\"\n\n\n\n\nLet’s look at the code side-by-side to see the real impact. On the left, with the Raw SDK, you are manually defining JSON schemas and writing if/else routing blocks. On the right, with FastMCP, your code is the interface. The schema is inferred from your type hints. This isn’t just about saving keystrokes; it’s about eliminating a whole class of bugs."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-hidden-cost-schema-drift",
+    "href": "W7/M3/01_building_mcp_servers.html#the-hidden-cost-schema-drift",
+    "title": "Building MCP Servers",
+    "section": "The Hidden Cost: Schema Drift",
+    "text": "The Hidden Cost: Schema Drift\nWhen implementation diverges from definition.\n\nSDK: You update the code, but forget the JSON schema. \\(\\rightarrow\\) Runtime Error.\nFastMCP: Single source of truth. The code generates the schema.\n\nIn 2026, manual schema maintenance is technical debt.\n\nThe biggest problem isn’t verbosity; it’s Schema Drift. In the SDK approach, if you change your function arguments but forget to update the manual JSON schema, you have a bug that only explodes at runtime. In FastMCP, type introspection ensures your schema and code are always perfectly in sync. Manual schema maintenance is a technical debt risk we can avoid."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#step-1-install-fastmcp",
+    "href": "W7/M3/01_building_mcp_servers.html#step-1-install-fastmcp",
+    "title": "Building MCP Servers",
+    "section": "Step 1: Install FastMCP",
+    "text": "Step 1: Install FastMCP\nInstallation:\nuv add \"fastmcp\"\nThat’s it.\n\nInstallation is just as easy. Add the fastmcp package. It includes everything you need, including the CLI tools for development and the dependencies for running the server."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#comparison-the-batteries",
+    "href": "W7/M3/01_building_mcp_servers.html#comparison-the-batteries",
+    "title": "Building MCP Servers",
+    "section": "Comparison: The “Batteries”",
+    "text": "Comparison: The “Batteries”\n\n\n\nFeature\nRaw SDK\nFastMCP\n\n\n\n\nRegistration\nManual list_tools\n@mcp.tool\n\n\nValidation\nManual Checks\nAutomatic (Pydantic)\n\n\nObservability\nSelf-Implemented\nOpenTelemetry Native\n\n\nDrift Risk\nHigh\nNone\n\n\n\n\nHere is the capabilities matrix. FastMCP adds the layer that the SDK explicitly leaves out: automatic validation, native observability via OpenTelemetry, and zero-config tool registration. It fills the “gap” between the raw protocol and a production-ready application."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#core-abstractions",
+    "href": "W7/M3/01_building_mcp_servers.html#core-abstractions",
+    "title": "Building MCP Servers",
+    "section": "Core Abstractions",
+    "text": "Core Abstractions\n![Figure: A circular flow diagram with three distinct nodes. “Providers” (source icon) flows into “Transformers” (filter/funnel icon), which flows into “Components” (package/box icon). Arrows indicate a continuous, cyclical process of data refinement.]\n\nComponents: What you expose (Tools, Resources, Prompts)\nProviders: Where they come from (Functions, Files, OpenAPI)\nTransforms: How they look (Namespacing, Filtering)\n\n\nFastMCP organizes the world into three concepts. Components are what you expose. Providers are where those components come from—your functions, files on disk, or even an external API spec. And Transforms let you shape that data—renaming tools, filtering them for security, or versioning your API. It’s a powerful compositional model."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#running-fastmcp",
+    "href": "W7/M3/01_building_mcp_servers.html#running-fastmcp",
+    "title": "Building MCP Servers",
+    "section": "Running FastMCP",
+    "text": "Running FastMCP\nDevelopment (Hot Reload)\nfastmcp dev server.py\nProduction\nif __name__ == \"__main__\":\n    mcp.run() # Auto-selects streamable-http\n\nFor development, fastmcp dev gives you hot reloading and an inspector to test your tools. For production, mcp.run() automatically selects the robust streamable-HTTP transport. It covers the full lifecycle of your application development."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#part-3-the-bridge-fastapi-mcp",
+    "href": "W7/M3/01_building_mcp_servers.html#part-3-the-bridge-fastapi-mcp",
+    "title": "Building MCP Servers",
+    "section": "Part 3: The Bridge (FastAPI-MCP)",
+    "text": "Part 3: The Bridge (FastAPI-MCP)"
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-integration-challenge",
+    "href": "W7/M3/01_building_mcp_servers.html#the-integration-challenge",
+    "title": "Building MCP Servers",
+    "section": "The Integration Challenge",
+    "text": "The Integration Challenge\n![Figure: A split-screen composition. On the left, a stylized developer character looking overwhelmed with hands on head, standing between two tall stacks of identical code blocks labeled “FastAPI” and “MCP”. This represents the burden of code duplication.]\nYou have a FastAPI app.\n\nDo you rewrite it for MCP?\nDo you duplicate your authentication?\nDo you maintain two codebases?\n\nNo. You Mount.\n\nNow, what if you already have a massive FastAPI application? Rewriting everything as MCP tools would be a nightmare of duplication—logic, auth, validation. We don’t want two codebases. We want to expose our existing investment to the AI world."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#step-1-install-fastapi-mcp",
+    "href": "W7/M3/01_building_mcp_servers.html#step-1-install-fastapi-mcp",
+    "title": "Building MCP Servers",
+    "section": "Step 1: Install FastAPI-MCP",
+    "text": "Step 1: Install FastAPI-MCP\nAdd the package:\nuv add \"fastapi-mcp\"\nRequirements: - Existing FastAPI app - Python 3.10+\n\nTo bridge the gap, we use the fastapi-mcp package. Install it alongside your existing FastAPI application. It’s a lightweight wrapper that brings MCP capabilities to your existing routes."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#fastapi-mcp",
+    "href": "W7/M3/01_building_mcp_servers.html#fastapi-mcp",
+    "title": "Building MCP Servers",
+    "section": "FastAPI-MCP",
+    "text": "FastAPI-MCP\n![Figure: A visual equation or transformation. A block labeled “FastAPI” and a block labeled “MCP” moving together and merging into a single, unified, glowing block. This represents the seamless integration of the two technologies.]\nOne App, Two Interfaces\nfrom fastapi import FastAPI\nfrom fastapi_mcp import FastApiMCP\n\napp = FastAPI()\nmcp = FastApiMCP(app)\n\nmcp.mount() # Adds /mcp endpoint\n\nZero Config: Point at your app, it works\nNative Integration: Uses ASGI (in-memory, fast)\nPreserves Auth: Depends(...) just works\n\n\nThis is fastapi-mcp. With essentially three lines of code, you mount an MCP server inside your FastAPI app. It automatically discovers your routes and converts them into MCP tools. It uses the efficient ASGI transport, so there’s no network overhead. And crucially, it respects your existing authentication."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#what-gets-preserved",
+    "href": "W7/M3/01_building_mcp_servers.html#what-gets-preserved",
+    "title": "Building MCP Servers",
+    "section": "What Gets Preserved?",
+    "text": "What Gets Preserved?\nEverything.\n\nRequest Models \\(\\rightarrow\\) Tool Input Schemas\nResponse Models \\(\\rightarrow\\) Tool Output Schemas\nDocstrings \\(\\rightarrow\\) Tool Descriptions\nDependencies \\(\\rightarrow\\) Security & Context\n\n\nWhen I say it converts your routes, I mean it does it intelligently. Your Pydantic request models become strict input schemas for the LLM. Your response models define the output structure. Your docstrings become the instructions for the agent. And your dependencies—like database sessions or user context—are fully preserved."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#deployment-options",
+    "href": "W7/M3/01_building_mcp_servers.html#deployment-options",
+    "title": "Building MCP Servers",
+    "section": "Deployment Options",
+    "text": "Deployment Options\n1. Mounted (Monolith)\n\nSimplest. One container, one process.\nBest for most use cases.\n\n2. Separate (Microservices)\n\nScale independently.\nmcp = FastApiMCP(original_app_url=...)\nGood for high-traffic separation.\n\n\nYou have choices in deployment. You can mount it directly, which is the simplest “monolithic” approach—perfect for most teams. Or, if you need to scale your AI traffic separately from your user traffic, you can deploy the MCP server as a separate microservice that proxies requests to your main API."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#key-takeaways",
+    "href": "W7/M3/01_building_mcp_servers.html#key-takeaways",
+    "title": "Building MCP Servers",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways"
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-foundation-sdk",
+    "href": "W7/M3/01_building_mcp_servers.html#the-foundation-sdk",
+    "title": "Building MCP Servers",
+    "section": "The Foundation (SDK)",
+    "text": "The Foundation (SDK)\n\nServer: The central hub governing the protocol\nResources: Reading data (File://, DB://) safely\nTools: Executing actions (API calls, side effects)\nPrompts: Reusable templates for user interaction\n\n\nLet’s recap the core pillars. The SDK gives us the Server, our central hub. We use Resources to read data safely, Tools to perform actions and computations, and Prompts to create reusable templates for our users. This is the raw material of any MCP server."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#fastmcp-benefits",
+    "href": "W7/M3/01_building_mcp_servers.html#fastmcp-benefits",
+    "title": "Building MCP Servers",
+    "section": "FastMCP Benefits",
+    "text": "FastMCP Benefits\n\nDeveloper Experience: “Move fast and make things”\nLess Boilerplate: No manual JSON schemas\nType Inference: Python hints \\(\\rightarrow\\) MCP Specs\nInstant Dev Server: Hot reloading included\n\n\nFastMCP takes that foundation and accelerates it. It prioritizes developer experience, removing the need for manual schema definitions by inferring everything from your Python type hints. Plus, the built-in dev server with hot reloading makes iteration a breeze."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#fastapi-integration",
+    "href": "W7/M3/01_building_mcp_servers.html#fastapi-integration",
+    "title": "Building MCP Servers",
+    "section": "FastAPI Integration",
+    "text": "FastAPI Integration\n\nZero Rewrite: Mount existing app as MCP server\nProtocol Agnostic: HTTP/SSE handled automatically\nSecurity Preserved: Existing Depends() just work\nDual Interface: Serve humans and agents simultaneously\n\n\nAnd for our existing applications, FastAPI-MCP offers a zero-rewrite solution. By mounting your app, you get protocol handling for free, you preserve your existing security model, and you serve both human users and AI agents from a single codebase."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#which-tool-when",
+    "href": "W7/M3/01_building_mcp_servers.html#which-tool-when",
+    "title": "Building MCP Servers",
+    "section": "Which Tool When?",
+    "text": "Which Tool When?\n1. MCP Python SDK\n\nYou need full control over the protocol.\nYou are building low-level custom integrations.\nYou are building an MCP Client.\n\n2. FastMCP\n\nYou are building a new server from scratch.\nYou want speed and simplicity.\nYou want built-in best practices.\n\n3. FastAPI-MCP\n\nYou have an existing FastAPI application.\nYou want to reuse logic, auth, and models.\nYou want to become AI-Ready instantly.\n\n\nSo, which tool should you reach for? Use the Official SDK if you need low-level control or are building a client. Reach for FastMCP if you’re building a new server from scratch and want the best developer experience. And use FastAPI-MCP if you’re sitting on a goldmine of existing FastAPI services that you want to open up to the new world of AI agents."
+  },
+  {
+    "objectID": "W7/M3/01_building_mcp_servers.html#the-complete-picture",
+    "href": "W7/M3/01_building_mcp_servers.html#the-complete-picture",
+    "title": "Building MCP Servers",
+    "section": "The Complete Picture",
+    "text": "The Complete Picture\n![Figure: A three-layered pyramid structure. The wide base is labeled “SDK” (Foundation). The middle layer is “FastMCP” (Builder Tools). The top capstone is “FastAPI-MCP” (Bridge). Connecting lines link the layers, showing they are part of a cohesive ecosystem.]\nYou are now equipped to build.\n\nFoundational understanding\nRapid development tools\nIntegration strategies\n\nGo connect your world.\n\nYou now have the complete picture. You understand the foundation, you have the tools for speed, and you have the bridge for integration. The era of isolated data is over. You are now equipped to build the connectors that will power the next generation of AI applications. Go connect your world."
   },
   {
     "objectID": "W7/M2/10x_developer.html",
@@ -200,7 +410,7 @@
     "href": "W7/M2/01_fastapi_intro.html#pydantic-the-data-enforcer",
     "title": "Introduction to FastAPI",
     "section": "Pydantic: The Data Enforcer",
-    "text": "Pydantic: The Data Enforcer\nPydantic provides the data validation and serialization:\n * Enforces that input data matches your defined types: \"123\" \\(\\rightarrow\\) 123 * Written in Rust (v2), making it one of the fastest validators available. * It also draws the map (OpenAPI/Swagger UI) based on your Python code.\n\n\nThe shape-sorter itself represents your Pydantic Model (Schema).\nA structure that defines the expected “shapes” (data types) of your inputs.\nAnalogy: If Starlette is the Engine, Pydantic is the Security System.\nIt checks every piece of data entering the car.\nIt’s not just checking errors; it’s fixing data (Parsing).\n\nExtra: The Linguistic Origin\nThe name is a portmanteau of Py (for Python) and pedantic.\nIn English, a “pedantic” person is someone who is excessively concerned with minor details, rules, or formalisms. In the context of programming, being “pedantic” usually has a negative connotation, implying that a tool or person is being needlessly difficult about small syntax errors or strict types."
+    "text": "Pydantic: The Data Enforcer\nPydantic provides the data validation and serialization:\n\nFigure: the BaseModel\nEnforces that input data matches your defined types: \"123\" \\(\\rightarrow\\) 123\nWritten in Rust (v2), making it one of the fastest validators available.\nIt also draws the map (OpenAPI/Swagger UI) based on your Python code.\n\n\n\nThe shape-sorter itself represents your Pydantic Model (Schema).\nA structure that defines the expected “shapes” (data types) of your inputs.\nAnalogy: If Starlette is the Engine, Pydantic is the Security System.\nIt checks every piece of data entering the car.\nIt’s not just checking errors; it’s fixing data (Parsing).\n\nExtra: The Linguistic Origin\nThe name is a portmanteau of Py (for Python) and pedantic.\nIn English, a “pedantic” person is someone who is excessively concerned with minor details, rules, or formalisms. In the context of programming, being “pedantic” usually has a negative connotation, implying that a tool or person is being needlessly difficult about small syntax errors or strict types."
   },
   {
     "objectID": "W7/M2/01_fastapi_intro.html#key-takeaways",
@@ -12579,25 +12789,39 @@
     "text": "Key Components: Clients & Servers\n\nUser-Agent: Any tool acting for the user (usually a browser). It is always the entity initiating the request.\nWeb Server: A virtual machine or collection of machines (load balancers) that serves the requested document.\nProxies: Intermediate nodes performing caching, filtering, load balancing, or authentication.\n\n\nProxies sit between them, operating at the application layer to manage traffic and security."
   },
   {
-    "objectID": "W7/M1/01_client-server_arch.html#basic-aspects-simple-extensible",
-    "href": "W7/M1/01_client-server_arch.html#basic-aspects-simple-extensible",
-    "title": "Introduction to Client-server Architecture",
-    "section": "Basic Aspects: Simple & Extensible",
-    "text": "Basic Aspects: Simple & Extensible\n\nHuman-Readable: Designed to be easy for developers to read and debug.\nExtensible: HTTP headers allow for new functionality without changing the core protocol.\nStateless but not Sessionless: Requests are independent, but Cookies enable stateful sessions.\n\n\nThe protocol’s extensibility via headers has allowed features like caching and authentication to be added early in its history."
-  },
-  {
-    "objectID": "W7/M1/01_client-server_arch.html#what-http-controls",
-    "href": "W7/M1/01_client-server_arch.html#what-http-controls",
-    "title": "Introduction to Client-server Architecture",
-    "section": "What HTTP Controls",
-    "text": "What HTTP Controls\n\nAuthentication: Managed via headers or session cookies.\nCaching: Servers instruct clients/proxies on what to store and for how long.\nSessions: Links independent requests to a server-side state (e.g., shopping carts).\n\n\nThese features, like relaxing the origin constraint, were added over time to meet the needs of modern, interactive web applications."
-  },
-  {
     "objectID": "W7/M1/01_client-server_arch.html#the-http-flow",
     "href": "W7/M1/01_client-server_arch.html#the-http-flow",
     "title": "Introduction to Client-server Architecture",
     "section": "The HTTP Flow",
     "text": "The HTTP Flow\n\nTCP Connection: Establishing a reliable channel for message exchange.\nThe Request: Sending a human-readable (or binary frame) message to the server.\nThe Response: Reading the status code and resource returned by the server.\nConclusion: Closing or reusing the connection for the next request.\n\n\nHTTP/2 introduced multiplexing, allowing multiple requests to be sent over a single “warm” connection simultaneously."
+  },
+  {
+    "objectID": "W7/M1/01_client-server_arch.html#url-anatomy",
+    "href": "W7/M1/01_client-server_arch.html#url-anatomy",
+    "title": "Introduction to Client-server Architecture",
+    "section": "URL Anatomy",
+    "text": "URL Anatomy\n\nFigure: Example URL: http://example.com/api/users?id=123&status=active\nScheme: http (Protocol).\nHost: example.com (Where).\nPath: /api/users (What).\nQuery: ?id=123&status=active (Parameters).\n\n\n\nExplaining: Let’s dissect a URL. It’s not just a random string; it has anatomy.\nScheme: How are we talking? (HTTP/HTTPS).\nHost: Which building are we going to? (Server address).\nPath: Which room in that building? (Resource location).\nQuery: Specific instructions? (Sort by price, Page 2).\nLandmark: Understanding this structure helps you debug why a request might be failing."
+  },
+  {
+    "objectID": "W7/M1/01_client-server_arch.html#parameters-in-the-query-string",
+    "href": "W7/M1/01_client-server_arch.html#parameters-in-the-query-string",
+    "title": "Introduction to Client-server Architecture",
+    "section": "Parameters in the Query String",
+    "text": "Parameters in the Query String\nCommon Use Cases:\n\nFiltering: ?category=electronics&sort=price_desc\nSearching: ?q=how+to+build+a+website (note: + is URL encoded for space)\nTracking: ?utm_source=newsletter (Commonly used in marketing analytics).\nPagination: ?page=2\n\n\n\nWhile query strings are great for bookmarkable links (like search results)\nthe request body (POST) is the standard for complex or secure data transmission."
+  },
+  {
+    "objectID": "W7/M1/01_client-server_arch.html#resources-vs-representations",
+    "href": "W7/M1/01_client-server_arch.html#resources-vs-representations",
+    "title": "Introduction to Client-server Architecture",
+    "section": "Resources vs Representations",
+    "text": "Resources vs Representations\n\nFigure: An abstract cube labeled ‘Resource (User)’. Two arrows point from it to ‘JSON File’ and ‘HTML Page’. Text: ‘One Resource, Many Representations’.\nResource: The concept (e.g., User Profile).\nRepresentation: The format (.json, .html).\nContent Negotiation: “I speak JSON, please send JSON.”\n\n\n\nExplaining: There is a Zen-like distinction in REST between the Thing and the Representation of the Thing.\nStorytelling: Think of a “User Profile.” That is the Resource.\nBut how do I give it to you?\n\nI can write it on paper (HTML).\nI can burn it onto a CD (binary).\nI can read it aloud (JSON).\n\nYou ask for the Resource, but the server sends a Representation. Negotiating the best format is key to flexible APIs."
+  },
+  {
+    "objectID": "W7/M1/01_client-server_arch.html#http-methods",
+    "href": "W7/M1/01_client-server_arch.html#http-methods",
+    "title": "Introduction to Client-server Architecture",
+    "section": "HTTP Methods",
+    "text": "HTTP Methods\n\nGET: Retrieve a representation of a resource (Read).\nPOST: Create a new resource within a collection (Create).\nPUT: Replace an entire resource or create if missing (Update/Replace).\nPATCH: Apply partial modifications to a resource (Partial Update).\nDELETE: Remove a specific resource (Delete).\n\n\n\nMDN Web Docs emphasize that GET and HEAD methods are “safe” because they do not change the state of the server\nwhereas POST, PUT, and DELETE are intended to modify data."
   },
   {
     "objectID": "W7/M1/01_client-server_arch.html#http-message-request",
@@ -12691,13 +12915,6 @@
     "text": "Securing Sensitive Information\n\nCredit Card Information Transmission over TLS Encrypted Channel (HTTPS).\nHTTP: Plain text (Dangerous).\nHTTPS: Encrypted (TLS/SSL).\nWhat is Encrypted?: Headers, Body.\nWhat is Visible?: URL, Path, IP Address, Port, Domain.\n\n\n\nExplaining: Standard HTTP is like sending a postcard. Anyone handling the mail (routers, ISPs) can read it.\nReasoning: This is dangerous for passwords and credit cards.\nHTTPS wraps that postcard in an unbreakable, armored envelope.\nLandmark: Crucial Detail—The mailman still needs to know the Destination Address (IP) and the House Name (Domain), but they cannot see the Letter Contents (Body) or even the Specific Room (Path)."
   },
   {
-    "objectID": "W7/M1/01_client-server_arch.html#url-anatomy",
-    "href": "W7/M1/01_client-server_arch.html#url-anatomy",
-    "title": "Introduction to Client-server Architecture",
-    "section": "URL Anatomy",
-    "text": "URL Anatomy\n\nFigure: Example URL: http://example.com/api/users?id=123&status=active\nScheme: http (Protocol).\nHost: example.com (Where).\nPath: /api/users (What).\nQuery: ?id=123&status=active (Parameters).\n\n\n\nExplaining: Let’s dissect a URL. It’s not just a random string; it has anatomy.\nScheme: How are we talking? (HTTP/HTTPS).\nHost: Which building are we going to? (Server address).\nPath: Which room in that building? (Resource location).\nQuery: Specific instructions? (Sort by price, Page 2).\nLandmark: Understanding this structure helps you debug why a request might be failing."
-  },
-  {
     "objectID": "W7/M1/01_client-server_arch.html#nouns-and-verbs",
     "href": "W7/M1/01_client-server_arch.html#nouns-and-verbs",
     "title": "Introduction to Client-server Architecture",
@@ -12705,25 +12922,11 @@
     "text": "Nouns and Verbs\n\nREST is a set of practices mapping HTTP methods to actions on resources.\n\n\nNouns (Resources): Represent the “what” of the request.\nVerbs (Actions): Represent the “how” or the operation being performed.\n\n\nAccording to the original dissertation by Roy Fielding and supplemental MDN documentation: - resources (nouns) should always be plural and represent entities - while methods (verbs) define the transition of state."
   },
   {
-    "objectID": "W7/M1/01_client-server_arch.html#resources-vs-representations",
-    "href": "W7/M1/01_client-server_arch.html#resources-vs-representations",
-    "title": "Introduction to Client-server Architecture",
-    "section": "Resources vs Representations",
-    "text": "Resources vs Representations\n\nFigure: An abstract cube labeled ‘Resource (User)’. Two arrows point from it to ‘JSON File’ and ‘HTML Page’. Text: ‘One Resource, Many Representations’.\nResource: The concept (e.g., User Profile).\nRepresentation: The format (.json, .html).\nContent Negotiation: “I speak JSON, please send JSON.”\n\n\n\nExplaining: There is a Zen-like distinction in REST between the Thing and the Representation of the Thing.\nStorytelling: Think of a “User Profile.” That is the Resource.\nBut how do I give it to you?\n\nI can write it on paper (HTML).\nI can burn it onto a CD (binary).\nI can read it aloud (JSON).\n\nYou ask for the Resource, but the server sends a Representation. Negotiating the best format is key to flexible APIs."
-  },
-  {
-    "objectID": "W7/M1/01_client-server_arch.html#http-methods",
-    "href": "W7/M1/01_client-server_arch.html#http-methods",
-    "title": "Introduction to Client-server Architecture",
-    "section": "HTTP Methods",
-    "text": "HTTP Methods\n\nGET: Retrieve a representation of a resource (Read).\nPOST: Create a new resource within a collection (Create).\nPUT: Replace an entire resource or create if missing (Update/Replace).\nPATCH: Apply partial modifications to a resource (Partial Update).\nDELETE: Remove a specific resource (Delete).\n\n\n\nMDN Web Docs emphasize that GET and HEAD methods are “safe” because they do not change the state of the server\nwhereas POST, PUT, and DELETE are intended to modify data."
-  },
-  {
     "objectID": "W7/M1/01_client-server_arch.html#naming-conventions-nouns",
     "href": "W7/M1/01_client-server_arch.html#naming-conventions-nouns",
     "title": "Introduction to Client-server Architecture",
     "section": "Naming Conventions (Nouns)",
-    "text": "Naming Conventions (Nouns)\n\nResources as Objects: Use /articles instead of /getArticles.\nHierarchical Structure: Use /authors/42/books to show relationship and nesting.\n\n\nOfficial RESTful design patterns documented by MDN suggest avoiding verbs in URLs to maintain the separation of concerns between the protocol (HTTP verbs) and the data (resource nouns)."
+    "text": "Naming Conventions (Nouns)\n\nObjects: Use /articles instead of /getArticles.\nNested: Use /authors/42/books to show relationship.\n\n\nOfficial RESTful design patterns documented by MDN suggest avoiding verbs in URLs to maintain the separation of concerns between the protocol (HTTP verbs) and the data (resource nouns)."
   },
   {
     "objectID": "W7/M1/01_client-server_arch.html#restful-endpoints-meaning",
@@ -12731,13 +12934,6 @@
     "title": "Introduction to Client-server Architecture",
     "section": "RESTful Endpoints Meaning",
     "text": "RESTful Endpoints Meaning\n\nGET /users -&gt; List all.\nGET /users/1 -&gt; Get specific one.\nPOST /users -&gt; Create new.\nPUT /users/1 -&gt; Replace it.\nPATCH /users/1 -&gt; Update it.\nDELETE /users/1 -&gt; remove it.\n\n\n\nThe URL + Verb tells the whole story.\nThis is the beauty of REST. It’s predictable."
-  },
-  {
-    "objectID": "W7/M1/01_client-server_arch.html#parameters-in-the-query-string",
-    "href": "W7/M1/01_client-server_arch.html#parameters-in-the-query-string",
-    "title": "Introduction to Client-server Architecture",
-    "section": "Parameters in the Query String",
-    "text": "Parameters in the Query String\nCommon Use Cases:\n\nFiltering: ?category=electronics&sort=price_desc\nSearching: ?q=how+to+build+a+website (note: + is URL encoded for space)\nTracking: ?utm_source=newsletter (Commonly used in marketing analytics).\nPagination: ?page=2\n\n\n\nWhile query strings are great for bookmarkable links (like search results)\nthe request body (POST) is the standard for complex or secure data transmission."
   },
   {
     "objectID": "W7/M2/02_fastapi_reading.html",
@@ -12873,6 +13069,363 @@
     "text": "Shared Query Parameters\nYou can group common query parameters into a single reusable class or function.\n\nScenario: Multiple endpoints (/items, /users, /logs) all need skip and limit parameters for pagination.\nMechanism: Instead of repeating skip: int = 0, limit: int = 10 in every function signature, you define a common_parameters dependency and inject it into each route.\n\ndef common_pagination(q: str | None = None, skip: int = 0, limit: int = 100):\n    return {\"q\": q, \"skip\": skip, \"limit\": limit}\n\n\n@app.get(\"/items/\")\ndef get_items(common_params: Annotated[dict, Depends(common_pagination)]):\n    # use common_params\n    # ..."
   },
   {
+    "objectID": "W7/M4/01_backend_databases.html#the-hook",
+    "href": "W7/M4/01_backend_databases.html#the-hook",
+    "title": "Connecting to Backend Databases",
+    "section": "The Hook",
+    "text": "The Hook\n![Figure: A stylized data pipeline connecting a cylinder (Database) on the left to a Python logo on the right. The pipeline is made of interlocking segments, symbolizing a robust and direct connection for SQL commands.]\nHow do I direct my SQL commands to a database system and connect my Python application to it?\n\nWe’ve built agents and APIs, but now we need persistent storage. Databases are the foundation of any real application. But how do we get started? We need to understand the environment where databases run, how to set them up reliably, and how to connect our Python code to them. This journey will take us through virtualization, Docker containers, connection protocols, and modern Python frameworks that make database work practical and safe."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#lay-of-the-land",
+    "href": "W7/M4/01_backend_databases.html#lay-of-the-land",
+    "title": "Connecting to Backend Databases",
+    "section": "Lay of the Land",
+    "text": "Lay of the Land\nToday’s Journey:\n\nSetting Up the Database\n\nEnvironment setup and virtualization\nDocker containers vs virtual machines\nRunning PostgreSQL with Docker Compose\n\nConnecting the Application\n\nUsing psycopg driver\nDB-API 2.0 protocol\nTransactions and cursors\n\nSQLAlchemy Framework\n\nCore concepts: Engine, Metadata, Tables\nBuilding queries in Python\nConnection pooling\n\nDatabase Migrations\n\nVersion control for schema\nMigration scripts with dbmate\nSafe schema evolution\n\n\n\nToday we’ll cover four major topics. First, we’ll set up a database environment using Docker, understanding the difference between containers and virtual machines. Then we’ll connect our Python application using the psycopg driver. Next, we’ll level up to SQLAlchemy, a framework that solves many problems with raw database drivers. Finally, we’ll learn about migrations—the professional way to evolve your database schema without losing data. Each step builds on the previous one."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#part-1-setting-up-the-database",
+    "href": "W7/M4/01_backend_databases.html#part-1-setting-up-the-database",
+    "title": "Connecting to Backend Databases",
+    "section": "Part 1: Setting Up the Database",
+    "text": "Part 1: Setting Up the Database"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-problem-environment-complexity",
+    "href": "W7/M4/01_backend_databases.html#the-problem-environment-complexity",
+    "title": "Connecting to Backend Databases",
+    "section": "The Problem: Environment Complexity",
+    "text": "The Problem: Environment Complexity\nSoftware needs an environment\n\nCPU architecture (x86/x64, ARM)\nOperating system\nMemory and I/O devices\nInstalled binaries and libraries\nConfiguration files\n\nThe challenge: Conflicts between different software requirements\n\nA database is software—compiled binary instructions that run on hardware. But software doesn’t run in isolation. It needs an environment: the right CPU architecture, operating system, memory, network access, storage, installed libraries, and configuration files. The problem developers have faced for decades is that different software needs different environments, and these can conflict with each other. One project needs Python 3.9, another needs 3.11. One needs PostgreSQL 14, another needs 16. Managing these conflicts manually is a nightmare."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-solution-containerization",
+    "href": "W7/M4/01_backend_databases.html#the-solution-containerization",
+    "title": "Connecting to Backend Databases",
+    "section": "The Solution: Containerization",
+    "text": "The Solution: Containerization\n![Figure: A specialized shipping container with a transparent side, revealing neatly packed items inside: a binary executable block, a library book, and a configuration checklist. The container is sealed and isolated, floating in a clean white space.]\nDocker packages everything together\n\nApplication binaries\nLibraries and dependencies\nConfiguration files\nAll in one isolated container\n\n\nDocker emerged as a solution. Instead of just packaging compiled binaries, Docker packages everything: the binaries, the libraries, the configuration files—all into a single unit called a container. The Docker platform on your machine runs these containers in isolation from each other, preventing conflicts. This is a fundamental shift in how we think about deployable units."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#benefits-of-containerization",
+    "href": "W7/M4/01_backend_databases.html#benefits-of-containerization",
+    "title": "Connecting to Backend Databases",
+    "section": "Benefits of Containerization",
+    "text": "Benefits of Containerization\n\nBetter development experience\n\nFocus on real problems, not environment setup\n\nEasier collaboration\n\nEvery developer has the same environment\n\nProject isolation\n\nSwitch between projects without conflicts\n\nSimplified deployment\n\nSame container works in development and production\n\n\n\nThe benefits are immediate. You can focus on solving actual application problems instead of wrestling with environment setup. When collaborating, everyone runs the exact same environment. You can work on multiple projects on the same machine without conflicts. And the same container that works on your laptop works in production. This abstraction removes a huge class of problems."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#virtualization-background",
+    "href": "W7/M4/01_backend_databases.html#virtualization-background",
+    "title": "Connecting to Backend Databases",
+    "section": "Virtualization Background",
+    "text": "Virtualization Background\n![Figure: A horizontal timeline with three distinct stages. Left: A large, monolithic mainframe computer. Middle: A server generic icon split into multiple virtual machines. Right: A neat stack of lightweight shipping containers. An arrow flows from left to right indicating progress.]\nVirtualization (1966) - Dividing expensive mainframes into multiple virtual computers - Foundation of cloud computing\nContainerization (2008-2013) - Internal project at dotCloud (France) - Open-sourced as Docker by Solomon Hykes (March 2013)\n\nThis didn’t come out of nowhere. Virtualization dates back to 1966, when expensive mainframes were divided into multiple virtual computers for better efficiency. That’s the foundation of cloud computing. Containerization evolved from this. It started as an internal project at dotCloud in France around 2008, and was open-sourced as Docker in March 2013 by Solomon Hykes. It’s a relatively recent innovation that’s become essential."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#container-vs-virtual-machine",
+    "href": "W7/M4/01_backend_databases.html#container-vs-virtual-machine",
+    "title": "Connecting to Backend Databases",
+    "section": "Container vs Virtual Machine",
+    "text": "Container vs Virtual Machine\nBoth are isolated environments from an image\nDifference: What the image contains\n\nVM Image: Full operating system\nContainer Image: Shared host OS kernel\n\nContainers are lighter:\n\nLess resource consumption\nFaster startup/shutdown\nEasier to manage\n\n\nBoth containers and virtual machines provide isolated environments created from images. The key difference is what’s in the image. A VM image includes a full operating system. A container image shares the host OS kernel. This makes containers much lighter—they consume fewer resources, start and stop faster, and are easier to manage. For most applications, containers are the better choice."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#running-postgresql-with-docker",
+    "href": "W7/M4/01_backend_databases.html#running-postgresql-with-docker",
+    "title": "Connecting to Backend Databases",
+    "section": "Running PostgreSQL with Docker",
+    "text": "Running PostgreSQL with Docker\nStep 1: Create environment file (.env)\nPOSTGRES_HOST=127.0.0.1\nPOSTGRES_DB=mydatabase\nPOSTGRES_USER=user\nPOSTGRES_PASSWORD=secret\n\nNow let’s get practical. First, we create an environment file to store our database configuration. This keeps sensitive information like passwords out of our code. We’ll reference this file in our Docker Compose configuration."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#docker-compose-configuration",
+    "href": "W7/M4/01_backend_databases.html#docker-compose-configuration",
+    "title": "Connecting to Backend Databases",
+    "section": "Docker Compose Configuration",
+    "text": "Docker Compose Configuration\nStep 2: Define services in compose.yaml\nservices:\n  db:\n    image: postgres:17.6\n    env_file:\n      - .env\n    ports:\n      - \"5432:5432\"\n    volumes:\n      - pgdata:/var/lib/postgresql/data\n\nvolumes:\n  pgdata:\n\nDocker Compose lets us define our services in a YAML file. We specify the PostgreSQL image from DockerHub, point to our environment file, map the port so we can connect from outside the container, and most importantly, create a volume to persist data. Without the volume, all data would be lost when the container stops."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#understanding-docker-compose-elements",
+    "href": "W7/M4/01_backend_databases.html#understanding-docker-compose-elements",
+    "title": "Connecting to Backend Databases",
+    "section": "Understanding Docker Compose Elements",
+    "text": "Understanding Docker Compose Elements\n\nimage: postgres:17.6 - Image name and version from DockerHub\nenv_file - References our .env file\nports: \"5432:5432\" - Maps host port to container port\nvolumes: pgdata - Persists data outside the container\n\n\nLet’s break down what each part does. The image tells Docker what to download from DockerHub. The env_file loads our configuration. The ports mapping lets us connect from our host machine. And the volume is critical—it stores the database data on the host filesystem, so it persists even when the container is destroyed. This is how we solve the data persistence problem."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#starting-and-stopping",
+    "href": "W7/M4/01_backend_databases.html#starting-and-stopping",
+    "title": "Connecting to Backend Databases",
+    "section": "Starting and Stopping",
+    "text": "Starting and Stopping\nStart the database:\ndocker compose up\nStop the database:\ndocker compose down\n\nStarting is simple: just run docker compose up. Docker will download the image if needed, create the container, and start it. To stop, use docker compose down. The data in the volume persists, so when you start again, your data is still there."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#connecting-to-the-database",
+    "href": "W7/M4/01_backend_databases.html#connecting-to-the-database",
+    "title": "Connecting to Backend Databases",
+    "section": "Connecting to the Database",
+    "text": "Connecting to the Database\nTwo approaches:\n\nCommand line: psql (text interface)\nGraphical: Adminer or VS Code Database Client\n\n\nOnce the database is running, we need to connect to it. There are two main approaches: the command-line tool psql, which is powerful but text-based, or graphical tools like Adminer or the VS Code Database Client extension, which are more user-friendly. Both work, choose based on your preference."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#part-2-connecting-the-application",
+    "href": "W7/M4/01_backend_databases.html#part-2-connecting-the-application",
+    "title": "Connecting to Backend Databases",
+    "section": "Part 2: Connecting the Application",
+    "text": "Part 2: Connecting the Application"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-question",
+    "href": "W7/M4/01_backend_databases.html#the-question",
+    "title": "Connecting to Backend Databases",
+    "section": "The Question",
+    "text": "The Question\nHow do I connect a Python application to the database to query and store data?\nAnswer: Use the psycopg package\n\nNow that we have a running database, we need to connect our Python code to it. The answer is the psycopg package, which implements the DB-API 2.0 protocol. This is the standard way Python talks to PostgreSQL databases."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#db-api-2.0-protocol",
+    "href": "W7/M4/01_backend_databases.html#db-api-2.0-protocol",
+    "title": "Connecting to Backend Databases",
+    "section": "DB-API 2.0 Protocol",
+    "text": "DB-API 2.0 Protocol\nStandardized database interface in Python\n\npsycopg implements this protocol\nWorks with PostgreSQL\nKnowledge transfers to other databases\n\n\nThe DB-API 2.0 is a standardized protocol for database access in Python. psycopg implements this protocol for PostgreSQL. The beautiful thing is that once you understand this protocol, you can apply the same concepts to other database drivers. The patterns are consistent."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#step-1-import-and-install",
+    "href": "W7/M4/01_backend_databases.html#step-1-import-and-install",
+    "title": "Connecting to Backend Databases",
+    "section": "Step 1: Import and Install",
+    "text": "Step 1: Import and Install\nInstall the package:\nuv add \"psycopg[binary]\"\nImport in Python:\nimport psycopg\n\nFirst, we install psycopg using uv. The [binary] extra includes pre-compiled binaries for faster installation. Then we import it in our Python code. Simple enough."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#step-2-create-connection",
+    "href": "W7/M4/01_backend_databases.html#step-2-create-connection",
+    "title": "Connecting to Backend Databases",
+    "section": "Step 2: Create Connection",
+    "text": "Step 2: Create Connection\nConnection string format:\nconn = psycopg.connect(\n    'postgresql://user:password@localhost:5432/dbname'\n)\nOr with parameters:\nconn = psycopg.connect(\n    conninfo='user=user password=secret '\n             'host=localhost port=5432 dbname=testdb'\n)\n\nCreating a connection requires connection information: the user, password, host, port, and database name. You can provide this as a URI string or as individual parameters. The URI format is more compact and commonly used. Notice we’re using localhost and port 5432, which matches our Docker setup."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#connection-string-sources",
+    "href": "W7/M4/01_backend_databases.html#connection-string-sources",
+    "title": "Connecting to Backend Databases",
+    "section": "Connection String Sources",
+    "text": "Connection String Sources\nTwo places connection info can come from:\n\nEnvironment variables (from .env file)\nConnection string parameter (conninfo)\n\nBoth are checked by psycopg\n\nIt’s important to know that psycopg checks two places for connection information: environment variables and the connection string parameter. Some values might be set in your .env file, others in the connection string. If you’re having connection issues, check both places."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#step-3-working-with-data",
+    "href": "W7/M4/01_backend_databases.html#step-3-working-with-data",
+    "title": "Connecting to Backend Databases",
+    "section": "Step 3: Working with Data",
+    "text": "Step 3: Working with Data"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#reading-data",
+    "href": "W7/M4/01_backend_databases.html#reading-data",
+    "title": "Connecting to Backend Databases",
+    "section": "Reading Data",
+    "text": "Reading Data\nFour ways to fetch results:\ncur.execute(\"SELECT * FROM test\")\n\n# Fetch one row\nrow = cur.fetchone()\n\n# Fetch many rows\nrows = cur.fetchmany(10)\n\n# Fetch all rows\nall_rows = cur.fetchall()\n\n# Or iterate\nfor row in cur:\n    print(row)\n\nFor reading data, we have three main methods: fetchone gets a single row, fetchmany gets a specified number, and fetchall gets everything. The cursor is also iterable, so you can loop over it directly. For large result sets, be careful with fetchall—it loads everything into memory at once.\n\nCreate a cursor from the connection:\nwith conn.cursor() as cur:\n    cur.execute(\"SELECT * FROM users\")\n    results = cur.fetchall()\n\nTo interact with the database, we create a cursor from the connection. The cursor is our interface for sending commands and reading results. We use a context manager (the with statement) to ensure proper cleanup. Then we execute SQL commands and fetch results."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#writing-data",
+    "href": "W7/M4/01_backend_databases.html#writing-data",
+    "title": "Connecting to Backend Databases",
+    "section": "Writing Data",
+    "text": "Writing Data\nUsing transactions:\nwith psycopg.connect(conn_string) as conn:\n    with conn.cursor() as cur:\n        cur.execute(\n            \"INSERT INTO test (num, data) VALUES (%s, %s)\",\n            (100, \"abc'def\")\n        )\n        # Transaction commits automatically\n\nWhen writing data, we use transactions. The connection context manager automatically handles this. If everything succeeds, it commits. If an error occurs, it rolls back. This ensures data integrity. Notice we use parameterized queries with %s placeholders—this prevents SQL injection attacks."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#problems-with-raw-drivers",
+    "href": "W7/M4/01_backend_databases.html#problems-with-raw-drivers",
+    "title": "Connecting to Backend Databases",
+    "section": "Problems with Raw Drivers",
+    "text": "Problems with Raw Drivers\nWhat psycopg doesn’t solve:\n\nSQL written as strings → typos, syntax errors\nParameter passing → SQL injection risks\nDatabase-specific code → hard to switch databases\nConnection management → expensive to create connections\n\n\nWhile psycopg works, it has limitations. Writing SQL as strings means typos and syntax errors aren’t caught until runtime. Parameter passing can be error-prone. The code is database-specific, making it hard to switch databases. And creating connections is expensive—we need connection pooling. This is where SQLAlchemy comes in."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#part-3-sqlalchemy-framework",
+    "href": "W7/M4/01_backend_databases.html#part-3-sqlalchemy-framework",
+    "title": "Connecting to Backend Databases",
+    "section": "Part 3: SQLAlchemy Framework",
+    "text": "Part 3: SQLAlchemy Framework"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#what-is-sqlalchemy",
+    "href": "W7/M4/01_backend_databases.html#what-is-sqlalchemy",
+    "title": "Connecting to Backend Databases",
+    "section": "What is SQLAlchemy?",
+    "text": "What is SQLAlchemy?\n![Figure: A process diagram. On the left, a messy scroll of raw SQL text. In the middle, a magical funnel or gear mechanism (SQLAlchemy). On the right, clean, structured Python code blocks emerging. This represents the abstraction of raw SQL into safe, Pythonic objects.]\nPython’s most popular database framework\n\nRaises database work to a higher level\nSolves driver limitations\nTwo parts: Core and ORM\n\n\nSQLAlchemy is Python’s most popular database framework. It elevates database work from the low-level driver world to a higher abstraction. It solves all those problems we just identified: type safety, security, database portability, and connection pooling. SQLAlchemy has two main parts: Core, which we’ll focus on, and ORM, which maps database tables to Python classes."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-engine",
+    "href": "W7/M4/01_backend_databases.html#the-engine",
+    "title": "Connecting to Backend Databases",
+    "section": "The Engine",
+    "text": "The Engine\nCentral component: manages connections\nfrom sqlalchemy import create_engine, URL\n\nengine = create_engine(\n    url=URL.create(\n        \"postgresql+psycopg\",\n        username=os.getenv(\"POSTGRES_USER\"),\n        password=os.getenv(\"POSTGRES_PASSWORD\"),\n        host=os.getenv(\"POSTGRES_HOST\"),\n        database=os.getenv(\"POSTGRES_DB\"),\n    )\n)\nUsually a singleton (one per database)\n\nThe Engine is the heart of SQLAlchemy. It manages connection pooling—creating connections, keeping them alive, and reusing them. This solves the expensive connection creation problem. You typically create one engine per database, and it’s shared across your application. Notice the connection string format: “postgresql+psycopg” where postgresql is the dialect and psycopg is the driver."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#dialect-vs-driver",
+    "href": "W7/M4/01_backend_databases.html#dialect-vs-driver",
+    "title": "Connecting to Backend Databases",
+    "section": "Dialect vs Driver",
+    "text": "Dialect vs Driver\nConnection string: postgresql+psycopg\n\nDialect (postgresql): SQL language variant\n\nAlso: mysql, sqlite, mssql, oracle\n\nDriver (psycopg): Low-level communication\n\nAlso: asyncpg, pymysql, pyodbc\n\n\nSeparation allows flexibility\n\nThe connection string separates dialect from driver. The dialect is the SQL language variant—PostgreSQL has different syntax than MySQL. The driver is the low-level communication library. This separation is powerful: you can use different drivers with the same dialect, or switch dialects while keeping similar code structure."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#defining-schema-with-metadata",
+    "href": "W7/M4/01_backend_databases.html#defining-schema-with-metadata",
+    "title": "Connecting to Backend Databases",
+    "section": "Defining Schema with Metadata",
+    "text": "Defining Schema with Metadata\nMetadata: describes your database structure\nfrom sqlalchemy.schema import MetaData, Table, Column\nfrom sqlalchemy.types import Integer, String, Date\n\nmetadata = MetaData()\n\nusers_table = Table(\n    \"users\",\n    metadata,\n    Column(\"id\", Integer, primary_key=True),\n    Column(\"name\", String(100)),\n    Column(\"birth_date\", Date)\n)\n\nInstead of writing raw SQL CREATE TABLE statements, we define our schema using Python objects. Metadata is a container for all our table definitions. We create Table objects with Column definitions. This gives us type safety and Python’s help with autocomplete and error checking."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#creating-tables",
+    "href": "W7/M4/01_backend_databases.html#creating-tables",
+    "title": "Connecting to Backend Databases",
+    "section": "Creating Tables",
+    "text": "Creating Tables\nApply definitions to database:\nmetadata.create_all(engine)\nTranslates to SQL:\nCREATE TABLE users (\n    id INTEGER NOT NULL,\n    name VARCHAR(100),\n    birth_date DATE,\n    PRIMARY KEY (id)\n);\n\nWhen we call create_all, SQLAlchemy translates our Python definitions into SQL DDL statements and executes them. This is much safer than writing SQL by hand—we get Python’s type checking and IDE support. However, this method is destructive and only suitable for development. For production, we need migrations."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#foreign-keys",
+    "href": "W7/M4/01_backend_databases.html#foreign-keys",
+    "title": "Connecting to Backend Databases",
+    "section": "Foreign Keys",
+    "text": "Foreign Keys\nDefining relationships:\nfrom sqlalchemy.schema import ForeignKey\n\nuser_emails_table = Table(\n    \"user_emails\",\n    metadata,\n    Column(\"id\", Integer, primary_key=True),\n    Column(\"user_id\", ForeignKey(\"users.id\"), nullable=False),\n    Column(\"email\", String, nullable=False),\n)\n\nForeign keys define relationships between tables. Here, each email must belong to a user. The ForeignKey constraint ensures data integrity—you can’t create an email without a valid user_id. SQLAlchemy handles the SQL translation automatically."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#inserting-data",
+    "href": "W7/M4/01_backend_databases.html#inserting-data",
+    "title": "Connecting to Backend Databases",
+    "section": "Inserting Data",
+    "text": "Inserting Data\nBuilding insert statements:\nfrom sqlalchemy.sql.expression import insert\n\nstmt = (\n    insert(users_table)\n    .values(\n        name=\"Adam Banana\",\n        birth_date=datetime.date(1990, 1, 1)\n    )\n    .returning(users_table.c.id)\n)\n\nInstead of writing INSERT SQL strings, we build statements using Python functions. The .values() method sets the data to insert. The .returning() clause gets back the generated ID. This is type-safe and prevents SQL injection."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#executing-statements",
+    "href": "W7/M4/01_backend_databases.html#executing-statements",
+    "title": "Connecting to Backend Databases",
+    "section": "Executing Statements",
+    "text": "Executing Statements\nSending to database:\nwith engine.connect() as conn:\n    result = conn.execute(stmt)\n    conn.commit()\n    row = result.fetchone()\n    user_id = row[0]\n\nWe get a connection from the engine, execute our statement, commit the transaction, and fetch the result. The connection context manager handles cleanup. The result cursor works just like psycopg cursors, following the DB-API standard."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#selecting-data",
+    "href": "W7/M4/01_backend_databases.html#selecting-data",
+    "title": "Connecting to Backend Databases",
+    "section": "Selecting Data",
+    "text": "Selecting Data\nBuilding SELECT queries:\nfrom sqlalchemy.sql.expression import select\n\nstmt = (\n    select(users_table.c.name, users_table.c.birth_date)\n    .where(users_table.c.id == user_id)\n)\n\nwith engine.connect() as conn:\n    result = conn.execute(stmt)\n    row = result.fetchone()\n\nSELECT queries are built using the select() function. We reference columns using table.c.column_name syntax, which gives us autocomplete and type checking. The .where() method adds conditions. This is much safer than string concatenation."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#aggregations",
+    "href": "W7/M4/01_backend_databases.html#aggregations",
+    "title": "Connecting to Backend Databases",
+    "section": "Aggregations",
+    "text": "Aggregations\nUsing SQL functions:\nfrom sqlalchemy.sql.functions import count\n\nstmt = (\n    select(\n        user_emails_table.c.user_id,\n        count(user_emails_table.c.email)\n    )\n    .group_by(user_emails_table.c.user_id)\n)\n\nSQLAlchemy provides functions for aggregations like count, sum, min, max. We use them in select statements and combine with group_by for summaries. All of this is type-safe and translates to correct SQL."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#raw-sql-when-needed",
+    "href": "W7/M4/01_backend_databases.html#raw-sql-when-needed",
+    "title": "Connecting to Backend Databases",
+    "section": "Raw SQL When Needed",
+    "text": "Raw SQL When Needed\nSQLAlchemy allows raw SQL:\nfrom sqlalchemy import text\n\nsql_text = text(\n    \"SELECT name, salary FROM employees \"\n    \"WHERE department = :dept AND salary &gt; :min_sal\"\n)\n\nresult = conn.execute(\n    sql_text,\n    {\"dept\": \"Sales\", \"min_sal\": 50000}\n)\n\nSometimes you need raw SQL for complex queries. SQLAlchemy allows this through the text() function. Notice we still use parameterized queries with :parameter_name syntax. This maintains security by preventing SQL injection while giving us the flexibility of raw SQL when needed."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#part-4-database-migrations",
+    "href": "W7/M4/01_backend_databases.html#part-4-database-migrations",
+    "title": "Connecting to Backend Databases",
+    "section": "Part 4: Database Migrations",
+    "text": "Part 4: Database Migrations"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-problem",
+    "href": "W7/M4/01_backend_databases.html#the-problem",
+    "title": "Connecting to Backend Databases",
+    "section": "The Problem",
+    "text": "The Problem\nSchema changes are dangerous:\n\nChanges applied manually → not reproducible\nHard to roll back → data loss risk\nDifferent environments get out of sync\nNo history of what changed\n\n\nWe’ve been using create_all() and drop_all(), but these are destructive and only work for development. In real applications, we need to evolve the schema over time without losing data. Manual changes are dangerous—they’re not reproducible, hard to roll back, and environments drift apart. We need version control for our database schema, just like we have for our code."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#version-control-for-code",
+    "href": "W7/M4/01_backend_databases.html#version-control-for-code",
+    "title": "Connecting to Backend Databases",
+    "section": "Version Control for Code",
+    "text": "Version Control for Code\n![Figure: A stylized document with a split view. The left side shows lines of code in red (deleted), and the right side shows lines in green (added). A ‘branching’ icon sits above, symbolizing version control and history tracking.]\nGit tracks code changes:\n\nLine-by-line history\nTime travel (undo)\nReview before merging\nCollaboration\n\nWe need the same for database schema\n\nWe use git for version control of our code. It tracks every change, lets us travel back in time, requires review before merging, and enables collaboration. We need the exact same thing for our database schema. Every schema change should be a script that’s tracked in git, reviewed, and applied consistently across all environments."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#migration-scripts",
+    "href": "W7/M4/01_backend_databases.html#migration-scripts",
+    "title": "Connecting to Backend Databases",
+    "section": "Migration Scripts",
+    "text": "Migration Scripts\nSolution: Migration scripts\n\nEach change is a script\nTracked in git\nReversible (up and down)\nApplied automatically\n\nTool: dbmate\n\nThe solution is migration scripts. Each schema change becomes a script that’s tracked in git. Each script has an “up” direction (apply the change) and a “down” direction (reverse it). These scripts are applied automatically, ensuring all environments stay in sync. We’ll use dbmate, a simple and effective migration tool."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#installing-dbmate",
+    "href": "W7/M4/01_backend_databases.html#installing-dbmate",
+    "title": "Connecting to Backend Databases",
+    "section": "Installing dbmate",
+    "text": "Installing dbmate\nOn Linux:\nsudo curl -fsSL -o /usr/local/bin/dbmate \\\n  https://github.com/amacneil/dbmate/releases/latest/download/dbmate-linux-amd64\nsudo chmod +x /usr/local/bin/dbmate\n\ndbmate is a single binary, making installation straightforward. We download it, make it executable, and it’s ready to use. It reads the DATABASE_URL from environment variables or a .env file."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#configuration",
+    "href": "W7/M4/01_backend_databases.html#configuration",
+    "title": "Connecting to Backend Databases",
+    "section": "Configuration",
+    "text": "Configuration\nSet DATABASE_URL in .env:\nDATABASE_URL=\"postgres://user:password@127.0.0.1:5432/testdb?sslmode=disable\"\ndbmate reads this automatically\n\ndbmate looks for a DATABASE_URL environment variable. We can set it in our .env file. The format is a standard database URI. Notice the ?sslmode=disable parameter—we’re disabling SSL since we’re running locally. dbmate will read this automatically."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#creating-a-migration",
+    "href": "W7/M4/01_backend_databases.html#creating-a-migration",
+    "title": "Connecting to Backend Databases",
+    "section": "Creating a Migration",
+    "text": "Creating a Migration\nGenerate new migration file:\ndbmate new \"add_users_table\"\nCreates a file with two sections:\n-- migrate:up\nCREATE TABLE users (id SERIAL PRIMARY KEY);\n\n-- migrate:down\nDROP TABLE users;\n\nTo create a migration, we run dbmate new with a descriptive name. This creates a new migration file with two sections: migrate:up for applying the change, and migrate:down for reversing it. We write the SQL for both directions. This ensures we can always roll back."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#applying-migrations",
+    "href": "W7/M4/01_backend_databases.html#applying-migrations",
+    "title": "Connecting to Backend Databases",
+    "section": "Applying Migrations",
+    "text": "Applying Migrations\nRun pending migrations:\ndbmate up\nRoll back last migration:\ndbmate down\nCheck status:\ndbmate status\n\nTo apply migrations, we run dbmate up. It checks which migrations have been applied and runs only the new ones. To roll back, we use dbmate down, which reverses the most recent migration. We can check the status to see which migrations have been applied."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#migration-workflow-12",
+    "href": "W7/M4/01_backend_databases.html#migration-workflow-12",
+    "title": "Connecting to Backend Databases",
+    "section": "Migration Workflow (1/2)",
+    "text": "Migration Workflow (1/2)\n1. Create migration:\ndbmate new \"add_email_column\"\n2. Write up and down SQL:\n-- migrate:up\nALTER TABLE users ADD COLUMN email VARCHAR;\n\n-- migrate:down\nALTER TABLE users DROP COLUMN email;"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#migration-workflow-22",
+    "href": "W7/M4/01_backend_databases.html#migration-workflow-22",
+    "title": "Connecting to Backend Databases",
+    "section": "Migration Workflow (2/2)",
+    "text": "Migration Workflow (2/2)\n3. Update Python models:\nusers = Table(\n    \"users\",\n    metadata,\n    Column(\"id\", Integer, primary_key=True),\n    Column(\"email\", String),  # NEW\n)\n4. Commit both together:\ngit add db/migrations/xxx_add_email_column.sql\ngit add src/models.py\ngit commit -m \"schema: add email column to users\"\n\nHere’s the professional workflow. We create a migration, write both the up and down SQL, update our Python models to match, and commit both the migration script and the model changes together in a single git commit. This keeps everything in sync. If someone pulls this commit, they get both the migration and the code that uses it."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#key-takeaways",
+    "href": "W7/M4/01_backend_databases.html#key-takeaways",
+    "title": "Connecting to Backend Databases",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways"
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#database-setup",
+    "href": "W7/M4/01_backend_databases.html#database-setup",
+    "title": "Connecting to Backend Databases",
+    "section": "Database Setup",
+    "text": "Database Setup\n\nContainers solve environment problems\n\nPackage everything together\nIsolated from conflicts\nSame environment everywhere\n\nDocker Compose simplifies orchestration\n\nDefine services in YAML\nVolumes persist data\nOne command to start/stop\n\n\n\nLet’s recap what we’ve learned. Containers solve the environment problem by packaging everything together in isolation. Docker Compose makes it easy to define and run our database with a simple YAML file. Volumes ensure our data persists even when containers are destroyed."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#database-connections",
+    "href": "W7/M4/01_backend_databases.html#database-connections",
+    "title": "Connecting to Backend Databases",
+    "section": "Database Connections",
+    "text": "Database Connections\n\nDB-API 2.0 is the standard\n\npsycopg implements it for PostgreSQL\nPatterns transfer to other databases\n\nTransactions ensure data integrity\n\nAutomatic commit/rollback\nContext managers handle cleanup\n\n\n\nDB-API 2.0 provides a standard interface for database access. psycopg implements this for PostgreSQL, and the patterns you learn apply to other database drivers. Transactions are crucial for data integrity, and context managers make them easy to use correctly."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#sqlalchemy-benefits",
+    "href": "W7/M4/01_backend_databases.html#sqlalchemy-benefits",
+    "title": "Connecting to Backend Databases",
+    "section": "SQLAlchemy Benefits",
+    "text": "SQLAlchemy Benefits\n\nType-safe database code\n\nPython objects instead of SQL strings\nIDE autocomplete and error checking\n\nConnection pooling\n\nReuses expensive connections\nBetter performance\n\nDatabase portability\n\nSwitch databases with minimal code changes\nDialect handles SQL differences\n\n\n\nSQLAlchemy elevates database work to a higher level. We get type safety through Python objects, connection pooling for better performance, and database portability through the dialect system. It solves all the problems we identified with raw drivers."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#migration-best-practices",
+    "href": "W7/M4/01_backend_databases.html#migration-best-practices",
+    "title": "Connecting to Backend Databases",
+    "section": "Migration Best Practices",
+    "text": "Migration Best Practices\n\nVersion control your schema\n\nEvery change is a script\nTracked in git\nReversible\n\nKeep migrations and models in sync\n\nCommit migration and code changes together\nEnsures consistency across environments\n\n\n\nMigrations are essential for professional database development. Every schema change becomes a versioned script that’s tracked in git and reversible. Most importantly, we keep our migration scripts and Python models in sync by committing them together. This ensures everyone’s database schema matches their code."
+  },
+  {
+    "objectID": "W7/M4/01_backend_databases.html#the-complete-picture",
+    "href": "W7/M4/01_backend_databases.html#the-complete-picture",
+    "title": "Connecting to Backend Databases",
+    "section": "The Complete Picture",
+    "text": "The Complete Picture\n![Figure: A comprehensive system diagram. Bottom layer: A Docker container holding a PostgreSQL cylinder. Middle layer: A Python application block connected to the database via SQLAlchemy. Side component: A scroll labeled “Migrations” with a Git logo, overseeing the structure. All parts are connected with clean lines.]\nYou now have:\n\nIsolated database environment (Docker)\nType-safe database code (SQLAlchemy)\nVersion-controlled schema (Migrations)\nProfessional workflow\n\n\nPutting it all together: we have an isolated database running in Docker, type-safe database code using SQLAlchemy, version-controlled schema through migrations, and a professional workflow that scales from development to production. This is the foundation for building real applications with persistent data storage."
+  },
+  {
     "objectID": "W7/learning_outcomes.html",
     "href": "W7/learning_outcomes.html",
     "title": "Week 7 Learning Outcomes: Building AI Apps",
@@ -12898,7 +13451,7 @@
     "href": "W7/learning_outcomes.html#module-3-mcp-server",
     "title": "Week 7 Learning Outcomes: Building AI Apps",
     "section": "Module 3: MCP Server",
-    "text": "Module 3: MCP Server\nBy the end of this module, you are able to:\n\nSetup a simple minimal MCP Server. Utilizing either:\n\nMCP Server\nor FastMCP\n\nConnect an Agent to it using an MCP Client. Utilizing either:\n\nGoogle’s Agent Development Kit (ADK)\nor LangChain\nor Pydantic AI"
+    "text": "Module 3: MCP Server\nBy the end of this module, you are able to:\n\nSetup a simple minimal MCP Server. Utilizing either:\n\nMCP Server\nFastMCP\n\nConvert an existing FastAPI server to an MCP server:\n\nFastAPI-MCP\n\nConnect an Agent to it using an MCP Client. Utilizing either:\n\nGoogle’s Agent Development Kit (ADK)\nor LangChain\nor Pydantic AI"
   },
   {
     "objectID": "W7/learning_outcomes.html#module-4",

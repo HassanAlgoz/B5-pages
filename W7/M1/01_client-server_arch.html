@@ -406,48 +406,6 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="basic-aspects-simple-extensible" class="slide level2">
-<h2>Basic Aspects: Simple &amp; Extensible</h2>
-<ul>
-<li><strong>Human-Readable:</strong> Designed to be easy for developers to read and debug.</li>
-<li><strong>Extensible:</strong> HTTP headers allow for new functionality without changing the core protocol.</li>
-<li><strong>Stateless but not Sessionless:</strong> Requests are independent, but <strong>Cookies</strong> enable stateful sessions.</li>
-</ul>
-<aside class="notes">
-<p>The protocol’s extensibility via headers has allowed features like caching and authentication to be added early in its history.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-http-controls" class="slide level2">
-<h2>What HTTP Controls</h2>
-<ul>
-<li><strong>Authentication:</strong> Managed via headers or session cookies.</li>
-<li><strong>Caching:</strong> Servers instruct clients/proxies on what to store and for how long.</li>
-<li><strong>Sessions:</strong> Links independent requests to a server-side state (e.g., shopping carts).</li>
-</ul>
-<aside class="notes">
-<p>These features, like relaxing the origin constraint, were added over time to meet the needs of modern, interactive web applications.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="the-http-flow" class="slide level2">
 <h2>The HTTP Flow</h2>
 <ol type="1">
@@ -458,6 +416,120 @@
 </ol>
 <aside class="notes">
 <p>HTTP/2 introduced multiplexing, allowing multiple requests to be sent over a single “warm” connection simultaneously.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="url-anatomy" class="slide level2">
+<h2>URL Anatomy</h2>
+
+<img data-src="../assets/url_anatomy.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: Example URL: http://example.com/api/users?id=123&amp;status=active</p><ul>
+<li><strong>Scheme</strong>: <code>http</code> (Protocol).</li>
+<li><strong>Host</strong>: <code>example.com</code> (Where).</li>
+<li><strong>Path</strong>: <code>/api/users</code> (What).</li>
+<li><strong>Query</strong>: <code>?id=123&amp;status=active</code> (Parameters).</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><strong>Explaining</strong>: Let’s dissect a URL. It’s not just a random string; it has anatomy.</li>
+<li><strong>Scheme</strong>: How are we talking? (HTTP/HTTPS).</li>
+<li><strong>Host</strong>: Which building are we going to? (Server address).</li>
+<li><strong>Path</strong>: Which room in that building? (Resource location).</li>
+<li><strong>Query</strong>: Specific instructions? (Sort by price, Page 2).</li>
+<li><strong>Landmark</strong>: Understanding this structure helps you debug why a request might be failing.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="parameters-in-the-query-string" class="slide level2">
+<h2>Parameters in the Query String</h2>
+<p><strong>Common Use Cases</strong>:</p>
+<ul>
+<li><strong>Filtering:</strong> <code>?category=electronics&amp;sort=price_desc</code></li>
+<li><strong>Searching:</strong> <code>?q=how+to+build+a+website</code> (note: <code>+</code> is URL encoded for space)</li>
+<li><strong>Tracking:</strong> <code>?utm_source=newsletter</code> (Commonly used in marketing analytics).</li>
+<li><strong>Pagination:</strong> <code>?page=2</code></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>While query strings are great for bookmarkable links (like search results)</li>
+<li>the request body (POST) is the standard for complex or secure data transmission.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="resources-vs-representations" class="slide level2">
+<h2>Resources vs Representations</h2>
+
+<img data-src="../assets/resource_representation.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: An abstract cube labeled ‘Resource (User)’. Two arrows point from it to ‘JSON File’ and ‘HTML Page’. Text: ‘One Resource, Many Representations’.</p><ul>
+<li><strong>Resource</strong>: The concept (e.g., User Profile).</li>
+<li><strong>Representation</strong>: The format (<code>.json</code>, <code>.html</code>).</li>
+<li><strong>Content Negotiation</strong>: “I speak JSON, please send JSON.”</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><strong>Explaining</strong>: There is a Zen-like distinction in REST between the <em>Thing</em> and the <em>Representation of the Thing</em>.</li>
+<li><strong>Storytelling</strong>: Think of a “User Profile.” That is the Resource.</li>
+<li>But how do I give it to you?
+<ul>
+<li>I can write it on paper (HTML).</li>
+<li>I can burn it onto a CD (binary).</li>
+<li>I can read it aloud (JSON).</li>
+</ul></li>
+<li>You ask for the <em>Resource</em>, but the server sends a <em>Representation</em>. Negotiating the best format is key to flexible APIs.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="http-methods" class="slide level2">
+<h2>HTTP Methods</h2>
+<ul>
+<li><strong>GET:</strong> Retrieve a representation of a resource (Read).</li>
+<li><strong>POST:</strong> Create a new resource within a collection (Create).</li>
+<li><strong>PUT:</strong> Replace an entire resource or create if missing (Update/Replace).</li>
+<li><strong>PATCH:</strong> Apply partial modifications to a resource (Partial Update).</li>
+<li><strong>DELETE:</strong> Remove a specific resource (Delete).</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>MDN Web Docs emphasize that GET and HEAD methods are “safe” because they do not change the state of the server</li>
+<li>whereas POST, PUT, and DELETE are intended to modify data.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -836,39 +908,9 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="session-4-http-semantics" class="title-slide slide level1 center">
-<h1>Session 4: HTTP Semantics</h1>
+<section id="session-4-rest-apis" class="title-slide slide level1 center">
+<h1>Session 4: REST APIs</h1>
 
-</section>
-<section id="url-anatomy" class="slide level2">
-<h2>URL Anatomy</h2>
-
-<img data-src="../assets/url_anatomy.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: Example URL: http://example.com/api/users?id=123&amp;status=active</p><ul>
-<li><strong>Scheme</strong>: <code>http</code> (Protocol).</li>
-<li><strong>Host</strong>: <code>example.com</code> (Where).</li>
-<li><strong>Path</strong>: <code>/api/users</code> (What).</li>
-<li><strong>Query</strong>: <code>?id=123&amp;status=active</code> (Parameters).</li>
-</ul>
-<aside class="notes">
-<ul>
-<li><strong>Explaining</strong>: Let’s dissect a URL. It’s not just a random string; it has anatomy.</li>
-<li><strong>Scheme</strong>: How are we talking? (HTTP/HTTPS).</li>
-<li><strong>Host</strong>: Which building are we going to? (Server address).</li>
-<li><strong>Path</strong>: Which room in that building? (Resource location).</li>
-<li><strong>Query</strong>: Specific instructions? (Sort by price, Page 2).</li>
-<li><strong>Landmark</strong>: Understanding this structure helps you debug why a request might be failing.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="nouns-and-verbs" class="slide level2">
 <h2>Nouns and Verbs</h2>
@@ -893,69 +935,11 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="resources-vs-representations" class="slide level2">
-<h2>Resources vs Representations</h2>
-
-<img data-src="../assets/resource_representation.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: An abstract cube labeled ‘Resource (User)’. Two arrows point from it to ‘JSON File’ and ‘HTML Page’. Text: ‘One Resource, Many Representations’.</p><ul>
-<li><strong>Resource</strong>: The concept (e.g., User Profile).</li>
-<li><strong>Representation</strong>: The format (<code>.json</code>, <code>.html</code>).</li>
-<li><strong>Content Negotiation</strong>: “I speak JSON, please send JSON.”</li>
-</ul>
-<aside class="notes">
-<ul>
-<li><strong>Explaining</strong>: There is a Zen-like distinction in REST between the <em>Thing</em> and the <em>Representation of the Thing</em>.</li>
-<li><strong>Storytelling</strong>: Think of a “User Profile.” That is the Resource.</li>
-<li>But how do I give it to you?
-<ul>
-<li>I can write it on paper (HTML).</li>
-<li>I can burn it onto a CD (binary).</li>
-<li>I can read it aloud (JSON).</li>
-</ul></li>
-<li>You ask for the <em>Resource</em>, but the server sends a <em>Representation</em>. Negotiating the best format is key to flexible APIs.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="http-methods" class="slide level2">
-<h2>HTTP Methods</h2>
-<ul>
-<li><strong>GET:</strong> Retrieve a representation of a resource (Read).</li>
-<li><strong>POST:</strong> Create a new resource within a collection (Create).</li>
-<li><strong>PUT:</strong> Replace an entire resource or create if missing (Update/Replace).</li>
-<li><strong>PATCH:</strong> Apply partial modifications to a resource (Partial Update).</li>
-<li><strong>DELETE:</strong> Remove a specific resource (Delete).</li>
-</ul>
-<aside class="notes">
-<ul>
-<li>MDN Web Docs emphasize that GET and HEAD methods are “safe” because they do not change the state of the server</li>
-<li>whereas POST, PUT, and DELETE are intended to modify data.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="naming-conventions-nouns" class="slide level2">
 <h2>Naming Conventions (Nouns)</h2>
 <ul>
-<li><strong>Resources as Objects:</strong> Use <code>/articles</code> instead of <code>/getArticles</code>.</li>
-<li><strong>Hierarchical Structure:</strong> Use <code>/authors/42/books</code> to show relationship and nesting.</li>
+<li><strong>Objects:</strong> Use <code>/articles</code> instead of <code>/getArticles</code>.</li>
+<li><strong>Nested:</strong> Use <code>/authors/42/books</code> to show relationship.</li>
 </ul>
 <aside class="notes">
 <p>Official RESTful design patterns documented by MDN suggest avoiding verbs in URLs to maintain the separation of concerns between the protocol (HTTP verbs) and the data (resource nouns).</p>
@@ -985,32 +969,6 @@
 <ul>
 <li>The URL + Verb tells the whole story.</li>
 <li>This is the beauty of REST. It’s predictable.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="parameters-in-the-query-string" class="slide level2">
-<h2>Parameters in the Query String</h2>
-<p><strong>Common Use Cases</strong>:</p>
-<ul>
-<li><strong>Filtering:</strong> <code>?category=electronics&amp;sort=price_desc</code></li>
-<li><strong>Searching:</strong> <code>?q=how+to+build+a+website</code> (note: <code>+</code> is URL encoded for space)</li>
-<li><strong>Tracking:</strong> <code>?utm_source=newsletter</code> (Commonly used in marketing analytics).</li>
-<li><strong>Pagination:</strong> <code>?page=2</code></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>While query strings are great for bookmarkable links (like search results)</li>
-<li>the request body (POST) is the standard for complex or secure data transmission.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
