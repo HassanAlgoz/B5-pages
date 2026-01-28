@@ -421,22 +421,69 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="container-vs-virtual-machine" class="slide level2">
+<section id="dockerfile-vs-image-vs-container" class="slide level2">
+<h2>Dockerfile vs Image vs Container</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/dockerfile_dockerimage_dockercontainer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Dockerfile, Image, and Container"><img data-src="./assets/dockerfile_dockerimage_dockercontainer.png" height="300" alt="Dockerfile, Image, and Container"></a></p>
+<figcaption>Dockerfile, Image, and Container</figcaption>
+</figure>
+</div>
+<p><strong>Dockerfile:</strong> A recipe for building a Docker image</p>
+<p><strong>Image:</strong> A template for creating a container</p>
+<p><strong>Container:</strong> A running instance of an image</p>
+<aside class="notes">
+<p>A Dockerfile is a recipe for building a Docker image. An image is a template for creating a container. A container is a running instance of an image.</p>
+<p>See <a href="https://docs.docker.com/get-started/workshop/">Getting Started Workshop | Docker Documentation</a></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="container-vs-virtual-machine" class="slide level2 smaller">
 <h2>Container vs Virtual Machine</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="./assets/containers_evolution.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Evolution of Containers"><img data-src="./assets/containers_evolution.png" height="300" alt="Evolution of Containers"></a></p>
+<figcaption>Evolution of Containers</figcaption>
+</figure>
+</div>
 <p><strong>Both are isolated environments from an image</strong></p>
 <p><strong>Difference:</strong> What the image contains</p>
 <ul>
-<li><strong>VM Image:</strong> Full operating system</li>
-<li><strong>Container Image:</strong> Shared host OS kernel</li>
+<li><strong>VM Image:</strong> includes a full operating system</li>
+<li><strong>Container Image:</strong> shares the host OS kernel</li>
 </ul>
-<p><strong>Containers are lighter:</strong></p>
+<aside class="notes">
+<p>Both containers and virtual machines provide isolated environments created from images. The key difference is what’s in the image. A VM image includes a full operating system. A container image shares the host OS kernel.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="containers-are-lighter" class="slide level2">
+<h2>Containers are lighter</h2>
 <ul>
 <li>Less resource consumption</li>
 <li>Faster startup/shutdown</li>
 <li>Easier to manage</li>
 </ul>
 <aside class="notes">
-<p>Both containers and virtual machines provide isolated environments created from images. The key difference is what’s in the image. A VM image includes a full operating system. A container image shares the host OS kernel. This makes containers much lighter—they consume fewer resources, start and stop faster, and are easier to manage. For most applications, containers are the better choice.</p>
+<p>… this makes containers much lighter—they consume fewer resources, start and stop faster, and are easier to manage. For most applications, containers are the better choice.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -543,13 +590,15 @@
 </section>
 <section id="connecting-to-the-database" class="slide level2">
 <h2>Connecting to the Database</h2>
-<p><strong>Two approaches:</strong></p>
+<p><strong>Many Approaches:</strong></p>
 <ol type="1">
-<li><strong>Command line:</strong> <code>psql</code> (text interface)</li>
-<li><strong>Graphical:</strong> Adminer or VS Code Database Client</li>
+<li><strong>CLI:</strong> <code>psql</code> (text interface)</li>
+<li><strong>GUI:</strong> Adminer or VS Code Database Client</li>
+<li><strong>DB-API:</strong> <code>psycopg</code> driver and <code>sqlalchemy</code> framework</li>
+<li><strong>MCP</strong>: <a href="https://github.com/mcp/bytebase/dbhub"><strong>DBHub (Bytebase)</strong></a> MCP server for agentic access</li>
 </ol>
 <aside class="notes">
-<p>Once the database is running, we need to connect to it. There are two main approaches: the command-line tool psql, which is powerful but text-based, or graphical tools like Adminer or the VS Code Database Client extension, which are more user-friendly. Both work, choose based on your preference.</p>
+<p>Once the database is running, we need to connect to it. There are many approaches: the command-line tool psql, which is powerful but text-based, or graphical tools like Adminer or the VS Code Database Client extension, which are more user-friendly. The DB-API is what <code>psycopg</code> used by <code>sqlalchemy</code> framework implements. Finally, MCP allows agents to connect to the database and query and store data.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -585,11 +634,10 @@
 </section>
 <section id="db-api-2.0-protocol" class="slide level2">
 <h2>DB-API 2.0 Protocol</h2>
-<p><strong>Standardized database interface in Python</strong></p>
+<p><strong>Standardized database interface in Python</strong>: <code>fetchone()</code>, <code>fetchmany()</code>, <code>fetchall()</code>, <code>execute()</code>, <code>commit()</code>, <code>rollback()</code>, etc.</p>
 <ul>
-<li><code>psycopg</code> implements this protocol</li>
-<li>Works with PostgreSQL</li>
-<li>Knowledge transfers to other databases</li>
+<li><code>psycopg</code> implements this protocol for PostgreSQL</li>
+<li>Works with other databases: SQLite, MySQL, etc.</li>
 </ul>
 <aside class="notes">
 <p>The DB-API 2.0 is a standardized protocol for database access in Python. psycopg implements this protocol for PostgreSQL. The beautiful thing is that once you understand this protocol, you can apply the same concepts to other database drivers. The patterns are consistent.</p>
@@ -627,17 +675,18 @@
 </section>
 <section id="step-2-create-connection" class="slide level2">
 <h2>Step 2: Create Connection</h2>
-<p><strong>Connection string format:</strong></p>
+<p><strong>Connection string format (URI):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>conn <span class="op">=</span> psycopg.<span class="ex">connect</span>(</span>
 <span id="cb7-2"><a></a>    <span class="st">'postgresql://user:password@localhost:5432/dbname'</span></span>
 <span id="cb7-3"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Or with parameters:</strong></p>
+<p><strong>Or with parameters (<code>conninfo</code>):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>conn <span class="op">=</span> psycopg.<span class="ex">connect</span>(</span>
-<span id="cb8-2"><a></a>    conninfo<span class="op">=</span><span class="st">'user=user password=secret '</span></span>
-<span id="cb8-3"><a></a>             <span class="st">'host=localhost port=5432 dbname=testdb'</span></span>
-<span id="cb8-4"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-2"><a></a>    conninfo<span class="op">=</span>(</span>
+<span id="cb8-3"><a></a>      <span class="st">'user=user password=secret '</span></span>
+<span id="cb8-4"><a></a>      <span class="st">'host=localhost port=5432 dbname=testdb'</span>)</span>
+<span id="cb8-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>Creating a connection requires connection information: the user, password, host, port, and database name. You can provide this as a URI string or as individual parameters. The URI format is more compact and commonly used. Notice we’re using localhost and port 5432, which matches our Docker setup.</p>
+<p>Creating a connection requires connection information: the user, password, host, port, and database name. You can provide this as a URI string or as individual parameters. The URI format is more compact and commonly used. Notice we’re using localhost and port 5432, which matches our Docker setup. The <code>conninfo</code> format is more verbose but allows for more flexibility.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -655,9 +704,9 @@
 <p><strong>Two places connection info can come from:</strong></p>
 <ol type="1">
 <li><strong>Environment variables</strong> (from <code>.env</code> file)</li>
-<li><strong>Connection string parameter</strong> (<code>conninfo</code>)</li>
+<li><strong>Connection string parameters</strong> (URI or <code>conninfo</code>)</li>
 </ol>
-<p><strong>Both are checked by psycopg</strong></p>
+<p><strong>Both are checked by <code>psycopg</code></strong></p>
 <aside class="notes">
 <p>It’s important to know that psycopg checks two places for connection information: environment variables and the connection string parameter. Some values might be set in your <code>.env</code> file, others in the connection string. If you’re having connection issues, check both places.</p>
 <style type="text/css">
@@ -675,25 +724,13 @@
 <section id="step-3-working-with-data" class="slide level2">
 <h2>Step 3: Working with Data</h2>
 </section>
-<section id="reading-data" class="slide level2">
-<h2>Reading Data</h2>
-<p><strong>Four ways to fetch results:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>cur.execute(<span class="st">"SELECT * FROM test"</span>)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="co"># Fetch one row</span></span>
-<span id="cb9-4"><a></a>row <span class="op">=</span> cur.fetchone()</span>
-<span id="cb9-5"><a></a></span>
-<span id="cb9-6"><a></a><span class="co"># Fetch many rows</span></span>
-<span id="cb9-7"><a></a>rows <span class="op">=</span> cur.fetchmany(<span class="dv">10</span>)</span>
-<span id="cb9-8"><a></a></span>
-<span id="cb9-9"><a></a><span class="co"># Fetch all rows</span></span>
-<span id="cb9-10"><a></a>all_rows <span class="op">=</span> cur.fetchall()</span>
-<span id="cb9-11"><a></a></span>
-<span id="cb9-12"><a></a><span class="co"># Or iterate</span></span>
-<span id="cb9-13"><a></a><span class="cf">for</span> row <span class="kw">in</span> cur:</span>
-<span id="cb9-14"><a></a>    <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="create-a-cursor-cur-from-the-connection-conn" class="slide level2">
+<h2>Create a cursor (<code>cur</code>) from the connection (<code>conn</code>):</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> conn.cursor() <span class="im">as</span> cur:</span>
+<span id="cb9-2"><a></a>    cur.execute(<span class="st">"SELECT name, age FROM users WHERE age &gt; 18"</span>)</span>
+<span id="cb9-3"><a></a>    rows <span class="op">=</span> cur.fetchall()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>For reading data, we have three main methods: fetchone gets a single row, fetchmany gets a specified number, and fetchall gets everything. The cursor is also iterable, so you can loop over it directly. For large result sets, be careful with fetchall—it loads everything into memory at once.</p>
+<p>To interact with the database, we create a cursor from the connection. The cursor is our interface for sending commands and reading results. We use a context manager (the <code>with</code> statement) to ensure proper cleanup. Then we execute SQL commands and fetch results.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -705,12 +742,45 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p><strong>Create a cursor from the connection:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">with</span> conn.cursor() <span class="im">as</span> cur:</span>
-<span id="cb10-2"><a></a>    cur.execute(<span class="st">"SELECT * FROM users"</span>)</span>
-<span id="cb10-3"><a></a>    results <span class="op">=</span> cur.fetchall()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="why-execute-and-fetch" class="slide level2">
+<h2>Why <code>execute</code> AND <code>fetch</code>?</h2>
+<p>According to the PEP 249 specification:</p>
+<ul>
+<li><code>execute()</code>: Submits the SQL to the database, parses it, and identifies the matching rows. The database creates a “result set” or a pointer (cursor) to those rows.</li>
+<li><code>fetch*()</code>: These methods are the actual data transfer mechanism. They move the data from the database server/buffer into your Python environment as objects (<code>tuple</code> or <code>list</code>).</li>
+</ul>
 <aside class="notes">
-<p>To interact with the database, we create a cursor from the connection. The cursor is our interface for sending commands and reading results. We use a context manager (the <code>with</code> statement) to ensure proper cleanup. Then we execute SQL commands and fetch results.</p>
+<p>See: <a href="https://peps.python.org/pep-0249/#cursor-objects">Cursor Objects | PEP 249</a></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reading-data" class="slide level2">
+<h2>Reading Data</h2>
+<p><strong>Four ways to fetch rows:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Fetch one row</span></span>
+<span id="cb10-2"><a></a>row <span class="op">=</span> cur.fetchone()</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="co"># Fetch many rows</span></span>
+<span id="cb10-5"><a></a>rows <span class="op">=</span> cur.fetchmany(<span class="dv">10</span>)</span>
+<span id="cb10-6"><a></a></span>
+<span id="cb10-7"><a></a><span class="co"># Fetch all rows</span></span>
+<span id="cb10-8"><a></a>all_rows <span class="op">=</span> cur.fetchall()</span>
+<span id="cb10-9"><a></a></span>
+<span id="cb10-10"><a></a><span class="co"># Or iterate</span></span>
+<span id="cb10-11"><a></a><span class="cf">for</span> row <span class="kw">in</span> cur:</span>
+<span id="cb10-12"><a></a>    <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>For reading data, we have three main methods: fetchone gets a single row, fetchmany gets a specified number, and fetchall gets everything. The cursor is also iterable, so you can loop over it directly. For large result sets, be careful with fetchall—it loads everything into memory at once.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -749,12 +819,11 @@
 </section>
 <section id="problems-with-raw-drivers" class="slide level2">
 <h2>Problems with Raw Drivers</h2>
-<p><strong>What psycopg doesn’t solve:</strong></p>
+<p><strong>What <code>psycopg</code> doesn’t solve:</strong></p>
 <ol type="1">
-<li>SQL written as strings → typos, syntax errors</li>
-<li>Parameter passing → SQL injection risks</li>
-<li>Database-specific code → hard to switch databases</li>
-<li>Connection management → expensive to create connections</li>
+<li>SQL written as strings (raw SQL) → typos, syntax errors</li>
+<li>Parameter passing (not using placeholders) → SQL injection risks</li>
+<li>Connection management (not using connection pooling) → expensive to create connections</li>
 </ol>
 <aside class="notes">
 <p>While psycopg works, it has limitations. Writing SQL as strings means typos and syntax errors aren’t caught until runtime. Parameter passing can be error-prone. The code is database-specific, making it hard to switch databases. And creating connections is expensive—we need connection pooling. This is where SQLAlchemy comes in.</p>
@@ -781,12 +850,12 @@
 <ul>
 <li>Raises database work to a higher level</li>
 <li>Solves driver limitations</li>
-<li>Two parts: Core and ORM</li>
+<li>Two parts: <a href="https://docs.sqlalchemy.org/en/20/core/index.html"><strong>Core</strong></a> and <a href="https://docs.sqlalchemy.org/en/20/orm/index.html"><strong>ORM</strong></a></li>
 </ul>
 </div><div class="column" style="width:25%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="./assets/sqlalchemy_flow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."><img data-src="./assets/sqlalchemy_flow.png" alt="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."></a></p>
+<p><a href="./assets/sqlalchemy_flow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."><img data-src="./assets/sqlalchemy_flow.png" alt="Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code."></a></p>
 <figcaption>Figure: A diagram showing raw SQL transforming through SQLAlchemy into clean Python code.</figcaption>
 </figure>
 </div>
@@ -878,7 +947,7 @@
 <span id="cb13-11"><a></a>    Column(<span class="st">"birth_date"</span>, Date)</span>
 <span id="cb13-12"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>Instead of writing raw SQL CREATE TABLE statements, we define our schema using Python objects. Metadata is a container for all our table definitions. We create Table objects with Column definitions. This gives us type safety and Python’s help with autocomplete and error checking.</p>
+<p>Instead of writing raw SQL <code>CREATE TABLE</code> statements, we define our schema using Python objects. Metadata is a container for all our table definitions. We create <code>Table</code> objects with <code>Column</code> definitions. This gives us type safety and Python’s help with autocomplete and error checking.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -893,7 +962,7 @@
 </section>
 <section id="creating-tables" class="slide level2">
 <h2>Creating Tables</h2>
-<p><strong>Apply definitions to database:</strong></p>
+<p><strong>Apply definitions to the database:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>metadata.create_all(engine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Translates to SQL:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> users (</span>
@@ -978,7 +1047,7 @@
 <span id="cb18-4"><a></a>    row <span class="op">=</span> result.fetchone()</span>
 <span id="cb18-5"><a></a>    user_id <span class="op">=</span> row[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>We get a connection from the engine, execute our statement, commit the transaction, and fetch the result. The connection context manager handles cleanup. The result cursor works just like psycopg cursors, following the DB-API standard.</p>
+<p>We get a connection from the engine, execute our statement, manually commit the transaction, and fetch the result. The connection context manager handles cleanup. The result cursor works just like <code>psycopg</code> cursors, following the DB-API standard.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1075,14 +1144,23 @@
 <section id="part-4-database-migrations" class="slide level2">
 <h2>Part 4: Database Migrations</h2>
 </section>
-<section id="the-problem" class="slide level2">
+<section id="the-problem" class="slide level2 smaller">
 <h2>The Problem</h2>
-<p><strong>Schema changes are dangerous:</strong></p>
+<p>Schema changes (<code>CREATE TABLE</code>, <code>ALTER TABLE</code>, <code>DROP TABLE</code>, …etc.) applied manually are dangerous:</p>
 <ul>
-<li>Changes applied manually → not reproducible</li>
-<li>Hard to roll back → data loss risk</li>
-<li>Different environments get out of sync</li>
-<li>No history of what changed</li>
+<li><strong>data loss risk</strong>, hard to roll back (undo)</li>
+<li><strong>not reproducible</strong>, out-of-sync between:
+<ul>
+<li>different environments (development, staging, production)</li>
+<li>different developers working on the same codebase</li>
+</ul></li>
+<li><strong>not auditable</strong>, no history of:
+<ul>
+<li>what was changed</li>
+<li>who changed it</li>
+<li>when it was changed</li>
+<li>why it was changed</li>
+</ul></li>
 </ul>
 <aside class="notes">
 <p>We’ve been using <code>create_all()</code> and <code>drop_all()</code>, but these are destructive and only work for development. In real applications, we need to evolve the schema over time without losing data. Manual changes are dangerous—they’re not reproducible, hard to roll back, and environments drift apart. We need version control for our database schema, just like we have for our code.</p>
@@ -1109,11 +1187,11 @@
 <li>Review before merging</li>
 <li>Collaboration</li>
 </ul>
-<p><strong>We need the same for database schema</strong></p>
+<p><strong>We need the same for database schema</strong>.</p>
 </div><div class="column" style="width:25%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="./assets/diffs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."><img data-src="./assets/diffs.png" alt="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."></a></p>
+<p><a href="./assets/diffs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."><img data-src="./assets/diffs.png" alt="Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon."></a></p>
 <figcaption>Figure: A split-view document showing code diffs with red deletions and green additions under a branching icon.</figcaption>
 </figure>
 </div>
@@ -1141,7 +1219,7 @@
 <li>Reversible (up and down)</li>
 <li>Applied automatically</li>
 </ul>
-<p><strong>Tool: <code>dbmate</code></strong></p>
+<p><strong>Tool: <a href="https://github.com/amacneil/dbmate"><strong><code>dbmate</code></strong></a></strong></p>
 <aside class="notes">
 <p>The solution is migration scripts. Each schema change becomes a script that’s tracked in git. Each script has an “up” direction (apply the change) and a “down” direction (reverse it). These scripts are applied automatically, ensuring all environments stay in sync. We’ll use dbmate, a simple and effective migration tool.</p>
 <style type="text/css">
@@ -1157,7 +1235,7 @@
       }</style></aside>
 </section>
 <section id="installing-dbmate" class="slide level2">
-<h2>Installing dbmate</h2>
+<h2>Installing <code>dbmate</code></h2>
 <p><strong>On Linux:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a></a><span class="fu">sudo</span> curl <span class="at">-fsSL</span> <span class="at">-o</span> /usr/local/bin/dbmate <span class="dt">\</span></span>
 <span id="cb22-2"><a></a>  https://github.com/amacneil/dbmate/releases/latest/download/dbmate-linux-amd64</span>
@@ -1195,18 +1273,17 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="creating-a-migration" class="slide level2">
-<h2>Creating a Migration</h2>
+<section id="creating-a-migration-file" class="slide level2">
+<h2>Creating a Migration File</h2>
 <p><strong>Generate new migration file:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a></a><span class="ex">dbmate</span> new <span class="st">"add_users_table"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Creates a file with two sections:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a></a><span class="co">-- migrate:up</span></span>
-<span id="cb25-2"><a></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> users (<span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>);</span>
+<span id="cb25-2"><a></a></span>
 <span id="cb25-3"><a></a></span>
-<span id="cb25-4"><a></a><span class="co">-- migrate:down</span></span>
-<span id="cb25-5"><a></a><span class="kw">DROP</span> <span class="kw">TABLE</span> users;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-4"><a></a><span class="co">-- migrate:down</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>To create a migration, we run <code>dbmate new</code> with a descriptive name. This creates a new migration file with two sections: <code>migrate:up</code> for applying the change, and <code>migrate:down</code> for reversing it. We write the SQL for both directions. This ensures we can always roll back.</p>
+<p>To create a migration, we run <code>dbmate new</code> with a descriptive name. This creates a new migration file with two sections: <code>migrate:up</code> for applying the change, and <code>migrate:down</code> for reversing it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1219,14 +1296,23 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="writing-the-migration-sql" class="slide level2">
+<h2>Writing the Migration SQL</h2>
+<p>We write the SQL for both directions. This ensures we can always roll back.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a></a><span class="co">-- migrate:up</span></span>
+<span id="cb26-2"><a></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> users (<span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>);</span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a><span class="co">-- migrate:down</span></span>
+<span id="cb26-5"><a></a><span class="kw">DROP</span> <span class="kw">TABLE</span> users;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="applying-migrations" class="slide level2">
 <h2>Applying Migrations</h2>
 <p><strong>Run pending migrations:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a></a><span class="ex">dbmate</span> up</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a></a><span class="ex">dbmate</span> up</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Roll back last migration:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a></a><span class="ex">dbmate</span> down</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a></a><span class="ex">dbmate</span> down</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Check status:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a></a><span class="ex">dbmate</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a></a><span class="ex">dbmate</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>To apply migrations, we run <code>dbmate up</code>. It checks which migrations have been applied and runs only the new ones. To roll back, we use <code>dbmate down</code>, which reverses the most recent migration. We can check the status to see which migrations have been applied.</p>
 <style type="text/css">
@@ -1241,30 +1327,30 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="migration-workflow-12" class="slide level2">
-<h2>Migration Workflow (1/2)</h2>
+<section id="version-controlled-migrations-workflow-12" class="slide level2">
+<h2>Version Controlled Migrations Workflow (1/2)</h2>
 <p><strong>1. Create migration:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a></a><span class="ex">dbmate</span> new <span class="st">"add_email_column"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a></a><span class="ex">dbmate</span> new <span class="st">"add_email_column"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>2. Write up and down SQL:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a></a><span class="co">-- migrate:up</span></span>
-<span id="cb30-2"><a></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> users <span class="kw">ADD</span> <span class="kw">COLUMN</span> email <span class="dt">VARCHAR</span>;</span>
-<span id="cb30-3"><a></a></span>
-<span id="cb30-4"><a></a><span class="co">-- migrate:down</span></span>
-<span id="cb30-5"><a></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> users <span class="kw">DROP</span> <span class="kw">COLUMN</span> email;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a></a><span class="co">-- migrate:up</span></span>
+<span id="cb31-2"><a></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> users <span class="kw">ADD</span> <span class="kw">COLUMN</span> email <span class="dt">VARCHAR</span>;</span>
+<span id="cb31-3"><a></a></span>
+<span id="cb31-4"><a></a><span class="co">-- migrate:down</span></span>
+<span id="cb31-5"><a></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> users <span class="kw">DROP</span> <span class="kw">COLUMN</span> email;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="migration-workflow-22" class="slide level2">
-<h2>Migration Workflow (2/2)</h2>
+<section id="version-controlled-migrations-workflow-22" class="slide level2">
+<h2>Version Controlled Migrations Workflow (2/2)</h2>
 <p><strong>3. Update Python models:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>users <span class="op">=</span> Table(</span>
-<span id="cb31-2"><a></a>    <span class="st">"users"</span>,</span>
-<span id="cb31-3"><a></a>    metadata,</span>
-<span id="cb31-4"><a></a>    Column(<span class="st">"id"</span>, Integer, primary_key<span class="op">=</span><span class="va">True</span>),</span>
-<span id="cb31-5"><a></a>    Column(<span class="st">"email"</span>, String),  <span class="co"># NEW</span></span>
-<span id="cb31-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>users <span class="op">=</span> Table(</span>
+<span id="cb32-2"><a></a>    <span class="st">"users"</span>,</span>
+<span id="cb32-3"><a></a>    metadata,</span>
+<span id="cb32-4"><a></a>    Column(<span class="st">"id"</span>, Integer, primary_key<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb32-5"><a></a>    Column(<span class="st">"email"</span>, String),  <span class="co"># NEW</span></span>
+<span id="cb32-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>4. Commit both together:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a></a><span class="fu">git</span> add db/migrations/xxx_add_email_column.sql</span>
-<span id="cb32-2"><a></a><span class="fu">git</span> add src/models.py</span>
-<span id="cb32-3"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"schema: add email column to users"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a></a><span class="fu">git</span> add db/migrations/xxx_add_email_column.sql</span>
+<span id="cb33-2"><a></a><span class="fu">git</span> add src/models.py</span>
+<span id="cb33-3"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"schema: add email column to users"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Here’s the professional workflow. We create a migration, write both the up and down SQL, update our Python models to match, and commit both the migration script and the model changes together in a single git commit. This keeps everything in sync. If someone pulls this commit, they get both the migration and the code that uses it.</p>
 <style type="text/css">
@@ -1283,7 +1369,7 @@
 <h2>Key Takeaways</h2>
 </section>
 <section id="database-setup" class="slide level2">
-<h2>Database Setup</h2>
+<h2>1. Database Setup</h2>
 <ul>
 <li><strong>Containers solve environment problems</strong>
 <ul>
@@ -1313,7 +1399,7 @@
       }</style></aside>
 </section>
 <section id="database-connections" class="slide level2">
-<h2>Database Connections</h2>
+<h2>2. Database Connections</h2>
 <ul>
 <li><strong>DB-API 2.0 is the standard</strong>
 <ul>
@@ -1341,7 +1427,7 @@
       }</style></aside>
 </section>
 <section id="sqlalchemy-benefits" class="slide level2">
-<h2>SQLAlchemy Benefits</h2>
+<h2>3. SQLAlchemy Benefits</h2>
 <ul>
 <li><strong>Type-safe database code</strong>
 <ul>
@@ -1374,7 +1460,7 @@
       }</style></aside>
 </section>
 <section id="migration-best-practices" class="slide level2">
-<h2>Migration Best Practices</h2>
+<h2>4. Migration Best Practices</h2>
 <ul>
 <li><strong>Version control your schema</strong>
 <ul>
@@ -1402,25 +1488,20 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-complete-picture" class="slide level2">
+<section id="the-complete-picture" class="slide level2 smaller">
 <h2>The Complete Picture</h2>
-<div class="columns">
-<div class="column" style="width:75%;">
-<p><strong>You now have:</strong></p>
-<ul>
-<li>Isolated database environment (Docker)</li>
-<li>Type-safe database code (SQLAlchemy)</li>
-<li>Version-controlled schema (Migrations)</li>
-<li>Professional workflow</li>
-</ul>
-</div><div class="column" style="width:25%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="./assets/app_sqlalchemy_postgresql_migrations.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."><img data-src="./assets/app_sqlalchemy_postgresql_migrations.png" alt="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."></a></p>
+<p><a href="./assets/app_sqlalchemy_postgresql_migrations.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."><img data-src="./assets/app_sqlalchemy_postgresql_migrations.png" height="300" alt="Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations."></a></p>
 <figcaption>Figure: A system diagram connecting a Dockerized PostgreSQL database, Python app via SQLAlchemy, and Git-tracked migrations.</figcaption>
 </figure>
 </div>
-</div></div>
+<p><strong>You now have a Professional workflow:</strong></p>
+<ul>
+<li>Isolated database environment (<a href="https://www.postgresql.org/">PostgreSQL</a> in <a href="https://www.docker.com/">Docker</a>)</li>
+<li>Type-safe database code (<a href="https://www.sqlalchemy.org/"><code>sqlalchemy</code></a> with <a href="https://www.psycopg.org/"><code>psycopg</code></a>)</li>
+<li>Version-controlled schema (<a href="https://github.com/amacneil/dbmate"><code>dbmate</code></a> and <a href="https://git-scm.com/"><code>git</code></a>)</li>
+</ul>
 <aside class="notes">
 <p>Putting it all together: we have an isolated database running in Docker, type-safe database code using SQLAlchemy, version-controlled schema through migrations, and a professional workflow that scales from development to production. This is the foundation for building real applications with persistent data storage.</p>
 <style type="text/css">
